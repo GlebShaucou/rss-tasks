@@ -1,6 +1,6 @@
 # CANDELABRUM
 
-![example of candelabrum](candelabrum.jpg)
+![example of candelabrum](./img/candelabrum.jpg)
 
 ## Synopsis
 
@@ -28,15 +28,32 @@ Basic use:
 3. Forge 2 iron sticks and small cups for candles
 4. Step below:
 
-<code>
-    TAKE IRON-STICK1 <br/>
-    MAKE SKELETON <br/>
-    PUT IRON-STICK2 ON IRON-STICK2 <br/>  
-    N - number of SMALL-CANDLE-HOLDERS <br /> 
-    WHILE (N) <br/>
-        PUT SMALL-CANDLE-HOLDERS ON SKELETON <br/>
-        N-- <br/>
-    TAKE CANDELABRUM = SKELETON <br/>    
-</code>
+> TAKE IRON-STICK1 <br/>
+> MAKE SKELETON <br/>
+>    PUT IRON-STICK2 ON IRON-STICK2 <br/>  
+> N - number of SMALL-CANDLE-HOLDERS <br /> 
+> WHILE (N) <br/>
+>   PUT SMALL-CANDLE-HOLDERS ON SKELETON <br/>
+>   N-- <br/>
+> TAKE CANDELABRUM = SKELETON <br/>
+>
 
 ## API Reference
+
+More information about `candelabrum` can be found here:
+<ul>
+    <li>[Candelabrum](https://en.wikipedia.org/wiki/Candlestick)</li>
+    <li>[Paracas Candelabra](https://en.wikipedia.org/wiki/Paracas_Candelabra)</li>
+</ul>>
+
+## Tests
+
+Ask your butler to escort you to the restroom. If he takes `candelabrum` than everything works fine. If sonething went wrong try to repeat **Instalation** and make a new `candelabrum`.   
+
+## Contributors
+
+See the light. Join us on [Facebook](https://www.facebook.com/CANDELABRUM-116938974985050/).
+
+## License
+
+The gist of `candelabrum` is open source. 
