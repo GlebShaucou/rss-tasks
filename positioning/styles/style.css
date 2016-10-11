@@ -1,0 +1,126 @@
+body {
+	height: 2000px;
+}
+
+.avatar	{
+	width: 210px;
+	height: 210px;
+	border: 3px solid #5091ba;
+	border-radius: 50%;
+	position: absolute;
+	background: url("../img/avatar-placeholder.png") no-repeat;
+	background-position: 0 30px;
+}
+
+.social {
+	width: 31px;	
+	height: 31px;
+	position: absolute;
+	border-radius: 50%;	
+	cursor: pointer;
+}
+
+.twitter {
+	top: 20px;
+	left: 30px;
+	background: url("../img/social-icons.png") no-repeat;
+	background-position: 0px 0px;
+}
+
+.tumblr {
+	top: 159px;
+	left: 186px;
+	background: url("../img/social-icons.png") no-repeat;
+	background-position: -97px 0px;
+}
+
+.facebook {
+	top: 191px;
+	left: 152px;
+	background: url("../img/social-icons.png") no-repeat;
+	background-position: -32px 0px;
+}
+
+.pinterest {
+	top: 206px;
+	left: 103px;
+	background: url("../img/social-icons.png") no-repeat;
+	background-position: -64px -2px;
+}
+
+.main {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 170px;
+}
+
+.top {	
+	width: 460px;
+	height: 607px;
+	background-color: #d8454b;
+	z-index: 3;
+}
+
+.middle {
+	top: 12px;
+	left: 9px;
+	width: 460px;
+	height: 607px;
+	background-color: #374d89;
+	z-index: 2;
+}
+
+.bottom {
+	top: 17px;
+	left: 16px;
+	width: 460px;
+	height: 607px;
+	background-color: #0986b6;
+	z-index: 1;
+}
+
+.contacts {
+	width: 334px;
+	height: 131px;
+	position: fixed;
+	background-color: rgb(93,93,93); /* запасной вариант цвета, если браузер не поддерживает rgba*/ 
+	background-color: rgba(93,93,93,0.7);	
+	right: 0;
+	bottom: 50px;
+	z-index: 4;
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	color: white;
+}
+
+.contacts .icon {
+	width: 86px;
+	height: 86px;
+	background-color: #f7e360;
+	margin-left: 23px;
+	margin-top: 23px;
+	position: absolute;
+	display: inline-block;
+}
+
+.contacts p {
+	margin-left: 120px;
+	margin-top: 25px;
+}
+
+.contacts p strong {
+	text-transform: uppercase;
+}
+
+.contacts ul {
+	list-style-type: none;
+	margin-left: 80px;
+}
+
+.contacts li a {
+	text-decoration: none;
+	color: white;
+}
