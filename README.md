@@ -1,3 +1,9 @@
-# HTML_CSS_Basics
+# GlebShaucou-front-end-course
 
-Hleb Shautsou https://www.codecademy.com/gleb_shaucou
+**Шевцов Глеб Геннадьевич**
+**HLEB SHAUTSOU**
+
+> Образование: высшее
+> Белорусский Государственный Университет, физический факультет, Минск
+> 2007-2012
+> Физика полупроводников и наноэлектроники
