@@ -42,9 +42,10 @@ Basic use:
 
 More information about `candelabrum` can be found here:
 <ul>
-    <li>[Candelabrum](https://en.wikipedia.org/wiki/Candlestick)</li>
-    <li>[Paracas Candelabra](https://en.wikipedia.org/wiki/Paracas_Candelabra)</li>
+    <li> [Candelabrum](https://en.wikipedia.org/wiki/Candlestick) </li>
+    <li> [Paracas Candelabra](https://en.wikipedia.org/wiki/Paracas_Candelabra) </li>
 </ul>
+In Internet can be found pictures of `candelabrum`.
 
 ## Tests
 
