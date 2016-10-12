@@ -8,35 +8,47 @@
 
 ## Code Example
 
-Basic use:
+Basic use. Suppose that our butler works for us 16 hours per day:
 > HOURS = 16 <br/>
+
+All the time that he is on duty he should carry the `candelabrum`:
 > WHILE (ONDUTY) <br/> 
 >   WALK WITH CANDELABRUM <br/>
+
+Workday sometimes goes to an end:
 >   HOURS-- <br/>
+
+At the end of workday our butler is free: 
 >   IF (HOURS == 0) <br/>
+>      PUT CANDELABRUM ON FIREPLACE
 >      GO SLEEP     
->
 
 ## Motivation
 
-`Candelabrum` exists because people's love light and in all periods of humanity history they are were searching of possibilities to take the light on the trip. They wanted to take light to next room, to the basement, the the neighbor house, to the closet.
+`Candelabrum` exists because people's love light and in all periods of humanity history they are were searching of possibilities to take the light on the trip. They wanted to take light to next room, to the basement, the the neighbor house, to the closet. `Candelabrum` can be usefull for you if you create your own secret society. `Candelabrum` can be used in many ceremonies that you will create. 
 
 ## Installation
 
 1. Find iron 
 2. Find forge with smith
 3. Forge 2 iron sticks and small cups for candles
-4. Step below:
+4. Lets make skeleton for our `candelabrum`:
 
 > TAKE IRON-STICK1 <br/>
+> TAKE IRON-STICK1 <br/>
 > MAKE SKELETON <br/>
->    PUT IRON-STICK2 ON IRON-STICK2 <br/>  
+>    PUT IRON-STICK2 ON IRON-STICK2 <br/>
+
+5. Now you can put so much candle holders on skeleton as you wish:
+
 > N - number of SMALL-CANDLE-HOLDERS <br /> 
 > WHILE (N) <br/>
 >   PUT SMALL-CANDLE-HOLDERS ON SKELETON <br/>
 >   N-- <br/>
+
+6. It's time to make all your dreams come true:
+
 > TAKE CANDELABRUM = SKELETON <br/>
->
 
 ## API Reference
 
