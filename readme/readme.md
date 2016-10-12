@@ -4,7 +4,7 @@
 
 ## Synopsis
 
-`Candelabrum` - a special portable stand for candles. Often made from iron or other alloy's of metall's. `Candelabrum` is invariable attribute of all butlers. Unusual but very common use of `candelabrum` is as murder weapon. `Candelabrum` is often used by butlers, american college students, middle-aged womens and enemys of famous detectives.       
+`Candelabrum` - a special portable stand for candles. Often made from iron or other alloy's of metall's. `Candelabrum` is invariable attribute of all butlers. Unusual but very common use of `candelabrum` is as murder weapon. `Candelabrum` is often used by butlers, american college students, middle-aged womens and enemys of famous detectives. Also `candelabrum`s gained popularity among masonic and secret orders. Such orders use `candelabrum`s for their interior ceremonies (after the sunset).        
 
 ## Code Example
 
