@@ -10,26 +10,26 @@
 
 Basic use example. 
 
-1 Suppose that our butler works for us 16 hours per day:
+[1] Suppose that our butler works for us 16 hours per day:
 
 ```
 HOURS = 16 <br/>
 ```
 
-2 All the time that he is on duty he should carry the `candelabrum`:
+[2] All the time that he is on duty he should carry the `candelabrum`:
 
 ```
 WHILE (ONDUTY) <br/> 
   WALK WITH CANDELABRUM <br/>
 ```
 
-3 Workday sometimes goes to an end:
+[3] Workday sometimes goes to an end:
 
 ```
   HOURS-- <br/>
 ```
 
-4 At the end of workday our butler is free: 
+[4] At the end of workday our butler is free: 
 
 ```
   IF (HOURS == 0) <br/>
@@ -44,10 +44,10 @@ END WHILE
 
 ## Installation
 
-1 Find iron 
-2 Find forge with smith
-3 Forge 2 iron sticks and small cups for candles
-4 Lets make skeleton for our `candelabrum`:
+[1] Find iron <br />
+[2] Find forge with smith <br />
+[3] Forge 2 (two) iron sticks and small cups for candles <br />
+[4] Lets make skeleton for our `candelabrum`: 
 
 ```
 TAKE IRON-STICK1 <br/>
@@ -56,7 +56,7 @@ MAKE SKELETON <br/>
   PUT IRON-STICK2 ON IRON-STICK1 <br/>
 ```
 
-5 Now you can put so much candle holders on skeleton as you wish:
+[5] Now you can put so much candle holders on skeleton as you wish:
 
 ```
 N - number of SMALL-CANDLE-HOLDERS <br /> 
@@ -65,7 +65,7 @@ WHILE (N) <br/>
   N-- <br/>
 ```
 
-6 It's time to make all your dreams come true:
+[6] It's time to make all your dreams come true:
 
 ```
 TAKE CANDELABRUM = SKELETON <br/>
@@ -90,4 +90,15 @@ See the light. Join us on [Facebook](https://www.facebook.com/CANDELABRUM-116938
 
 ## License
 
-The gist of `candelabrum` is open source. 
+The BSD-3-Clause.
+
+Copyright (c) 2016, BatCandelabrum All rights reserved. <br>
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+<ul>
+    <li>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
+    <li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
+</ul>
+
+<p>THIS SOFTWARE IS PROVIDED BY HUMANITY AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
