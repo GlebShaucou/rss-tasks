@@ -8,20 +8,35 @@
 
 ## Code Example
 
-Basic use. Suppose that our butler works for us 16 hours per day:
-> HOURS = 16 <br/>
+Basic use example. 
 
-All the time that he is on duty he should carry the `candelabrum`:
-> WHILE (ONDUTY) <br/> 
->   WALK WITH CANDELABRUM <br/>
+1. Suppose that our butler works for us 16 hours per day:
 
-Workday sometimes goes to an end:
->   HOURS-- <br/>
+```
+HOURS = 16 <br/>
+```
 
-At the end of workday our butler is free: 
->   IF (HOURS == 0) <br/>
->      PUT CANDELABRUM ON FIREPLACE
->      GO SLEEP     
+2. All the time that he is on duty he should carry the `candelabrum`:
+
+```
+WHILE (ONDUTY) <br/> 
+  WALK WITH CANDELABRUM <br/>
+```
+
+3. Workday sometimes goes to an end:
+
+```
+  HOURS-- <br/>
+```
+
+4. At the end of workday our butler is free: 
+
+```
+  IF (HOURS == 0) <br/>
+    PUT CANDELABRUM ON FIREPLACE
+    GO SLEEP
+END WHILE     
+```
 
 ## Motivation
 
@@ -34,21 +49,27 @@ At the end of workday our butler is free:
 3. Forge 2 iron sticks and small cups for candles
 4. Lets make skeleton for our `candelabrum`:
 
-> TAKE IRON-STICK1 <br/>
-> TAKE IRON-STICK2 <br/>
-> MAKE SKELETON <br/>
->    PUT IRON-STICK2 ON IRON-STICK1 <br/>
+```
+TAKE IRON-STICK1 <br/>
+TAKE IRON-STICK2 <br/>
+MAKE SKELETON <br/>
+  PUT IRON-STICK2 ON IRON-STICK1 <br/>
+```
 
 5. Now you can put so much candle holders on skeleton as you wish:
 
-> N - number of SMALL-CANDLE-HOLDERS <br /> 
-> WHILE (N) <br/>
->   PUT SMALL-CANDLE-HOLDERS ON SKELETON <br/>
->   N-- <br/>
+```
+N - number of SMALL-CANDLE-HOLDERS <br /> 
+WHILE (N) <br/>
+  PUT SMALL-CANDLE-HOLDERS ON SKELETON <br/>
+  N-- <br/>
+```
 
 6. It's time to make all your dreams come true:
 
-> TAKE CANDELABRUM = SKELETON <br/>
+```
+TAKE CANDELABRUM = SKELETON <br/>
+```
 
 ## API Reference
 
