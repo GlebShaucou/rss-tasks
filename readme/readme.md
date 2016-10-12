@@ -33,16 +33,21 @@ At the end of workday our butler is free:
 2. Find forge with smith
 3. Forge 2 iron sticks and small cups for candles
 4. Lets make skeleton for our `candelabrum`:
+
 > TAKE IRON-STICK1 <br/>
 > TAKE IRON-STICK2 <br/>
 > MAKE SKELETON <br/>
 >    PUT IRON-STICK2 ON IRON-STICK1 <br/>
+
 5. Now you can put so much candle holders on skeleton as you wish:
+
 > N - number of SMALL-CANDLE-HOLDERS <br /> 
 > WHILE (N) <br/>
 >   PUT SMALL-CANDLE-HOLDERS ON SKELETON <br/>
 >   N-- <br/>
+
 6. It's time to make all your dreams come true:
+
 > TAKE CANDELABRUM = SKELETON <br/>
 
 ## API Reference
@@ -56,7 +61,7 @@ In Internet can be found pictures of `candelabrum`.
 
 ## Tests
 
-Ask your butler to escort you to the restroom. If he takes `candelabrum` than everything works fine. If sonething went wrong try to repeat **Instalation** and make a new `candelabrum`.   
+Ask your butler to escort you to the restroom. If he takes `candelabrum` than everything works fine. If sonething went wrong try to repeat **Installation** and make a new `candelabrum`.   
 
 ## Contributors
 
