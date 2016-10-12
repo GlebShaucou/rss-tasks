@@ -10,26 +10,26 @@
 
 Basic use example. 
 
-1. Suppose that our butler works for us 16 hours per day:
+1 Suppose that our butler works for us 16 hours per day:
 
 ```
 HOURS = 16 <br/>
 ```
 
-2. All the time that he is on duty he should carry the `candelabrum`:
+2 All the time that he is on duty he should carry the `candelabrum`:
 
 ```
 WHILE (ONDUTY) <br/> 
   WALK WITH CANDELABRUM <br/>
 ```
 
-3. Workday sometimes goes to an end:
+3 Workday sometimes goes to an end:
 
 ```
   HOURS-- <br/>
 ```
 
-4. At the end of workday our butler is free: 
+4 At the end of workday our butler is free: 
 
 ```
   IF (HOURS == 0) <br/>
@@ -44,10 +44,10 @@ END WHILE
 
 ## Installation
 
-1. Find iron 
-2. Find forge with smith
-3. Forge 2 iron sticks and small cups for candles
-4. Lets make skeleton for our `candelabrum`:
+1 Find iron 
+2 Find forge with smith
+3 Forge 2 iron sticks and small cups for candles
+4 Lets make skeleton for our `candelabrum`:
 
 ```
 TAKE IRON-STICK1 <br/>
@@ -56,7 +56,7 @@ MAKE SKELETON <br/>
   PUT IRON-STICK2 ON IRON-STICK1 <br/>
 ```
 
-5. Now you can put so much candle holders on skeleton as you wish:
+5 Now you can put so much candle holders on skeleton as you wish:
 
 ```
 N - number of SMALL-CANDLE-HOLDERS <br /> 
@@ -65,7 +65,7 @@ WHILE (N) <br/>
   N-- <br/>
 ```
 
-6. It's time to make all your dreams come true:
+6 It's time to make all your dreams come true:
 
 ```
 TAKE CANDELABRUM = SKELETON <br/>
