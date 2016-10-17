@@ -1,0 +1,264 @@
+* {
+    box-sizing: border-box; /* это нужно, чтобы все элементы измерялись одинаково*/
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.wrapper {
+    width: 1026px;    
+    min-height: 100%;
+    margin: 0 auto -72px auto;
+    background: url(../img/left-column-bg.png) repeat-y;
+    overflow: hidden;
+}
+
+.page-header {
+    width: 1024px;
+    height: 254px;
+    background-color: #4c5fab;
+}
+
+.avatar {
+    border-radius: 50%;
+    margin: 64px 0 0 80px;
+    display: inline-block;
+}
+
+.header-person-info {
+    position: relative;
+    display: inline-block;
+    margin: 0 0 0 25px;
+    bottom: 50px;
+    color: #ffffff; 
+}
+
+.header-person-info > dt {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 39px;
+    letter-spacing: 2px;
+}
+
+.header-person-info > dd {
+    font-size: 23px;
+    margin: 0 0 0 1px;
+}
+
+.header-person-contacts {
+    display: inline-block;
+    width: 150px;
+    float: right;
+    font-weight: 18px;
+    font-style: normal;
+    color: #ffffff;
+    margin: 60px 50px 0 0;
+} 
+
+.header-person-contacts span {
+    display: block;
+    margin: 0 0 12px 0;
+}
+
+.header-person-contacts a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header-person-contacts a:hover {
+    text-decoration: underline;
+}
+
+.sidebar {    
+    float: left; 
+    width: 345px;   
+}
+
+.sidebar .sub-section {
+    width: 320px;
+    margin: 20px 0 0 60px;
+} 
+
+.sub-section article {
+    width: 270px;
+}
+
+.sub-sections-icons {
+    position: relative;
+    top: 19px;
+    display: inline-block;
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
+}
+
+.profile-info-icon {    
+    background: url("../img/interests-icons.png") no-repeat;
+    background-position: -65px -65px;
+}
+
+.sub-section-header h2 {
+    display: inline-block;
+    padding: 0 0 0 15px
+}
+
+.reference .recomendation {
+    margin: 0 0 25px 7px;
+}
+
+.reference .gray-circle {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background-color: #989696;
+    border-radius: 50%;
+    padding: 7px 0 0 0;
+    position: relative;
+    top: -17px;
+}
+.reference .white-circle {
+    width: 5px;
+    height: 5px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    margin: 0 auto;    
+ }
+
+/* .recomendation:after {
+    content: "";
+    width: 1px;
+    height: 50px;
+    background-color: #989696;
+    border-left: 1px solid #989696;
+    position: absolute;
+    left: 8px;
+    top: 4px;
+ }*/
+
+ .reference-text {
+    display: inline-block;
+    width: 200px;
+    margin: 0 0 0 10px;
+ }
+
+ .reference-text span {
+    display: block;
+ }
+
+ .reference-text a {
+    font-weight: 600;
+    color: #6974b6;
+    text-decoration: none;
+    transition-property: color, background-color;
+    transition-duration: .5s;
+ }
+
+ .reference-text a:hover {
+    color: #ffffff;
+    background-color: #6974b6;
+ }
+
+.awwards ul {
+    margin: 0 0 40px -35px;
+    list-style-type: none;    
+}
+
+.awwards li {
+    line-height: 30px;
+}
+
+.awwards a {
+    font-weight: 600;
+    color: #000000;
+    text-decoration: none;
+    transition-property: color, background-color;
+    transition-duration: .5s;
+}
+
+.awwards a:hover {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+.portfolio {
+    margin: 0 0 0 355px;
+    padding: 0 0 35px 0;
+}
+
+.portfolio > header {
+   padding: 20px 0 0 8px;
+}
+
+.portfolio article {
+    margin: 0 0 0 60px;
+}
+
+figcaption {
+    text-align: center;
+    padding: 15px 0 0 0;
+}
+
+.portfolio-intro {
+    display: inline-block;
+    width: 240px;
+    height: 262px;
+    margin: 0 3px 20px 17px;
+    box-shadow: 0 0 30px 1px rgba(0,0,0,.2);
+}
+
+.portfolio-intro:hover {
+    box-shadow: 0 0 1px 1px rgba(0,0,0,1);
+}
+
+.portfolio-intro:hover a {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+.portfolio-intro img {
+    width: 240px;
+    height: 166px;
+}
+
+.portfolio a {
+    display: block;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #000000;
+    transition-property: color, background-color;
+    transition-duration: .5s;
+}
+
+.push {
+    height: 72px;
+    clear: both;
+}
+
+.footer {
+    width: 1024px;
+    height: 72px;
+    background-color: #4c5fab;
+    margin: 0 auto;
+    padding: 10px 0 10px 80px;
+    font-weight: 18px;
+    color: #ffffff;
+}
+
+a[href^="mailto:"] {
+   font-weight: 600;
+   text-decoration: none;
+   color: #ffffff;
+}
+
+a[href^="mailto:"]:hover {
+   text-decoration: underline;
+   color: #b2dcb2;
+}
+
+.phone-number {
+    font-weight: 600;
+}
