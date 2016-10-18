@@ -57,7 +57,7 @@ a {
     display: inline-block;
     width: 200px;
     float: right;
-    font-weight: 18px;
+    font-size: 18px;
     font-style: normal;
     color: #ffffff;
     margin: 60px 50px 0 0;
@@ -102,7 +102,7 @@ table a:hover {
     font-size: 20px;
 }
 
-.profile-info i {
+.profile-info i { 
     padding: 14px 0 0 21px;
 }
 
@@ -197,41 +197,50 @@ table a:hover {
     position: relative;
     top: -17px;
 }
+
 .reference .white-circle {
     width: 5px;
     height: 5px;
     background-color: #ffffff;
     border-radius: 50%;
     margin: 0 auto;    
- }
+}
 
-/* .recomendation:after {
+.recomendation {
+    position: relative;
+}
+
+.recomendation::before { 
     content: "";
-    width: 1px;
-    height: 50px;
-    background-color: #989696;
-    border-left: 1px solid #989696;
     position: absolute;
-    left: 8px;
-    top: 4px;
- }*/
+    z-index: 100;
+    top: -52px;
+    left: 9px;
+    width: 1px;
+    height: 82px;
+    border-left: 1px solid #989696;
+}
+
+.recomendation:first-child::before {
+    display: none;
+}
 
  .reference-text {
     display: inline-block;
     width: 200px;
     margin: 0 0 0 10px;
- }
+}
 
  .reference-text span {
     display: block;
- }
+}
 
- .reference-text a {
-    font-weight: 600;
-    color: #6974b6;
-    transition-property: color, background-color;
-    transition-duration: .5s;
- }
+.reference-text a {
+   font-weight: 600;
+   color: #6974b6;
+   transition-property: color, background-color;
+   transition-duration: .5s;
+}
 
  .reference-text a:hover {
     color: #ffffff;
@@ -319,7 +328,7 @@ figcaption {
     background-color: #4c5fab;
     margin: 0 auto;
     padding: 10px 0 10px 80px;
-    font-weight: 18px;
+    font-size: 18px;
     color: #ffffff;
 }
 
