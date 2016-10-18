@@ -4,8 +4,13 @@
 
 html, body {
     height: 100%;
-    margin: 0;
+    margin: 0; /* сбрасываем стили */
+    padding: 0; /* сбрасываем стили */
     font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    text-decoration: none; /* сбрасываем стили для ссылок */
 }
 
 .wrapper {
@@ -50,25 +55,24 @@ html, body {
 
 .header-person-contacts {
     display: inline-block;
-    width: 150px;
+    width: 200px;
     float: right;
     font-weight: 18px;
     font-style: normal;
     color: #ffffff;
     margin: 60px 50px 0 0;
-} 
-
-.header-person-contacts span {
-    display: block;
-    margin: 0 0 12px 0;
 }
 
-.header-person-contacts a {
+table td {
+    padding: 0 11px 0 0;
+    vertical-align: top;
+}
+
+table a {
     color: #ffffff;
-    text-decoration: none;
 }
 
-.header-person-contacts a:hover {
+table a:hover {
     text-decoration: underline;
 }
 
@@ -84,25 +88,99 @@ html, body {
 
 .sub-section article {
     width: 270px;
+    margin: 15px 0 0 5px;
 }
 
 .sub-sections-icons {
-    position: relative;
-    top: 19px;
-    display: inline-block;
     width: 49px;
     height: 49px;
     border-radius: 50%;
+    top: 19px;
+    display: inline-block;
+    color: #ffffff;    
+    background-color: #4c5fab;
+    font-size: 20px;
 }
 
-.profile-info-icon {    
-    background: url("../img/interests-icons.png") no-repeat;
-    background-position: -65px -65px;
+.profile-info i {
+    padding: 14px 0 0 21px;
+}
+
+.interests i {
+    padding: 14px 0 0 15px;
+}
+
+.reference i {
+    padding: 14px 0 0 16px;
+}
+
+.awwards i {
+    padding: 15px 0 0 14px;
+}
+
+.portfolio i {
+    padding: 14px 0 0 15px;    
+}
+
+.sub-sections-icons i {
+    display: inline-block;
 }
 
 .sub-section-header h2 {
     display: inline-block;
-    padding: 0 0 0 15px
+    padding: 0 0 0 15px;
+}
+
+.interest-descr {
+    width: 60px;
+    height: 90px;    
+    display: inline-block;
+    margin: 0 0 0 20px;
+}
+
+.interest-descr:first-child {
+    margin: 0 0 0 -1px;
+}
+
+.interest-descr span {
+    font-weight: bold;
+    margin: 0 0 0 3px;
+}
+
+.interests .interests-icons {
+    width: 58px;
+    height: 58px;
+    background-color: #6974b6;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.interests-icons .inner-circle {
+    width: 41px;
+    height: 41px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: relative;
+    top: 8px;
+    left: 9px;
+    display: inline-block;
+}
+
+.inner-circle i {
+    color: #6974b6;
+    font-size: 30px;
+}
+
+.headphones i {
+    padding: 7px 0 0 7px;
+}
+
+.gamepad i {
+    padding: 5px 0 0 4px;    
+}
+
+.motorcycle i {
+    padding: 5px 0 0 1px;    
 }
 
 .reference .recomendation {
@@ -151,7 +229,6 @@ html, body {
  .reference-text a {
     font-weight: 600;
     color: #6974b6;
-    text-decoration: none;
     transition-property: color, background-color;
     transition-duration: .5s;
  }
@@ -173,7 +250,6 @@ html, body {
 .awwards a {
     font-weight: 600;
     color: #000000;
-    text-decoration: none;
     transition-property: color, background-color;
     transition-duration: .5s;
 }
@@ -227,7 +303,6 @@ figcaption {
     display: block;
     font-size: 17px;
     font-weight: 600;
-    text-decoration: none;
     color: #000000;
     transition-property: color, background-color;
     transition-duration: .5s;
@@ -250,7 +325,6 @@ figcaption {
 
 a[href^="mailto:"] {
    font-weight: 600;
-   text-decoration: none;
    color: #ffffff;
 }
 
@@ -259,6 +333,13 @@ a[href^="mailto:"]:hover {
    color: #b2dcb2;
 }
 
-.phone-number {
+a[href^="tel:"] {
+    color: #ffffff;
     font-weight: 600;
+}
+
+a[href^="tel:"]:hover {
+    background-color: #ffffff;
+    color: #4c5fab;
+    text-decoration: none;
 }
