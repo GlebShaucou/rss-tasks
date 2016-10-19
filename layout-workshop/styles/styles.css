@@ -16,6 +16,10 @@ a {
     text-decoration: none;
 }
 
+input:focus { /* отключаю рамку, которая появляется при введении текста в input */
+    outline: none;
+}
+
 .content {
     min-height: 100%; /* необходимо для "приклеенного" к низу футера */
     margin-bottom: -204px; /* резервируем пространство для "приклеенного" к низу футера */
@@ -153,7 +157,8 @@ a {
 }
 
 .services-articles-header h2, 
-.portfolio-header h2 {
+.portfolio-header h2,
+.company-contacts-section h2 {
     color: #202628;
     font-size: 21px;
     text-transform: uppercase;
@@ -207,7 +212,6 @@ a {
     background-color: #ffffff;
 }
 
-
 .portfolio-img {
     width: 355px;
     height: 355px;
@@ -237,8 +241,100 @@ a {
     background-color: #e84c3d;
 }
 
+.subscribe-img {
+    width: 10%;
+    display: inline-block;   
+}
+
+.user-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 25px;
+    background-color: #202628;
+    border-radius: 50%; 
+    padding: 16px 0 0 25px;
+}
+
+.subscribe-section-left {
+    width: 40%;
+    display: inline-block;  
+}
+
+.subscribe-section-right {
+    width: 45%;
+    display: inline-block;  
+}
+
+.subscribe-section-header h2 {
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.subscribe-section-left q {
+    font-size: 16px;
+    quotes: "\201c" "\201d"; /* задаю стили для кавычек у цитаты */
+}
+
+.subscribe-section-left cite {
+    font-size: 14px;
+}
+
+.subscribe-section-right input {
+    width: 380px;
+    height: 41px;
+    border: 0;
+    border-radius: 30px;
+    font-style: italic;
+    padding: 0 0 0 15px;
+}
+
+.subscribe-section-right button {
+    width: 120px;
+    height: 41px;
+    color: #ffffff;
+    background-color: #202628;
+    border: 0;
+    border-radius: 30px;
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 0 0 10px;
+    transition-property: color, background-color;
+    transition-duration: .5s;
+    cursor: pointer;
+}
+
+.subscribe-section-right button:hover {
+    color: #202628;
+    background-color: #ffffff; 
+}
+
 .company-contacts {
     height: 570px;
+}
+
+.company-contacts-section {
+    width: 370px;
+    display: inline-block;
+    margin: 50px 0 0 0;
+}
+
+.company-contacts-section:not(:first-child) {
+    margin: 0 0 0 25px;
+}
+
+.company-contacts-section article {
+    height: 392px;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.feedback-form {
+    width: 370px;
+    height: 392px;
+    background-color: #e7e7e7;
+    border-radius: 5px;
 }
 
 .footer {
