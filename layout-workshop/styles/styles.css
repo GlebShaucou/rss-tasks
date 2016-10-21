@@ -12,13 +12,19 @@ html, body {
     margin: 0; /* необходимо для "приклеенного" к низу футера и сброс стилей */
 }
 
-a {
+a { /* уберем подчеркивая ссылок глобально */
     text-decoration: none;
+}
+
+ul { /* уберем обозначения для списков */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 input:focus,
 textarea:focus,
-button:focus { /* отключаю рамку, которая появляется при введении текста в input */
+button:focus { /* отключаем рамку, которая появляется при введении текста в input */
     outline: none;
 }
 
@@ -317,9 +323,26 @@ button:focus { /* отключаю рамку, которая появляетс
     background-color: #e84c3d;
 }
 
+.subscribe-section-left {
+    float: left;    
+}
+
+.subscribe-section-right {
+    float: right;
+    width: 530px;
+    display: inline-block;  
+}
+
+.subscribe-section-left, 
+.subscribe-section-right {
+    margin: 19px 0 0 0;
+}
+
 .subscribe-img {
-    width: 10%;
-    display: inline-block;   
+    float: left;
+    width: 77px;
+    display: inline-block; 
+    margin: 23px 0 0 30px;  
 }
 
 .user-icon {
@@ -331,14 +354,11 @@ button:focus { /* отключаю рамку, которая появляетс
     padding: 16px 0 0 25px;
 }
 
-.subscribe-section-left {
-    width: 40%;
-    display: inline-block;  
-}
-
-.subscribe-section-right {
-    width: 45%;
-    display: inline-block;  
+.subscribe-section-quote {
+    float: right;
+    width: 440px;
+    display: inline-block;
+    margin: 0 0 0 30px;  
 }
 
 .subscribe-section-header h2 {
@@ -346,12 +366,12 @@ button:focus { /* отключаю рамку, которая появляетс
     text-transform: uppercase;
 }
 
-.subscribe-section-left q {
+.subscribe-section-quote q {
     font-size: 16px;
     quotes: "\201c" "\201d"; /* задаю стили для кавычек у цитаты */
 }
 
-.subscribe-section-left cite {
+.subscribe-section-quote cite {
     font-size: 14px;
 }
 
@@ -399,14 +419,30 @@ button:focus { /* отключаю рамку, которая появляетс
     height: 570px;
 }
 
+.company-contacts-left {
+    float: left;
+}
+
+.company-news {
+    float: left;
+}
+
+.feedback {
+    float: right;
+}
+
+.contacts {
+    float: right;
+}
+
 .company-contacts-section {
     width: 370px;
     display: inline-block;
-    margin: 50px 0 0 0;
+    /*margin: 50px 0 0 0;*/
 }
 
 .company-contacts-section:not(:first-child) {
-    margin: 0 0 0 25px;
+    margin: 0 0 0 10px;
 }
 
 .company-contacts-section .company-contacts-column {
@@ -415,24 +451,30 @@ button:focus { /* отключаю рамку, которая появляетс
     border-bottom: 1px solid #e7e7e7;
 }
 
-.company-news:not(:last-child) {
+.article:not(:last-child) {
     border-bottom: 1px solid #e7e7e7;
 }
 
 .news-img {
     width: 70px;
     height: 70px;
+    float: left;
     border-radius: 50%;
+    margin: -8px 30px 0 0;
 }
 
-.company-news p {
-    width: 255px;
+.article p {
+    width: 380px;
     display: inline-block;
+    line-height: 20px;
     font-size: 14px;
     color: #adb0b2;
+    padding: 15px 0 15px 0;
 }
 
-.company-news a {
+.article a {
+    display: block;
+    margin: 15px 0 0 0;
     color: #e84c3d;
 }
 
@@ -480,6 +522,46 @@ button:focus { /* отключаю рамку, которая появляетс
 .feedback-form button:hover {
     color: #e84c3d;
     background-color: #ffffff;
+}
+
+.address-wrapper {
+    font-size: 14px;
+    font-style: normal;
+    padding: 23px 0 20px 0;
+    overflow: hidden;
+}
+
+.address-wrapper i {
+    font-size: 25px;
+}
+
+.address-wrapper span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e84c3d;
+    margin: 0 0 0 17px;
+}
+
+.address-wrapper p {
+    width: 230px;
+    margin: 8px 0 0 45px;
+}
+
+.address-wrapper a {    
+    color: #767c7e;
+    line-height: 25px;
+}
+
+.address-wrapper a:hover {
+    color: #202628;
+}
+
+.address-wrapper:not(:last-child) {
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.address-wrapper ul {
+    margin: 8px 0 0 45px;
 }
 
 .footer {
