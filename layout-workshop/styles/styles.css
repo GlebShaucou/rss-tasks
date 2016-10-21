@@ -16,7 +16,9 @@ a {
     text-decoration: none;
 }
 
-input:focus { /* отключаю рамку, которая появляется при введении текста в input */
+input:focus,
+textarea:focus,
+button:focus { /* отключаю рамку, которая появляется при введении текста в input */
     outline: none;
 }
 
@@ -92,10 +94,83 @@ input:focus { /* отключаю рамку, которая появляетс�
 }
 
 .slider {
+    position: relative;
     height: 560px;
     margin: 80px 0 0 0;
     background: url(../img/slider-img.png) no-repeat right top;
     background-size: cover; /* масштабируем изображение с сохранением пропорций*/
+}
+
+.slider-descr {
+    position: absolute;
+    top: 290px;
+}
+
+.slider-descr .slide {
+    display: inline-block;
+    width: 35px;
+    height: 70px;
+    color: #202628;
+    background-color: #e84c3d;
+    text-align: center;
+    padding: 24px 0 0 0;
+    transition-property: color, background-color;
+    transition-duration: .5s;
+}
+
+.slider-descr span:not(:first-child) {
+    margin: 0 0 0 -4px;
+}
+
+.slider-descr span:not(.white-line):hover {
+    color: #ffffff; 
+    background-color: #202628;
+    cursor: pointer;
+}
+
+.slider-descr-left-arrow {
+    border-right: 1px solid #202628; 
+    border-radius: 33px 0 0 33px;
+}
+
+.slider-descr-right-arrow {
+    border-left: 1px solid #202628;
+    border-radius: 0 33px 33px 0;
+}
+
+.slider-text {
+    font-size: 31px;
+    font-weight: normal;
+    color: #ffffff;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 28px 0 12px 0;
+}
+
+.slider-text ul {
+    padding-left: 0;
+    margin: 0;
+}
+
+.slider-text li {
+    margin: 0 0 6px 0;
+    list-style-type: none;
+}
+
+.white-line {
+    display: inline-block;
+    width: 264px;
+    height: 14px;
+    border-top: 2px solid #ffffff;
+}
+
+.slider-descr a {
+    color: #e84c3d;
+    margin: 0 0 0 0;
+}
+
+.slider-descr a:hover {
+    color: #ffffff;
 }
 
 .services {
@@ -141,7 +216,8 @@ input:focus { /* отключаю рамку, которая появляетс�
     color: #e84c3d;
 }
 
-.services-articles-text a:hover {
+.services-articles-text a:hover,
+.company-news a:hover {
     color: #ffffff;
     text-shadow: 0 0 3px #202628;
 }
@@ -279,30 +355,39 @@ input:focus { /* отключаю рамку, которая появляетс�
     font-size: 14px;
 }
 
-.subscribe-section-right input {
-    width: 380px;
+.subscribe-section-right input,
+.feedback-form input {    
     height: 41px;
     border: 0;
     border-radius: 30px;
+    font-family: 'Fjalla One', sans-serif;
     font-style: italic;
     padding: 0 0 0 15px;
 }
 
-.subscribe-section-right button {
-    width: 120px;
-    height: 41px;
-    color: #ffffff;
-    background-color: #202628;
+.subscribe-section-right input {
+    width: 380px;
+}
+
+.subscribe-section-right button,
+.feedback-form button {
+    height: 41px;    
     border: 0;
+    color: #ffffff;
     border-radius: 30px;
     font-family: 'Fjalla One', sans-serif;
-    font-weight: 15px;
+    font-size: 15px;
     text-align: center;
     text-transform: uppercase;
     margin: 0 0 0 10px;
     transition-property: color, background-color;
     transition-duration: .5s;
     cursor: pointer;
+}
+
+.subscribe-section-right button {   
+    width: 120px; 
+    background-color: #202628;
 }
 
 .subscribe-section-right button:hover {
@@ -324,17 +409,77 @@ input:focus { /* отключаю рамку, которая появляетс�
     margin: 0 0 0 25px;
 }
 
-.company-contacts-section article {
+.company-contacts-section .company-contacts-column {
     height: 392px;
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
 }
 
+.company-news:not(:last-child) {
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.news-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.company-news p {
+    width: 255px;
+    display: inline-block;
+    font-size: 14px;
+    color: #adb0b2;
+}
+
+.company-news a {
+    color: #e84c3d;
+}
+
 .feedback-form {
     width: 370px;
     height: 392px;
+    font-size: 14px;
+    color: #767c7e;
     background-color: #e7e7e7;
     border-radius: 5px;
+    padding: 30px 0 0 0;
+}
+
+.feedback-form fieldset {
+    border: 0;
+    margin: 0 0 0 25px;
+}
+
+.feedback-form legend {
+    margin: 0 0 31px 0;
+}
+
+.feedback-form input {
+    width: 310px;
+    margin: 0 0 20px 0;
+}
+
+.feedback-form textarea {
+    width: 310px;
+    height: 82px;
+    font-family: 'Fjalla One', sans-serif;
+    font-style: italic;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 0 0 15px;
+    margin: 0 0 20px 0;
+}
+
+.feedback-form button {
+    width: 100px;
+    height: 41px;
+    background-color: #e84c3d;
+}
+
+.feedback-form button:hover {
+    color: #e84c3d;
+    background-color: #ffffff;
 }
 
 .footer {
