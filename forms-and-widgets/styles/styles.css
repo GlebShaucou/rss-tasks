@@ -1,0 +1,64 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+}
+
+body {
+    background-color: #efefef;
+}
+
+ul { /* сбросим стиль списка */
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.converter {
+    width: 307px;
+    height: 290px;
+    background-color: #ffffff;
+}
+
+.converter li {
+    min-height: 117px;
+}
+
+.currency-name {
+    display: inline-block;
+    width: 103px;
+    font-size: 18px;
+    border-right: 1px solid #d7d7d7;
+}
+
+.currency-value {
+    width: 197px;
+    display: inline-block;
+    border: none;    
+    text-align: right;
+}
+
+.converter-options {
+    height: 64px;
+}
+
+.chart {
+    width: 102px;
+    height: 100%;
+    display: inline-block;
+    background-color: #ff8989; 
+}
+
+.add-currency {
+    width: 136px;
+    height: 100%; 
+    display: inline-block;
+    background-color: #526e82;
+}
+
+.number-pad {
+    width: 69px;
+    height: 100%; 
+    display: inline-block;
+    background-color: #526e82;
+}
