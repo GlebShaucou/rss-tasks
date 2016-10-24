@@ -3,20 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>Forms and Widgets</title>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
     <!-- конвертер валют -->
     <div class="converter"> 
-        <ul>
-            <li><span class="currency-name">USD</span><input type="text" class="currency-value" value="356.3"></li>
-            <li><span class="currency-name">GBP</span><input type="text" class="currency-value" value="156.3"></li>
-        </ul>
-        <nav class="converter-options">
-            <a href="#" class="chart"></a>    
-            <a href="#" class="add-currency"></a> 
-            <a href="#" class="number-pad"></a> 
+        <div class="converter-wrapper">
+              <ul>
+                <li><span class="currency-name">usd</span><span class="currency-value">$356.3</span></li>
+                <li><span class="currency-name">gbp</span><span class="currency-value">&pound;156.3</span></li>
+            </ul>       
+            <div class="converter-puch"></div>
+        </div>      
+        <nav class="converter-footer converter-options">
+            <a href="#" class="chart"><span class="chart-icon"></span></a>    
+            <a href="#" class="add-currency"><span class="add-currency-icon"></span></a> 
+            <a href="#" class="number-pad"><span class="number-pad-icon"></span></a> 
         </nav>
+    </div>
+
+    <!-- календарь -->
+    <div class="calendar">
+        <header class="calendar-header">
+            
+        </header>
+        <table class="calendar-table">
+            <thead class="week-days">
+                <tr>
+                    <th>s</th>
+                    <th>m</th>
+                    <th>t</th>
+                    <th>w</th>
+                    <th>t</th>
+                    <th>f</th>
+                    <th>s</th>
+                </tr>
+            </thead>
+            <tbody class="dates">
+                <tr>
+                    <td><span class="date">1</span></td>
+                    <td><span class="date">2</span></td>
+                    <td><span class="date">3</span></td>
+                    <td><span class="date">4</span></td>
+                    <td><span class="date">5</span></td>
+                    <td><span class="date current-date">6</span></td>
+                    <td><span class="date">7</span></td>
+                </tr>
+                <tr>
+                    <td><span class="date">8</span></td>
+                    <td><span class="date">9</span></td>
+                    <td><span class="date">10</span></td>
+                    <td><span class="date">11</span></td>
+                    <td><span class="date">12</span></td>
+                    <td><span class="date">13</span></td>
+                    <td><span class="date">14</span></td>
+                </tr>
+                <tr>
+                    <td><span class="date">15</span></td>
+                    <td><span class="date">16</span></td>
+                    <td><span class="date">17</span></td>
+                    <td><span class="date">18</span></td>
+                    <td><span class="date">19</span></td>
+                    <td><span class="date">20</span></td>
+                    <td><span class="date">21</span></td>
+                </tr>
+                <tr>
+                    <td><span class="date">22</span></td>
+                    <td><span class="date">23</span></td>
+                    <td><span class="date">24</span></td>
+                    <td><span class="date">25</span></td>
+                    <td><span class="date">26</span></td>
+                    <td><span class="date">27</span></td>
+                    <td><span class="date">28</span></td>
+                </tr>
+                <tr>
+                    <td><span class="date">29</span></td>
+                    <td><span class="date">30</span></td>
+                    <td><span class="date">31</span></td>
+                    <td><span class="date"></span></td>
+                    <td><span class="date"></span></td>
+                    <td><span class="date"></span></td>
+                    <td><span class="date"></span></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

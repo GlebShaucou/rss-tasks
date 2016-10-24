@@ -5,7 +5,12 @@ html, body {
 }
 
 body {
+    font-family: 'Varela Round', sans-serif;
     background-color: #efefef;
+}
+
+a:visited {
+    border: none;
 }
 
 ul { /* сбросим стиль списка */
@@ -14,28 +19,68 @@ ul { /* сбросим стиль списка */
     list-style-type: none;
 }
 
+table {
+    border-spacing: 0;
+}
+
+/* конвертер валют */
+
 .converter {
     width: 307px;
     height: 290px;
+    color: #b2b2b2;
     background-color: #ffffff;
 }
 
+.converter-wrapper { /* для прижатия меню к низу, потому что в макете не равные высоты у валют */
+    min-height: 100%; 
+    margin-bottom: -64px; 
+}
+
+.converter-push { /* для прижатия меню к низу */
+    height: 64px;
+}
+
+.converter ul {
+    padding: 7px 0 0 0;
+}
+
 .converter li {
-    min-height: 117px;
+    min-height: 109px;
+    position: relative;
+}
+
+.converter li:not(:last-child) {
+    border-bottom: 1px solid #e2e2e2;
 }
 
 .currency-name {
-    display: inline-block;
     width: 103px;
+    height: 54px;
+    display: inline-block;
+    position: absolute;
+    top: 28px;
     font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;    
     border-right: 1px solid #d7d7d7;
 }
 
 .currency-value {
-    width: 197px;
+    width: 150px;
+    height: 54px;
     display: inline-block;
-    border: none;    
+    position: absolute;
+    top: 28px;
+    right: 27px;
+    color: #b2b2b2;
+    font-size: 40px;
+    /*font-family: 'Varela Round', sans-serif; */
     text-align: right;
+}
+
+.currency-value:first-letter {
+    font-size: 27px;
 }
 
 .converter-options {
@@ -46,19 +91,126 @@ ul { /* сбросим стиль списка */
     width: 102px;
     height: 100%;
     display: inline-block;
-    background-color: #ff8989; 
+    position: relative;
+    background-color: #ff8989;   
+}
+
+.chart-icon {
+    width: 33px;
+    height: 30px;
+    display: inline-block;
+    position: absolute;
+    top: 19px;
+    left: 32px;
+    background-image: url("../img/sprites.png");
+    background-position: -10px -83px;
+}
+
+.chart:hover {
+    background-color: #526e82;
 }
 
 .add-currency {
     width: 136px;
     height: 100%; 
     display: inline-block;
+    position: relative;
     background-color: #526e82;
 }
+
+.add-currency-icon {
+    width: 27px; 
+    height: 27px;
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    left: 82px;
+    background-image: url("../img/sprites.png");
+    background-position: -8px -48px;
+}
+
+.add-currency:hover .add-currency-icon {
+    background-position: -48px -48px;
+} 
 
 .number-pad {
     width: 69px;
     height: 100%; 
     display: inline-block;
+    position: relative;
     background-color: #526e82;
+}
+
+.number-pad-icon {
+    width: 31px;
+    height: 30px;
+    display: inline-block;
+    position: absolute;
+    top: 16px;
+    left: 19px;
+    background-image: url("../img/sprites.png");
+    background-position: -8px -8px;
+}
+
+.number-pad:hover .number-pad-icon {
+    background-position: -48px -8px;
+}
+
+/* календарь */
+.calendar {
+    width: 307px;
+    height: 375px;
+    margin: 50px 0 0 0;
+    font-size: 17px;
+}
+
+.calendar-header {
+    width: 307px;
+    height: 85px;
+    background-color: #526e82;
+    position: relative;
+}
+
+.calendar-table {
+    width: 100%;
+    text-align: center;    
+}
+
+.week-days {
+    font-weight: 700;
+    color: #3dad99;
+    text-transform: uppercase;
+    background-color: #4cd9c0;
+}
+
+.week-days tr {
+    height: 56px;
+}
+
+.dates {
+    color: #9d9d9d;
+    background-color: #ffffff;
+}
+
+.dates td {
+    /*height: 50px;*/
+    /*vertical-align: middle;*/
+}
+
+.date {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.date:not(:empty):hover { /* ячейки, в которых нет чисел не подсвечиваются */
+    color: #ffffff;
+    background-color: #ff8989;
+    cursor: pointer;
+}
+
+.current-date {
+    color: #ffffff;
+    background-color: #ff8989;    
 }
