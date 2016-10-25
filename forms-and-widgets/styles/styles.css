@@ -29,13 +29,22 @@ table {
     clear: both;
 }
 
-/* конвертер валют */
+.chart-icon,
+.add-currency-icon,
+.number-pad-icon,
+.calendar-arrows span,
+.weather-menu span {
+    background: url("../img/sprites.png") no-repeat;
+}
 
+/* конвертер валют */
+/* ############################################# */
 .converter {
     width: 307px;
     height: 290px;
     color: #b2b2b2;
     background-color: #ffffff;
+    margin: 20px;
 }
 
 .converter-wrapper { /* для прижатия меню к низу, потому что в макете не равные высоты у валют */
@@ -81,7 +90,6 @@ table {
     right: 27px;
     color: #b2b2b2;
     font-size: 40px;
-    /*font-family: 'Varela Round', sans-serif; */
     text-align: right;
 }
 
@@ -89,26 +97,41 @@ table {
     font-size: 27px;
 }
 
+.dollars:before {
+    content: "$";
+}
+
+.pounds:before {
+    content: "\00a3";
+}
+
 .converter-options {
     height: 64px;
 }
 
-.chart {
-    width: 102px;
-    height: 100%;
+.converter-options a {
+    height: 100%;  
     display: inline-block;
     position: relative;
+}
+
+.chart-icon,
+.add-currency-icon,
+.number-pad-icon {
+    height: 30px;
+    width: 33px;
+    display: inline-block;
+    position: absolute;
+    top: 19px;
+}
+
+.chart {
+    width: 102px;      
     background-color: #ff8989;   
 }
 
 .chart-icon {
-    width: 33px;
-    height: 30px;
-    display: inline-block;
-    position: absolute;
-    top: 19px;
-    left: 32px;
-    background-image: url("../img/sprites.png");
+    left: 32px;    
     background-position: -10px -83px;
 }
 
@@ -118,20 +141,11 @@ table {
 
 .add-currency {
     width: 136px;
-    height: 100%; 
-    display: inline-block;
-    position: relative;
     background-color: #526e82;
 }
 
 .add-currency-icon {
-    width: 27px; 
-    height: 27px;
-    display: inline-block;
-    position: absolute;
-    top: 18px;
     left: 82px;
-    background-image: url("../img/sprites.png");
     background-position: -8px -48px;
 }
 
@@ -141,20 +155,11 @@ table {
 
 .number-pad {
     width: 69px;
-    height: 100%; 
-    display: inline-block;
-    position: relative;
     background-color: #526e82;
 }
 
 .number-pad-icon {
-    width: 31px;
-    height: 30px;
-    display: inline-block;
-    position: absolute;
-    top: 16px;
     left: 19px;
-    background-image: url("../img/sprites.png");
     background-position: -8px -8px;
 }
 
@@ -163,10 +168,11 @@ table {
 }
 
 /* календарь */
+/* ############################################# */
 .calendar {
     width: 307px;
     height: 375px;
-    margin: 50px 0 0 0;
+    margin: 20px;
     font-size: 17px;
 }
 
@@ -188,8 +194,7 @@ table {
     height: 27px;
     display: inline-block;
     position: absolute;
-    top: 29px;
-    background: url("../img/sprites.png") no-repeat;
+    top: 29px;    
 }
 
 .calendar-left-arrow {
@@ -202,7 +207,6 @@ table {
 }
 
 .calendar-left-arrow:hover span {
-    /*background: url("../img/sprites.png") no-repeat;*/
     background-position: -42px -119px;
 }
 
@@ -212,12 +216,10 @@ table {
 
 .calendar-right-arrow span {     
     right: 18px;
-    /*background: url("../img/sprites.png") no-repeat;*/
     background-position: -24px -118px;
 }
 
 .calendar-right-arrow:hover span {
-    /*background: url("../img/sprites.png") no-repeat;*/
     background-position: -62px -119px;
 }
 
@@ -282,4 +284,148 @@ table {
 .current-date {
     color: #ffffff;
     background-color: #ff8989;    
+}
+
+/* погода */
+/* ############################################# */
+.weather {
+    width: 307px;
+    height: 312px;
+    background-color: #ffffff;
+    margin: 20px;
+}
+
+.weather-slider {
+    width: 307px;
+    height: 248px;    
+    position: relative;
+}
+
+.weather-slider img {
+    width: 100%;
+    height: 100%; 
+}
+
+.weather-data {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    position: absolute;
+    bottom: 12px;
+    left: 11px;
+    z-index: 100;
+}
+
+.temperature,
+.location,
+.time {
+    line-height: 22px;
+}
+
+.temperature {
+    font-size: 47px;
+}
+
+.temperature:after {
+    content: "\00b0";
+}
+
+.slider-switcher {
+    position: absolute;
+    right: 12px;
+    bottom: 11px;
+    z-index: 1000;
+}
+
+.switcher {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #05aeb3;
+    cursor: pointer;
+}
+
+.switcher:not(:first-child) {
+    margin: 0 0 0 8px;
+}
+
+.switcher-active,
+.switcher:hover {
+    background-color: #076164;
+}
+
+.weather-menu {
+    width: 307px;
+    height: 64px;
+    display: inline-block;    
+}
+
+.weather-menu li {
+    width: 76px;
+    height: 64px;
+    display: inline-block;
+    position: relative;
+}
+
+.weather-menu li:last-child {
+    width: 79px;
+}
+
+.weather-menu a {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+.weather-menu span {
+    height: 30px;
+    width: 27px;
+    top: 17px;
+    left: 25px;
+    display: inline-block;
+    position: absolute;
+}
+
+.weather-menu a:hover,
+.weather-menu-active {
+    background-color: #ff8989;
+}
+
+.fahrenheit span {
+    background-position: -96px -90px;
+}
+
+.fahrenheit.weather-menu-active span,
+.fahrenheit:hover span {
+    background-position: -132px -90px;
+}
+
+.celsius span {
+    background-position: -98px -129px;
+}
+
+.celsius.weather-menu-active span,
+.celsius:hover span {
+    background-position: -139px -130px;
+}
+
+.weather-add span {
+    background-position: -96px -48px;
+}
+
+.weather-add.weather-menu-active span,
+.weather-add:hover span {
+    background-position: -48px -48px;
+}
+
+.weather-pad span {
+    width: 43px;
+    background-position: -96px -8px;
+}
+
+.weather-pad.weather-menu-active span,
+.weather-pad:hover span {
+    background-position: -153px -8px;
 }

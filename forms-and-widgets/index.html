@@ -8,22 +8,26 @@
 </head>
 <body>
     <!-- конвертер валют -->
+    <!-- ##################################################################### -->
     <div class="converter"> 
         <div class="converter-wrapper">
               <ul>
-                <li><span class="currency-name">usd</span><span class="currency-value">$356.3</span></li>
-                <li><span class="currency-name">gbp</span><span class="currency-value">&pound;156.3</span></li>
+                <li><span class="currency-name">usd</span><span class="currency-value dollars">356.3</span></li>
+                <li><span class="currency-name">gbp</span><span class="currency-value pounds">156.3</span></li>
             </ul>       
             <div class="converter-puch"></div>
         </div>      
-        <nav class="converter-footer converter-options">
-            <a href="#" class="chart"><span class="chart-icon"></span></a>    
-            <a href="#" class="add-currency"><span class="add-currency-icon"></span></a> 
-            <a href="#" class="number-pad"><span class="number-pad-icon"></span></a> 
-        </nav>
+        <footer>
+            <nav class="converter-footer converter-options">
+                <a href="#" class="chart"><span class="chart-icon"></span></a>    
+                <a href="#" class="add-currency"><span class="add-currency-icon"></span></a> 
+                <a href="#" class="number-pad"><span class="number-pad-icon"></span></a> 
+            </nav>
+        </footer>
     </div>
 
     <!-- календарь -->
+    <!-- ##################################################################### -->
     <div class="calendar">
         <header class="calendar-header clear">
             <a href="#" class="calendar-arrows calendar-left-arrow"><span></span></a>
@@ -93,6 +97,36 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+
+    <!-- погода -->
+    <!-- ##################################################################### -->
+    <div class="weather">
+        <div class="weather-slider">
+            <img src="./img/weather-one.png" alt="Clouds, beach, ocean, sun, dream">
+            <div class="weather-data">
+                <ul>
+                    <li><span class="temperature">73</span></li>
+                    <li><span class="location">Zagora, Greece</span></li>
+                    <li><time class="time">8.43 am</time></li>
+                </ul>          
+            </div>
+            <div class="slider-switcher">
+                <span class="switcher switcher-active"></span>
+                <span class="switcher"></span>
+                <span class="switcher"></span>
+            </div>
+        </div>
+        <footer>
+            <nav class="weather-menu">
+                <ul>
+                    <li><a href="#" class="fahrenheit weather-menu-active"><span></span></a></li>
+                    <li><a href="#" class="celsius"><span></span></a></li>
+                    <li><a href="#" class="weather-add"><span></span></a></li>
+                    <li><a href="#" class="weather-pad"><span></span></a></li>
+                </ul>
+            </nav>
+        </footer>
     </div>
 </body>
 </html>
