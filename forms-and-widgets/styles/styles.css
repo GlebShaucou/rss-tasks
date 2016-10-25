@@ -9,6 +9,10 @@ body {
     background-color: #efefef;
 }
 
+h2, h3 {
+    margin: 0;
+}
+
 a:visited {
     border: none;
 }
@@ -38,7 +42,8 @@ table {
 .number-pad-icon,
 .calendar-arrows span,
 .weather-menu span,
-.add-singer-icon {
+.add-singer-icon,
+.control-item {
     background: url("../img/sprites.png") no-repeat;
 }
 
@@ -447,6 +452,7 @@ table {
     width: 728px;
     height: 200px;
     background-color: #ffffff;
+    font-size: 22px;
 }
 
 .singer-info {
@@ -458,7 +464,7 @@ table {
 .singer-info img {
     width: 126px;
     height: 126px;
-    margin: 8px 8px 12px 8px;
+    margin: 8px;
 }
 
 .add-singer-icon {
@@ -493,7 +499,160 @@ table {
 }
 
 .player-interface {
-    width: 580px;
+    width: 550px;
     height: 100%;
     float: right;
+    margin: 8px;
+}
+
+.singer-name,
+.song-name {
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 30px;
+}
+
+.singer-name {
+    color: #a8a8a8;
+}
+
+.song-name {
+    color:  #d6d6d6;
+    margin: 0 0 10px 0;
+}
+
+.song-line {
+    height: 9px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.duration {    
+    width: 488px;
+    background-color: #efefef;
+    float: left;
+    margin: 6px 0 0 0;
+}
+
+.downloaded {    
+    width: 388px;
+    background-color:  #bbfdf1;
+}
+
+.played {
+    width: 300px;
+    background-color:  #4cd9c0;
+}
+
+.duration-time {
+    color:  #c6c6c6;
+    font-size: 15px;
+    float: right;
+}
+
+.control-panel {
+    width: 100%;
+    height: 82px;
+    position: relative;
+    top: 30px;
+}
+
+.control-item {
+    width: 46px;
+    height: 45px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.control-item:not(:first-child) {
+    margin: 0 0 0 19px;
+}
+
+.play {
+    background-position: 0 -168px;
+}
+
+.pause,
+.play:hover { /* класс pause подключаем, когда нажали остановить песню */
+    background-position: 0 -216px;    
+}
+
+.pause:hover { /* стиль для случая, когда песня на паузе */
+    background-position: 0 -168px;
+}
+
+.prev-song {
+    background-position: -52px -167px;
+}
+
+.prev-song:hover {
+    background-position: -52px -214px;
+}
+
+.next-song {
+    background-position: -104px -167px;
+}
+
+.next-song:hover {
+    background-position: -102px -215px;
+}
+
+.shuffle {
+    background-position: -156px -167px;
+}
+
+.shuffle-selected,
+.shuffle:hover { /* класс .shuffle-selected нужен, если пользователь включит случайный порядок */
+    background-position: -156px -214px;
+}
+
+.shuffle-selected:hover {
+    background-position: -156px -167px;
+} 
+
+.repeat {
+    background-position: -208px -167px;
+}
+
+.repeat-selected,
+.repeat:hover { /* класс .repeat-selected нужен, если пользователь включит повтор */
+    background-position: -208px -212px;
+}
+
+.repeat-selected:hover {
+    background-position: -208px -167px;
+} 
+
+.likeit { /* класс .likeit - это обычное состояние лайка */
+    background-position: -260px -167px;
+}
+
+.likeit-selected,
+.likeit:hover { 
+    background-position: -260px -211px;
+}
+
+.likeit-selected:hover {
+    background-position: -260px -167px;
+}
+
+.favorite { /* аналогично классам выше */
+    background-position: -260px -115px;
+}
+
+.favorite-selected,
+.favorite:hover { 
+    background-position: -208px -115px;
+}
+
+.favorite-selected:hover {
+    background-position: -260px -115px;
+}
+
+.external-link {
+     background-position: -260px -65px;
+}
+
+.external-link:hover {
+     background-position: -210px -65px;
 }
