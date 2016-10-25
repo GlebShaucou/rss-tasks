@@ -23,6 +23,12 @@ table {
     border-spacing: 0;
 }
 
+.clear:after { /* метод Micro Clear Fix взял у Дэвида Макфарланда из "Большая книга CSS3" */
+    content: " ";
+    display: table;
+    clear: both;
+}
+
 /* конвертер валют */
 
 .converter {
@@ -169,6 +175,69 @@ table {
     height: 85px;
     background-color: #526e82;
     position: relative;
+}
+
+.calendar-arrows {
+    width: 41px;
+    height: 100%;
+    display: inline-block;    
+}
+
+.calendar-arrows span {
+    width: 16px;
+    height: 27px;
+    display: inline-block;
+    position: absolute;
+    top: 29px;
+    background: url("../img/sprites.png") no-repeat;
+}
+
+.calendar-left-arrow {
+    float: left;    
+}
+
+.calendar-left-arrow span {    
+    left: 14px;    
+    background-position: -6px -118px;
+}
+
+.calendar-left-arrow:hover span {
+    /*background: url("../img/sprites.png") no-repeat;*/
+    background-position: -42px -119px;
+}
+
+.calendar-right-arrow {
+    float: right;    
+}
+
+.calendar-right-arrow span {     
+    right: 18px;
+    /*background: url("../img/sprites.png") no-repeat;*/
+    background-position: -24px -118px;
+}
+
+.calendar-right-arrow:hover span {
+    /*background: url("../img/sprites.png") no-repeat;*/
+    background-position: -62px -119px;
+}
+
+.calendar-header ul {
+    width: 60px;
+    height: 100%;
+    position: absolute;
+    top: 16px;
+    left: 130px;
+}
+
+.calendar-year {
+    color: #e6e6e6;
+}
+
+.calendar-month {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
 .calendar-table {
