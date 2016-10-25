@@ -19,6 +19,10 @@ ul { /* сбросим стиль списка */
     list-style-type: none;
 }
 
+button {
+    font-family: 'Varela Round', sans-serif;
+}
+
 table {
     border-spacing: 0;
 }
@@ -33,8 +37,16 @@ table {
 .add-currency-icon,
 .number-pad-icon,
 .calendar-arrows span,
-.weather-menu span {
+.weather-menu span,
+.add-singer-icon {
     background: url("../img/sprites.png") no-repeat;
+}
+
+.converter,
+.calendar,
+.weather,
+.music-player {
+    margin: 20px;
 }
 
 /* конвертер валют */
@@ -44,7 +56,6 @@ table {
     height: 290px;
     color: #b2b2b2;
     background-color: #ffffff;
-    margin: 20px;
 }
 
 .converter-wrapper { /* для прижатия меню к низу, потому что в макете не равные высоты у валют */
@@ -428,4 +439,61 @@ table {
 .weather-pad.weather-menu-active span,
 .weather-pad:hover span {
     background-position: -153px -8px;
+}
+
+/* музыкальный проигрыватель */
+/* ##################################################################### */
+.music-player {
+    width: 728px;
+    height: 200px;
+    background-color: #ffffff;
+}
+
+.singer-info {
+    width: 142px;
+    height: 100%;
+    float: left;
+}
+
+.singer-info img {
+    width: 126px;
+    height: 126px;
+    margin: 8px 8px 12px 8px;
+}
+
+.add-singer-icon {
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    background-position: -136px -48px;
+    margin: 0 15px 0 0;
+}
+
+.follow-button {
+    width: 126px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #526e82;
+    text-transform: uppercase;
+    border: none;
+    margin: 0 8px 15px 8px;
+    cursor: pointer;
+}
+
+.follow-button:hover {
+    color: #526e82;
+    background-color: #ffffff;
+    box-shadow: inset 0 0 1px 1px rgba(82,110,113,.75);
+}
+
+.follow-button:hover .add-singer-icon {
+    background-position: -160px -48px;
+}
+
+.player-interface {
+    width: 580px;
+    height: 100%;
+    float: right;
 }
