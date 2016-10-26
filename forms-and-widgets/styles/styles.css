@@ -23,8 +23,15 @@ ul { /* сбросим стиль списка */
     list-style-type: none;
 }
 
-button {
+button,
+input[type="submit"],
+input[type="text"],
+input[type="password"] {
     font-family: 'Varela Round', sans-serif;
+}
+
+input:focus {
+    outline: none;
 }
 
 table {
@@ -37,20 +44,34 @@ table {
     clear: both;
 }
 
+.converter-options,
+.weather-menu,
+.messenger-menu,
+.login-menu {
+    width: 307px;
+    height: 64px;
+}
+
 .chart-icon,
 .add-currency-icon,
 .number-pad-icon,
 .calendar-arrows span,
 .weather-menu span,
 .add-singer-icon,
-.control-item {
+.control-item,
+.menu-list span,
+.add-contact span,
+.login-icon,
+.password-icon {
     background: url("../img/sprites.png") no-repeat;
 }
 
 .converter,
 .calendar,
 .weather,
-.music-player {
+.music-player,
+.messenger,
+.login-form {
     margin: 20px;
 }
 
@@ -119,10 +140,6 @@ table {
 
 .pounds:before {
     content: "\00a3";
-}
-
-.converter-options {
-    height: 64px;
 }
 
 .converter-options a {
@@ -373,8 +390,6 @@ table {
 }
 
 .weather-menu {
-    width: 307px;
-    height: 64px;
     display: inline-block;    
 }
 
@@ -655,4 +670,177 @@ table {
 
 .external-link:hover {
      background-position: -210px -65px;
+}
+
+/* мессенджер */
+/* ##################################################################### */
+.messenger {
+    width: 307px;
+}
+
+.messenger-menu {
+    background-color: #4cd9c0;
+}
+
+.menu-list {
+    width: 75px;
+    height: 100%;
+    display: inline-block;
+    background-color: #41c0a9;
+}
+
+.menu-list span {
+    width: 36px;
+    height: 25px;
+    display: inline-block;
+    background-position: -210px 0;
+    margin: 17px 0 0 17px;
+}
+
+.menu-list:hover span {
+    background-position: -258px 0;
+}
+
+.add-contact {
+    width: 55px;
+    height: 100%;
+    display: inline-block;
+    float: right;
+}
+
+.add-contact span {
+    width: 27px;
+    height: 27px;
+    display: inline-block;
+    background-position: -48px -48px;
+    margin: 18px 0 0 14px;
+}
+
+.add-contact:hover span {
+    background-position: -8px -48px;
+}
+
+.list-of-contacts {
+    background-color: #ffffff;
+}
+
+.list-of-contacts li {
+    width: 100%;
+    min-height: 77px;    
+}
+
+.list-of-contacts li:not(:last-child) {
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.avatar-icon {
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    float: left;
+}
+
+.message-info {
+   position: relative;
+   float: left;
+}
+
+.contact-name {
+    font-size: 18px;
+    font-weight: 500;
+    color:  #bac2c7;
+}
+
+.message-text {
+    font-size: 13px;
+    font-weight: 300;
+    color:  #c8d3d9;
+}
+
+.contact-status {
+
+}
+
+/* форма входа */
+/* ##################################################################### */
+.login-form {
+    width: 307px;
+    height: 209px;
+    background-color: #ffffff
+}
+
+.login-menu {
+    
+}
+
+.login,
+.password {
+    position: relative;
+}
+
+.login {
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.login-icon,
+.password-icon {
+    width: 22px;
+    height: 24px;
+    display: inline-block;
+    margin: 26px 22px 25px 22px;
+}
+
+.login-icon {
+    background-position: -240px -38px;
+}
+
+.password-icon {
+    background-position: -208px -38px;
+}
+
+.login input,
+.password input {
+    font-size: 20px;
+    color: #bebebe;
+    border: none;
+    position: absolute;
+    top: 30px;
+}
+
+.login:hover,
+.password:hover,
+.login-active,
+.password-active {
+    border-left: 4px solid #ff8989; 
+}
+
+.sign-up,
+.sign-in {
+    height: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    text-transform: uppercase;
+}
+
+.sign-up {    
+    width: 156px;
+    color: #627d90;
+    background-color: #7191a8;
+    cursor: pointer;
+}
+
+.sign-up:hover {
+    color: #ffffff;
+}
+
+.sign-in {
+    width: 151px;
+    color: #ffffff;    
+    background-color: #526e82;
+    cursor: pointer;
+}
+
+.sign-in:hover {
+    background-color: #ff8989;
 }
