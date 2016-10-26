@@ -71,7 +71,8 @@ table {
 .weather,
 .music-player,
 .messenger,
-.login-form {
+.login-form,
+.form-elements {
     margin: 20px;
 }
 
@@ -831,7 +832,7 @@ table {
 }
 
 .sign-up:hover {
-    color: #ffffff;
+    background-color: #ff8989;
 }
 
 .sign-in {
@@ -843,4 +844,87 @@ table {
 
 .sign-in:hover {
     background-color: #ff8989;
+}
+
+/* форма с различными полями и переключателями */
+/* ##################################################################### */
+.form-elements {
+    width: 305px;
+    height: 200px;
+    background-color:  #ffffff;
+    position: relative;
+}
+.valid-input,
+.invalid-input, 
+.checkbox,
+.range,
+.radio {
+    position: absolute;
+}
+
+.valid-input,
+.invalid-input {
+    width: 216px;
+    height: 51px;
+    border-radius: 10px;    
+    font-size: 20px;
+    padding: 0 0 0 12px;
+}
+
+.valid-input {
+    color: #64dec9;
+    border: 2px solid #4cd9c0;
+    top: 14px;
+    left: 12px;    
+}
+.valid-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #64dec9;
+}
+.valid-input::-moz-placeholder { /* Firefox 19+ */
+    color: #64dec9;
+}
+.valid-input:-ms-input-placeholder { /* IE 10+ */
+    color: #64dec9;
+}
+.valid-input:-moz-placeholder { /* Firefox 18- */
+    color: #64dec9;
+}
+
+.invalid-input {
+    color: #ffa0a0;
+    border: 2px solid #ff8989;
+    bottom: 11px;
+    left: 12px;
+}
+.invalid-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #ffa0a0;
+}
+.invalid-input::-moz-placeholder { /* Firefox 19+ */
+    color: #ffa0a0;
+}
+.invalid-input:-ms-input-placeholder { /* IE 10+ */
+    color: #ffa0a0;
+}
+.invalid-input:-moz-placeholder { /* Firefox 18- */
+    color: #ffa0a0;
+}
+
+.range {
+    top: 98px;
+    left: 12px;
+}
+
+.checkbox.checkbox-checked {
+    top: 14px;
+    right: 10px;
+}
+
+.radio {
+    top: 82px;
+    right: 13px;
+}
+
+.radio.radio-checked {
+    top: 143px;
+    right: 13px;
 }
