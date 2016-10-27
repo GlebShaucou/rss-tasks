@@ -9,7 +9,7 @@ body {
     background-color: #efefef;
 }
 
-h2, h3 {
+h2, h3, p {
     margin: 0;
 }
 
@@ -61,6 +61,8 @@ table {
 .control-item,
 .menu-list span,
 .add-contact span,
+.message-sent,
+.message-not-delivered,
 .login-icon,
 .password-icon,
 .radio + label:before,
@@ -731,7 +733,8 @@ table {
 
 .list-of-contacts li {
     width: 100%;
-    min-height: 77px;    
+    min-height: 77px;   
+    position: relative; 
 }
 
 .list-of-contacts li:not(:last-child) {
@@ -742,12 +745,21 @@ table {
     width: 66px;
     height: 66px;
     border-radius: 50%;
-    float: left;
+    position: absolute;
+    top: 5px;
+    left: 6px;
 }
 
 .message-info {
    position: relative;
    float: left;
+   overflow: hidden;
+}
+
+.contact-name,
+.message-text {
+    text-overflow: ellipsis;
+    margin: 11px 0 0 84px;
 }
 
 .contact-name {
@@ -757,13 +769,51 @@ table {
 }
 
 .message-text {
+    width: 198px;
+    height: 20px;
     font-size: 13px;
     font-weight: 300;
     color:  #c8d3d9;
+    margin-top: 5px;
+}
+
+.message-sent {
+    padding: 0 0 0 21px;
+    background-position: -56px -317px;
+}
+
+.message-not-delivered {
+    padding: 0 0 0 21px;
+    background-position: -56px -338px;
+}
+
+.message-typing {
+    font-style: italic;
 }
 
 .contact-status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    top: 35px;
+    right: 16px;
+}
 
+.status-online {
+    background-color: #4cd9c0;
+}
+
+.status-new-message {
+    background-color: #56e5f6;
+}
+
+.status-offline {
+    background-color: #ec747d;
+}
+
+.status-none {
+    background-color: #ffffff;
 }
 
 /* форма входа */
@@ -772,10 +822,6 @@ table {
     width: 307px;
     height: 209px;
     background-color: #ffffff
-}
-
-.login-menu {
-    
 }
 
 .login,
