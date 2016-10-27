@@ -207,12 +207,21 @@
     <!-- форма с различными полями и переключателями -->
     <!-- ##################################################################### -->
     <div class="form-elements">        
-           <input type="text" class="valid-input" placeholder="Valid input">
-           <input type="checkbox" checked class="checkbox checkbox-checked">
-           <input type="range" min="0" max="100" class="range">
-           <input type="radio" class="radio">
-           <input type="text" class="invalid-input" placeholder="Invalid input">
-           <input type="radio" checked class="radio radio-checked">       
+        <input type="text" class="valid-input" placeholder="Valid input">
+
+        <input type="checkbox" class="checkbox" checked>
+        <label for="checkbox-checked"></label> 
+
+        <input type="range" min="0" max="100" class="range" value="70">
+        <div class="fill-lower-container"></div>
+
+        <input id="radio-simple" type="radio" class="radio">
+        <label for="radio-simple"></label> 
+
+        <input type="text" class="invalid-input" placeholder="Invalid input">
+
+        <input id="radio-checked" type="radio" checked class="radio-checked">
+        <label for="radio-checked"></label>       
     </div>
 </body>
 </html>
