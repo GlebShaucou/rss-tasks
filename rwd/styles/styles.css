@@ -291,6 +291,13 @@ a {
     color: #ffffff;
 }
 
+.logos {
+    width: 120px;
+    height: 25px;
+    display: inline-block;
+    background: url("../img/logos-sprite.png") no-repeat;
+}
+
 .footer {
     margin: 0 auto;
     width: 800px;
