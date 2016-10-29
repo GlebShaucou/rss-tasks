@@ -1,0 +1,67 @@
+/*#######################################*/
+/*@media (min-width: 361px) and (max-width: 480px) {*/
+
+    .wrapper {
+        flex-direction: column;
+    }
+    
+    .description img,
+    .news img {
+        max-width: 150px;
+        max-height: 100px;
+    }
+
+    .article-text {
+        font-size: 20px;
+        text-align: justify;
+        margin: 0;
+    }
+
+    .block-link {
+        display: inline;
+    }
+
+    .colored-link,
+    .gray-link,
+    .simple-link {
+        font-size: 20px;
+        color:  #50c3af;
+        background-color: inherit;
+        /*font-size: 14px;*/
+        /*margin: 10px 0 0 0;*/
+    }
+
+    .colored-link:hover,
+    .gray-link:hover,
+    .simple-link:hover {
+        color: #4d4dff;
+        background-color: inherit;
+    }
+
+    .special-headers:after,
+    .header-text:before,
+    .header-text:after {
+        display: none;
+    }
+
+    .advantage, 
+    .description, 
+    .news,
+    .share,
+    .getit-block-img {
+        margin: 0 0 20px 0;
+    }
+
+    .features-block .article-text {
+        margin: 0 20px 0 20px;
+    }
+
+    .features-block .wrapper {
+        margin: 0 20px 0 20px;
+    }
+
+    .footer .wrapper {
+        flex-direction: column-reverse;
+    }
+
+/*}*/
