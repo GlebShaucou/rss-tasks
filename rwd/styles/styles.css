@@ -22,7 +22,7 @@ body { /* сброс стилей браузера */
     line-height: 1.2;
 }
 
-ul {
+ul { /* сброс стилей браузера */
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -133,6 +133,7 @@ a {
     background-color: #f5f5f5;
 }
 
+/* начальный порядок следования блоков */
 .logo-block {
     order: 1;
 }
@@ -171,6 +172,10 @@ a {
     justify-content: center;
 }
 
+.logo-block .wrapper > * {
+    margin: 0 0 30px 0;
+}
+
 .site-logo-img {
     width: 110px;
     height: 45px;
@@ -179,6 +184,10 @@ a {
 .navigation a {
     font-size: 13px;
     color: #ffffff;
+}
+
+.navigation a:not(:last-child) {
+    margin: 0 30px 0 0; 
 }
 
 .navigation a:hover {
