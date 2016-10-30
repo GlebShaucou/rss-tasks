@@ -1,36 +1,75 @@
 /* медиа запросы */
 /*#######################################*/
-@media (min-width: 1001px) {
+@media (min-width: 1001px) { /* первая переломная точна изменения раскладки */
     .main-container {
         flex-direction: row;
         justify-content: flex-start;
         flex-wrap: wrap;
+        background-color: #f5f5f5;
+    }
+    .block:not(:nth-child(8)):nth-child(2n) {
+        background-color: #f5f5f5;
     }
 
-    .block {
-        height: 600px;
+    .share-block {
+        order: 4;
+    }
+    .features-block {
+        order: 6;
+    }
+    .features-block {
+        order: 5;
+    }
+    .news-block {
+        order: 6;
     }
 
     .logo-block {
         width: 100%;
     }
-
-    .advantages-block {
-        width: 100%;
-    } 
-
-    .descr-block, .features-block, .news-block, .share-block, .getit-block {
+    .advantages-block .wrapper,
+    .share-block .wrapper,
+    .getit-block .wrapper {
+        flex-direction: column;
+    }
+    .advantages-block,
+    .share-block,
+    .features-block,
+    .getit-block {
         width: 20%;
-    }  
+    }
+    .advantages-block,
+    .descr-block,
+    .share-block,
+    .features-block,
+    .news-block,
+    .getit-block {
+        background-color: #f5f5f5;
+    }
+    .share {
+        margin: 0 20px 20px 20px;
+    }
+    .descr-block,
+    .news-block {
+        width: 60%;
+    }
 
-    /*.logo-block {
-        flex-grow: 3;
-    }*/
+    .features {
+        margin: 0 25px 0 25px;
+    }
+
+    .getit-block-img {
+        margin: 0 20px 20px 0;
+    }
+
+    .sponsors-block {
+        width: 100%;
+    }
 }
 
 /*#######################################*/
-@media (max-width: 680px) {
-    .descr-block {
+@media (max-width: 680px) { /* вторая переломная точна изменения раскладки */
+    /*.descr-block {
         order: 2;
     }
 
@@ -44,7 +83,7 @@
 
     .features-block {
         order: 5;
-    }
+    }*/
 }
 
 /*#######################################*/
