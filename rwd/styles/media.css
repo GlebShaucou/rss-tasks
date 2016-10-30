@@ -1,6 +1,54 @@
+/* медиа запросы */
 /*#######################################*/
-/*@media (min-width: 361px) and (max-width: 480px) {*/
+@media (min-width: 1001px) {
+    .main-container {
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
 
+    .block {
+        height: 600px;
+    }
+
+    .logo-block {
+        width: 100%;
+    }
+
+    .advantages-block {
+        width: 100%;
+    } 
+
+    .descr-block, .features-block, .news-block, .share-block, .getit-block {
+        width: 20%;
+    }  
+
+    /*.logo-block {
+        flex-grow: 3;
+    }*/
+}
+
+/*#######################################*/
+@media (max-width: 680px) {
+    .descr-block {
+        order: 2;
+    }
+
+    .news-block {
+        order: 3;
+    }    
+
+    .advantages-block {
+        order: 4;
+    }
+
+    .features-block {
+        order: 5;
+    }
+}
+
+/*#######################################*/
+@media (max-width: 480px) {
     .wrapper {
         flex-direction: column;
     }
@@ -27,8 +75,6 @@
         font-size: 20px;
         color:  #50c3af;
         background-color: inherit;
-        /*font-size: 14px;*/
-        /*margin: 10px 0 0 0;*/
     }
 
     .colored-link:hover,
@@ -60,8 +106,25 @@
         margin: 0 20px 0 20px;
     }
 
+    .sponsors-logos {
+        flex-direction: column;
+    }
+
     .footer .wrapper {
         flex-direction: column-reverse;
     }
 
-/*}*/
+    .footer-text,
+    .social a {
+        font-size: 20px;
+    }
+}
+
+/*#######################################*/
+@media (max-width: 360px) {
+    .images,
+    .font-icons,
+    .font-icons:before {
+        display: none;
+    }
+}
