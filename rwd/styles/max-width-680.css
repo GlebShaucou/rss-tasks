@@ -1,31 +1,48 @@
 /* вторая переломная точна изменения раскладки */
-/*@media (max-width: 680px) { */
-    .descr-block {
-        order: 2;
-    }
-    .news-block {
-        order: 3;
-    }
-    .getit-block {
-        order: 4;
-    }
-    .advantages-block {
-        order: 5;
-    }
-    .features-block {
-        order: 6;
-    }    
-    .share-block {
-        order: 7;
-    }    
-/*}*/
+
+.descr-block {
+    order: 2;
+}
+.news-block {
+    order: 3;
+}
+.getit-block {
+    order: 4;
+}
+.advantages-block {
+    order: 5;
+}
+.features-block {
+    order: 6;
+}    
+.share-block {
+    order: 7;
+}
+
+.navigation { /* старая навигация прячется */
+    display: none;
+}
+
+/* меню off-canvas появляется */
+.navigation-hidden,
+label[for="hidden-menu-button"] { 
+    visibility: visible;
+}
+
+.hidden-menu-button:checked + label {
+    left: 215px;
+}
+
+.hidden-menu-button:checked ~ .wrap-for-offcanvas {
+    left: 200px;
+}
+
+.navigation-hidden {
+    font-size: 20px;
+}    
 
 /*#######################################*/
 @media (max-width: 500px) {
-    .navigation a {
-        font-size: 20px;
-    }
-
     .header-title,
     .header-text {
         display: none;
