@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms and Widgets</title>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+    <!-- конвертер валют -->
+    <!-- ##################################################################### -->
+    <div class="converter"> 
+        <div class="converter-wrapper">
+              <ul>
+                <li><span class="currency-name">usd</span><span class="currency-value dollars">356.3</span></li>
+                <li><span class="currency-name">gbp</span><span class="currency-value pounds">156.3</span></li>
+            </ul>       
+            <div class="converter-puch"></div>
+        </div>      
+        <footer>
+            <nav class="converter-footer converter-options">
+                <a href="#" class="chart"><span class="chart-icon"></span></a>    
+                <a href="#" class="add-currency"><span class="add-currency-icon"></span></a> 
+                <a href="#" class="number-pad"><span class="number-pad-icon"></span></a> 
+            </nav>
+        </footer>
+    </div>
+
+    <!-- календарь -->
+    <!-- ##################################################################### -->
+    <div class="calendar">
+        <header class="calendar-header clear">
+            <a href="#" class="calendar-arrows calendar-left-arrow"><span></span></a>
+            <ul>
+                <li class="calendar-year">2012</li>
+                <li class="calendar-month">july</li>
+            </ul>
+            <a href="#" class="calendar-arrows calendar-right-arrow"><span></span></a>
+        </header>
+        <table class="calendar-table">
+            <thead class="week-days">
+                <tr>
+                    <th>s</th>
+                    <th>m</th>
+                    <th>t</th>
+                    <th>w</th>
+                    <th>t</th>
+                    <th>f</th>
+                    <th>s</th>
+                </tr>
+            </thead>
+            <tbody class="dates">
+                <tr>
+                    <td><span class="date">1</span></td>
+                    <td><span class="date">2</span></td>
+                    <td><span class="date">3</span></td>
+                    <td><span class="date">4</span></td>
+                    <td><span class="date">5</span></td>
+                    <td><span class="date current-date">6</span></td>
+                    <td><span class="date">7</span></td>
+                </tr>
+                <tr>
+                    <td><span class="date">8</span></td>
+                    <td><span class="date">9</span></td>
+                    <td><span class="date">10</span></td>
+                    <td><span class="date">11</span></td>
+                    <td><span class="date">12</span></td>
+                    <td><span class="date">13</span></td>
+                    <td><span class="date">14</span></td>
+                </tr>
+                <tr>
+                    <td><span class="date">15</span></td>
+                    <td><span class="date">16</span></td>
+                    <td><span class="date">17</span></td>
+                    <td><span class="date">18</span></td>
+                    <td><span class="date">19</span></td>
+                    <td><span class="date">20</span></td>
+                    <td><span class="date">21</span></td>
+                </tr>
+                <tr>
+                    <td><span class="date">22</span></td>
+                    <td><span class="date">23</span></td>
+                    <td><span class="date">24</span></td>
+                    <td><span class="date">25</span></td>
+                    <td><span class="date">26</span></td>
+                    <td><span class="date">27</span></td>
+                    <td><span class="date">28</span></td>
+                </tr>
+                <tr>
+                    <td><span class="date">29</span></td>
+                    <td><span class="date">30</span></td>
+                    <td><span class="date">31</span></td>
+                    <td><span class="date"></span></td>
+                    <td><span class="date"></span></td>
+                    <td><span class="date"></span></td>
+                    <td><span class="date"></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- погода -->
+    <!-- ##################################################################### -->
+    <div class="weather">
+        <div class="weather-slider">
+            <img src="./img/weather-one.png" alt="Clouds, beach, ocean, sun, dream">
+            <div class="weather-data">
+                <ul>
+                    <li><span class="temperature">73</span></li>
+                    <li><span class="location">Zagora, Greece</span></li>
+                    <li><time class="time">8.43 am</time></li>
+                </ul>          
+            </div>
+            <div class="slider-switcher">
+                <span class="switcher switcher-active"></span>
+                <span class="switcher"></span>
+                <span class="switcher"></span>
+            </div>
+        </div>
+        <footer>
+            <nav class="weather-menu">
+                <ul>
+                    <li><a href="#" class="fahrenheit weather-menu-active"><span></span></a></li>
+                    <li><a href="#" class="celsius"><span></span></a></li>
+                    <li><a href="#" class="weather-add"><span></span></a></li>
+                    <li><a href="#" class="weather-pad"><span></span></a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+
+    <!-- музыкальный проигрыватель -->
+    <!-- ##################################################################### -->
+    <div class="music-player clear">
+        <div class="singer-info">
+            <img src="./img/singer.png" alt="Singer Photo">
+            <button class="follow-button"><span class="add-singer-icon"></span>follow</button>
+        </div>
+        <div class="player-interface">
+            <h2 class="singer-name">Faded Paper Figures</h2>
+            <h3 class="song-name">Invent it all again</h3>
+            <div class="clear">
+                <div class="song-line duration">
+                    <div class="song-line downloaded">
+                        <div class="song-line played"></div>
+                    </div>
+                </div>
+                <time class="duration-time">-1:57</time>
+            </div>
+            <div class="control-panel">
+                <span class="control-item play"></span> <!-- класс .pause подключаем, когда нажали остановить песню -->
+                <span class="control-item prev-song"></span>
+                <span class="control-item next-song"></span>
+                <span class="control-item shuffle"></span> <!-- класс .shuffle-selected нужен, если пользователь включит случайный порядок -->
+                <span class="control-item repeat"></span> <!-- класс .repeat-selected нужен, если пользователь включит повтор -->
+                <span class="control-item likeit-selected"></span>  <!-- класс .likeit - это обычное состояние лайка  -->
+                <span class="control-item favorite"></span>
+                <span class="control-item external-link"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- мессенджер -->
+    <!-- ##################################################################### -->
+    <div class="messenger">
+        <header>
+            <nav class="messenger-menu clear">
+                <a href="#" class="menu-list"><span></span></a>
+                <a href="#" class="add-contact"><span></span></a>
+            </nav>            
+        </header>
+
+        <ul class="list-of-contacts clear">
+            <li>
+                <img src="./img/avatar1.jpg" alt="Avatar" class="avatar-icon">
+                <section class="message-info">
+                    <h3 class="contact-name">Yaroslav Lozhkin</h3>
+                    <p class="message-text">Alright got it!</p>  <!-- предусмотрены следующие классы message-sent, message-not-delivered, message-typing -->                  
+                </section>
+                <span class="contact-status status-online"></span> <!-- могут быть следующие статусы status-online, status-new-message, status-offline, status-none - none-статус, если пользователь выбрал скрыть статус -->
+            </li>
+            <li>
+                <img src="./img/avatar2.jpg" alt="Avatar" class="avatar-icon">
+                <section class="message-info">
+                    <h3 class="contact-name">Michael Zenaty</h3>
+                    <p class="message-text message-sent">Sent</p>
+                </section>
+                <span class="contact-status status-offline"></span>
+            </li>
+            <li>
+                <img src="./img/avatar3.jpg" alt="Avatar" class="avatar-icon">
+                <section class="message-info">
+                    <h3 class="contact-name">Wells Riley</h3>
+                    <p class="message-text message-typing">Typing...</p>
+                </section>
+                <span class="contact-status status-none"></span>
+            </li>
+            <li>
+                <img src="./img/avatar4.jpg" alt="Avatar" class="avatar-icon">
+                <section class="message-info">
+                    <h3 class="contact-name">Matt Vickers</h3>
+                    <p class="message-text message-not-delivered">Not delivered</p>
+                </section>
+                <span class="contact-status status-none"></span>
+            </li>
+            <li>
+                <img src="./img/avatar5.jpg" alt="Avatar" class="avatar-icon">
+                <section class="message-info">
+                    <h3 class="contact-name">Divya Manian</h3>
+                    <p class="message-text">You can download it on github via git-shell.</p>
+                </section>
+                <span class="contact-status status-new-message"></span>
+            </li>
+            <li>
+                <img src="./img/avatar6.jpg" alt="Avatar" class="avatar-icon">
+                <section class="message-info">
+                    <h3 class="contact-name">Vin Thomas</h3>
+                    <p class="message-text">Thank you!</p>
+                </section>
+                <span class="contact-status status-none"></span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- форма входа -->
+    <!-- ##################################################################### -->
+    <div class="login-form">
+        <form action="#">
+            <ul>
+                <li class="login login-active"><span class="login-icon"></span>
+                    <input type="text" placeholder="Email Address..."></li>
+
+                <li class="password"><span class="password-icon"></span> <!-- есть еще класс password-active аналогичный login-active -->
+                    <input type="password" placeholder="Password..."></li>
+
+                <li class="login-menu"><input type="submit" value="sign up" class="sign-up">
+                    <input type="submit" value="sign in" class="sign-in"></li>
+            </ul>
+        </form>
+    </div>
+
+    <!-- форма с различными полями и переключателями -->
+    <!-- ##################################################################### -->
+    <div class="form-elements">        
+        <div class="inner">
+            <input type="text" class="valid-input" placeholder="Valid input">
+
+            <input type="checkbox" class="checkbox" checked>
+            <label for="checkbox-checked"></label> 
+
+            <input type="range" min="0" max="100" class="range" value="70">
+            <div class="fill-lower-container"></div>
+
+            <input id="radio-simple" type="radio" class="radio">
+            <label for="radio-simple"></label> 
+
+            <input type="text" class="invalid-input" placeholder="Invalid input">
+
+            <input id="radio-checked" type="radio" checked class="radio-checked">
+            <label for="radio-checked"></label>  
+        </div>     
+    </div>
+</body>
+</html>
