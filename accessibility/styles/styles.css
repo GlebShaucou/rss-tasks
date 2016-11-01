@@ -30,10 +30,6 @@ input[type="password"] {
     font-family: 'Varela Round', sans-serif;
 }
 
-input:focus {
-    outline: none;
-}
-
 table {
     border-spacing: 0;
 }
@@ -1129,4 +1125,16 @@ label {
 
 .radio-checked + label:before {
     background-position: -48px -272px;
+}
+
+/* CSS Clipping*/
+/* ##################################################################### */
+.wcag-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }

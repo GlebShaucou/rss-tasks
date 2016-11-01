@@ -9,87 +9,117 @@
 <body>
     <!-- конвертер валют -->
     <!-- ##################################################################### -->
-    <div class="converter"> 
+    <div class="converter" tabindex="0" role="converter">
+    <span class="wcag-hidden">Currency Converter</span> 
         <div class="converter-wrapper">
-              <ul>
-                <li><span class="currency-name">usd</span><span class="currency-value dollars">356.3</span></li>
-                <li><span class="currency-name">gbp</span><span class="currency-value pounds">156.3</span></li>
+              <ul tabindex="0">
+                <span class="wcag-hidden">list of currencys</span>
+                <li>
+                    <span class="currency-name" tabindex="0">
+                        <span class="wcag-hidden">Currency usd</span>
+                        usd                        
+                    </span>
+                    <span class="currency-value dollars" tabindex="0">
+                        <span class="wcag-hidden">usd value 356.3</span>
+                        356.3                        
+                    </span>
+                </li>
+                <li>
+                    <span class="currency-name" tabindex="0">
+                        <span class="wcag-hidden">Currency gbp</span>
+                        gbp
+                    </span>
+                    <span class="currency-value pounds" tabindex="0">
+                        <span class="wcag-hidden">gbp value 156.3</span>
+                        156.3
+                    </span>
+                </li>
             </ul>       
             <div class="converter-puch"></div>
         </div>      
         <footer>
-            <nav class="converter-footer converter-options">
-                <a href="#" class="chart"><span class="chart-icon"></span></a>    
-                <a href="#" class="add-currency"><span class="add-currency-icon"></span></a> 
-                <a href="#" class="number-pad"><span class="number-pad-icon"></span></a> 
+            <nav class="converter-footer converter-options" tabindex="0">
+                <span class="wcag-hidden">control panel for currencys</span>
+                <a href="#" class="chart" tabindex="0">
+                    <span class="wcag-hidden">view charts button</span>
+                    <span class="chart-icon"></span>
+                </a>    
+                <a href="#" class="add-currency" tabindex="0">
+                    <span class="wcag-hidden">add more currency button</span>
+                    <span class="add-currency-icon"></span>
+                </a> 
+                <a href="#" class="number-pad" tabindex="0">
+                    <span class="wcag-hidden">show number pad button</span>
+                    <span class="number-pad-icon"></span>
+                </a> 
             </nav>
         </footer>
     </div>
 
     <!-- календарь -->
     <!-- ##################################################################### -->
-    <div class="calendar">
-        <header class="calendar-header clear">
-            <a href="#" class="calendar-arrows calendar-left-arrow"><span></span></a>
+    <div class="calendar" tabindex="0">
+        <header class="calendar-header clear" tabindex="0">
+            <a href="#" class="calendar-arrows calendar-left-arrow" tabindex="0"><span></span></a>
             <ul>
-                <li class="calendar-year">2012</li>
-                <li class="calendar-month">july</li>
+                <li class="calendar-year" tabindex="0">2012</li>
+                <li class="calendar-month" tabindex="0">july</li>
             </ul>
-            <a href="#" class="calendar-arrows calendar-right-arrow"><span></span></a>
+            <a href="#" class="calendar-arrows calendar-right-arrow" tabindex="0"><span></span></a>
         </header>
-        <table class="calendar-table">
-            <thead class="week-days">
-                <tr>
-                    <th>s</th>
-                    <th>m</th>
-                    <th>t</th>
-                    <th>w</th>
-                    <th>t</th>
-                    <th>f</th>
-                    <th>s</th>
+        <table class="calendar-table" tabindex="0" role="calendar">
+            <thead class="week-days" tabindex="0">
+                <tr tabindex="0">
+                    <th tabindex="0">s</th>
+                    <th tabindex="0">m</th>
+                    <th tabindex="0">t</th>
+                    <th tabindex="0">w</th>
+                    <th tabindex="0">t</th>
+                    <th tabindex="0">f</th>
+                    <th tabindex="0">s</th>
                 </tr>
             </thead>
-            <tbody class="dates">
+            <tbody class="dates" tabindex="0">
                 <tr>
-                    <td><span class="date">1</span></td>
-                    <td><span class="date">2</span></td>
-                    <td><span class="date">3</span></td>
-                    <td><span class="date">4</span></td>
-                    <td><span class="date">5</span></td>
-                    <td><span class="date current-date">6</span></td>
-                    <td><span class="date">7</span></td>
+                    <td><span class="date" tabindex="0">1</span></td>
+                    <td><span class="date" tabindex="0">2</span></td>
+                    <td><span class="date" tabindex="0">3</span></td>
+                    <td><span class="date" tabindex="0">4</span></td>
+                    <td><span class="date" tabindex="0">5</span></td>
+                    <td><span class="date current-date" tabindex="0">6</span></td>
+                    <td><span class="date" tabindex="0">7</span></td>
                 </tr>
                 <tr>
-                    <td><span class="date">8</span></td>
-                    <td><span class="date">9</span></td>
-                    <td><span class="date">10</span></td>
-                    <td><span class="date">11</span></td>
-                    <td><span class="date">12</span></td>
-                    <td><span class="date">13</span></td>
-                    <td><span class="date">14</span></td>
+                    <td><span class="date" tabindex="0">8</span></td>
+                    <td><span class="date" tabindex="0">9</span></td>
+                    <td><span class="date" tabindex="0">10</span></td>
+                    <td><span class="date" tabindex="0">11</span></td>
+                    <td><span class="date" tabindex="0">12</span></td>
+                    <td><span class="date" tabindex="0">13</span></td>
+                    <td><span class="date" tabindex="0">14</span></td>
                 </tr>
                 <tr>
-                    <td><span class="date">15</span></td>
-                    <td><span class="date">16</span></td>
-                    <td><span class="date">17</span></td>
-                    <td><span class="date">18</span></td>
-                    <td><span class="date">19</span></td>
-                    <td><span class="date">20</span></td>
-                    <td><span class="date">21</span></td>
+                    <td><span class="date" tabindex="0">15</span></td>
+                    <td><span class="date" tabindex="0">16</span></td>
+                    <td><span class="date" tabindex="0">17</span></td>
+                    <td><span class="date" tabindex="0">18</span></td>
+                    <td><span class="date" tabindex="0">19</span></td>
+                    <td><span class="date" tabindex="0">20</span></td>
+                    <td><span class="date" tabindex="0">21</span></td>
                 </tr>
                 <tr>
-                    <td><span class="date">22</span></td>
-                    <td><span class="date">23</span></td>
-                    <td><span class="date">24</span></td>
-                    <td><span class="date">25</span></td>
-                    <td><span class="date">26</span></td>
-                    <td><span class="date">27</span></td>
-                    <td><span class="date">28</span></td>
+                    <td><span class="date" tabindex="0">22</span></td>
+                    <td><span class="date" tabindex="0">23</span></td>
+                    <td><span class="date" tabindex="0">24</span></td>
+                    <td><span class="date" tabindex="0">25</span></td>
+                    <td><span class="date" tabindex="0">26</span></td>
+                    <td><span class="date" tabindex="0">27</span></td>
+                    <td><span class="date" tabindex="0">28</span></td>
                 </tr>
                 <tr>
-                    <td><span class="date">29</span></td>
-                    <td><span class="date">30</span></td>
-                    <td><span class="date">31</span></td>
+                    <td><span class="date" tabindex="0">29</span></td>
+                    <td><span class="date" tabindex="0">30</span></td>
+                    <td><span class="date" tabindex="0">31</span></td>
                     <td><span class="date"></span></td>
                     <td><span class="date"></span></td>
                     <td><span class="date"></span></td>
@@ -101,29 +131,29 @@
 
     <!-- погода -->
     <!-- ##################################################################### -->
-    <div class="weather">
-        <div class="weather-slider">
-            <img src="./img/weather-one.png" alt="Clouds, beach, ocean, sun, dream">
+    <div class="weather" tabindex="0">
+        <div class="weather-slider" tabindex="0">
+            <img src="./img/weather-one.png" alt="Clouds, beach, ocean, sun, dream" tabindex="0">
             <div class="weather-data">
-                <ul>
-                    <li><span class="temperature">73</span></li>
-                    <li><span class="location">Zagora, Greece</span></li>
-                    <li><time class="time">8.43 am</time></li>
+                <ul role="weather-parameters-list">
+                    <li><span class="temperature" role="temperature">73</span></li>
+                    <li><span class="location" role="city">Zagora, Greece</span></li>
+                    <li><time class="time" role="time">8.43 am</time></li>
                 </ul>          
             </div>
-            <div class="slider-switcher">
-                <span class="switcher switcher-active"></span>
-                <span class="switcher"></span>
-                <span class="switcher"></span>
+            <div class="slider-switcher" tabindex="0">
+                <span class="switcher switcher-active" tabindex="0"></span>
+                <span class="switcher" tabindex="0"></span>
+                <span class="switcher" tabindex="0"></span>
             </div>
         </div>
         <footer>
-            <nav class="weather-menu">
+            <nav class="weather-menu" tabindex="0">
                 <ul>
-                    <li><a href="#" class="fahrenheit weather-menu-active"><span></span></a></li>
-                    <li><a href="#" class="celsius"><span></span></a></li>
-                    <li><a href="#" class="weather-add"><span></span></a></li>
-                    <li><a href="#" class="weather-pad"><span></span></a></li>
+                    <li><a href="#" class="fahrenheit weather-menu-active" tabindex="0"><span></span></a></li>
+                    <li><a href="#" class="celsius" tabindex="0"><span></span></a></li>
+                    <li><a href="#" class="weather-add" tabindex="0"><span></span></a></li>
+                    <li><a href="#" class="weather-pad" tabindex="0"><span></span></a></li>
                 </ul>
             </nav>
         </footer>
@@ -131,133 +161,133 @@
 
     <!-- музыкальный проигрыватель -->
     <!-- ##################################################################### -->
-    <div class="music-player clear">
-        <div class="singer-info">
-            <img src="./img/singer.png" alt="Singer Photo">
-            <button class="follow-button"><span class="add-singer-icon"></span>follow</button>
+    <div class="music-player clear" tabindex="0">
+        <div class="singer-info" tabindex="0">
+            <img src="./img/singer.png" alt="Singer Photo" tabindex="0">
+            <button class="follow-button" tabindex="0"><span class="add-singer-icon"></span>follow</button>
         </div>
-        <div class="player-interface">
-            <h2 class="singer-name">Faded Paper Figures</h2>
-            <h3 class="song-name">Invent it all again</h3>
+        <div class="player-interface" tabindex="0">
+            <h2 class="singer-name" tabindex="0">Faded Paper Figures</h2>
+            <h3 class="song-name" tabindex="0">Invent it all again</h3>
             <div class="clear">
-                <div class="song-line duration">
-                    <div class="song-line downloaded">
-                        <div class="song-line played"></div>
+                <div class="song-line duration" tabindex="0">
+                    <div class="song-line downloaded" >
+                        <div class="song-line played" tabindex="0"></div>
                     </div>
                 </div>
-                <time class="duration-time">-1:57</time>
+                <time class="duration-time" tabindex="0">-1:57</time>
             </div>
-            <div class="control-panel">
-                <span class="control-item play"></span> <!-- класс .pause подключаем, когда нажали остановить песню -->
-                <span class="control-item prev-song"></span>
-                <span class="control-item next-song"></span>
-                <span class="control-item shuffle"></span> <!-- класс .shuffle-selected нужен, если пользователь включит случайный порядок -->
-                <span class="control-item repeat"></span> <!-- класс .repeat-selected нужен, если пользователь включит повтор -->
-                <span class="control-item likeit-selected"></span>  <!-- класс .likeit - это обычное состояние лайка  -->
-                <span class="control-item favorite"></span>
-                <span class="control-item external-link"></span>
+            <div class="control-panel" tabindex="0">
+                <span class="control-item play" tabindex="0"></span> <!-- класс .pause подключаем, когда нажали остановить песню -->
+                <span class="control-item prev-song" tabindex="0"></span>
+                <span class="control-item next-song" tabindex="0"></span>
+                <span class="control-item shuffle" tabindex="0"></span> <!-- класс .shuffle-selected нужен, если пользователь включит случайный порядок -->
+                <span class="control-item repeat" tabindex="0"></span> <!-- класс .repeat-selected нужен, если пользователь включит повтор -->
+                <span class="control-item likeit-selected" tabindex="0"></span>  <!-- класс .likeit - это обычное состояние лайка  -->
+                <span class="control-item favorite" tabindex="0"></span>
+                <span class="control-item external-link" tabindex="0"></span>
             </div>
         </div>
     </div>
 
     <!-- мессенджер -->
     <!-- ##################################################################### -->
-    <div class="messenger">
+    <div class="messenger" tabindex="0">
         <header>
             <nav class="messenger-menu clear">
-                <a href="#" class="menu-list"><span></span></a>
-                <a href="#" class="add-contact"><span></span></a>
+                <a href="#" class="menu-list" tabindex="0"><span></span></a>
+                <a href="#" class="add-contact" tabindex="0"><span></span></a>
             </nav>            
         </header>
 
-        <ul class="list-of-contacts clear">
+        <ul class="list-of-contacts clear" tabindex="0">
             <li>
-                <img src="./img/avatar1.jpg" alt="Avatar" class="avatar-icon">
+                <img src="./img/avatar1.jpg" alt="Avatar" class="avatar-icon" tabindex="0">
                 <section class="message-info">
-                    <h3 class="contact-name">Yaroslav Lozhkin</h3>
-                    <p class="message-text">Alright got it!</p>  <!-- предусмотрены следующие классы message-sent, message-not-delivered, message-typing -->                  
+                    <h3 class="contact-name" tabindex="0">Yaroslav Lozhkin</h3>
+                    <p class="message-text" tabindex="0">Alright got it!</p>  <!-- предусмотрены следующие классы message-sent, message-not-delivered, message-typing -->                  
                 </section>
-                <span class="contact-status status-online"></span> <!-- могут быть следующие статусы status-online, status-new-message, status-offline, status-none - none-статус, если пользователь выбрал скрыть статус -->
+                <span class="contact-status status-online" tabindex="0"></span> <!-- могут быть следующие статусы status-online, status-new-message, status-offline, status-none - none-статус, если пользователь выбрал скрыть статус -->
             </li>
             <li>
-                <img src="./img/avatar2.jpg" alt="Avatar" class="avatar-icon">
+                <img src="./img/avatar2.jpg" alt="Avatar" class="avatar-icon" tabindex="0">
                 <section class="message-info">
-                    <h3 class="contact-name">Michael Zenaty</h3>
-                    <p class="message-text message-sent">Sent</p>
+                    <h3 class="contact-name" tabindex="0">Michael Zenaty</h3>
+                    <p class="message-text message-sent" tabindex="0">Sent</p>
                 </section>
-                <span class="contact-status status-offline"></span>
+                <span class="contact-status status-offline" tabindex="0"></span>
             </li>
             <li>
-                <img src="./img/avatar3.jpg" alt="Avatar" class="avatar-icon">
+                <img src="./img/avatar3.jpg" alt="Avatar" class="avatar-icon" tabindex="0">
                 <section class="message-info">
-                    <h3 class="contact-name">Wells Riley</h3>
-                    <p class="message-text message-typing">Typing...</p>
+                    <h3 class="contact-name" tabindex="0">Wells Riley</h3>
+                    <p class="message-text message-typing" tabindex="0">Typing...</p>
                 </section>
-                <span class="contact-status status-none"></span>
+                <span class="contact-status status-none" tabindex="0"></span>
             </li>
             <li>
-                <img src="./img/avatar4.jpg" alt="Avatar" class="avatar-icon">
+                <img src="./img/avatar4.jpg" alt="Avatar" class="avatar-icon" tabindex="0">
                 <section class="message-info">
-                    <h3 class="contact-name">Matt Vickers</h3>
-                    <p class="message-text message-not-delivered">Not delivered</p>
+                    <h3 class="contact-name" tabindex="0">Matt Vickers</h3>
+                    <p class="message-text message-not-delivered" tabindex="0">Not delivered</p>
                 </section>
-                <span class="contact-status status-none"></span>
+                <span class="contact-status status-none" tabindex="0"></span>
             </li>
             <li>
-                <img src="./img/avatar5.jpg" alt="Avatar" class="avatar-icon">
+                <img src="./img/avatar5.jpg" alt="Avatar" class="avatar-icon" tabindex="0">
                 <section class="message-info">
-                    <h3 class="contact-name">Divya Manian</h3>
-                    <p class="message-text">You can download it on github via git-shell.</p>
+                    <h3 class="contact-name" tabindex="0">Divya Manian</h3>
+                    <p class="message-text" tabindex="0">You can download it on github via git-shell.</p>
                 </section>
-                <span class="contact-status status-new-message"></span>
+                <span class="contact-status status-new-message" tabindex="0"></span>
             </li>
             <li>
-                <img src="./img/avatar6.jpg" alt="Avatar" class="avatar-icon">
+                <img src="./img/avatar6.jpg" alt="Avatar" class="avatar-icon" tabindex="0">
                 <section class="message-info">
-                    <h3 class="contact-name">Vin Thomas</h3>
-                    <p class="message-text">Thank you!</p>
+                    <h3 class="contact-name" tabindex="0">Vin Thomas</h3>
+                    <p class="message-text" tabindex="0">Thank you!</p>
                 </section>
-                <span class="contact-status status-none"></span>
+                <span class="contact-status status-none" tabindex="0"></span>
             </li>
         </ul>
     </div>
 
     <!-- форма входа -->
     <!-- ##################################################################### -->
-    <div class="login-form">
+    <div class="login-form" tabindex="0">
         <form action="#">
             <ul>
-                <li class="login login-active"><span class="login-icon"></span>
-                    <input type="text" placeholder="Email Address..."></li>
+                <li class="login login-active" tabindex="0"><span class="login-icon"></span>
+                    <input type="text" placeholder="Email Address..." tabindex="0"></li>
 
-                <li class="password"><span class="password-icon"></span> <!-- есть еще класс password-active аналогичный login-active -->
-                    <input type="password" placeholder="Password..."></li>
+                <li class="password" tabindex="0"><span class="password-icon"></span> <!-- есть еще класс password-active аналогичный login-active -->
+                    <input type="password" placeholder="Password..." tabindex="0"></li>
 
-                <li class="login-menu"><input type="submit" value="sign up" class="sign-up">
-                    <input type="submit" value="sign in" class="sign-in"></li>
+                <li class="login-menu"><input type="submit" value="sign up" class="sign-up" tabindex="0">
+                    <input type="submit" value="sign in" class="sign-in" tabindex="0"></li>
             </ul>
         </form>
     </div>
 
     <!-- форма с различными полями и переключателями -->
     <!-- ##################################################################### -->
-    <div class="form-elements">        
+    <div class="form-elements" tabindex="0">        
         <div class="inner">
-            <input type="text" class="valid-input" placeholder="Valid input">
+            <input type="text" class="valid-input" placeholder="Valid input" tabindex="0">
 
-            <input type="checkbox" class="checkbox" checked>
-            <label for="checkbox-checked"></label> 
+            <input type="checkbox" class="checkbox" checked tabindex="0">
+            <label for="checkbox-checked" tabindex="0"></label> 
 
-            <input type="range" min="0" max="100" class="range" value="70">
+            <input type="range" min="0" max="100" class="range" value="70" tabindex="0">
             <div class="fill-lower-container"></div>
 
-            <input id="radio-simple" type="radio" class="radio">
-            <label for="radio-simple"></label> 
+            <input id="radio-simple" type="radio" class="radio" tabindex="0">
+            <label for="radio-simple" tabindex="0"></label> 
 
-            <input type="text" class="invalid-input" placeholder="Invalid input">
+            <input type="text" class="invalid-input" placeholder="Invalid input" tabindex="0">
 
             <input id="radio-checked" type="radio" checked class="radio-checked">
-            <label for="radio-checked"></label>  
+            <label for="radio-checked" tabindex="0"></label>  
         </div>     
     </div>
 </body>
