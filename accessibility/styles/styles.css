@@ -1138,3 +1138,16 @@ label {
     position: absolute;
     width: 1px;
 }
+
+/* класс заголовков для виджетов */
+/*.forms-names { 
+    position: absolute;}
+
+.form-elements-header {
+    top: 820px;
+    left: 1000px;
+}
+*/
+.little-helper {
+    font-size: 0;
+}
