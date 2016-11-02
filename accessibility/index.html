@@ -9,29 +9,29 @@
 <body>
     <!-- конвертер валют -->
     <!-- ##################################################################### -->
-    <h1 class="little-helper" tabindex="0">Widget Currency Converter</h1> 
+    <h1 class="wcag-hidden" tabindex="0">Widget Currency Converter</h1> 
     <div class="converter" tabindex="0" role="converter" aria-describedby="widgets-descr">
-        <span id="widgets-descr" class="little-helper">Widget Currency Converter</span>
+        <span id="widgets-descr" class="wcag-hidden">Widget Currency Converter</span>
         <div class="converter-wrapper">
               <ul tabindex="0" role="currencys-list" aria-describedby="list-of-curr"> 
-                <span id="list-of-curr" class="little-helper">List of Currencys</span>               
+                <span id="list-of-curr" class="wcag-hidden">List of Currencys</span>               
                 <li>
                     <span class="currency-name" tabindex="0" role="currency-name" aria-describedby="usd">
-                        <span id="usd" class="little-helper">Currency usd</span>
+                        <span id="usd" class="wcag-hidden">Currency usd</span>
                         usd                        
                     </span>
                     <span class="currency-value dollars" tabindex="0" role="currency-value" aria-describedby="usd-value">
-                        <span id="usd-value" class="little-helper">USD value 356.3</span>
+                        <span id="usd-value" class="wcag-hidden">USD value 356.3</span>
                         356.3                        
                     </span>
                 </li>
                 <li>
                     <span class="currency-name" tabindex="0" role="currency-name" aria-describedby="gbp">
-                        <span id="gbp" class="little-helper">Currency gbp</span>
+                        <span id="gbp" class="wcag-hidden">Currency gbp</span>
                         gbp
                     </span>
                     <span class="currency-value pounds" tabindex="0" role="currency-value" aria-describedby="gbp-value">
-                        <span id="gbp-value" class="little-helper">USD value 156.3</span>
+                        <span id="gbp-value" class="wcag-hidden">USD value 156.3</span>
                         156.3
                     </span>
                 </li>
@@ -42,15 +42,15 @@
             <nav class="converter-footer converter-options" role="converter-options">
                 
                 <a href="#" class="chart" tabindex="0" role="view-charts-button" aria-describedby="view-charts-button">
-                    <span id="view-charts-button" class="little-helper">view charts button</span>
+                    <span id="view-charts-button" class="wcag-hidden">view charts button</span>
                     <span class="chart-icon"></span>
                 </a>    
                 <a href="#" class="add-currency" tabindex="0" role="add-currency-button" aria-describedby="add-currency-button">
-                    <span id="add-currency-button" class="little-helper">add more currency button</span>
+                    <span id="add-currency-button" class="wcag-hidden">add more currency button</span>
                     <span class="add-currency-icon"></span>
                 </a> 
                 <a href="#" class="number-pad" tabindex="0" role="number-pad-button" aria-describedby="number-pad-button">
-                    <span id="number-pad-button" class="little-helper">show number pad button</span>
+                    <span id="number-pad-button" class="wcag-hidden">show number pad button</span>
                     <span class="number-pad-icon"></span>
                 </a> 
             </nav>
@@ -59,66 +59,65 @@
 
     <!-- календарь -->
     <!-- ##################################################################### -->
-    <h2 class="little-helper" tabindex="0">Widget Calendar</h2> 
-    <div class="calendar" tabindex="0" role="calendar">
-        
+    <h2 class="wcag-hidden" tabindex="0">Widget Calendar</h2> 
+    <div class="calendar" tabindex="0" role="calendar" aria-describedby="calendar">
+        <span id="calendar" class="wcag-hidden">Widget Calendar</span>
         <header class="calendar-header clear">
-            <a href="#" class="calendar-arrows calendar-left-arrow" tabindex="0" role="prev-month-button">
-                <!-- <span class="wcag-hidden">button to switch to previous month</span> -->
+            <a href="#" class="calendar-arrows calendar-left-arrow" tabindex="0" role="prev-month-button" aria-describedby="left-arrow">
+                <span id="left-arrow" class="wcag-hidden" aria-hidden="true">Button to switch to previous month.</span>
                 <span></span>
-            </a>
-            <ul>
-                <li class="calendar-year" tabindex="0">
-                    <!-- <span class="wcag-hidden">year</span> -->
+            </a>                  
+
+            <ul tabindex="0" role="year-month" aria-describedby="year-month">                
+                <li class="calendar-year">
                     2012
                 </li>
-                <li class="calendar-month" tabindex="0">
-                    <!-- <span class="wcag-hidden">month</span> -->
+                <li class="calendar-month">
                     july
                 </li>
+                <span id="year-month" class="wcag-hidden">Year 2012 and month July</span>                
             </ul>
-            <a href="#" class="calendar-arrows calendar-right-arrow" tabindex="0" role="next-month-button">
-                <!-- <span class="wcag-hidden">button to switch to next month</span> -->
+
+            <a href="#" class="calendar-arrows calendar-right-arrow" tabindex="0" role="next-month-button" aria-describedby="right-arrow">
+                <span id="right-arrow" class="wcag-hidden">Button to switch to next month.</span>  
                 <span></span>
-            </a>
+            </a>            
+                      
         </header>
-        <table class="calendar-table" tabindex="0" role="calendar">
-            <!-- <span class="wcag-hidden">Calendar</span> -->
+        <table class="calendar-table" role="calendar">
             <thead class="week-days" role="week-days">
-               <!--  <span class="wcag-hidden">Week days</span> -->
                 <tr>
-                    <th tabindex="0">
-                        <!-- <span class="wcag-hidden">Sunday</span> -->
+                    <th tabindex="0" aria-describedby="sunday">
+                        <span id="sunday" class="wcag-hidden">Sunday</span>  
                         s
                     </th>
-                    <th tabindex="0">
-                        <!-- <span class="wcag-hidden">Monday</span> -->
+                    <th tabindex="0" aria-describedby="monday">
+                        <span id="monday" class="wcag-hidden">Monday</span>                         
                         m
                     </th>
-                    <th tabindex="0">
-                       <!--  <span class="wcag-hidden">Tuesday</span> -->
+                    <th tabindex="0" aria-describedby="tuesday">  
+                        <span id="tuesday" class="wcag-hidden">Tuesday</span>                           
                         t
                     </th>
-                    <th tabindex="0">
-                       <!--  <span class="wcag-hidden">Wednesday</span> -->
+                    <th tabindex="0" aria-describedby="wednesday">    
+                        <span id="wednesday" class="wcag-hidden">Wednesday</span>                        
                         w
                     </th>
-                    <th tabindex="0">
-                       <!--  <span class="wcag-hidden">Thursday</span> -->
+                    <th tabindex="0" aria-describedby="thursday">
+                        <span id="thursday" class="wcag-hidden">Thursday</span>                                 
                         t
                     </th>
-                    <th tabindex="0">
-                        <!-- <span class="wcag-hidden">Friday</span> -->
+                    <th tabindex="0" aria-describedby="friday">  
+                        <span id="friday" class="wcag-hidden">Friday</span>                                 
                         f
                     </th>
-                    <th tabindex="0">
-                        <!-- <span class="wcag-hidden">Saturday</span>    --> 
+                    <th tabindex="0" aria-describedby="saturday">
+                        <span id="saturday" class="wcag-hidden">Saturday</span>  
                         s
                     </th>
                 </tr>
             </thead>
             <tbody class="dates" role="dates">
-                <!-- <span class="wcag-hidden">Calendar dates</span>  -->
                 <tr>
                     <td><span class="date" tabindex="0">1</span></td>
                     <td><span class="date" tabindex="0">2</span></td>
@@ -170,85 +169,79 @@
 
     <!-- погода -->
     <!-- ##################################################################### -->
-    <!-- <h3 class="little-helper" tabindex="0">Widget Weather</h3>  -->
-    <div class="weather" tabindex="0">
-        
+    <!-- <h3 class="wcag-hidden" tabindex="0">Widget Weather</h3>  -->
+    <div class="weather" tabindex="0" aria-describedby="weather">
+        <span id="weather" class="wcag-hidden">Widget Weather</span>
         <div class="weather-slider" tabindex="0">
-            <!-- <span class="wcag-hidden">With buttons on this slide you can change the city</span> -->
-            <img src="./img/weather-one.png" alt="Clouds, beach, ocean, sun, dream" tabindex="0">
+            <img src="./img/weather-one.png" alt="Clouds, beach, ocean, sun, dream" tabindex="0" aria-describedby="img">
+            <span id="img" class="wcag-hidden">City: Zagora, Greece. Temperature: 73 Fahrenheit degree. Current time: 8:43 am</span>
             <div class="weather-data">
                 <ul role="weather-parameters-list">
                     <li>
-                        <!-- <span class="wcag-hidden">Current temperature</span> -->
                         <span class="temperature" role="temperature">73</span>
                     </li>
                     <li>
-                        <!-- <span class="wcag-hidden">Current city</span> -->
                         <span class="location" role="city">Zagora, Greece</span>
                     </li>
                     <li>
-                        <!-- <span class="wcag-hidden">Current time</span> -->
                         <time class="time" role="time">8.43 am</time>
                     </li>
                 </ul>          
             </div>
             <div class="slider-switcher">
-               <!--  <span class="wcag-hidden">You can switch slides here</span> -->
-                <span class="switcher switcher-active" tabindex="0">
-                    <!-- <span class="wcag-hidden">Current slide</span>    -->     
-                </span>
-                <span class="switcher" tabindex="0">
-                    <!-- <span class="wcag-hidden">Next slide</span> -->
-                </span>
-                <span class="switcher" tabindex="0">
-                    <!-- <span class="wcag-hidden">Next slide</span> -->
-                </span>
+                <span class="switcher switcher-active" tabindex="0" aria-describedby="slider-switcher"></span>
+                <span class="switcher" tabindex="0" aria-describedby="slider-switcher"></span>
+                <span class="switcher" tabindex="0" aria-describedby="slider-switcher"></span>
             </div>
+                <span id="slider-switcher" class="wcag-hidden">You can switch slides here. Use left or right keyboard arrows.</span>
         </div>
         <footer>
             <nav class="weather-menu">
                 <ul>
                     <li>
-                        <a href="#" class="fahrenheit weather-menu-active" tabindex="0">
-                            <!-- <span class="wcag-hidden">Farenheit scale</span> -->
+                        <a href="#" class="fahrenheit weather-menu-active" tabindex="0" aria-describedby="fahrenheit">
+                            <span></span>
+                        </a>                        
+                    </li>
+                        
+                    <li>
+                        <a href="#" class="celsius" tabindex="0" aria-describedby="celsius">
                             <span></span>
                         </a>
                     </li>
+                        
                     <li>
-                        <a href="#" class="celsius" tabindex="0">
-                            <!-- <span class="wcag-hidden">Celsium scale</span> -->
+                        <a href="#" class="weather-add" tabindex="0" aria-describedby="weather-add">
                             <span></span>
                         </a>
                     </li>
+                        
                     <li>
-                        <a href="#" class="weather-add" tabindex="0">
-                        <!-- <span class="wcag-hidden">Add more weather info</span> -->
-                        <span></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="weather-pad" tabindex="0">
-                            <!-- <span class="wcag-hidden">Weather pad</span> -->
+                        <a href="#" class="weather-pad" tabindex="0" aria-describedby="weather-pad">
                             <span></span>
                         </a>
                     </li>
                 </ul>
             </nav>
+                <span id="fahrenheit" class="wcag-hidden">Farenheit scale selected</span>
+                <span id="celsius" class="wcag-hidden">Celsius scale. You can select it.</span>
+                <span id="weather-add" class="wcag-hidden">Add more weather parameters.</span>                
+                <span id="weather-pad" class="wcag-hidden">Show weather pad options.</span>
         </footer>
     </div>
 
     <!-- музыкальный проигрыватель -->
     <!-- ##################################################################### -->
-    <!-- <h4 class="little-helper" tabindex="0">Widget Music Player</h4>  -->
+    <!-- <h4 class="wcag-hidden" tabindex="0">Widget Music Player</h4>  -->
     <div class="music-player clear" tabindex="0" aria-describedby="music-player">
-        <span id="music-player" class="little-helper">Music Player.</span>     
+        <span id="music-player" class="wcag-hidden">Music Player.</span>     
         <div class="singer-info">
             <img src="./img/singer.png" alt="Singer Photo" tabindex="0">
             <button class="follow-button" tabindex="0" aria-describedby="follow-button">
                 <span class="add-singer-icon"></span>
                 follow
             </button>
-                <span id="follow-button" class="little-helper">Push this button to follow the Singer.</span>
+                <span id="follow-button" class="wcag-hidden">Push this button to follow the Singer.</span>
         </div>
         <div class="player-interface">
             <h2 class="singer-name" tabindex="0">Faded Paper Figures</h2>
@@ -259,40 +252,47 @@
                         <div class="song-line played"></div>
                     </div>
                 </div>
-                    <span id="follow-button" class="little-helper">To rewind the song use keyboard arrows left and right.</span>
+                    <span id="follow-button" class="wcag-hidden">To rewind the song use keyboard arrows left and right.</span>
 
                 <time class="duration-time" tabindex="0">-1:57</time>
             </div>
             <div class="control-panel" tabindex="0">
                 <span class="control-item play" tabindex="0" aria-describedby="play"></span> <!-- класс .pause подключаем, когда нажали остановить песню -->
-                <span class="control-item prev-song" tabindex="0"></span>
-                <span class="control-item next-song" tabindex="0"></span>
-                <span class="control-item shuffle" tabindex="0"></span> <!-- класс .shuffle-selected нужен, если пользователь включит случайный порядок -->
-                <span class="control-item repeat" tabindex="0"></span> <!-- класс .repeat-selected нужен, если пользователь включит повтор -->
-                <span class="control-item likeit-selected" tabindex="0"></span>  <!-- класс .likeit - это обычное состояние лайка  -->
-                <span class="control-item favorite" tabindex="0"></span>
-                <span class="control-item external-link" tabindex="0"></span>
+                <span class="control-item prev-song" tabindex="0" aria-describedby="prev-song"></span>
+                <span class="control-item next-song" tabindex="0" aria-describedby="next-song"></span>
+                <span class="control-item shuffle" tabindex="0" aria-describedby="shuffle"></span> <!-- класс .shuffle-selected нужен, если пользователь включит случайный порядок -->
+                <span class="control-item repeat" tabindex="0" aria-describedby="repeat"></span> <!-- класс .repeat-selected нужен, если пользователь включит повтор -->
+                <span class="control-item likeit-selected" tabindex="0" aria-describedby="likeit"></span>  <!-- класс .likeit - это обычное состояние лайка  -->
+                <span class="control-item favorite" tabindex="0" aria-describedby="favorite"></span>
+                <span class="control-item external-link" tabindex="0" aria-describedby="external-link"></span>
             </div>
 
-                <span id="play" class="little-helper">The song starts from 2 minures 15 seconds.</span>
+                <span id="play" class="wcag-hidden">The song starts from 2 minures 15 seconds.</span>
+                <span id="prev-song" class="wcag-hidden">Switch to previous song.</span>
+                <span id="next-song" class="wcag-hidden">Switch to next song.</span>
+                <span id="shuffle" class="wcag-hidden">Shuffle all songs.</span>
+                <span id="repeat" class="wcag-hidden">Repeat this song.</span>
+                <span id="likeit" class="wcag-hidden">Like or dislike this song.</span>
+                <span id="favorite" class="wcag-hidden">Add to favorites.</span>
+                <span id="external-link" class="wcag-hidden">Search for more information. External link.</span>
         </div>
     </div>
 
     <!-- мессенджер -->
     <!-- ##################################################################### -->
-    <!-- <h5 class="little-helper" tabindex="0">Widget Messenger</h5>  -->
+    <!-- <h5 class="wcag-hidden" tabindex="0">Widget Messenger</h5>  -->
     <div class="messenger" tabindex="0" aria-describedby="messenger">
-    <span id="messenger" class="little-helper">Messenger.</span>    
+    <span id="messenger" class="wcag-hidden">Messenger.</span>    
         <header>
             <nav class="messenger-menu clear">
                 <a href="#" class="menu-list" tabindex="0" role="messenger-options-button" aria-describedby="messenger-options"> 
                     <span></span>
                 </a>
-                <span id="messenger-options" class="little-helper">View messenger options.</span> 
+                <span id="messenger-options" class="wcag-hidden">View messenger options.</span> 
                 <a href="#" class="add-contact" tabindex="0" role="add-contact" aria-describedby="add-contact">
                     <span></span>
                 </a>
-                <span id="add-contact" class="little-helper">Begin new chat.</span>
+                <span id="add-contact" class="wcag-hidden">Begin new chat.</span>
             </nav>            
         </header>
 
@@ -305,7 +305,7 @@
                 </section>
                 <span class="contact-status status-online" tabindex="0"></span> <!-- могут быть следующие статусы status-online, status-new-message, status-offline, status-none - none-статус, если пользователь выбрал скрыть статус -->
             </li>
-                <span id="avatar1" class="little-helper">Name: Yaroslav Lozhkin. Message: Alright got it! Status: online.</span>
+                <span id="avatar1" class="wcag-hidden">Name: Yaroslav Lozhkin. Message: Alright got it! Status: online.</span>
 
             <li tabindex="0" aria-describedby="avatar2">
                 <img src="./img/avatar2.jpg" alt="Avatar" class="avatar-icon" tabindex="0">
@@ -315,7 +315,7 @@
                 </section>
                 <span class="contact-status status-offline" tabindex="0"></span>
             </li>
-                <span id="avatar2" class="little-helper">Name: Michael Zenaty. Message sent. Status: offline.</span>
+                <span id="avatar2" class="wcag-hidden">Name: Michael Zenaty. Message sent. Status: offline.</span>
 
             <li tabindex="0" aria-describedby="avatar3">
                 <img src="./img/avatar3.jpg" alt="Avatar" class="avatar-icon" tabindex="0">
@@ -325,7 +325,7 @@
                 </section>
                 <span class="contact-status status-none" tabindex="0"></span>
             </li>
-                <span id="avatar3" class="little-helper">Name: Wells Riley. Typing message. Status: status disabled.</span>
+                <span id="avatar3" class="wcag-hidden">Name: Wells Riley. Typing message. Status: status disabled.</span>
 
             <li tabindex="0" aria-describedby="avatar4">
                 <img src="./img/avatar4.jpg" alt="Avatar" class="avatar-icon" tabindex="0">
@@ -335,7 +335,7 @@
                 </section>
                 <span class="contact-status status-none" tabindex="0"></span>
             </li>
-                <span id="avatar4" class="little-helper">Name: Matt Vickers. Message not delivered. Status: status disabled.</span>
+                <span id="avatar4" class="wcag-hidden">Name: Matt Vickers. Message not delivered. Status: status disabled.</span>
 
             <li tabindex="0" aria-describedby="avatar5">
                 <img src="./img/avatar5.jpg" alt="Avatar" class="avatar-icon" tabindex="0">
@@ -345,7 +345,7 @@
                 </section>
                 <span class="contact-status status-new-message" tabindex="0"></span>
             </li>
-                <span id="avatar5" class="little-helper">Name: Divya Manian. Message: You can download it on github via git-shell. Status: new message.</span>
+                <span id="avatar5" class="wcag-hidden">Name: Divya Manian. Message: You can download it on github via git-shell. Status: new message.</span>
 
             <li aria-describedby="avatar6">
                 <img src="./img/avatar6.jpg" alt="Avatar" class="avatar-icon" tabindex="0">
@@ -355,34 +355,34 @@
                 </section>
                 <span class="contact-status status-none" tabindex="0"></span>
             </li>
-                <span id="avatar6" class="little-helper">Name: Vin Thomas. Message: Thank you! Status: status disabled.</span>
+                <span id="avatar6" class="wcag-hidden">Name: Vin Thomas. Message: Thank you! Status: status disabled.</span>
         </ul>
     </div>
 
     <!-- форма входа -->
     <!-- ##################################################################### -->
-    <!-- <h6 class="little-helper" tabindex="0">Widget Login Form</h6> -->
+    <!-- <h6 class="wcag-hidden" tabindex="0">Widget Login Form</h6> -->
     <div class="login-form" tabindex="0" aria-describedby="login-widget">
-        <span id="login-widget" class="little-helper">Login Widget.</span>     
+        <span id="login-widget" class="wcag-hidden">Login Widget.</span>     
         <form action="#">
             <ul>
                 <li class="login login-active">
                     <span class="login-icon"></span>
                     <input type="text" placeholder="Email Address..." tabindex="0" role="email-address" aria-describedby="email">
-                        <span id="email" class="little-helper">Enter here your email address.</span>
+                        <span id="email" class="wcag-hidden">Enter here your email address.</span>
                 </li>
 
                 <li class="password">
                     <span class="password-icon"></span> <!-- есть еще класс password-active аналогичный login-active -->
                     <input type="password" placeholder="Password..." tabindex="0" role="password" aria-describedby="password">
-                        <span id="password" class="little-helper">Enter here your password.</span>
+                        <span id="password" class="wcag-hidden">Enter here your password.</span>
                 </li>
 
                 <li class="login-menu">
                     <input type="submit" value="sign up" class="sign-up" tabindex="0" role="sign-up-button" aria-describedby="sign-up">
-                        <span id="sign-up" class="little-helper">Sign Up Button.</span>
+                        <span id="sign-up" class="wcag-hidden">Sign Up Button.</span>
                     <input type="submit" value="sign in" class="sign-in" tabindex="0" role="sign-in-button" aria-describedby="sign-in">
-                        <span id="sign-in" class="little-helper">Sign In Button.</span>
+                        <span id="sign-in" class="wcag-hidden">Sign In Button.</span>
                 </li>
             </ul>
         </form>
@@ -390,31 +390,31 @@
 
     <!-- форма с различными полями и переключателями -->
     <!-- ##################################################################### -->
-    <!-- <h6 class="little-helper" tabindex="0">Widget with form elements</h6> -->
+    <!-- <h6 class="wcag-hidden" tabindex="0">Widget with form elements</h6> -->
     <div class="form-elements" tabindex="0"> 
         <div class="inner">
             <input type="text" class="valid-input" placeholder="Valid input" tabindex="0" aria-describedby="valid-input">
-                <span id="valid-input" class="little-helper">Valid Input should look green.</span>
+                <span id="valid-input" class="wcag-hidden">Valid Input should look green.</span>
 
             <input type="checkbox" class="checkbox" checked>
             <label for="checkbox-checked" tabindex="0" aria-describedby="checkbox"></label>
-                <span id="checkbox" class="little-helper">Checked Checkbox should have green sign.</span>
+                <span id="checkbox" class="wcag-hidden">Checked Checkbox should have green sign.</span>
 
             <input type="range" min="0" max="100" class="range" value="70">
             <div class="fill-lower-container" tabindex="0" aria-describedby="range-status" aria-describedby="range-status">
-                <span id="range-status" class="little-helper">The choosen value is 70%. With keyboard arrows you can change the value.</span>
+                <span id="range-status" class="wcag-hidden">The choosen value is 70%. With keyboard arrows you can change the value.</span>
             </div>
 
             <input id="radio-simple" type="radio" class="radio" aria-describedby="radio-gray">
             <label for="radio-simple" tabindex="0"></label> 
-                <span id="radio-gray" class="little-helper">Radio button should look gray.</span>
+                <span id="radio-gray" class="wcag-hidden">Radio button should look gray.</span>
 
             <input type="text" class="invalid-input" placeholder="Invalid input" tabindex="0" aria-describedby="invalid-input">
-                <span id="invalid-input" class="little-helper">Invalid Input should look red.</span>
+                <span id="invalid-input" class="wcag-hidden">Invalid Input should look red.</span>
 
             <input id="radio-checked" type="radio" checked class="radio-checked" aria-describedby="radio-green">
             <label for="radio-checked" tabindex="0"></label>
-                <span id="radio-green" class="little-helper">Checked Checkbox should look green.</span> 
+                <span id="radio-green" class="wcag-hidden">Checked Checkbox should look green.</span> 
 
         </div>     
     </div>
