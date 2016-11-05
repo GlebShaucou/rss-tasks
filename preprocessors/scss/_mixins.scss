@@ -17,7 +17,7 @@
 }
 
 @mixin display-options($position, $top: auto, $right: auto, $left: auto, $bottom: auto) {
-    // display: inline-block;
+    // display: inline-block; //не забыть убрать
     position: $position;
     top: $top;
     right: $right;
@@ -37,7 +37,7 @@
 }
 
 @mixin display-border-radius($radius) {
-    // display: inline-block;
+    // display: inline-block; //не забыть убрать
     border-radius: $radius;
 }
 
