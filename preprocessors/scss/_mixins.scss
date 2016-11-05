@@ -1,0 +1,49 @@
+@mixin menu-size($bg-color, $height: $menu-min-height) {
+    width: $widget-width;
+    height: $height;
+    background-color: $bg-color;
+}
+
+@mixin element-size($width, $height, $background-color: inherit) {
+    width: $width;
+    height: $height;
+    background-color: $background-color; 
+}
+
+@mixin display-options($position, $top: auto, $right: auto, $left: auto, $bottom: auto) {
+    display: inline-block;
+    position: $position;
+    top: $top;
+    right: $right;
+    left: $left;
+    bottom: $bottom;
+}
+
+@mixin text-options($font-size, $text-align: auto, $color: inherit) {
+    font-size: $font-size;
+    text-align: $text-align;
+    color: $color;
+}
+
+@mixin bg-sprite($x, $y) {
+    background: $bg-sprite-url;
+    background-position: $x $y;
+}
+
+@mixin display-border-radius($radius) {
+    display: inline-block;
+    border-radius: $radius;
+}
+
+@mixin song-scale($width, $color) {
+    width: $width;
+    height: $song-scale-height;
+    border-radius: $song-scale-border-radius;
+    cursor: $cursor-type;
+    background-color: $color;
+}
+
+@mixin control-item($x, $y) {
+    @extend .control-item-class;
+    background-position: $x $y;
+}

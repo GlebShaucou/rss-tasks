@@ -1,0 +1,426 @@
+body {
+    font-family: $font-family;
+    background-color: $gray;
+
+    .converter {
+        @extend .widget-size;
+
+        li {
+            min-height: $cur-min-height;
+            position: relative;
+
+            .currency-name {
+                @include element-size($currency-name-width, $currency-name-height);
+                @include display-options(absolute, $currency-position-top);
+                @include text-options($currency-name-font-size, center, $converter-txt-color);
+                
+                text-transform: $text-transform;
+                border-right: $border-style $currency-border-color;
+                padding-top: $curr-padding-top;
+            }
+
+            .currency-value {
+                @include element-size($currency-value-width, $currency-value-height);
+                @include display-options(absolute, $currency-position-top, $currency-position-right);
+                @include text-options($currency-value-font-size, right, $converter-txt-color);
+            }
+
+            .dollars:before {
+                content: "$";
+            }
+
+            .pounds:before {
+                content: "\00a3";
+            }
+
+            .currency-value:first-letter {
+                font-size: $curr-first-letter-font-size;
+            }
+        }
+
+        li:not(:last-child) {
+            border-bottom: $border-style $gray-border;
+        }
+
+        &-menu {
+            @include menu-size($gray-blue);
+
+            word-spacing: -.26em; // убираем отступы между ссылками, font-size: 0 перестал работать, поэтому использовал word-spacing
+
+            .chart {
+                @include element-size($chart-width, $menu-min-height, $warm-red);
+                @include display-options(relative);
+
+                &-icon {
+                    @include element-size($chart-icon-width, $chart-icon-height);
+                    @include display-options(absolute, 19px, auto, 32px);
+                    @include bg-sprite(-10px, -83px);
+                }
+            }
+
+            .add-currency {
+                @include element-size($add-currency-width, $menu-min-height);
+                @include display-options(relative);
+
+                &-icon {
+                    @include element-size($chart-icon-width, $chart-icon-height);
+                    @include display-options(absolute, 19px, auto, 82px);
+                    @include bg-sprite(-8px, -48px);
+                }
+            }
+
+            .number-pad {
+                @include element-size($number-pad-width, $menu-min-height);
+                @include display-options(relative);
+
+                &-icon {
+                    @include element-size($chart-icon-width, $chart-icon-height);
+                    @include display-options(absolute, 19px, auto, 19px);
+                    @include bg-sprite(-8px, -8px);
+                }
+            }
+        }
+    }
+
+    .calendar {
+        @extend .widget-size;
+
+        &-menu {
+            @include menu-size($gray-blue, $calendar-menu-height);
+
+            position: relative;
+
+            &-left-arrow {
+                @include element-size(41px, $calendar-menu-height);
+                @include display-options(relative);
+
+                float: left;
+
+                &-icon {
+                    @include element-size(16px, 27px);
+                    @include display-options(absolute, 29px, auto, 14px);
+                    @include bg-sprite(-6px, -118px);
+                }
+            }
+
+            &-right-arrow {
+                @include element-size(41px, $calendar-menu-height);
+                @include display-options(relative);
+
+                float: right;
+
+                &-icon {
+                    @include element-size(16px, 27px);
+                    @include display-options(absolute, 29px, 11px, auto);
+                    @include bg-sprite(-24px, -118px);
+                }
+            }
+
+            ul {
+                @include element-size(60px, $calendar-menu-height);
+                @include display-options(absolute, auto, auto, 130px);
+
+                .year {
+                    @include text-options($table-font-size, center, #e6e6e6);
+
+                    margin: 16px 0 0 0;    
+                }
+
+                .month {
+                    @include text-options(18px, center, #ffffff); 
+
+                    font-weight: bold;
+                    text-transform: $text-transform;
+                }
+            }
+        }
+
+        &-table {
+            @include element-size(100%, 100%);
+
+            font-size: $table-font-size;
+
+            &-week {
+                font-weight: bold;
+                color: $dark-green;                
+                background-color: $light-green;
+                text-transform: $text-transform;
+
+                tr {
+                    height: $table-week-height;
+                }
+            }
+
+            &-dates {
+                td {
+                    @include element-size($table-date-width, $table-date-width);
+
+                    color: $table-dates-gray;                  
+                    text-align: center;
+                }
+
+                .date {
+                    @include element-size($date-width, $date-width);
+
+                    @include display-border-radius(50%);                 
+
+                    padding: 5px 0 0 0;
+                }
+
+                .current-date,
+                .date:not(:empty):hover { /* ячейки, в которых нет чисел не подсвечиваются */
+                    color: $white;
+                    background-color: $warm-red;
+                    cursor: $cursor-type;
+                }
+            }
+        }
+    }
+
+    .weather {
+        @extend .widget-size;
+
+        &-slider {
+            @include element-size($widget-width, $slider-height);
+            @include display-options(relative);
+
+            img {
+                @include element-size($slider-img-size, $slider-img-size);
+            }
+
+            &-data {
+                @include display-options(absolute, auto, auto, 11px, 12px);
+                @include text-options(16px, auto, $white);
+
+                .temperature {
+                    @include text-options(47px);
+                }
+
+                .temperature:after {
+                    content: "\00b0";
+                }
+
+            }
+
+            &-switcher {
+                @include display-options(absolute, auto, 12px, auto, 11px);
+
+                .switcher {
+                    @include element-size($slider-switcher-size, $slider-switcher-size, $switcher-color);
+                    @include display-border-radius(50%);
+
+                    cursor: $cursor-type;
+                }
+
+                .switcher:not(:first-child) {
+                    margin: 0 0 0 2px;
+                }
+                
+                .switcher-active {
+                    background-color: $switcher-active-color;
+                }
+            }
+        }
+
+        &-menu {
+            @include menu-size($white);
+
+            word-spacing: -.26em;
+            margin: -5px 0 0 0; // нужно потому, что остается зазор между меню и слайдером
+            
+            ul {
+                @include element-size(100%, 100%);
+
+                li {
+                    @include element-size(76px, 64px);
+
+                    display: inline-block;
+                }
+            }
+
+            &-fahrenheit {
+                @include element-size(100%, 100%, $warm-red);
+                @include display-options(relative);
+
+                &-icon {
+                    @include element-size(30px, 30px);
+                    @include display-options(absolute, 17px, auto, 25px, auto);
+                    @include bg-sprite(-96px, -90px);
+                }
+
+                .fahrenheit-active {
+                    @include bg-sprite(-132px, -90px);
+                }
+            }
+
+            &-celsius {
+                @include element-size(100%, 100%);
+                @include display-options(relative);
+
+                &-icon {
+                    @include element-size(30px, 30px);
+                    @include display-options(absolute, 17px, auto, 25px, auto);
+                    @include bg-sprite(-98px, -129px);
+                }
+            }
+
+            &-weather-add {
+                @include element-size(100%, 100%);
+                @include display-options(relative);
+
+                &-icon {
+                    @include element-size(30px, 30px);
+                    @include display-options(absolute, 17px, auto, 25px, auto);
+                    @include bg-sprite(-96px, -48px);
+                }
+            }
+
+            &-weather-pad {
+                @include element-size(100%, 100%);
+                @include display-options(relative);
+
+                &-icon {
+                    @include element-size(43px, 30px);
+                    @include display-options(absolute, 17px, auto, 25px, auto);
+                    @include bg-sprite(-96px, -8px);
+                }
+            }
+        }
+    }
+
+    .music-player {
+        @extend .widget-size;
+        width: 728px;
+        height: 200px;
+
+        &-singer-info {
+            @include element-size(142px, 100%);
+
+            float: left;
+
+            img {
+                @include element-size(126px, 126px);
+
+                margin: 8px 0 0 8px;
+            }
+
+            .follow-button {
+                @include element-size(126px, 40px, $gray-blue);
+                @include text-options(14px, center, $white);
+                
+                display: inline-block;
+                text-transform: uppercase;
+                padding: 12px 0 0 0;
+                margin: 8px 0 0 8px;
+                cursor: $cursor-type;
+
+                &-icon {
+                    @include element-size(13px, 13px);
+                    @include bg-sprite(-136px, -48px);
+
+                    display: inline-block;
+                    margin: 0 15px 0 0;
+                } 
+            }
+        }
+
+        &-interface {
+            @include element-size(555px, 100%);
+
+            float: right;
+            padding: 23px 0 0 0;
+            margin: 0 0 0 0;
+
+            .singer-name {
+                @include text-options(22px, left, $singer-name-color);
+                font-weight: normal;
+            }
+
+            .song-name {
+                @extend .singer-name;
+                color: $song-name-color;
+                margin: 16px 0 0 0;
+            }
+
+            .song-scale {
+                @include song-scale($duration-width, $gray);
+
+                float: left;
+                margin: 20px 0 0 0;
+
+                &-downloaded {
+                    @include song-scale($downloaded-width, $downloaded-color);
+
+                    .song-scale-played {
+                        @include song-scale($played-width, $salad);
+                    }
+                }
+            }
+
+            .duration-time {
+                @include text-options(15px, auto, $time-color);
+
+                float: right;
+                margin: 16px 13px 0 0;
+            }
+
+            &-control-panel {
+                @include element-size(100%, 47px);
+
+                margin: 20px 0 0 0;
+
+                .play {
+                    @include control-item(0, -168px);
+                    margin-left: 0;
+                }
+
+                .prev-song {
+                    @include control-item(-52px, -167px);
+                }
+
+                .next-song {
+                    @include control-item(-104px, -167px);
+                }
+
+                .shuffle {
+                    @include control-item(-156px, -167px);
+                }
+
+                .repeat {
+                    @include control-item(-208px, -167px);
+                }
+
+                .likeit {
+                    @include control-item(-260px, -167px);
+                }
+                .likeit-selected {
+                    @include control-item(-260px, -211px); 
+                }
+
+                .favorite {
+                    @include control-item(-260px, -115px);
+                }
+
+                .external-link {
+                    @include control-item(-260px, -65px);
+                }
+            }
+        }
+    }
+
+    .messenger {
+        @extend .widget-size;
+
+        &-menu {
+            @include menu-size($salad);
+        }
+    }
+
+    .login-form {
+        @extend .widget-size;
+    }
+
+    .form-elements {
+        @extend .widget-size;
+    }
+}
