@@ -18,9 +18,26 @@ $number-pad-width: 69px;
 $chart-icon-width: 33px;
 $chart-icon-height: 30px;
 
+$table-arrow-width: 41px;
+$table-icon-width: 16px;
+$table-icon-height: 27px;
 $table-week-height: 56px;
 $table-date-width: 46px;
 $date-width: 30px;
+$table-calendar-size: 100%;
+$percentage-size: 100%;
+$weather-menu-width: 76px;
+$weather-menu-height: 64px;
+
+$std-icon-height: 30px;
+
+$music-player-width: 728px;
+$music-player-height: 200px;
+$singer-info-width: 142px;
+$img-width: 126px;
+$player-icon-width: 13px;
+$interface-width: 555px;
+$control-width: 47px;
 
 $slider-height: 248px;
 $slider-img-size: 100%;
@@ -53,6 +70,8 @@ $singer-name-color: #a8a8a8;
 $song-name-color: #d6d6d6;
 $downloaded-color: #bbfdf1;
 $time-color: #c6c6c6;
+$year-color: #e6e6e6;
+$options-green: #41c0a9;
 
 $border-style: 1px solid;
 
@@ -69,4 +88,8 @@ $currency-position-right: 27px;
 
 $curr-padding-top: 8px;
 
+$default-border-radius: 50%;
+
 $cursor-type: pointer;
+
+$default-word-spacing: -.26em;

@@ -45,7 +45,7 @@ body {
         &-menu {
             @include menu-size($gray-blue);
 
-            word-spacing: -.26em; // убираем отступы между ссылками, font-size: 0 перестал работать, поэтому использовал word-spacing
+            word-spacing: $default-word-spacing; // убираем отступы между ссылками, font-size: 0 перестал работать, поэтому использовал word-spacing
 
             .chart {
                 @include element-size($chart-width, $menu-min-height, $warm-red);
@@ -91,26 +91,26 @@ body {
             position: relative;
 
             &-left-arrow {
-                @include element-size(41px, $calendar-menu-height);
+                @include element-size($table-arrow-width, $calendar-menu-height);
                 @include display-options(relative);
 
                 float: left;
 
                 &-icon {
-                    @include element-size(16px, 27px);
+                    @include element-size($table-icon-width, $table-icon-height);
                     @include display-options(absolute, 29px, auto, 14px);
                     @include bg-sprite(-6px, -118px);
                 }
             }
 
             &-right-arrow {
-                @include element-size(41px, $calendar-menu-height);
+                @include element-size($table-arrow-width, $calendar-menu-height);
                 @include display-options(relative);
 
                 float: right;
 
                 &-icon {
-                    @include element-size(16px, 27px);
+                    @include element-size($table-icon-width, $table-icon-height);
                     @include display-options(absolute, 29px, 11px, auto);
                     @include bg-sprite(-24px, -118px);
                 }
@@ -121,13 +121,13 @@ body {
                 @include display-options(absolute, auto, auto, 130px);
 
                 .year {
-                    @include text-options($table-font-size, center, #e6e6e6);
+                    @include text-options($table-font-size, center, $year-color);
 
                     margin: 16px 0 0 0;    
                 }
 
                 .month {
-                    @include text-options(18px, center, #ffffff); 
+                    @include text-options($table-font-size + 1px, center, $white); 
 
                     font-weight: bold;
                     text-transform: $text-transform;
@@ -136,7 +136,7 @@ body {
         }
 
         &-table {
-            @include element-size(100%, 100%);
+            @include simple-size($table-calendar-size, $table-calendar-size);
 
             font-size: $table-font-size;
 
@@ -153,7 +153,7 @@ body {
 
             &-dates {
                 td {
-                    @include element-size($table-date-width, $table-date-width);
+                    @include simple-size($table-date-width, $table-date-width);
 
                     color: $table-dates-gray;                  
                     text-align: center;
@@ -161,16 +161,20 @@ body {
 
                 .date {
                     @include element-size($date-width, $date-width);
-
-                    @include display-border-radius(50%);                 
+                    @include display-border-radius($default-border-radius);                 
 
                     padding: 5px 0 0 0;
                 }
 
-                .current-date,
-                .date:not(:empty):hover { /* ячейки, в которых нет чисел не подсвечиваются */
+                .current-date { /* ячейки, в которых нет чисел не подсвечиваются */
                     color: $white;
                     background-color: $warm-red;
+                    cursor: $cursor-type;
+                }
+
+                .date:not(:empty):hover {
+                    color: hsl(0, 0, 100%);
+                    background-color: hsl(0, 100%, 76.9%);
                     cursor: $cursor-type;
                 }
             }
@@ -190,10 +194,10 @@ body {
 
             &-data {
                 @include display-options(absolute, auto, auto, 11px, 12px);
-                @include text-options(16px, auto, $white);
+                @include text-options($widget-font-size - 2px, auto, $white);
 
                 .temperature {
-                    @include text-options(47px);
+                    @include text-options($widget-font-size * 2 + 11px);
                 }
 
                 .temperature:after {
@@ -207,7 +211,7 @@ body {
 
                 .switcher {
                     @include element-size($slider-switcher-size, $slider-switcher-size, $switcher-color);
-                    @include display-border-radius(50%);
+                    @include display-border-radius($default-border-radius);
 
                     cursor: $cursor-type;
                 }
@@ -225,25 +229,25 @@ body {
         &-menu {
             @include menu-size($white);
 
-            word-spacing: -.26em;
+            word-spacing: $default-word-spacing;
             margin: -5px 0 0 0; // нужно потому, что остается зазор между меню и слайдером
             
             ul {
-                @include element-size(100%, 100%);
+                @include element-size($percentage-size, $percentage-size);
 
                 li {
-                    @include element-size(76px, 64px);
+                    @include element-size($weather-menu-width, $weather-menu-height);
 
                     display: inline-block;
                 }
             }
 
             &-fahrenheit {
-                @include element-size(100%, 100%, $warm-red);
+                @include element-size($percentage-size, $percentage-size, $warm-red);
                 @include display-options(relative);
 
                 &-icon {
-                    @include element-size(30px, 30px);
+                    @include element-size($std-icon-height, $std-icon-height);
                     @include display-options(absolute, 17px, auto, 25px, auto);
                     @include bg-sprite(-96px, -90px);
                 }
@@ -254,33 +258,33 @@ body {
             }
 
             &-celsius {
-                @include element-size(100%, 100%);
+                @include element-size($percentage-size, $percentage-size);
                 @include display-options(relative);
 
                 &-icon {
-                    @include element-size(30px, 30px);
+                    @include element-size($std-icon-height, $std-icon-height);
                     @include display-options(absolute, 17px, auto, 25px, auto);
                     @include bg-sprite(-98px, -129px);
                 }
             }
 
             &-weather-add {
-                @include element-size(100%, 100%);
+                @include element-size($percentage-size, $percentage-size);
                 @include display-options(relative);
 
                 &-icon {
-                    @include element-size(30px, 30px);
+                    @include element-size($std-icon-height, $std-icon-height);
                     @include display-options(absolute, 17px, auto, 25px, auto);
                     @include bg-sprite(-96px, -48px);
                 }
             }
 
             &-weather-pad {
-                @include element-size(100%, 100%);
+                @include element-size($percentage-size, $percentage-size);
                 @include display-options(relative);
 
                 &-icon {
-                    @include element-size(43px, 30px);
+                    @include element-size($std-icon-height + 13px, $std-icon-height);
                     @include display-options(absolute, 17px, auto, 25px, auto);
                     @include bg-sprite(-96px, -8px);
                 }
@@ -290,23 +294,23 @@ body {
 
     .music-player {
         @extend .widget-size;
-        width: 728px;
-        height: 200px;
+        width: $music-player-width;
+        height: $music-player-height;
 
         &-singer-info {
-            @include element-size(142px, 100%);
+            @include element-size($singer-info-width, $percentage-size);
 
             float: left;
 
             img {
-                @include element-size(126px, 126px);
+                @include element-size($img-width, $img-width);
 
                 margin: 8px 0 0 8px;
             }
 
             .follow-button {
-                @include element-size(126px, 40px, $gray-blue);
-                @include text-options(14px, center, $white);
+                @include element-size($img-width, $img-width - 86px, $gray-blue);
+                @include text-options($widget-font-size - 4px, center, $white);
                 
                 display: inline-block;
                 text-transform: uppercase;
@@ -315,7 +319,7 @@ body {
                 cursor: $cursor-type;
 
                 &-icon {
-                    @include element-size(13px, 13px);
+                    @include element-size($player-icon-width, $player-icon-width);
                     @include bg-sprite(-136px, -48px);
 
                     display: inline-block;
@@ -325,14 +329,14 @@ body {
         }
 
         &-interface {
-            @include element-size(555px, 100%);
+            @include element-size($interface-width, $percentage-size);
 
             float: right;
             padding: 23px 0 0 0;
             margin: 0 0 0 0;
 
             .singer-name {
-                @include text-options(22px, left, $singer-name-color);
+                @include text-options($widget-font-size + 4px, left, $singer-name-color);
                 font-weight: normal;
             }
 
@@ -358,14 +362,14 @@ body {
             }
 
             .duration-time {
-                @include text-options(15px, auto, $time-color);
+                @include text-options($widget-font-size - 3px, auto, $time-color);
 
                 float: right;
                 margin: 16px 13px 0 0;
             }
 
             &-control-panel {
-                @include element-size(100%, 47px);
+                @include element-size($percentage-size, $control-width);
 
                 margin: 20px 0 0 0;
 
@@ -413,6 +417,32 @@ body {
 
         &-menu {
             @include menu-size($salad);
+
+            &-options {
+                @include element-size(75px, $percentage-size, $options-green);
+                
+                float: left;
+
+                &-icon {
+                    @include element-size(36px, 25px);
+                    @include bg-sprite(-210px, 0);
+
+                    margin: 17px 0 0 17px;
+                }
+            }
+
+            &-add-contact {
+                @include element-size(55px, $percentage-size);
+
+                float: right;
+
+                &-icon {
+                    @include element-size(27px, 27px);
+                    @include bg-sprite(-48px, -48px);
+
+                    margin: 18px 0 0 14px;
+                }
+            }
         }
     }
 

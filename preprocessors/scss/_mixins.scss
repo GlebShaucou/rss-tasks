@@ -7,11 +7,17 @@
 @mixin element-size($width, $height, $background-color: inherit) {
     width: $width;
     height: $height;
-    background-color: $background-color; 
+    background-color: $background-color;
+    display: inline-block; 
+}
+
+@mixin simple-size($width, $height) {
+    width: $width;
+    height: $height;
 }
 
 @mixin display-options($position, $top: auto, $right: auto, $left: auto, $bottom: auto) {
-    display: inline-block;
+    // display: inline-block;
     position: $position;
     top: $top;
     right: $right;
@@ -31,7 +37,7 @@
 }
 
 @mixin display-border-radius($radius) {
-    display: inline-block;
+    // display: inline-block;
     border-radius: $radius;
 }
 
