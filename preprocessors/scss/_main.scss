@@ -58,6 +58,10 @@ body {
                 }
             }
 
+            .chart:hover {
+                background-color: saturate(hsl(0, 80%, 77%), 20%);
+            }
+
             .add-currency {
                 @include element-size($add-currency-width, $menu-min-height);
                 @include display-options(relative);
@@ -69,6 +73,10 @@ body {
                 }
             }
 
+            .add-currency:hover {
+                background-color: saturate(hsl(0, 80%, 77%), 20%);
+            }
+
             .number-pad {
                 @include element-size($number-pad-width, $menu-min-height);
                 @include display-options(relative);
@@ -78,6 +86,9 @@ body {
                     @include display-options(absolute, 19px, auto, 19px);
                     @include bg-sprite(-8px, -8px);
                 }
+            }
+            .number-pad:hover {
+                background-color: saturate(hsl(0, 80%, 77%), 20%);
             }
         }
     }
@@ -103,6 +114,10 @@ body {
                 }
             }
 
+            &-left-arrow:hover {
+                background-color: saturate($dark-green, 10%);
+            } 
+
             &-right-arrow {
                 @include element-size($table-arrow-width, $calendar-menu-height);
                 @include display-options(relative);
@@ -114,6 +129,10 @@ body {
                     @include display-options(absolute, 29px, 11px, auto);
                     @include bg-sprite(-24px, -118px);
                 }
+            }
+
+            &-right-arrow:hover {
+                background-color: saturate($dark-green, 10%);
             }
 
             ul {
@@ -215,6 +234,9 @@ body {
 
                     cursor: $cursor-type;
                 }
+                .switcher:hover {
+                    background-color: saturate($switcher-active-color, 20%);
+                }
 
                 .switcher:not(:first-child) {
                     margin: 0 0 0 2px;
@@ -256,6 +278,9 @@ body {
                     @include bg-sprite(-132px, -90px);
                 }
             }
+            &-fahrenheit:hover {
+                background-color: saturate(hsl(0, 80%, 77%), 20%);
+            }
 
             &-celsius {
                 @include element-size($percentage-size, $percentage-size);
@@ -266,6 +291,9 @@ body {
                     @include display-options(absolute, 17px, auto, 25px, auto);
                     @include bg-sprite(-98px, -129px);
                 }
+            }
+            &-celsius:hover {
+                background-color: saturate(hsl(0, 80%, 77%), 20%);
             }
 
             &-weather-add {
@@ -279,8 +307,12 @@ body {
                 }
             }
 
+            &-weather-add:hover {
+                background-color: saturate(hsl(0, 80%, 77%), 20%); 
+            }
+
             &-weather-pad {
-                @include element-size($percentage-size, $percentage-size);
+                @include element-size(79px, $percentage-size);
                 @include display-options(relative);
 
                 &-icon {
@@ -288,6 +320,10 @@ body {
                     @include display-options(absolute, 17px, auto, 25px, auto);
                     @include bg-sprite(-96px, -8px);
                 }
+            }
+
+            &-weather-pad:hover {
+                background-color: saturate(hsl(0, 80%, 77%), 20%);            
             }
         }
     }
@@ -325,6 +361,9 @@ body {
                     display: inline-block;
                     margin: 0 15px 0 0;
                 } 
+            }
+            .follow-button:hover {
+                background-color: lighten($gray-blue, 30%)
             }
         }
 
@@ -377,22 +416,49 @@ body {
                     @include control-item(0, -168px);
                     margin-left: 0;
                 }
+                .pause,
+                .play:hover { /* класс pause подключаем, когда нажали остановить песню */
+                    @include bg-sprite(0, -216px);
+                }
+                .pause:hover { /* стиль для случая, когда песня на паузе */
+                    @include bg-sprite(0, -168px);
+                }
 
                 .prev-song {
                     @include control-item(-52px, -167px);
+                }
+                .prev-song:hover {
+                    @include bg-sprite(-52px, -214px);
                 }
 
                 .next-song {
                     @include control-item(-104px, -167px);
                 }
+                .next-song:hover {
+                    @include bg-sprite(-102px, -215px);
+                }
 
                 .shuffle {
                     @include control-item(-156px, -167px);
                 }
+                .shuffle-selected,
+                .shuffle:hover { /* класс .shuffle-selected нужен, если пользователь включит случайный порядок */
+                    @include bg-sprite(-156px, -214px);
+                }
+                .shuffle-selected:hover {
+                    @include bg-sprite(-156px, -167px);
+                } 
 
                 .repeat {
                     @include control-item(-208px, -167px);
                 }
+                .repeat-selected,
+                .repeat:hover { /* класс .repeat-selected нужен, если пользователь включит повтор */
+                    @include bg-sprite(-208px, -212px);
+                }
+                .repeat-selected:hover {
+                    @include bg-sprite(-208px, -167px);
+                } 
 
                 .likeit {
                     @include control-item(-260px, -167px);
@@ -400,13 +466,31 @@ body {
                 .likeit-selected {
                     @include control-item(-260px, -211px); 
                 }
+                .likeit:hover {
+                    @include bg-sprite(-260px, -211px);
+                }
+                .likeit-selected:hover {
+                    @include bg-sprite(-260px, -167px);
+                }
+
 
                 .favorite {
                     @include control-item(-260px, -115px);
                 }
+                .favorite-selected,
+                .favorite:hover {
+                    @include bg-sprite(-208px, -115px);
+                }
+                .favorite-selected:hover {
+                    @include bg-sprite(-260px, -115px);
+                }
+
 
                 .external-link {
                     @include control-item(-260px, -65px);
+                }
+                .external-link:hover {
+                    @include bg-sprite(-210px, -65px);
                 }
             }
         }
@@ -431,6 +515,10 @@ body {
                 }
             }
 
+            &-options:hover {
+               background-color: lighten($options-green, 20%);
+            }
+
             &-add-contact {
                 @include element-size(55px, $percentage-size);
 
@@ -442,6 +530,10 @@ body {
 
                     margin: 18px 0 0 14px;
                 }
+            }
+
+            &-add-contact:hover {
+                background-color: darken($salad, 20%);
             }
         }
 
@@ -555,6 +647,11 @@ body {
         .login-active,
         .password-active {
             border-left: $big-border $warm-red; 
+        }
+
+        .login:hover,
+        .password:hover{
+            border-bottom: $border-style $gray-border;
         }
 
         .login-menu {
