@@ -16,15 +16,13 @@
     width: $control-item-width;
     height: $control-item-width;    
     display: inline-block;
-    cursor: pointer;
+    cursor: $cursor-type;
     background: $bg-sprite-url;
     margin: 0 0 0 22px;
 }
 
 .login-icons-class {
-    width: 22px;
-    height: 24px;
-    display: inline-block;
+    @include contact-simple-size(22px, 24px);
     margin: 26px 22px 25px 22px;
 }
 
@@ -39,5 +37,45 @@
     font-weight: 700;
     text-transform: uppercase;
     border: none;
-    cursor: pointer;
+    cursor: $cursor-type;
+}
+
+.check-input-class {
+    @include contact-simple-size(204px, 51px, 10px);
+    
+    font-size: $widget-font-size + 2;
+    padding: 0 0 0 12px;
+    position: absolute;
+}
+
+.range-track-class {
+    width: 100%;
+    height: 8px;
+    cursor: $cursor-type;
+    border-radius: 10px;
+    border: none;
+}
+
+.range-tumb-class {     
+    @include contact-simple-size(17px, 17px, 50%);
+
+    -webkit-appearance: none;  
+    border: none;
+    cursor: $cursor-type;
+    margin-top: -4px; 
+}
+
+.checkbox-class {
+    @include display-options(absolute, 14px, 10px);
+
+    cursor: $cursor-type;
+    font-size: $widget-font-size - 8px;
+    font-weight: bold;
+}
+
+.radio-class {
+    cursor: $cursor-type;
+    font-size: $widget-font-size;
+    font-weight: bold;
+    color: $dark-gray;
 }

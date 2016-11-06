@@ -17,7 +17,6 @@
 }
 
 @mixin display-options($position, $top: auto, $right: auto, $left: auto, $bottom: auto) {
-    // display: inline-block; //не забыть убрать
     position: $position;
     top: $top;
     right: $right;
@@ -37,7 +36,6 @@
 }
 
 @mixin display-border-radius($radius) {
-    // display: inline-block; //не забыть убрать
     border-radius: $radius;
 }
 
@@ -71,4 +69,82 @@
 @mixin buttons-colors($color, $background-color) {
     color: $color;
     background-color: $background-color;
+}
+
+@mixin placeholder-color($type, $color) {
+    @if $type == valid {
+        .valid-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: $color;
+        }
+        .valid-input::-moz-placeholder { /* Firefox 19+ */
+            color: $color;
+        }
+        .valid-input:-ms-input-placeholder { /* IE 10+ */
+            color: $color;
+        }
+        .valid-input:-moz-placeholder { /* Firefox 18- */
+            color: $color;
+        }
+    } @else {
+        .invalid-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: $color;
+        }
+        .invalid-input::-moz-placeholder { /* Firefox 19+ */
+            color: $color;
+        }
+        .invalid-input:-ms-input-placeholder { /* IE 10+ */
+            color: $color;
+        }
+        .invalid-input:-moz-placeholder { /* Firefox 18- */
+            color: $color;
+        }
+    } 
+}
+
+@mixin check-inputs($color, $top: auto, $bottom: auto, $left: auto, $border-color: $white) {
+    color: $color;
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    border: $middle-border $border-color;
+}
+
+@mixin range-track($background-color) {
+    .range::-webkit-slider-runnable-track {
+        background-color: $background-color;
+        @extend .range-track-class;
+    }
+
+    .range::-moz-range-track {
+        background-color: $background-color;
+        @extend .range-track-class;
+    }
+
+    .range::-ms-track {
+        background-color: $background-color;
+        @extend .range-track-class;
+    }
+}
+
+@mixin range-tumb($background-color, $border-color) {
+    .range::-webkit-slider-thumb {
+        background-color: $background-color;
+        border: $border-style $border-color;
+
+        @extend .range-tumb-class;
+    }
+
+    .range::-moz-range-thumb {
+        background-color: $background-color;
+        border: $border-style $border-color;
+
+        @extend .range-tumb-class; 
+    }
+
+    .range::-ms-thumb {    
+        background-color: $background-color;
+        border: $border-style $border-color;
+        
+        @extend .range-tumb-class;
+    }
 }

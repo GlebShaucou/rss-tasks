@@ -560,6 +560,8 @@ body {
         .login-menu {
             @include menu-size(#526e82);
 
+            word-spacing: $default-word-spacing;
+
             .sign-up {
                 @extend .login-buttons-class;
 
@@ -567,16 +569,126 @@ body {
                 @include buttons-colors($some-gray, $more-gray);
             }
 
+            .sign-up:hover {
+                color: lighten(hsl(0, 0, 70%), 30%);
+                background-color: saturate(hsl(0, 80%, 77%), 20%);
+            }
+
             .sign-in {
                 @extend .login-buttons-class;
 
-                @include simple-size(150px, 100%);
+                @include simple-size(155px, 100%);
                 @include buttons-colors($white, $gray-blue);
+            }
+
+            .sign-in:hover {
+                background-color: saturate(hsl(0, 80%, 77%), 20%);
             }
         }
     }
 
     .form-elements {
         @extend .widget-size;
+
+        position: relative;
+
+        .valid-input {
+            @extend .check-input-class;
+
+            @include check-inputs($more-green, 14px, auto, 12px, $light-green);
+        }
+
+        @include placeholder-color(valid, $more-green);
+
+        .invalid-input {
+            @extend .check-input-class;
+
+            @include check-inputs($some-red, auto, 11px, 12px, $warm-red);
+        }
+
+        @include placeholder-color(invalid, $some-red);
+
+        .range {
+            @include display-options(absolute, 98px, auto, 12px);
+            
+            width: 213px;
+            -webkit-appearance: none;           
+        }
+
+        @include range-track($range-track-color);
+        @include range-tumb($gray-blue, $black); 
+
+        .fill-lower-container {
+            @include simple-size(149.1px, 8px);
+            @include display-options(absolute, 100px, auto, 13px);
+
+            background-color: #526e82; 
+            border-radius: 10px;
+        }
+
+        .checkbox {
+            @extend .checkbox-class;
+
+            display: none;
+        }
+
+        .checkbox + label {
+            @extend .checkbox-class;
+        }
+
+        .checkbox + label:before {
+            content: "";   
+            @include contact-simple-size(45px, 46px, 10px);
+            @include simple-size(45px, 46px);
+
+            border: $middle-border $warm-red;
+        }
+
+        .checkbox:checked + label:before {
+            @include bg-sprite(2px, -314px);
+        }
+
+        .radio {
+            @include display-options(absolute, 82px, 13px);
+
+            @extend .radio-class;
+
+            display: none;
+        }
+
+        .radio + label {
+            @include display-options(absolute, 82px, 13px);
+
+            @extend .radio-class;
+        }
+
+        .radio-checked {
+            @include display-options(absolute, 143px, 13px);
+
+            @extend .radio-class;
+
+            display: none; 
+        }
+
+        .radio-checked + label {
+            @include display-options(absolute, 143px, 13px);
+
+            @extend .radio-class;
+        }
+
+        .radio + label:before {
+            content: "";   
+
+            @include contact-simple-size(42px, 42px, 50%);
+            
+            @include bg-sprite(0, -272px);
+        }
+
+        .radio-checked + label:before {
+            content: "";   
+            @include contact-simple-size(42px, 42px, 50%);
+            
+            @include bg-sprite(-48px, -272px);
+        }  
     }
 }
