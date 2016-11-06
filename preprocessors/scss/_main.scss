@@ -447,11 +447,133 @@ body {
 
         &-list-of-contacts {
             
+            &-item {
+                @include simple-size(100%, 77px);
+
+                position: relative;
+
+                .avatar-icon {
+                    @include contact-simple-size(66px, 66px, 50%);
+                    @include display-options(absolute, 5px, auto, 6px, auto);
+                }
+
+                .message-info {
+                    @include display-options(absolute, 14px, auto, 85px);
+
+                    overflow: hidden;
+
+                    .contact-name {
+                        @include messenger-text($widget-font-size, 500, $contact-name-color);
+                    }
+
+                    .message-text {
+                        @include simple-size(198px, 20px);
+                        @include messenger-text($widget-font-size - 5px, 300, $contact-text-color);
+
+                        margin: 5px 0 0 0;
+                    }
+
+                    .message-sent {
+                        @include bg-sprite(-56px, -317px);
+                        padding: 0 0 0 21px;
+                    }
+
+                    .message-not-delivered {
+                        @include bg-sprite(-56px, -338px);
+                        padding: 0 0 0 21px;
+                    }
+
+                    .message-typing {
+                        font-style: italic;
+                    }
+                }
+
+                .contact-status {
+                    @include contact-simple-size(8px, 8px, 50%);
+                    @include display-options(absolute, 35px, 16px, auto, auto);
+                }
+
+                .status-online {
+                    background-color: $light-green;
+                }
+
+                .status-new-message {
+                    background-color: $new-message-color;
+                }
+
+                .status-offline {
+                    background-color: $offline;
+                }
+
+                .status-none {
+                    background-color: $white;
+                }
+            }
+
+            &-item:not(:last-child) {
+                border-bottom: $border-style $gray-border;
+            }
         }
     }
 
     .login-form {
         @extend .widget-size;
+
+        .login {
+            border-bottom: $border-style $gray-border;
+            position: relative;
+
+            &-icon {
+                @extend .login-icons-class;
+
+                @include bg-sprite(-240px, -38px);
+            }
+
+            input {
+                @extend .login-input-class;
+
+                @include display-options(absolute, 30px);
+            }
+        }
+
+        .password {
+            position: relative;
+
+            &-icon {
+                @extend .login-icons-class;
+
+                @include bg-sprite(-208px, -38px);
+            }
+
+            input {
+                @extend .login-input-class;
+
+                @include display-options(absolute, 30px);
+            }
+        }
+
+        .login-active,
+        .password-active {
+            border-left: $big-border $warm-red; 
+        }
+
+        .login-menu {
+            @include menu-size(#526e82);
+
+            .sign-up {
+                @extend .login-buttons-class;
+
+                @include simple-size(152px, 100%);
+                @include buttons-colors($some-gray, $more-gray);
+            }
+
+            .sign-in {
+                @extend .login-buttons-class;
+
+                @include simple-size(150px, 100%);
+                @include buttons-colors($white, $gray-blue);
+            }
+        }
     }
 
     .form-elements {

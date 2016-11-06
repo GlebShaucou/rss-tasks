@@ -20,3 +20,24 @@
     background: $bg-sprite-url;
     margin: 0 0 0 22px;
 }
+
+.login-icons-class {
+    width: 22px;
+    height: 24px;
+    display: inline-block;
+    margin: 26px 22px 25px 22px;
+}
+
+.login-input-class {
+    font-size: $widget-font-size + 2px;
+    color: $light-gray;
+    border: none;
+}
+
+.login-buttons-class {
+    font-size: $widget-font-size;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+}

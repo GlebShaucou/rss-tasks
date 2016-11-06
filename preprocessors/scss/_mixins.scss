@@ -53,3 +53,22 @@
     @extend .control-item-class;
     background-position: $x $y;
 }
+
+@mixin messenger-text($font-size, $font-weight, $color) {
+    font-size: $font-size;
+    font-weight: $font-weight;
+    color: $color;
+    text-overflow: ellipsis;
+}
+
+@mixin contact-simple-size($width, $height, $border-radius: 0%) {
+    display: inline-block;
+    width: $width;
+    height: $height;
+    border-radius: $border-radius;
+}
+
+@mixin buttons-colors($color, $background-color) {
+    color: $color;
+    background-color: $background-color;
+}
