@@ -1,0 +1,51 @@
+html {
+    position: relative; // это нужно для Sticky Footer взял с сайта примеров Bootstrap 
+    min-height: 100%; // это нужно для Sticky Footer
+
+    body {
+        margin-bottom: 204px; // это нужно для Sticky Footer
+        padding-top: 80px;
+
+        // .navbar {
+        //     height: $navbar-height;
+        // }
+
+        .navbar-fixed-top {
+            border: none;
+        }
+
+        .slider {
+            background: url('../img/slider-img.png');
+            background-size: cover;
+            height: 560px;
+        }
+
+        .services {
+            height: 277px;
+            background-color: #e7e7e7;
+        }
+
+        .portfolio {
+            height: 514px;
+        }
+
+        .subscribe-section {
+
+            .container {
+                height: 185px;
+                color: #ffffff;
+                background-color: #e84c3d;
+                border-radius: 12px;
+            }
+            
+        }
+
+        .footer {
+            position: absolute; // это нужно для Sticky Footer
+            bottom: 0; // это нужно для Sticky Footer
+            width: 100%; // это нужно для Sticky Footer
+            height: 204px; // это нужно для Sticky Footer
+            background-color: #202628; // это нужно для Sticky Footer
+        }
+    }
+}
