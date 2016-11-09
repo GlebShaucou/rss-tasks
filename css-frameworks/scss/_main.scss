@@ -37,22 +37,30 @@ html {
             height: 277px;
             background-color: #e7e7e7;
 
-            .red-circle {
-                width: 70px;
-                height: 70px;
-                color: #ffffff;
-                background-color: $dunkel-red;
-                font-size: 26px;
-                border-radius: 50%;
-                padding: 17px 0 0 22px;
+            .services-row {
+                margin-top: 80px;
+
+                .red-circle {
+                    width: 70px;
+                    height: 70px;
+                    color: #ffffff;
+                    background-color: $dunkel-red;
+                    font-size: 26px;
+                    border-radius: 50%;
+                    padding: 17px 0 0 22px;
+                }
             }
         }
 
         .portfolio {
             height: 514px;
 
-            .img-circle {
-                transform: scale(-1,1); /* отражает изображение */
+            .portfolio-row {
+                margin-top: 80px;
+                    
+                .img-circle {
+                    transform: scale(-1,1); /* отражает изображение */
+                }
             }
         }
 
@@ -64,26 +72,33 @@ html {
                 background-color: $dunkel-red;
                 border-radius: 12px;
 
-                .black-circle {
-                    width: 70px;
-                    height: 70px;
-                    display: inline-block;
-                    background-color: #202628;
-                    border-radius: 50%;
-                    font-size: 26px;
-                    padding: 15px 0 0 23px;
+                .subscribe-section-row {
+                    margin-top: 50px;
+
+                    .black-circle {
+                        width: 70px;
+                        height: 70px;
+                        display: inline-block;
+                        background-color: #202628;
+                        border-radius: 50%;
+                        font-size: 26px;
+                        padding: 15px 0 0 23px;
+                    }
                 }
             }
-
         }
 
         .company-contacts {
             height: 570px;
 
-            .img-circle {
-                width: 70px;
-                height: 70px;
-                border-radius: 50%;
+            &-row {
+                margin-top: 80px;
+
+                .img-circle {
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 50%;
+                }
             }
         }
 
@@ -92,7 +107,12 @@ html {
             bottom: 0; // это нужно для Sticky Footer
             width: 100%; // это нужно для Sticky Footer
             height: 204px; // это нужно для Sticky Footer
-            background-color: #202628; // это нужно для Sticky Footer
+            color: #767c7e;
+            background-color: #202628;
+
+            &-row {
+                margin-top: 80px;
+            } 
         }
     }
 }
