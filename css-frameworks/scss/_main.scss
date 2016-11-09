@@ -12,21 +12,48 @@ html {
 
         .navbar-fixed-top {
             border: none;
+
+            .navbar-brand {
+                text-transform: uppercase;
+                font-size: 25px;
+            }
         }
 
         .slider {
+            color: #e7e7e7;
             background: url('../img/slider-img.png');
             background-size: cover;
             height: 560px;
+
+            .white-line {
+                display: inline-block;
+                width: 264px;
+                height: 14px;
+                border-top: 2px solid #e7e7e7;
+            }
         }
 
         .services {
             height: 277px;
             background-color: #e7e7e7;
+
+            .red-circle {
+                width: 70px;
+                height: 70px;
+                color: #ffffff;
+                background-color: $dunkel-red;
+                font-size: 26px;
+                border-radius: 50%;
+                padding: 17px 0 0 22px;
+            }
         }
 
         .portfolio {
             height: 514px;
+
+            .img-circle {
+                transform: scale(-1,1); /* отражает изображение */
+            }
         }
 
         .subscribe-section {
@@ -34,10 +61,30 @@ html {
             .container {
                 height: 185px;
                 color: #ffffff;
-                background-color: #e84c3d;
+                background-color: $dunkel-red;
                 border-radius: 12px;
+
+                .black-circle {
+                    width: 70px;
+                    height: 70px;
+                    display: inline-block;
+                    background-color: #202628;
+                    border-radius: 50%;
+                    font-size: 26px;
+                    padding: 15px 0 0 23px;
+                }
             }
-            
+
+        }
+
+        .company-contacts {
+            height: 570px;
+
+            .img-circle {
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+            }
         }
 
         .footer {

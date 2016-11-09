@@ -1,3 +1,5 @@
+$dunkel-red: #e84c3d;
+
 //** Global color for active items (e.g., navs or dropdowns).
 $component-active-color: #ffffff;
 //** Global background color for active items (e.g., navs or dropdowns).
@@ -14,7 +16,13 @@ $navbar-default-link-hover-bg: #ff8989;
 $navbar-default-link-active-color: #ffffff;
 $navbar-default-link-active-bg: #ff8989;
 
+$nav-link-hover-bg: #ff8989;
+
 // Navbar brand label
 $navbar-default-brand-color: #e7e7e7;
 $navbar-default-brand-hover-color: #ffffff;
-$navbar-default-brand-hover-bg: #ff8989;
+$navbar-default-brand-hover-bg: $dunkel-red;
+
+$icon-font-path: "../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
+
+$link-color: $dunkel-red;
