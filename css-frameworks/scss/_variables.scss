@@ -2,30 +2,47 @@ $font-family-sans-serif: 'Fjalla One', sans-serif;
 $font-family-serif: 'Fjalla One', serif;
 
 $dunkel-red: #e84c3d;
+$white: #ffffff;
+$main-text-color: #767c7e;
+$text-color-gray: #e7e7e7;
+$main-black: #202628;
+
+$font-size-h2: 21px;
+$font-size-h3: 16px;
+
+$text-color: $main-text-color;
+$headings-color: $main-black;
+
+$slider-bg: url('../img/slider-img.png') no-repeat;
+$slider-height: 560px;
 
 //** Global color for active items (e.g., navs or dropdowns).
-$component-active-color: #ffffff;
+$component-active-color: $white;
 //** Global background color for active items (e.g., navs or dropdowns).
-$component-active-bg: #ff8989;
+$component-active-bg: $dunkel-red;
 
 $navbar-height: 80px;
-$navbar-default-color: #e7e7e7;
-$navbar-default-bg: #202628;
+$navbar-default-color: $text-color-gray;
+$navbar-default-bg: $main-black;
 
 // Navbar links
-$navbar-default-link-color: #e7e7e7;
-$navbar-default-link-hover-color: #ffffff;
-$navbar-default-link-hover-bg: #ff8989;
-$navbar-default-link-active-color: #ffffff;
-$navbar-default-link-active-bg: #ff8989;
+$navbar-default-link-color: $text-color-gray;
+$navbar-default-link-hover-color: $white;
+$navbar-default-link-hover-bg: $dunkel-red;
+$navbar-default-link-active-color: $white;
+$navbar-default-link-active-bg: $dunkel-red;
 
-$nav-link-hover-bg: #ff8989;
+$nav-link-hover-bg: $dunkel-red;
 
 // Navbar brand label
-$navbar-default-brand-color: #e7e7e7;
-$navbar-default-brand-hover-color: #ffffff;
+$navbar-default-brand-color: $text-color-gray;
+$navbar-default-brand-hover-color: $white;
 $navbar-default-brand-hover-bg: $dunkel-red;
 
 $icon-font-path: "../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
 
 $link-color: $dunkel-red;
+
+$margin-top-content-row: 80px;
+
+$footer-height: 204px;

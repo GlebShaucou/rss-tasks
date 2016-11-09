@@ -3,8 +3,8 @@ html {
     min-height: 100%; // это нужно для Sticky Footer
 
     body {
-        margin-bottom: 204px; // это нужно для Sticky Footer
-        padding-top: 80px;
+        margin-bottom: $footer-height; // это нужно для Sticky Footer
+        padding-top: $navbar-height;
 
         // .navbar {
         //     height: $navbar-height;
@@ -17,33 +17,78 @@ html {
                 text-transform: uppercase;
                 font-size: 25px;
             }
+
+            .navbar-right {
+                font-size: 13px;
+                text-transform: uppercase;
+            }
         }
 
         .slider {
-            color: #e7e7e7;
-            background: url('../img/slider-img.png');
+            color: $text-color-gray;
+            background: $slider-bg;
             background-size: cover;
-            height: 560px;
+            height: $slider-height;
 
-            .white-line {
-                display: inline-block;
-                width: 264px;
-                height: 14px;
-                border-top: 2px solid #e7e7e7;
+            &-row {
+                margin-top: 290px;
+
+                .slider-description-left-arrow {
+                    width: 34px;
+                    height: 70px;
+                    display: inline-block;
+                    border-radius: 34px 0 0 34px;
+                    font-size: 24px;
+                    color: $main-black;
+                    background-color: $dunkel-red;
+                    padding: 20px 0 0 7px;
+                    border-right: 1px solid $main-black;
+                    cursor: pointer;
+                }
+
+                .slider-description-right-arrow {
+                    width: 34px;
+                    height: 70px;
+                    display: inline-block;
+                    border-radius: 0 34px 34px 0;
+                    font-size: 24px;
+                    color: $main-black;
+                    background-color: $dunkel-red;
+                    padding: 20px 0 0 3px;
+                    margin-left: -2px;
+                    cursor: pointer;
+                }
+
+                .slider-description-left-arrow:hover,
+                .slider-description-right-arrow:hover {
+                    color: $dunkel-red;
+                    background-color: $main-black;
+                }
+
+                h1 {
+                    color: $text-color-gray; 
+                }
+
+                .white-line {
+                    display: inline-block;
+                    width: 240px;
+                    height: 14px;
+                    border-top: 2px solid $text-color-gray;
+                }
             }
         }
 
         .services {
             height: 277px;
-            background-color: #e7e7e7;
+            background-color: $text-color-gray;
 
             .services-row {
-                margin-top: 80px;
+                margin-top: $margin-top-content-row;
 
                 .red-circle {
                     width: 70px;
                     height: 70px;
-                    color: #ffffff;
+                    color: $white;
                     background-color: $dunkel-red;
                     font-size: 26px;
                     border-radius: 50%;
@@ -56,7 +101,7 @@ html {
             height: 514px;
 
             .portfolio-row {
-                margin-top: 80px;
+                margin-top: $margin-top-content-row;
                     
                 .img-circle {
                     transform: scale(-1,1); /* отражает изображение */
@@ -68,7 +113,7 @@ html {
 
             .container {
                 height: 185px;
-                color: #ffffff;
+                color: $white;
                 background-color: $dunkel-red;
                 border-radius: 12px;
 
@@ -79,7 +124,7 @@ html {
                         width: 70px;
                         height: 70px;
                         display: inline-block;
-                        background-color: #202628;
+                        background-color: $main-black;
                         border-radius: 50%;
                         font-size: 26px;
                         padding: 15px 0 0 23px;
@@ -92,7 +137,7 @@ html {
             height: 570px;
 
             &-row {
-                margin-top: 80px;
+                margin-top: $margin-top-content-row;
 
                 .img-circle {
                     width: 70px;
@@ -106,12 +151,12 @@ html {
             position: absolute; // это нужно для Sticky Footer
             bottom: 0; // это нужно для Sticky Footer
             width: 100%; // это нужно для Sticky Footer
-            height: 204px; // это нужно для Sticky Footer
+            height: $footer-height; // это нужно для Sticky Footer
             color: #767c7e;
-            background-color: #202628;
+            background-color: $main-black;
 
             &-row {
-                margin-top: 80px;
+                margin-top: $margin-top-content-row;
             } 
         }
     }
