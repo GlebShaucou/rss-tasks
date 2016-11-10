@@ -1,0 +1,1140 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+}
+
+body {
+    font-family: 'Varela Round', sans-serif;
+    background-color: #efefef;
+}
+
+h2, h3, p {
+    margin: 0;
+}
+
+a:visited {
+    border: none;
+}
+
+ul { /* сбросим стиль списка */
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+button,
+input[type="submit"],
+input[type="text"],
+input[type="password"] {
+    font-family: 'Varela Round', sans-serif;
+}
+
+table {
+    border-spacing: 0;
+}
+
+.clear:after { /* метод Micro Clear Fix взял у Дэвида Макфарланда из "Большая книга CSS3" */
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+.converter-options,
+.weather-menu,
+.messenger-menu,
+.login-menu {
+    width: 307px;
+    height: 64px;
+}
+
+.chart-icon,
+.add-currency-icon,
+.number-pad-icon,
+.calendar-arrows span,
+.weather-menu span,
+.add-singer-icon,
+.control-item,
+.menu-list span,
+.add-contact span,
+.message-sent,
+.message-not-delivered,
+.login-icon,
+.password-icon,
+.radio + label:before,
+.radio-checked + label:before,
+.checkbox:checked + label:before {
+    background: url("../img/sprites.png") no-repeat;
+}
+
+.converter,
+.calendar,
+.weather,
+.music-player,
+.messenger,
+.login-form,
+.form-elements {
+    margin: 20px;
+}
+
+/* конвертер валют */
+/* ############################################# */
+.converter {
+    width: 307px;
+    height: 290px;
+    color: #b2b2b2;
+    background-color: #ffffff;
+}
+
+.converter-wrapper { /* для прижатия меню к низу, потому что в макете не равные высоты у валют */
+    min-height: 100%; 
+    margin-bottom: -64px; 
+}
+
+.converter-push { /* для прижатия меню к низу */
+    height: 64px;
+}
+
+.converter ul {
+    padding: 7px 0 0 0;
+}
+
+.converter li {
+    min-height: 109px;
+    position: relative;
+}
+
+.converter li:not(:last-child) {
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.currency-name {
+    width: 103px;
+    height: 39px;
+    display: inline-block;
+    position: absolute;
+    top: 28px;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;    
+    border-right: 1px solid #d7d7d7;
+    padding: 15px 0 0 0;
+}
+
+.currency-value {
+    width: 150px;
+    height: 54px;
+    display: inline-block;
+    position: absolute;
+    top: 28px;
+    right: 27px;
+    color: #b2b2b2;
+    font-size: 40px;
+    text-align: right;
+}
+
+.currency-value:first-letter {
+    font-size: 27px;
+}
+
+.dollars:before {
+    content: "$";
+}
+
+.pounds:before {
+    content: "\00a3";
+}
+
+.converter-options a {
+    height: 100%;  
+    display: inline-block;
+    position: relative;
+}
+
+.chart-icon,
+.add-currency-icon,
+.number-pad-icon {
+    height: 30px;
+    width: 33px;
+    display: inline-block;
+    position: absolute;
+    top: 19px;
+}
+
+.chart {
+    width: 102px;      
+    background-color: #ff8989;   
+}
+
+.chart-icon {
+    left: 32px;    
+    background-position: -10px -83px;
+}
+
+.chart:hover {
+    background-color: #526e82;
+}
+
+.add-currency {
+    width: 136px;
+    background-color: #526e82;
+}
+
+.add-currency-icon {
+    left: 82px;
+    background-position: -8px -48px;
+}
+
+.add-currency:hover .add-currency-icon {
+    background-position: -48px -48px;
+} 
+
+.number-pad {
+    width: 69px;
+    background-color: #526e82;
+}
+
+.number-pad-icon {
+    left: 19px;
+    background-position: -8px -8px;
+}
+
+.number-pad:hover .number-pad-icon {
+    background-position: -48px -8px;
+}
+
+/* календарь */
+/* ############################################# */
+.calendar {
+    width: 307px;
+    height: 375px;
+    margin: 20px;
+    font-size: 17px;
+}
+
+.calendar-header {
+    width: 307px;
+    height: 85px;
+    background-color: #526e82;
+    position: relative;
+}
+
+.calendar-arrows {
+    width: 41px;
+    height: 100%;
+    display: inline-block;    
+}
+
+.calendar-arrows span {
+    width: 16px;
+    height: 27px;
+    display: inline-block;
+    position: absolute;
+    top: 29px;    
+}
+
+.calendar-left-arrow {
+    float: left;    
+}
+
+.calendar-left-arrow span {    
+    left: 14px;    
+    background-position: -6px -118px;
+}
+
+.calendar-left-arrow:hover span {
+    background-position: -42px -119px;
+}
+
+.calendar-right-arrow {
+    float: right;    
+}
+
+.calendar-right-arrow span {     
+    right: 18px;
+    background-position: -24px -118px;
+}
+
+.calendar-right-arrow:hover span {
+    background-position: -62px -119px;
+}
+
+.calendar-header ul {
+    width: 60px;
+    height: 100%;
+    position: absolute;
+    top: 16px;
+    left: 130px;
+}
+
+.calendar-year {
+    color: #e6e6e6;
+}
+
+.calendar-month {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.calendar-table {
+    width: 100%;
+    text-align: center;    
+}
+
+.week-days {
+    font-weight: 700;
+    color: #3dad99;
+    text-transform: uppercase;
+    background-color: #4cd9c0;
+}
+
+.week-days tr {
+    height: 56px;
+}
+
+.dates {
+    color: #9d9d9d;
+    background-color: #ffffff;
+}
+
+.dates tr {
+    width: 46px;
+    height: 46px;    
+    vertical-align: middle;
+}
+
+.date {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.current-date,
+.date:not(:empty):hover { /* ячейки, в которых нет чисел не подсвечиваются */
+    color: #ffffff;
+    background-color: #ff8989;
+    cursor: pointer;
+}
+
+/* погода */
+/* ############################################# */
+.weather {
+    width: 307px;
+    height: 312px;
+    background-color: #ffffff;
+    margin: 20px;
+}
+
+.weather-slider {
+    width: 307px;
+    height: 248px;    
+    position: relative;
+}
+
+.weather-slider img {
+    width: 100%;
+    height: 100%; 
+}
+
+.weather-data {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    position: absolute;
+    bottom: 12px;
+    left: 11px;
+    z-index: 100;
+}
+
+.temperature,
+.location,
+.time {
+    line-height: 22px;
+}
+
+.temperature {
+    font-size: 47px;
+}
+
+.temperature:after {
+    content: "\00b0";
+}
+
+.slider-switcher {
+    position: absolute;
+    right: 12px;
+    bottom: 11px;
+    z-index: 1000;
+}
+
+.switcher {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #05aeb3;
+    cursor: pointer;
+}
+
+.switcher:not(:first-child) {
+    margin: 0 0 0 8px;
+}
+
+.switcher-active,
+.switcher:hover {
+    background-color: #076164;
+}
+
+.weather-menu {
+    display: inline-block;    
+}
+
+.weather-menu li {
+    width: 76px;
+    height: 64px;
+    display: inline-block;
+    position: relative;
+}
+
+.weather-menu li:last-child {
+    width: 79px;
+}
+
+.weather-menu a {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+.weather-menu span {
+    height: 30px;
+    width: 27px;
+    top: 17px;
+    left: 25px;
+    display: inline-block;
+    position: absolute;
+}
+
+.weather-menu a:hover,
+.weather-menu-active {
+    background-color: #ff8989;
+}
+
+.fahrenheit span {
+    background-position: -96px -90px;
+}
+
+.fahrenheit.weather-menu-active span,
+.fahrenheit:hover span {
+    background-position: -132px -90px;
+}
+
+.celsius span {
+    background-position: -98px -129px;
+}
+
+.celsius.weather-menu-active span,
+.celsius:hover span {
+    background-position: -139px -130px;
+}
+
+.weather-add span {
+    background-position: -96px -48px;
+}
+
+.weather-add.weather-menu-active span,
+.weather-add:hover span {
+    background-position: -48px -48px;
+}
+
+.weather-pad span {
+    width: 43px;
+    background-position: -96px -8px;
+}
+
+.weather-pad.weather-menu-active span,
+.weather-pad:hover span {
+    background-position: -153px -8px;
+}
+
+/* музыкальный проигрыватель */
+/* ##################################################################### */
+.music-player {
+    width: 728px;
+    height: 200px;
+    background-color: #ffffff;
+    font-size: 22px;
+    position: absolute;
+    left: 335px;
+}
+
+.singer-info {
+    width: 142px;
+    height: 100%;
+    float: left;
+}
+
+.singer-info img {
+    width: 126px;
+    height: 126px;
+    margin: 8px;
+}
+
+.add-singer-icon {
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    background-position: -136px -48px;
+    margin: 0 15px 0 0;
+}
+
+.follow-button {
+    width: 126px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #526e82;
+    text-transform: uppercase;
+    border: none;
+    margin: 0 8px 15px 8px;
+    cursor: pointer;
+}
+
+.follow-button:hover {
+    color: #526e82;
+    background-color: #ffffff;
+    box-shadow: inset 0 0 1px 1px rgba(82,110,113,.75);
+}
+
+.follow-button:hover .add-singer-icon {
+    background-position: -160px -48px;
+}
+
+.player-interface {
+    width: 550px;
+    height: 100%;
+    float: right;
+    margin: 8px;
+}
+
+.singer-name,
+.song-name {
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 30px;
+}
+
+.singer-name {
+    color: #a8a8a8;
+}
+
+.song-name {
+    color:  #d6d6d6;
+    margin: 0 0 10px 0;
+}
+
+.song-line {
+    height: 9px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.duration {    
+    width: 488px;
+    background-color: #efefef;
+    float: left;
+    margin: 6px 0 0 0;
+}
+
+.downloaded {    
+    width: 388px;
+    background-color:  #bbfdf1;
+}
+
+.played {
+    width: 300px;
+    background-color:  #4cd9c0;
+}
+
+.duration-time {
+    color:  #c6c6c6;
+    font-size: 15px;
+    float: right;
+}
+
+.control-panel {
+    width: 100%;
+    height: 82px;
+    position: relative;
+    top: 30px;
+}
+
+.control-item {
+    width: 46px;
+    height: 45px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.control-item:not(:first-child) {
+    margin: 0 0 0 19px;
+}
+
+.play {
+    background-position: 0 -168px;
+}
+
+.pause,
+.play:hover { /* класс pause подключаем, когда нажали остановить песню */
+    background-position: 0 -216px;    
+}
+
+.pause:hover { /* стиль для случая, когда песня на паузе */
+    background-position: 0 -168px;
+}
+
+.prev-song {
+    background-position: -52px -167px;
+}
+
+.prev-song:hover {
+    background-position: -52px -214px;
+}
+
+.next-song {
+    background-position: -104px -167px;
+}
+
+.next-song:hover {
+    background-position: -102px -215px;
+}
+
+.shuffle {
+    background-position: -156px -167px;
+}
+
+.shuffle-selected,
+.shuffle:hover { /* класс .shuffle-selected нужен, если пользователь включит случайный порядок */
+    background-position: -156px -214px;
+}
+
+.shuffle-selected:hover {
+    background-position: -156px -167px;
+} 
+
+.repeat {
+    background-position: -208px -167px;
+}
+
+.repeat-selected,
+.repeat:hover { /* класс .repeat-selected нужен, если пользователь включит повтор */
+    background-position: -208px -212px;
+}
+
+.repeat-selected:hover {
+    background-position: -208px -167px;
+} 
+
+.likeit { /* класс .likeit - это обычное состояние лайка */
+    background-position: -260px -167px;
+}
+
+.likeit-selected,
+.likeit:hover { 
+    background-position: -260px -211px;
+}
+
+.likeit-selected:hover {
+    background-position: -260px -167px;
+}
+
+.favorite { /* аналогично классам выше */
+    background-position: -260px -115px;
+}
+
+.favorite-selected,
+.favorite:hover { 
+    background-position: -208px -115px;
+}
+
+.favorite-selected:hover {
+    background-position: -260px -115px;
+}
+
+.external-link {
+     background-position: -260px -65px;
+}
+
+.external-link:hover {
+     background-position: -210px -65px;
+}
+
+/* мессенджер */
+/* ##################################################################### */
+.messenger {
+    width: 307px;
+    position: absolute;
+    top: 0;
+    left: 1000px;
+}
+
+.messenger-menu {
+    background-color: #4cd9c0;
+}
+
+.menu-list {
+    width: 75px;
+    height: 100%;
+    display: inline-block;
+    background-color: #41c0a9;
+}
+
+.menu-list span {
+    width: 36px;
+    height: 25px;
+    display: inline-block;
+    background-position: -210px 0;
+    margin: 17px 0 0 17px;
+}
+
+.menu-list:hover span {
+    background-position: -258px 0;
+}
+
+.add-contact {
+    width: 55px;
+    height: 100%;
+    display: inline-block;
+    float: right;
+}
+
+.add-contact span {
+    width: 27px;
+    height: 27px;
+    display: inline-block;
+    background-position: -48px -48px;
+    margin: 18px 0 0 14px;
+}
+
+.add-contact:hover span {
+    background-position: -8px -48px;
+}
+
+.list-of-contacts {
+    background-color: #ffffff;
+}
+
+.list-of-contacts li {
+    width: 100%;
+    min-height: 77px;   
+    position: relative; 
+}
+
+.list-of-contacts li:not(:last-child) {
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.avatar-icon {
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 6px;
+}
+
+.message-info {
+   position: relative;
+   float: left;
+   overflow: hidden;
+}
+
+.contact-name,
+.message-text {
+    text-overflow: ellipsis;
+    margin: 11px 0 0 84px;
+}
+
+.contact-name {
+    font-size: 18px;
+    font-weight: 500;
+    color:  #bac2c7;
+}
+
+.message-text {
+    width: 198px;
+    height: 20px;
+    font-size: 13px;
+    font-weight: 300;
+    color:  #c8d3d9;
+    margin-top: 5px;
+}
+
+.message-sent {
+    padding: 0 0 0 21px;
+    background-position: -56px -317px;
+}
+
+.message-not-delivered {
+    padding: 0 0 0 21px;
+    background-position: -56px -338px;
+}
+
+.message-typing {
+    font-style: italic;
+}
+
+.contact-status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    top: 35px;
+    right: 16px;
+}
+
+.status-online {
+    background-color: #4cd9c0;
+}
+
+.status-new-message {
+    background-color: #56e5f6;
+}
+
+.status-offline {
+    background-color: #ec747d;
+}
+
+.status-none {
+    background-color: #ffffff;
+}
+
+/* форма входа */
+/* ##################################################################### */
+.login-form {
+    width: 307px;
+    height: 209px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 570px;
+    left: 1000px;
+}
+
+.login,
+.password {
+    position: relative;
+}
+
+.login {
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.login-icon,
+.password-icon {
+    width: 22px;
+    height: 24px;
+    display: inline-block;
+    margin: 26px 22px 25px 22px;
+}
+
+.login-icon {
+    background-position: -240px -38px;
+}
+
+.password-icon {
+    background-position: -208px -38px;
+}
+
+.login input,
+.password input {
+    font-size: 20px;
+    color: #bebebe;
+    border: none;
+    position: absolute;
+    top: 30px;
+}
+
+.login:hover,
+.password:hover,
+.login-active,
+.password-active {
+    border-left: 4px solid #ff8989; 
+}
+
+.sign-up,
+.sign-in {
+    height: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    text-transform: uppercase;
+}
+
+.sign-up {    
+    width: 156px;
+    color: #627d90;
+    background-color: #7191a8;
+    cursor: pointer;
+}
+
+.sign-up:hover {
+    color: #ffffff;
+    background-color: #ff8989;
+}
+
+.sign-in {
+    width: 151px;
+    color: #ffffff;    
+    background-color: #526e82;
+    cursor: pointer;
+}
+
+.sign-in:hover {
+    background-color: #ff8989;
+}
+
+/* форма с различными полями и переключателями */
+/* ##################################################################### */
+.form-elements {
+    width: 305px;
+    height: 200px;
+    background-color:  #ffffff;
+    position: absolute;
+    top: 820px;
+    left: 1000px;
+}
+
+.inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.valid-input,
+.invalid-input, 
+.checkbox,
+.range,
+.radio,
+.radio-checked,
+label {
+    position: absolute;
+}
+
+.valid-input,
+.invalid-input {
+    width: 204px;
+    height: 51px;
+    border-radius: 10px;    
+    font-size: 20px;
+    padding: 0 0 0 12px;
+}
+
+.valid-input {
+    color: #64dec9;
+    border: 2px solid #4cd9c0;
+    top: 14px;
+    left: 12px;    
+}
+.valid-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #64dec9;
+}
+.valid-input::-moz-placeholder { /* Firefox 19+ */
+    color: #64dec9;
+}
+.valid-input:-ms-input-placeholder { /* IE 10+ */
+    color: #64dec9;
+}
+.valid-input:-moz-placeholder { /* Firefox 18- */
+    color: #64dec9;
+}
+
+.invalid-input {
+    color: #ffa0a0;
+    border: 2px solid #ff8989;
+    bottom: 11px;
+    left: 12px;
+}
+.invalid-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #ffa0a0;
+}
+.invalid-input::-moz-placeholder { /* Firefox 19+ */
+    color: #ffa0a0;
+}
+.invalid-input:-ms-input-placeholder { /* IE 10+ */
+    color: #ffa0a0;
+}
+.invalid-input:-moz-placeholder { /* Firefox 18- */
+    color: #ffa0a0;
+}
+
+.range {
+    top: 98px;
+    left: 12px;
+    width: 213px;
+    -webkit-appearance: none;
+}
+
+.fill-lower-container {
+    width: 149.1px;
+    height: 8px;
+    position: absolute;
+    top: 100px;
+    left: 12px;
+    z-index: 10000;
+    background-color: #526e82; 
+    border-radius: 10px;
+}
+
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #000000;
+    width: 17px;
+    height: 17px;
+    background-color: #526e82;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    margin-top: -4px; 
+}
+
+.range::-moz-range-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #000000;
+    width: 17px;
+    height: 17px;
+    background-color: #526e82;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    margin-top: -4px; 
+}
+
+.range::-ms-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #000000;
+    width: 17px;
+    height: 17px;
+    background-color: #526e82;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    margin-top: -4px; 
+}
+
+.range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background-color: #99b5c9;
+    border-radius: 10px;
+    border: none;
+}
+
+.range::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background-color: #99b5c9;
+    border-radius: 10px;
+    border: none;
+}
+
+.range::-ms-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background-color: #99b5c9;
+    border-radius: 10px;
+    border: none;
+}
+.range::-ms-fill-lower {
+    background-color: #526e82;
+    border-radius: 10px;
+    border: none;
+}
+
+.checkbox,
+.checkbox + label {
+    top: 14px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.checkbox {
+    display: none;
+}
+
+.checkbox + label:before {
+    content: "";   
+    width: 45px;
+    height: 46px;
+    display: inline-block;
+    border: 2px solid #ff8989;
+    border-radius: 10px;
+}
+
+.checkbox:checked + label:before {
+    background-position: 2px -314px;
+}
+
+.radio,
+.radio + label,
+.radio-checked,
+.radio-checked + label {
+    right: 13px; 
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: #dddddd;
+}
+
+.radio,
+.radio + label {
+    top: 82px;
+}
+
+.radio,
+.radio-checked {
+    display: none;    
+}
+
+.radio + label:before,
+.radio-checked + label:before {
+    content: "";   
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.radio + label:before {
+    background-position: 0 -272px;
+}
+
+.radio-checked,
+.radio-checked + label {
+    top: 143px;
+}
+
+.radio-checked + label:before {
+    background-position: -48px -272px;
+}
+
+/* CSS Clipping*/
+/* ##################################################################### */
+.wcag-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
