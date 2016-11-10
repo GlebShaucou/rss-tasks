@@ -6,6 +6,7 @@ $white: #ffffff;
 $main-text-color: #767c7e;
 $text-color-gray: #e7e7e7;
 $main-black: #202628;
+$state-danger-text: $dunkel-red;
 
 $font-size-h2: 21px;
 $font-size-h3: 16px;
@@ -46,3 +47,11 @@ $link-color: $dunkel-red;
 $margin-top-content-row: 80px;
 
 $footer-height: 204px;
+
+$btn-border-radius-base: 20px;
+$btn-danger-bg: $dunkel-red;
+$btn-default-color: $white;
+$btn-default-bg: $main-black;
+
+$input-border-radius: $btn-border-radius-base;
+$input-height-base: 41px;
