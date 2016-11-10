@@ -29,7 +29,7 @@ html {
 
                 .slider-description-left-arrow {
                     @include element-size(34px, 70px);
-                    
+
                     display: inline-block;
                     border-radius: 34px 0 0 34px;
                     font-size: 24px;
@@ -105,6 +105,10 @@ html {
                     border-left: none;
                     border-right: none;
                     padding: 8px 0 7px 0; 
+                }
+
+                .btn-danger {
+                    margin-top: 20px;
                 }
 
                 .img-circle {
