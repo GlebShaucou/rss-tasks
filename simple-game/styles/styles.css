@@ -1,19 +1,35 @@
 body {
     font-family: 'Orbitron', sans-serif;
-    font-size: 30px;
+    font-size: 20px;
     color: #ffffff;
     background: url("../img/body-bg.jpg") no-repeat;
     /*background-color: #202628;*/
 }
 
 .wrapper {
-    width: 100%;
+    width: 1250px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px; 
+    margin-left: -650px;
     text-align: center;
     margin-top: 30px;
+    position: relative;
 }
 
 canvas {
     border: 1px solid #00abe3;
+}
+
+.stars { /*чтобы закрывать "дырки" после удаления объектов с canvas*/
+    width: 1200px;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    left: 30px;
+    background: url("../img/bg.png") no-repeat;
+    z-index: -1000;
 }
 
 p > span {
