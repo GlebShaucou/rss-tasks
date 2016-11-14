@@ -80,7 +80,67 @@ canvas {
     left: 50%;
     margin: -293px 0 0 -422px;
     z-index: 10000;
-    opacity: .9;
-    background-color: #202628;
+    background-color: rgba(32, 38, 40, .9);
     border-radius: 20px;
+}
+
+.btn {
+    font-family: 'Orbitron', sans-serif;
+    width: 250px;
+    height: 130px;
+    display: inline-block;
+    border: none;
+    font-size: 30px;
+    color: #f5f5f5;
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.btn:hover {
+    color: #00abe3;
+    background-color: #dedede;
+}
+
+.start {
+    margin: 20px 0 0 20px;
+}
+
+.game-end-menu {
+    width: 500px;
+    height: 250px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -240px 0 0 -251px;
+    z-index: 10000;
+    background-color: rgba(32, 38, 40, .9);
+    border-radius: 20px;
+    text-align: center;
+    display: none;
+}
+
+.end-game-text {
+    font-size: 30px;
+    font-weight: 700;
+    color: #ff8989;
+    text-align: center;
+    padding: 30px 0 30px 0;
+}
+
+.pause-container {
+    width: 500px;
+    height: 250px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -240px 0 0 -285px;
+    z-index: 10000;
+    background: none;
+    border-radius: 20px;
+    text-align: center;
+    display: none;
+}
+
+.pause-container-text {
+    color: #ffffff;
+    font-size: 30px;
 }

@@ -41,8 +41,19 @@
         </div>
     </div>
 
-    <div class="game-menu">
-        <button class="start" onclick="startGame()">New Game</button>
+    <div id="game-menu" class="game-menu">
+        <button class="btn start" onclick="startGame()">New Game</button>
+        <button class="btn scores-btn" onclick="showGameScores()">Scores</button>
+        <button class="btn info" onclick="showGameInfo()">Information</button>
+    </div>
+
+    <div id="game-end-menu" class="game-end-menu">
+        <p class="end-game-text">Game Over!</p>
+        <button class="btn ok" onclick="endGameOkBtn()">OK</button>
+    </div>
+
+    <div id="pause-container" class="pause-container">
+        <p class="pause-container-text">PAUSE</p>
     </div>
     
     <script src="https://use.fontawesome.com/4d320bc0d5.js"></script>

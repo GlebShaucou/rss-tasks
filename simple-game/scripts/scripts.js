@@ -1,6 +1,5 @@
-document.addEventListener("DOMContentLoaded", universeGunman); // начинаем исполнять, когда загрузится страница
+// document.addEventListener("DOMContentLoaded", function() { // начинаем исполнять, когда загрузится страница
 
-function universeGunman() {
     var canvas = document.getElementById("game-area");
     var context = canvas.getContext("2d");
 
@@ -48,7 +47,7 @@ function universeGunman() {
     // базовая модель корабля
     function createSpaceship(src) {
         var spaceship = new Image(); // базовая модель корабля
-        spaceship.src = src || "./img/spaceship.png";
+        spaceship.src = src || "./img/spaceship-normal.png";
         spaceship.ctx = context;
         spaceship.posX = 570; 
         spaceship.posY = 350;
@@ -66,33 +65,38 @@ function universeGunman() {
     // обрабатываем нажатие кнопок на клавиатуре
     window.addEventListener("keydown", function(e) {
         e.preventDefault();
-        console.log(e);    
-        if(e.key == "ArrowLeft" && spaceship.posX > 10) { // движение влево
+        // console.log(e);    
+        /* && gameAnimationStart <- эта проверка нужна, чтобы кнопки не нажимались в меню, в этих случаях gameAnimationStart = undefined */
+        if(e.key == "ArrowLeft" && spaceship.posX > 10 && gameAnimationStart) { // движение влево
             spaceship.posX -= spaceship.speed;
         }
-        if(e.key == "ArrowRight" && spaceship.posX < 1140) { // движение вправо
+        if(e.key == "ArrowRight" && spaceship.posX < 1140 && gameAnimationStart) { // движение вправо
             spaceship.posX += spaceship.speed;
         }
-        if(e.key == "ArrowUp" && spaceship.posY > 200) { // вверх
+        if(e.key == "ArrowUp" && spaceship.posY > 200 && gameAnimationStart) { // вверх
             spaceship.posY -= spaceship.speed;
         }
-        if(e.key == "ArrowDown" && spaceship.posY < 446) { // вниз
+        if(e.key == "ArrowDown" && spaceship.posY < 446 && gameAnimationStart) { // вниз
             spaceship.posY += spaceship.speed;
         }
-        if (e.key == "Escape") { // остановить игру на паузу
+        if (e.key == "Escape" && gameAnimationStart) { // остановить игру на паузу
             window.cancelAnimationFrame(gameAnimationStart);
             startControl = gameAnimationStart;
 
+            displayPauseContainer();
+
             musicControl("pause");
         }
-        if (e.key == " ") { // запустить игру
+        if (e.key == " " && gameAnimationStart) { // запустить игру
             if (startControl == gameAnimationStart) { // тут мы предотвращаем многократное нажатие пробела 
                 gameAnimationStart = window.requestAnimationFrame(game);
+
+                hidePauseContainer();
 
                 musicControl("play");
             }
         }
-        if (e.code == "KeyS") { // on/off music
+        if (e.code == "KeyS" && gameAnimationStart) { // on-off music
             musicControl();        
         }
     });
@@ -223,6 +227,8 @@ function universeGunman() {
 
                 var expl = createExplosion(asteroids[i].posX, asteroids[i].posY, asteroids[i].size, asteroids[i].size);
 
+                spaceship = createSpaceship("./img/spaceship-light-damage.png");
+
                 crashSound.play(); 
                 expl.draw();
 
@@ -238,12 +244,14 @@ function universeGunman() {
                         gameAnimationStart = window.requestAnimationFrame(game);
                     }, 300);  
                 } else {
+                    gameAnimationStart = undefined; // поянения по этому были выше 
+
                     lives[livesCount - 1].style.display = "none";
                     livesCount--;
                     gameTheme.stop();
                     
                     setTimeout(function() {
-                        alert("Game Over!");
+                        showGameEndMenu();
                     }, 50);
                 }                     
             } else {
@@ -259,13 +267,25 @@ function universeGunman() {
     }
 
     // запускаем игру
-    function startGame() {
-        gameAnimationStart = window.requestAnimationFrame(game); // анимирем весь процес отрисовки объектов на канвас
-        gameTheme.play();
+    // function startGame() {
+    //     let gameMenu = document.getElementById("game-menu");
+    //     gameMenu.style.display = "none";
+
+    //     gameAnimationStart = window.requestAnimationFrame(game); // анимирем весь процес отрисовки объектов на канвас
+    //     gameTheme.play();
+    // }
+
+    // 
+    function showGameMenu() {
+        let gameMenu = document.getElementById("game-menu");
+        gameMenu.style.display = "block";
     }
 
     // рестарт игры и перерисовка
-    function restartGame() { 
+    function startGame() {
+        let gameMenu = document.getElementById("game-menu");
+        gameMenu.style.display = "none";
+
         context.clearRect(0,0, canvas.width, canvas.height);
 
         for(let i = 0; i < lives.length; i++) {
@@ -281,5 +301,29 @@ function universeGunman() {
         setTimeout(function() {
             gameAnimationStart = window.requestAnimationFrame(game);
         }, 500);
-    } 
-}
+    }
+
+    function showGameEndMenu() {
+        let gameEndMenu = document.getElementById("game-end-menu");
+        gameEndMenu.style.display = "block";
+    }
+
+    function endGameOkBtn() {
+        let gameEndMenu = document.getElementById("game-end-menu");
+        gameEndMenu.style.display = "none";
+        showGameMenu();
+    }
+
+    function displayPauseContainer() {
+        let pauseContainer = document.getElementById("pause-container");
+        pauseContainer.style.display = "block";
+    }
+
+    function hidePauseContainer() {
+        let pauseContainer = document.getElementById("pause-container");
+        pauseContainer.style.display = "none";
+    }
+
+    // console.log(gameAnimationStart);
+     
+// });
