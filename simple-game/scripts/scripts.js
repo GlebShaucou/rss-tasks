@@ -10,7 +10,7 @@ var spaceship = createSpaceship();
 
 var difficultyMinLevel = 2; // сложность игры, это нижний порог скорости астероидов, чем выше значение, тем быстрее будут все астероиды
 var difficultyMaxLevel = 8;
-var frequencyAsteroids = 20; // частота кадров для появления новых астероидов
+var frequencyAsteroids = 30; // частота кадров для появления новых астероидов
 var asteroids = [];
 var framesNo = 0; // переменная для подсчета кадров
 
@@ -19,6 +19,8 @@ var startPauseControl; // эта переменная нужна, чтобы п�
 var gameTheme; // переменная для основной музыкальной темы игры
 var crashSound;
 var currentTime; // вкл или выкл музыка
+
+var lives = document.getElementsByClassName("live"); // жизни корабля
 
 // задний план - космос
 background.src = "./img/bg.png";
@@ -94,6 +96,43 @@ window.addEventListener("keydown", function(e) {
     }
 });
 
+// базовый класс для музыки
+function Music(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }
+}
+
+// управление музыкой
+function musicControl(state) {
+    if(state == "pause" && (currentTime == undefined || currentTime != gameTheme.sound.currentTime)) { // если играет музыка и ее нужно отлючить
+        gameTheme.stop();
+    } else if(state == "play") { // если музыка не играет, но ее нужно вклюячить
+        gameTheme.play();
+    } else if (currentTime == undefined || currentTime != gameTheme.sound.currentTime) { // в эти случаях играет музыка
+        gameTheme.stop();
+        currentTime = gameTheme.sound.currentTime;
+    } else {
+        gameTheme.play();
+    }
+}
+
+gameTheme = new Music("./sounds/Blazing-Stars-short.mp3"); // инициируем фоновую музыку
+gameTheme.sound.setAttribute("autoplay", "autoplay");
+gameTheme.sound.setAttribute("loop", "loop");
+gameTheme.play();
+
+crashSound = new Music("./sounds/crash.mp3"); // инициируем звук столкновения
+
 // эта функция нужна для генерации случайных чисел
 function getRandomValue(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -147,7 +186,7 @@ function cutAsteroidsArr() {
     }
 }
 
-// функция определения столкновения, было ли оно
+// функция определяет было ли столкновения
 function detectContact(ship, astr) {
     if(ship.posX < astr.posX + astr.size && ship.posX + ship.width > astr.posX && ship.posY < astr.posY + astr.size && ship.posY + ship.height > astr.posY) {
         return true;
@@ -167,7 +206,7 @@ function game() {
 
         asteroids.push(createRandomAsteroid());
 
-        if (framesNo == 500) { // астероид монстр
+        if (framesNo == 1000) { // астероид монстр
 
             cutAsteroidsArr(); // ограничиваем массив asteroids   
 
@@ -183,68 +222,42 @@ function game() {
         // события при столкновении с астероидом
         if (detectContact(spaceship, asteroids[i])) {
 
-            var expl = createExplosion(asteroids[i].posX, asteroids[i].posY, asteroids[i].size, asteroids[i].size);            
+            var expl = createExplosion(asteroids[i].posX, asteroids[i].posY, asteroids[i].size, asteroids[i].size);
+
+            crashSound.play(); 
             expl.draw();
 
             window.cancelAnimationFrame(gameAnimationStart);
             startControl = gameAnimationStart;
-            crashSound.play();           
+                 
+            if(lives.length > 1) {
+                lives[lives.length - 1].remove();
 
-            setTimeout(function() {
-                asteroids.splice(i,1);
-                gameAnimationStart = window.requestAnimationFrame(game);
-            }, 300);
+                setTimeout(function() {
+                    asteroids.splice(i,1);
+                    gameAnimationStart = window.requestAnimationFrame(game);
+                }, 300);  
+            } else {
+                lives[lives.length - 1].remove();
+                gameTheme.stop();
+                
+                setTimeout(function() {
+                    alert("Game Over!");
+                }, 50);
+            }                     
 
             // expl.clear();
             // asteroids[i].clear();
-
         } else {
-             asteroids[i].draw();  
+             asteroids[i].draw(); // рисуем астероиды на canvas
         }
     }
 
-    spaceship.draw();
+    spaceship.draw(); // рисуем космический корабль на canvas
 
-    for(let i = 0; i < asteroids.length; i++) {
+    for(let i = 0; i < asteroids.length; i++) { // двигаем астероиды
         asteroids[i].posY += asteroids[i].speed;
     } 
 }
 
 gameAnimationStart = window.requestAnimationFrame(game); // анимирем весь процес отрисовки объектов на канвас 
-
-// базовый класс для музыки
-function Music(src) {
-    this.sound = document.createElement("audio");
-    this.sound.src = src;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-    this.play = function(){
-        this.sound.play();
-    }
-    this.stop = function(){
-        this.sound.pause();
-    }
-}
-
-// управление музыкой
-function musicControl(state) {
-    if(state == "pause" && (currentTime == undefined || currentTime != gameTheme.sound.currentTime)) { // если играет музыка и ее нужно отлючить
-        gameTheme.stop();
-    } else if(state == "play") { // если музыка не играет, но ее нужно вклюячить
-        gameTheme.play();
-    } else if (currentTime == undefined || currentTime != gameTheme.sound.currentTime) { // в эти случаях играет музыка
-        gameTheme.stop();
-        currentTime = gameTheme.sound.currentTime;
-    } else {
-        gameTheme.play();
-    }
-}
-
-gameTheme = new Music("./sounds/Blazing-Stars-short.mp3");
-gameTheme.sound.setAttribute("autoplay", "autoplay");
-gameTheme.sound.setAttribute("loop", "loop");
-gameTheme.play();
-
-crashSound = new Music("./sounds/crash.mp3");

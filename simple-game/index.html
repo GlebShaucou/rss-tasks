@@ -14,19 +14,31 @@
         <canvas id="game-area" class="game-area" width="1200" height="500"></canvas>
         
         <p>
-            <span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>,
-                <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span>,
-                <span><i class="fa fa-arrow-up" aria-hidden="true"></i></span>,
-                <span><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
+            <span class="control-info"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>,
+            <span class="control-info"><i class="fa fa-arrow-right" aria-hidden="true"></i></span>,
+            <span class="control-info"><i class="fa fa-arrow-up" aria-hidden="true"></i></span>,
+            <span class="control-info"><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
             - to move.
-            <span>"Esc"</span> - to pause the game.
-            <span>"Spacebar"</span> - to start the game.
-            <span>"S"</span> - ON/OFF Music.   
+            <span class="control-info">"Esc"</span> - to pause the game.
+            <span class="control-info">"Spacebar"</span> - to start the game.
+            <span class="control-info">"S"</span> - ON/OFF Music.   
         </p>
 
-        <div class="lives">LIVES:</div>
+        <div class="lives">
+            LIVES:
+            <p>
+                <i class="fa fa-space-shuttle live" aria-hidden="true"></i>
+                <i class="fa fa-space-shuttle live" aria-hidden="true"></i>
+                <i class="fa fa-space-shuttle live" aria-hidden="true"></i>
+            </p>
+        </div>
 
-        <div class="scores">SCORES:</div>
+        <div class="scores">
+            SCORES:
+            <p class="score">
+                <span id="score">0</span>
+            </p>
+        </div>
     </div>
     
     <script src="https://use.fontawesome.com/4d320bc0d5.js"></script>

@@ -1,9 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Orbitron', sans-serif;
     font-size: 20px;
     color: #ffffff;
     background: url("../img/body-bg.jpg") no-repeat;
-    /*background-color: #202628;*/
 }
 
 .wrapper {
@@ -32,21 +40,33 @@ canvas {
     z-index: -1000;
 }
 
-p > span {
+.control-info {
     color: #ff8989;
     font-weight: 700;
 }
 
 .lives {
-    width: 100px;
+    width: 200px;
     height: 100px;
     position: absolute;
     top: 20px;
     left: 50px;
     font-size: 30px;
     font-weight: 700;
+    text-align: left;
 }
 
 .scores {
-    
+    width: 200px;
+    height: 120px;
+    position: absolute;
+    top: 20px;
+    right: 56px;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.score {
+    text-align: right;
 }
