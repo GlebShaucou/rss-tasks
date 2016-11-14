@@ -5,9 +5,11 @@ var canvasWidth = canvas.width;
 var canvasHeight = canvas.height;
 
 var background = new Image(); // задний план - космос
-var spaceShip = new Image(); // базовая модель корабля
+
+var spaceship = createSpaceship();
+
 var difficultyMinLevel = 2; // сложность игры, это нижний порог скорости астероидов, чем выше значение, тем быстрее будут все астероиды
-var difficultyMaxLevel = 2;
+var difficultyMaxLevel = 8;
 var frequencyAsteroids = 20; // частота кадров для появления новых астероидов
 var asteroids = [];
 var framesNo = 0; // переменная для подсчета кадров
@@ -40,38 +42,39 @@ background.draw = (function() {
 }).bind(background);
 
 // базовая модель корабля
-spaceShip.src = "./img/spaceship.png";
-spaceShip.ctx = context;
-spaceShip.posX = 570; 
-spaceShip.posY = 350;
-spaceShip.speed = 5;
-spaceShip.width = 75;
-spaceShip.height = 120;
-spaceShip.draw = (function() {
-    this.ctx.drawImage(this, this.posX, this.posY, this.width, this.height);
+function createSpaceship(src) {
+    var spaceship = new Image(); // базовая модель корабля
+    spaceship.src = src || "./img/spaceship.png";
+    spaceship.ctx = context;
+    spaceship.posX = 570; 
+    spaceship.posY = 350;
+    spaceship.speed = 5;
+    spaceship.width = 75;
+    spaceship.height = 120;
 
-    // this.ctx.rect(this.posX, this.posY, this.width, this.height);
-    // this.ctx.stroke();
-    // this.ctx.strokeStyle = 'blue';
-    // this.ctx.lineWidth = 1;
+    spaceship.draw = (function() {
+        this.ctx.drawImage(this, this.posX, this.posY, this.width, this.height);
 
-}).bind(spaceShip);
+    }).bind(spaceship);
+
+    return spaceship;
+}
 
 // обрабатываем нажатие кнопок на клавиатуре
 window.addEventListener("keydown", function(e) {
     e.preventDefault();
     console.log(e);    
-    if(e.key == "ArrowLeft" && spaceShip.posX > 10) { // движение влево
-        spaceShip.posX -= spaceShip.speed;
+    if(e.key == "ArrowLeft" && spaceship.posX > 10) { // движение влево
+        spaceship.posX -= spaceship.speed;
     }
-    if(e.key == "ArrowRight" && spaceShip.posX < 1140) { // движение вправо
-        spaceShip.posX += spaceShip.speed;
+    if(e.key == "ArrowRight" && spaceship.posX < 1140) { // движение вправо
+        spaceship.posX += spaceship.speed;
     }
-    if(e.key == "ArrowUp" && spaceShip.posY > 200) { // вверх
-        spaceShip.posY -= spaceShip.speed;
+    if(e.key == "ArrowUp" && spaceship.posY > 200) { // вверх
+        spaceship.posY -= spaceship.speed;
     }
-    if(e.key == "ArrowDown" && spaceShip.posY < 446) { // вниз
-        spaceShip.posY += spaceShip.speed;
+    if(e.key == "ArrowDown" && spaceship.posY < 446) { // вниз
+        spaceship.posY += spaceship.speed;
     }
     if (e.key == "Escape") { // остановить игру на паузу
         window.cancelAnimationFrame(gameAnimationStart);
@@ -105,12 +108,11 @@ function createRandomAsteroid(src, speed, size) { // базовый класс �
     asteroid.posY = -50;
     asteroid.size = size || getRandomValue(10, 80);
     asteroid.speed = speed || getRandomValue(difficultyMinLevel, difficultyMaxLevel);
+
     asteroid.draw = (function() {
         this.ctx.drawImage(this, this.posX, this.posY, this.size, this.size);
-
-        // this.ctx.fillStyle = "#ff8989";
-        // this.ctx.fillRect(this.posX, this.posY, this.size, this.size);
     }).bind(asteroid);
+
     asteroid.clear = (function() { // этот метод нужен для удаления астероидов при столкновении
         this.ctx.clearRect(this.posX, this.posY, this.size, this.size);
     }).bind(asteroid);
@@ -118,13 +120,34 @@ function createRandomAsteroid(src, speed, size) { // базовый класс �
     return asteroid;
 }
 
-function cutAsteroidsArr() { // это функция нужна, чтобы ограничить массив asteroids
-    if(asteroids.length > 20) {
+// создаем взрыв
+function createExplosion(posX, posY, size) {
+    let explosion = new Image();
+    explosion.src = "./img/astr_explosion.png";
+    explosion.posX = posX;
+    explosion.posY = posY;
+    explosion.size = size;
+    explosion.ctx = context;
+
+    explosion.draw = (function() {
+        this.ctx.drawImage(this, this.posX, this.posY, this.size, this.size);
+    }).bind(explosion);
+
+    explosion.clear = (function() { 
+        this.ctx.clearRect(this.posX, this.posY, this.size, this.size);
+    }).bind(explosion);
+
+    return explosion;
+}
+
+// это функция нужна, чтобы ограничить массив asteroids
+function cutAsteroidsArr() { 
+    if(asteroids.length > 30) {
         asteroids.shift();
     }
 }
 
-// функция определения удара
+// функция определения столкновения, было ли оно
 function detectContact(ship, astr) {
     if(ship.posX < astr.posX + astr.size && ship.posX + ship.width > astr.posX && ship.posY < astr.posY + astr.size && ship.posY + ship.height > astr.posY) {
         return true;
@@ -156,29 +179,31 @@ function game() {
     framesNo++;
 
     for(let i = 0; i < asteroids.length; i++) {
-        asteroids[i].draw();        
-        // определение контакта
-        if (detectContact(spaceShip, asteroids[i])) {
+             
+        // события при столкновении с астероидом
+        if (detectContact(spaceship, asteroids[i])) {
+
+            var expl = createExplosion(asteroids[i].posX, asteroids[i].posY, asteroids[i].size, asteroids[i].size);            
+            expl.draw();
+
             window.cancelAnimationFrame(gameAnimationStart);
             startControl = gameAnimationStart;
-            crashSound.play();
+            crashSound.play();           
 
-            // console.log(asteroids[i].posX);    
-
-            asteroids[i].clear();
-            // asteroids.splice(i,1);
             setTimeout(function() {
                 asteroids.splice(i,1);
                 gameAnimationStart = window.requestAnimationFrame(game);
-            }, 1000);
-            // gameTheme.play();
-            // ship.posX = 570;
-            // ship.posY = 350;
-            // asteroids.length = 0;
+            }, 300);
+
+            // expl.clear();
+            // asteroids[i].clear();
+
+        } else {
+             asteroids[i].draw();  
         }
     }
 
-    spaceShip.draw();
+    spaceship.draw();
 
     for(let i = 0; i < asteroids.length; i++) {
         asteroids[i].posY += asteroids[i].speed;

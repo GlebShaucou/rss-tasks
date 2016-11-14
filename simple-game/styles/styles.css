@@ -36,3 +36,17 @@ p > span {
     color: #ff8989;
     font-weight: 700;
 }
+
+.lives {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.scores {
+    
+}
