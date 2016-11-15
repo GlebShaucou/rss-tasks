@@ -25,6 +25,8 @@
     var lives = document.getElementsByClassName("live"); // жизни корабля
     var livesCount = lives.length; // начальное количество жизней
 
+    var planetImgs = ["./img/jupiter.png", ];
+
     // задний план - космос
     background.src = "./img/bg.png";
     background.posX = 0;
@@ -105,6 +107,7 @@
     function Music(src) {
         this.sound = document.createElement("audio");
         this.sound.src = src;
+        this.sound.volume = 0.5;
         this.sound.setAttribute("preload", "auto");
         this.sound.setAttribute("controls", "none");
         this.sound.style.display = "none";
@@ -140,6 +143,27 @@
     // эта функция нужна для генерации случайных чисел
     function getRandomValue(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    // тут создаются планеты-очки
+    function createPlanetBonus(src) {
+        let planet = new Image();
+        planet.src = planetImgs[src];
+        planet.ctx = context;
+        planet.posX = getRandomValue(5, 1140);
+        planet.posY = -50;
+        planet.size = 30;
+        planet.speed = getRandomValue(2, 15);
+
+        planet.draw = (function() {
+            this.ctx.drawImage(this, this.posX, this.posY, this.size, this.size);
+        }).bind(planet);
+
+        planet.clear = (function() {
+            this.ctx.clearRect(this.posX, this.posY, this.size, this.size);
+        }).bind(planet);
+
+        return planet;
     }
 
     // тут создаются астероиды разных размеров
@@ -227,8 +251,6 @@
 
                 var expl = createExplosion(asteroids[i].posX, asteroids[i].posY, asteroids[i].size, asteroids[i].size);
 
-                spaceship = createSpaceship("./img/spaceship-light-damage.png");
-
                 crashSound.play(); 
                 expl.draw();
 
@@ -238,6 +260,14 @@
                 if(livesCount > 1) {
                     lives[livesCount - 1].style.display = "none";
                     livesCount--;
+
+                    if (livesCount == 2) {
+                        spaceship.src = "./img/spaceship-light-damage.png";
+                    }
+
+                    if (livesCount == 1) {
+                        spaceship.src = "./img/spaceship-heavy-damaged.png";
+                    }
 
                     setTimeout(function() {
                         asteroids.splice(i,1);
@@ -324,6 +354,6 @@
         pauseContainer.style.display = "none";
     }
 
-    // console.log(gameAnimationStart);
+    console.log(gameTheme);
      
 // });
