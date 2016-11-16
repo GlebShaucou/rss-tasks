@@ -1,0 +1,655 @@
+* {
+    box-sizing: border-box; /* все элементы измеряются одинаково */
+}
+
+html {
+    font-family: 'Fjalla One', sans-serif;
+}
+
+html, body {
+    height: 100%; /* необходимо для "приклеенного" к низу футера */
+    padding: 0; /* сброс стилей */
+    margin: 0; /* необходимо для "приклеенного" к низу футера и сброс стилей */
+}
+
+a { /* уберем подчеркивая ссылок глобально */
+    text-decoration: none;
+}
+
+ul { /* уберем обозначения для списков */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+input:focus,
+textarea:focus,
+button:focus { /* отключаем рамку, которая появляется при введении текста в input */
+    outline: none;
+}
+
+.content {
+    min-height: 100%; /* необходимо для "приклеенного" к низу футера */
+    margin-bottom: -204px; /* резервируем пространство для "приклеенного" к низу футера */
+}
+
+.content-align {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+.clear:after { /* Micro Clear Fix - эту технологии взял у Дэвида Макфарланда Большая книга CSS3 (а придумана она Николасом Галлахером) */
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+.push {
+    height: 204px; /* резервируем пространство для "приклеенного" к низу футера */
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #202628;    
+    z-index: 100;
+}
+
+.site-name {
+    width: 100px;
+    display: inline-block;
+    line-height: 80px;
+    font-size: 25px;
+    color: #e7e7e7;
+    text-transform: uppercase;
+}
+
+.site-name:hover {
+    color: #ffffff;
+}
+
+.header-menu {
+    width: 420px;
+    height: 80px;
+    float: right;
+    font-size: 0; /* помогает убрать промежутки между пунктами меню, рассказали на лекции */
+    text-align: center;
+} 
+
+.header-menu a {
+    width: 75px;
+    line-height: 80px;
+    display: inline-block;
+    color: #e7e7e7;
+    font-size: 13px;
+    text-transform: uppercase;
+    transition-property: color, background-color;
+    transition-duration: .5s;
+}
+
+.header-menu a:hover {
+    color: #ffffff;
+    background-color: #e84c3d;
+}
+
+.header-menu a.active {
+    background-color: #e84c3d;
+}
+
+.slider {
+    position: relative;
+    height: 560px;
+    margin: 80px 0 0 0;
+    background: url(../img/slider-img.png) no-repeat right top;
+    background-size: cover; /* масштабируем изображение с сохранением пропорций*/
+}
+
+.slider-descr {
+    position: absolute;
+    top: 290px;
+}
+
+.slider-descr .slide {
+    display: inline-block;
+    width: 35px;
+    height: 70px;
+    color: #202628;
+    background-color: #e84c3d;
+    text-align: center;
+    padding: 24px 0 0 0;
+    transition-property: color, background-color;
+    transition-duration: .5s;
+}
+
+.slider-descr span:not(:first-child) {
+    margin: 0 0 0 -4px;
+}
+
+.slider-descr span:not(.white-line):hover {
+    color: #ffffff; 
+    background-color: #202628;
+    cursor: pointer;
+}
+
+.slider-descr-left-arrow {
+    border-right: 1px solid #202628; 
+    border-radius: 33px 0 0 33px;
+}
+
+.slider-descr-right-arrow {
+    border-left: 1px solid #202628;
+    border-radius: 0 33px 33px 0;
+}
+
+.slider-text {
+    font-size: 31px;
+    font-weight: normal;
+    color: #ffffff;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 28px 0 12px 0;
+}
+
+.slider-text ul {
+    padding-left: 0;
+    margin: 0;
+}
+
+.slider-text li {
+    margin: 0 0 6px 0;
+    list-style-type: none;
+}
+
+.white-line {
+    display: inline-block;
+    width: 264px;
+    height: 14px;
+    border-top: 2px solid #ffffff;
+}
+
+.slider-descr a {
+    color: #e84c3d;
+    margin: 0 0 0 0;
+}
+
+.slider-descr a:hover {
+    color: #ffffff;
+}
+
+.services {
+    height: 277px;
+    background-color: #e7e7e7;
+}
+
+.services-articles {
+    width: 33%;
+    display: inline-block;
+}
+
+.services-icon {
+    width: 70px;
+    height: 70px;
+    float: left;
+    border-radius: 50%;
+    font-size: 30px;
+    color: #ffffff;
+    background-color: #e84c3d;    
+    margin: 80px 0 0 0;
+}
+
+.service-speed {
+    padding: 15px 0 0 21px;
+}
+
+.service-protection {
+    padding: 17px 0 0 25px;
+}
+
+.service-help {
+    padding: 16px 0 0 25px;
+}
+
+.services-articles aside {
+    width: 270px;
+    float: right;
+    margin: 61px 10px 0 0;
+}
+
+.services-articles-text a {
+    color: #e84c3d;
+}
+
+.services-articles-text a:hover,
+.company-news a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 3px #202628;
+}
+
+.portfolio {
+    height: 514px;
+}
+
+.portfolio-info {
+    width: 780px;
+    float: left;
+    margin: 70px 0 0 0;
+}
+
+.services-articles-header h2, 
+.portfolio-header h2,
+.company-contacts-section h2 {
+    color: #202628;
+    font-size: 21px;
+    text-transform: uppercase;
+}
+
+.portfolio-header p {
+    font-size: 20px;
+    color: #e84c3d;
+    margin: 30px 0 0 0;
+    padding: 16px 0 13px 0;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.portfolio-articles {
+    width: 350px;
+    margin: 32px 0 0 0;
+    display: inline-block;
+} 
+
+.portfolio-articles h3 {
+    font-size: 16px;
+    color: #202628;
+    font-weight: bold;
+}
+
+.services-articles-text p, 
+.portfolio-articles p {
+    color: #909495;
+    font-size: 14px;
+}
+
+.portfolio-article-button {
+    display: inline-block;
+    width: 70px;
+    height: 37px;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 20px;
+    color: #ffffff;
+    background-color: #e84c3d;
+    margin: 20px 0 0 0;
+    padding: 10px 0 0 20px;
+    transition-property: color, background-color;
+    transition-duration: .3s;
+}
+
+.portfolio-article-button:hover {
+    color: #e84c3d;
+    border: 1px solid #e84c3d;
+    background-color: #ffffff;
+}
+
+.portfolio-img {
+    width: 355px;
+    height: 355px;
+    border-radius: 50%;
+    margin: 70px 0 0 0;
+    float: right;
+    transform: scale(-1,1); /* отражает изображение */
+}
+
+.left-portfolio-article {
+    float: left;
+}
+
+.right-portfolio-article {
+    float: left;
+    margin: 32px 0 0 50px;
+}
+
+.subscribe-section {
+    height: 185px;
+}
+
+.subscribe-section .subscribe {
+    height: 185px;
+    border-radius: 12px;
+    color: #ffffff;
+    background-color: #e84c3d;
+}
+
+.subscribe-section-left {
+    float: left;    
+}
+
+.subscribe-section-right {
+    float: right;
+    width: 530px;
+    display: inline-block;  
+}
+
+.subscribe-section-left, 
+.subscribe-section-right {
+    margin: 19px 0 0 0;
+}
+
+.subscribe-img {
+    float: left;
+    width: 77px;
+    display: inline-block; 
+    margin: 23px 0 0 30px;  
+}
+
+.user-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 25px;
+    background-color: #202628;
+    border-radius: 50%; 
+    padding: 16px 0 0 25px;
+}
+
+.subscribe-section-quote {
+    float: right;
+    width: 440px;
+    display: inline-block;
+    margin: 0 0 0 30px;  
+}
+
+.subscribe-section-header h2 {
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.subscribe-section-quote q {
+    font-size: 16px;
+    quotes: "\201c" "\201d"; /* задаю стили для кавычек у цитаты */
+}
+
+.subscribe-section-quote cite {
+    font-size: 14px;
+}
+
+.subscribe-section-right input,
+.feedback-form input {    
+    height: 41px;
+    border: 0;
+    border-radius: 30px;
+    font-family: 'Fjalla One', sans-serif;
+    font-style: italic;
+    padding: 0 0 0 15px;
+}
+
+.subscribe-section-right input {
+    width: 380px;
+}
+
+.subscribe-section-right button,
+.feedback-form button {
+    height: 41px;    
+    border: 0;
+    color: #ffffff;
+    border-radius: 30px;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 0 0 10px;
+    transition-property: color, background-color;
+    transition-duration: .5s;
+    cursor: pointer;
+}
+
+.subscribe-section-right button {   
+    width: 120px; 
+    background-color: #202628;
+}
+
+.subscribe-section-right button:hover {
+    color: #202628;
+    background-color: #ffffff; 
+}
+
+.company-contacts {
+    height: 570px;
+}
+
+.company-contacts-left {
+    float: left;
+}
+
+.company-news {
+    float: left;
+}
+
+.feedback {
+    float: right;
+}
+
+.contacts {
+    float: right;
+}
+
+.company-contacts-section {
+    width: 370px;
+    display: inline-block;
+    /*margin: 50px 0 0 0;*/
+}
+
+.company-contacts-section:not(:first-child) {
+    margin: 0 0 0 10px;
+}
+
+.company-contacts-section .company-contacts-column {
+    height: 392px;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.article:not(:last-child) {
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.news-img {
+    width: 70px;
+    height: 70px;
+    float: left;
+    border-radius: 50%;
+    margin: -8px 30px 0 0;
+}
+
+.article p {
+    width: 380px;
+    display: inline-block;
+    line-height: 20px;
+    font-size: 14px;
+    color: #adb0b2;
+    padding: 15px 0 15px 0;
+}
+
+.article a {
+    display: block;
+    margin: 15px 0 0 0;
+    color: #e84c3d;
+}
+
+.feedback-form {
+    width: 370px;
+    height: 392px;
+    font-size: 14px;
+    color: #767c7e;
+    background-color: #e7e7e7;
+    border-radius: 5px;
+    padding: 30px 0 0 0;
+}
+
+.feedback-form fieldset {
+    border: 0;
+    margin: 0 0 0 25px;
+}
+
+.feedback-form legend {
+    margin: 0 0 31px 0;
+}
+
+.feedback-form input {
+    width: 310px;
+    margin: 0 0 20px 0;
+}
+
+.feedback-form textarea {
+    width: 310px;
+    height: 82px;
+    font-family: 'Fjalla One', sans-serif;
+    font-style: italic;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 0 0 15px;
+    margin: 0 0 20px 0;
+}
+
+.feedback-form button {
+    width: 100px;
+    height: 41px;
+    background-color: #e84c3d;
+}
+
+.feedback-form button:hover {
+    color: #e84c3d;
+    background-color: #ffffff;
+}
+
+.address-wrapper {
+    font-size: 14px;
+    font-style: normal;
+    padding: 23px 0 20px 0;
+    overflow: hidden;
+}
+
+.address-wrapper i {
+    font-size: 25px;
+}
+
+.address-wrapper span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e84c3d;
+    margin: 0 0 0 17px;
+}
+
+.address-wrapper p {
+    width: 230px;
+    margin: 8px 0 0 45px;
+}
+
+.address-wrapper a {    
+    color: #767c7e;
+    line-height: 25px;
+}
+
+.address-wrapper a:hover {
+    color: #202628;
+}
+
+.address-wrapper:not(:last-child) {
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.address-wrapper ul {
+    margin: 8px 0 0 45px;
+}
+
+.footer {
+    height: 204px; /* высота "приклеенного" к низу футера */
+    background-color: #202628;
+    font-size: 14px;
+}
+
+.footer-menu {
+    width: 410px;
+    display: inline-block;
+    margin: 80px 0 0 0;
+}
+
+.footer-menu a {
+    color: #cccdcd;
+}
+
+.footer-menu a:hover {
+    color: #ffffff;
+}
+
+.footer-menu a:not(:last-child)::after {
+    content: "/";
+    color: #cccdcd;
+    cursor: default;
+    margin: 0 20px 0 20px;
+}
+
+.footer-text, 
+.footer-text a {
+    color: #5f6567;
+}
+
+.footer-text span, 
+.footer-text a:first-child {
+    color: #e84c3d;
+}
+
+.footer-text a:hover {
+    color: #ffffff;
+}
+
+.footer-social-icons {
+    width: 170px;
+    float: right;
+    margin: -55px 0 0 0;
+}
+
+.footer-icons {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    background-color: #e84c3d;
+    display: inline-block;
+    font-size: 18px;
+    color: #ffffff;
+    transition-property: color, background-color;
+    transition-duration: .7s;
+}
+
+.facebook-ico {
+    padding: 10px 0 0 16px;
+}
+
+.facebook-ico:hover {
+    color: #3b5998;
+    background-color: #ffffff;
+}
+
+.twitter-ico {
+    padding: 10px 0 0 14px;
+}
+
+.twitter-ico:hover {
+    color: #1da1f2;
+    background-color: #ffffff;
+}
+
+.linkedin-ico {
+    padding: 9px 0 0 14px;
+}
+
+.linkedin-ico:hover {
+    color: #1985bc;
+    background-color: #ffffff;
+}
+
+.footer-icons:not(:first-child) {
+    margin: 0 0 0 10px;
+}
