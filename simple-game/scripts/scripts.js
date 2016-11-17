@@ -14,6 +14,7 @@
     var difficultyMaxLevel = 8;
     var frequencyAsteroids = 30; // частота кадров для появления новых астероидов
     var asteroids = [];
+    var planets = [];
     var framesNo = 0; // переменная для подсчета кадров
 
     var gameAnimationStart; // переменная для контроля window.requestAnimationFrame(game)
@@ -26,6 +27,8 @@
     var livesCount = lives.length; // начальное количество жизней
 
     var planetImgs = ["./img/jupiter.png", ];
+
+    var gameScore = 0;
 
     // задний план - космос
     background.src = "./img/bg.png";
@@ -67,7 +70,7 @@
     // обрабатываем нажатие кнопок на клавиатуре
     window.addEventListener("keydown", function(e) {
         e.preventDefault();
-        // console.log(e);    
+         
         /* && gameAnimationStart <- эта проверка нужна, чтобы кнопки не нажимались в меню, в этих случаях gameAnimationStart = undefined */
         if(e.key == "ArrowLeft" && spaceship.posX > 10 && gameAnimationStart) { // движение влево
             spaceship.posX -= spaceship.speed;
@@ -134,9 +137,8 @@
         }
     }
 
-    gameTheme = new Music("./sounds/Blazing-Stars-short.mp3"); // инициируем фоновую музыку
-    // gameTheme.sound.setAttribute("autoplay", "autoplay");
-    gameTheme.sound.setAttribute("loop", "loop");
+    gameTheme = new Music("./sounds/Blazing-Stars-short.mp3"); // инициируем фоновую музыку    
+    gameTheme.sound.setAttribute("loop", "loop"); // зацикливаем музыку
 
     crashSound = new Music("./sounds/crash.mp3"); // инициируем звук столкновения
 
@@ -146,14 +148,16 @@
     }
 
     // тут создаются планеты-очки
-    function createPlanetBonus(src) {
+    function createPlanetBonus() {
         let planet = new Image();
-        planet.src = planetImgs[src];
+        planet.src = "./img/jupiter.png";                        //planetImgs[getRandomValue(1, 9)];
         planet.ctx = context;
         planet.posX = getRandomValue(5, 1140);
         planet.posY = -50;
         planet.size = 30;
-        planet.speed = getRandomValue(2, 15);
+        planet.speed = getRandomValue(5, 10);
+        planet.isBonus = true; ////////
+        planet.score = getRandomValue(10, 50);
 
         planet.draw = (function() {
             this.ctx.drawImage(this, this.posX, this.posY, this.size, this.size);
@@ -173,7 +177,7 @@
         asteroid.ctx = context;
         asteroid.posX = getRandomValue(5, 1140);
         asteroid.posY = -50;
-        asteroid.size = size || getRandomValue(10, 80);
+        asteroid.size = size || getRandomValue(10, 81);
         asteroid.speed = speed || getRandomValue(difficultyMinLevel, difficultyMaxLevel);
 
         asteroid.draw = (function() {
@@ -233,7 +237,14 @@
 
             asteroids.push(createRandomAsteroid());
 
-            if (framesNo == 1000) { // астероид монстр
+            // сюда вставить if (framesNo % 80) cutAsteroidsArr + fallingObjects.push(createPlanetBonus)
+            if (framesNo % 100) { // определяем момент появления планет-очков
+                cutAsteroidsArr();
+
+                asteroids.push(createPlanetBonus()); // создаем случайную планету и добавляем 
+            }
+
+            if (framesNo == 3000) { // астероид монстр
 
                 cutAsteroidsArr(); // ограничиваем массив asteroids   
 
@@ -248,6 +259,12 @@
                  
             // события при столкновении с астероидом
             if (detectContact(spaceship, asteroids[i])) {
+                if (asteroids[i].isBonus) { // событие при столкновении с планетой, получаем очки
+                    gameScore += asteroids[i].score;
+                    setScore(gameScore);
+                    asteroids.splice(i,1);
+                    continue;
+                }
 
                 var expl = createExplosion(asteroids[i].posX, asteroids[i].posY, asteroids[i].size, asteroids[i].size);
 
@@ -281,7 +298,7 @@
                     gameTheme.stop();
                     
                     setTimeout(function() {
-                        showGameEndMenu();
+                        showEndGameMenu(gameScore);
                     }, 50);
                 }                     
             } else {
@@ -311,7 +328,7 @@
         gameMenu.style.display = "block";
     }
 
-    // рестарт игры и перерисовка
+    // старт игры и перерисовка
     function startGame() {
         let gameMenu = document.getElementById("game-menu");
         gameMenu.style.display = "none";
@@ -325,7 +342,12 @@
         livesCount = lives.length;
         asteroids.length = 0; // это необходимо, чтобы убрать с канваса "старые" астероиды
         background.draw();
+
+        spaceship.posX = 570; 
+        spaceship.posY = 350;
+        spaceship.src = "./img/spaceship-normal.png";
         spaceship.draw();
+        
         gameTheme.play();
 
         setTimeout(function() {
@@ -333,27 +355,40 @@
         }, 500);
     }
 
-    function showGameEndMenu() {
-        let gameEndMenu = document.getElementById("game-end-menu");
+    // показать игровое меню
+    function showEndGameMenu(score) {
+        let gameEndMenu = document.getElementById("end-game-menu");
         gameEndMenu.style.display = "block";
+
+        let finalScore = document.getElementById("final-score");
+        finalScore.textContent = score;
     }
 
+    // действия кнопки ОК в меню окончания игры
     function endGameOkBtn() {
-        let gameEndMenu = document.getElementById("game-end-menu");
+        let gameEndMenu = document.getElementById("end-game-menu");
         gameEndMenu.style.display = "none";
         showGameMenu();
     }
 
+    // показать надпись Pause
     function displayPauseContainer() {
         let pauseContainer = document.getElementById("pause-container");
         pauseContainer.style.display = "block";
     }
 
+    // спрятать надпись Pause 
     function hidePauseContainer() {
         let pauseContainer = document.getElementById("pause-container");
         pauseContainer.style.display = "none";
     }
 
-    console.log(gameTheme);
+    // обновить очки
+    function setScore(score) {
+        let scoreTable = document.getElementById("score");
+        scoreTable.textContent = score;
+    }
+
+    // console.log(gameTheme);
      
 // });
