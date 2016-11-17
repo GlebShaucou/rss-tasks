@@ -36,7 +36,7 @@ canvas {
     height: 500px;
     position: absolute;
     top: 0;
-    left: 30px;
+    left: 25px;
     background: url("../img/bg.png") no-repeat;
     z-index: -1000;
 }
@@ -57,6 +57,10 @@ canvas {
     text-align: left;
 }
 
+.live {
+    color: #e84c3d;
+}
+
 .score-container {
     width: 200px;
     height: 120px;
@@ -69,6 +73,7 @@ canvas {
 }
 
 .score {
+    color: #2abfbf;
     text-align: right;
 }
 
@@ -129,7 +134,7 @@ canvas {
 
 .final-score {
     font-size: 27px;
-    color: #ff8989;
+    color: #2abfbf;
 }
 
 .pause-container {

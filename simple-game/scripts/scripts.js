@@ -150,17 +150,19 @@
     // тут создаются планеты-очки
     function createPlanetBonus() {
         let planet = new Image();
-        planet.src = "./img/jupiter.png";                        //planetImgs[getRandomValue(1, 9)];
+        planet.src = "./img/planets.png"; //planetImgs[getRandomValue(1, 9)];
         planet.ctx = context;
-        planet.posX = getRandomValue(5, 1140);
-        planet.posY = -50;
-        planet.size = 30;
+        planet.coordX = 7; // позиция на элемент спрайта                     //getRandomValue(5, 1140);
+        planet.coordY = 12; // позиция на элемент спрайта
+        planet.posX = getRandomValue(5, 1140); // позиция на канвасе
+        planet.posY = -50; // позиция на канвасе
+        planet.size = 58;
         planet.speed = getRandomValue(5, 10);
         planet.isBonus = true; ////////
-        planet.score = getRandomValue(10, 50);
+        planet.score = 10; //getRandomValue(10, 50);
 
         planet.draw = (function() {
-            this.ctx.drawImage(this, this.posX, this.posY, this.size, this.size);
+            this.ctx.drawImage(this, this.coordX, this.coordY, this.size, this.size, this.posX, this.posY, this.size, this.size);
         }).bind(planet);
 
         planet.clear = (function() {
@@ -177,7 +179,7 @@
         asteroid.ctx = context;
         asteroid.posX = getRandomValue(5, 1140);
         asteroid.posY = -50;
-        asteroid.size = size || getRandomValue(10, 81);
+        asteroid.size = size || getRandomValue(30, 101);
         asteroid.speed = speed || getRandomValue(difficultyMinLevel, difficultyMaxLevel);
 
         asteroid.draw = (function() {
