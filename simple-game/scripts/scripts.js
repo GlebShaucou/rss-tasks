@@ -106,6 +106,10 @@
         }
     });
 
+    // window.addEventListener("keyup", function(e) {
+    //     delete e;
+    // });
+
     // базовый класс для музыки
     function Music(src) {
         this.sound = document.createElement("audio");
