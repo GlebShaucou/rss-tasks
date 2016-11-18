@@ -257,7 +257,6 @@
 
         framesNo++;
 
-
         for(let i = 0; i < asteroids.length; i++) {
                  
             // события при столкновении с астероидом
