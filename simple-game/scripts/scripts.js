@@ -56,12 +56,16 @@
         spaceship.ctx = context;
         spaceship.posX = 570; 
         spaceship.posY = 350;
-        spaceship.speed = 5;
+        spaceship.speed = 10;
         spaceship.width = 75;
         spaceship.height = 120;
         spaceship.draw = (function() {
             this.ctx.drawImage(this, this.posX, this.posY, this.width, this.height);
 
+        }).bind(spaceship);
+
+        spaceship.posUpdate = (function() {
+            this.posX += this.speed;
         }).bind(spaceship);
 
         return spaceship;
@@ -74,9 +78,11 @@
         /* && gameAnimationStart <- эта проверка нужна, чтобы кнопки не нажимались в меню, в этих случаях gameAnimationStart = undefined */
         if(e.key == "ArrowLeft" && spaceship.posX > 10 && gameAnimationStart) { // движение влево
             spaceship.posX -= spaceship.speed;
+            // spaceship.speed = -1;
         }
         if(e.key == "ArrowRight" && spaceship.posX < 1140 && gameAnimationStart) { // движение вправо
             spaceship.posX += spaceship.speed;
+            // spaceship.speed = 1;
         }
         if(e.key == "ArrowUp" && spaceship.posY > 200 && gameAnimationStart) { // вверх
             spaceship.posY -= spaceship.speed;
@@ -106,9 +112,9 @@
         }
     });
 
-    // window.addEventListener('keyup', function (e) {
-    //     e.key = (e.type == "keydown");
-    // });
+    window.addEventListener('keyup', function (e) {
+        e.key = false;
+    });
 
     // базовый класс для музыки
     function Music(src) {
@@ -311,7 +317,7 @@
                  asteroids[i].draw(); // рисуем астероиды на canvas
             }
         }
-
+        
         spaceship.draw(); // рисуем космический корабль на canvas
 
         for(let i = 0; i < asteroids.length; i++) { // двигаем астероиды
