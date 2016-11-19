@@ -106,8 +106,8 @@
         }
     });
 
-    // window.addEventListener("keyup", function(e) {
-    //     delete e;
+    // window.addEventListener('keyup', function (e) {
+    //     e.key = (e.type == "keydown");
     // });
 
     // базовый класс для музыки
@@ -355,6 +355,9 @@
         spaceship.draw();
         
         gameTheme.play();
+
+        gameScore = 0;
+        setScore(0);
 
         setTimeout(function() {
             gameAnimationStart = window.requestAnimationFrame(game);
