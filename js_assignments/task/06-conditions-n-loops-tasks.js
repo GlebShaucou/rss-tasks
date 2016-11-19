@@ -145,6 +145,12 @@ function isTriangle(a,b,c) {
  *  
  */
 function doRectanglesOverlap(rect1, rect2) {
+    // if (rect2.top >= rect1.top && rect2.top <= rect1.top + rect1.height 
+    //     && rect2.left >= rect1.left && rect2.left <= rect1.left + rect1.width) {
+    //     return true;
+    // }
+    // return false;
+
     throw new Error('Not implemented');
 }
 
@@ -176,7 +182,8 @@ function doRectanglesOverlap(rect1, rect2) {
  *   
  */
 function isInsideCircle(circle, point) {
-    throw new Error('Not implemented');
+    var lenToPoint = Math.sqrt(Math.pow(point.x - circle.center.x, 2) + Math.pow(point.y - circle.center.y, 2));
+    return lenToPoint < circle.radius;
 }
 
 
@@ -457,7 +464,25 @@ function getMatrixProduct(m1, m2) {
  *
  */
 function evaluateTicTacToePosition(position) {
-    throw new Error('Not implemented');
+    for (let i = 0; i < 3; i++) {
+        if(position[i][0] != undefined && position[i][0] == position[i][1] && position[i][0] == position[i][2]) { // выигрыш по строкам
+            return position[i][0];
+        }
+
+        if (position[0][i] != undefined && position[0][i] == position[1][i] && position[0][i] == position[2][i]) { // выигрыш по вертикали
+            return position[0][i];
+        }
+    }
+
+    if (position[0][0] != undefined && position[0][0] == position[1][1] && position[0][0] == position[2][2]) { // выигрыш по диагонали
+        return position[0][0];
+    }
+
+    if (position[0][2] != undefined && position[0][2] == position[1][1] && position[0][2] == position[2][0]) { // выигрыш по диагонали
+        return position[0][2];
+    }
+
+    return undefined;
 }
 
 

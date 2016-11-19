@@ -221,7 +221,20 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-    throw new Error('Not implemented');
+    var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    var key = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+    var arr = [];
+
+    for (let i = 0; i < str.length; i++) {
+        if(alphabet.indexOf(str[i]) > -1) {
+            let ind = alphabet.indexOf(str[i]);     
+            arr.push(key[ind]);
+            continue; 
+        }
+        arr.push(str[i]);
+    }
+
+    return arr.join("");
 }
 
 /**
@@ -238,6 +251,8 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
+    // console.log(value + " : " + value["charCodeAt"]);
+    // return typeof value === "string" && value instanceof String;
     throw new Error('Not implemented');
 }
 
@@ -267,7 +282,11 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-    throw new Error('Not implemented');
+    var deck = ['A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
+                'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
+                'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',
+                'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'];
+    return deck.indexOf(value);
 }
 
 
