@@ -23,7 +23,7 @@
  *    [0, 1, 2, 3, 4, 5], 5    => 5
  */
 function findElement(arr, value) {
-   return arr.indexOf(value);
+    return arr.indexOf(value);
 }
 
 /**
@@ -38,9 +38,23 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-    throw new Error('Not implemented');
-}
+    function odd(num) {
+        return function() {
+            num += 2;
+            return num;
+        }
+    }
 
+    var num = odd(1);
+
+    var arr = Array.apply(null, Array(len)).map(function() { 
+        return num();
+    });
+    
+    arr.unshift(1);
+    arr.pop();
+    return arr;
+}
 
 /**
  * Returns the doubled array - elements of the specified array are repeated twice using original order
@@ -54,7 +68,7 @@ function generateOdds(len) {
  *    [] => [] 
  */
 function doubleArray(arr) {
-   return arr.concat(arr);
+    return arr.concat(arr);
 }
 
 
@@ -156,7 +170,7 @@ function getStringsLength(arr) {
  *    [ 1, 'b', 'c'], 0, 'x'  => [ 'x', 1, 'b', 'c' ]
  */
 function insertItem(arr, item, index) {
-   return arr.splice(index, 0, item);
+    return arr.splice(index, 0, item);
 }
 
 /**
@@ -170,15 +184,15 @@ function insertItem(arr, item, index) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'a', 'b', 'c' ]
  */
 function getHead(arr, n) {
-   return arr.slice(0, n);
+    return arr.slice(0, n);
 }
 
 
 /**
- * Returns the n last items of the specified array
- * 
- * @param {array} arr
- * @param {number} n 
+* Returns the n last items of the specified array
+* 
+* @param {array} arr
+* @param {number} n 
  * 
  * @example
  *    [ 1, 3, 4, 5 ], 2  => [ 4, 5 ]
@@ -210,7 +224,21 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-   throw new Error('Not implemented');
+    var str = "";
+    var ret = arr.reduce(function(prev, curr) {
+        if (typeof prev == "string") {
+            str += "\n";
+            str += curr.join(",");
+        } else {
+            str += prev.join(",");
+            str += "\n";
+            str += curr.join(",");
+        }
+
+        return str;
+    });
+
+    return ret;
 }
 
 /**
@@ -246,7 +274,13 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-   throw new Error('Not implemented');
+    var newArr = [];
+    newArr.push(arr[0]);
+    arr.reduce(function(prev, curr) {
+        newArr.push(prev + curr);
+        return prev + curr;
+    });
+    return newArr;
 }
 
 /**
@@ -261,12 +295,16 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-    // return arr.filter(function(num, ind) {
-    //     if(ind % 2) {
-    //         return num;
-    //     }
-    // });
-    throw new Error('Not implemented');
+    var newArr = arr.filter(function(num, ind) {
+        if(ind % 2) {
+            if (num == null) {
+                return !num;
+            }
+            return num;
+        }
+    });
+
+    return newArr;
 }
 
 
@@ -285,7 +323,27 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-   throw new Error('Not implemented');
+    // var newArr = [];
+    // if (arr.length == 0) {
+    //     return arr;
+    // }
+    // if (arr.length == 1) {
+    //     return arr;
+    // }
+
+    // // for (let i = 0; i < arr.length; i++) {
+    //     var newArr = arr.map(function(elem, ind) {
+    //         let str = (elem + "").repeat(ind+1).split("");
+    //         return str;
+    //     });
+        
+    //     // for (let j = 0; j < str.length; j++) {
+    //         // newArr.push(str[j]);
+    //     // }
+    // // }
+    // console.log(newArr.join("").replace(",", "").split("").);
+    // return newArr.join("").replace(",", "").split("");
+    throw new Error('Not implemented');
 }
 
 
@@ -303,7 +361,14 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-   throw new Error('Not implemented');
+    if(arr.length == 0) { return arr;}
+    if(arr.length <= 3) { return arr.reverse();}
+
+    arr.sort(function(a,b) {
+        return a - b;
+    });
+
+    return arr.reverse().slice(0, 3);
 }
  
  
