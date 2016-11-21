@@ -427,7 +427,7 @@ function setScore(score) {
     scoreTable.textContent = score;
 }
 
-//
+// показать информацию об игре при нажатии кнопки info
 function showGameInfo() {
     let info = document.getElementById("game-information");
     let story = document.getElementById("story");
@@ -436,10 +436,16 @@ function showGameInfo() {
     info.style.display = "block";
 }
 
-//
+// игровую историю
 function displayStory() {
     let story = document.getElementById("story");
     let info = document.getElementById("game-information");
     story.style.display = "block";
     info.style.display = "none";
 }
+
+//
+// function setChapterName(chapter) {
+//     let chapter = document.getElementById("chapter-container-text");
+    
+// }
