@@ -141,9 +141,3 @@ function Node(key, value) {
     this.leftChild = null;
     this.rightChild = null;
 }
-
-var bst = new BinarySearchTree();
-
-bst.insert(8, 23).insert(4, 5).insert(10, 30).insert(2, 30).insert(5, 30);
-
-bst.contains(5);
