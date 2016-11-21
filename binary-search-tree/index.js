@@ -9,13 +9,13 @@ function BinarySearchTree() {
     this.insert = (function(key, value) {
         var node = new Node(key, value);
 
-        if(this.rootNode == null) {
+        if(!(this.root())) {
             this.rootNode = node;
         } else {
-            var currentNode = this.rootNode;
+            var currentNode = this.root();
 
             while(true) {
-                if (currentNode.value > node.value) {
+                if (currentNode.key > node.key) {
                     if (currentNode.leftChild == null) {
                         currentNode.leftChild = node;
                         node.parent = currentNode;
@@ -36,8 +36,26 @@ function BinarySearchTree() {
         return this; // это нужно, чтобы метод был chainable
     }).bind(this);
 
+    this.search = (function(key) {
+
+        function innerSearch(currentNode) {
+            // console.log(currentNode);
+            if(currentNode.key == key) {
+                return currentNode;
+            } else if(currentNode.leftChild && currentNode.key > key) {
+                return innerSearch(currentNode.leftChild);
+            } else if(currentNode.rightChild && currentNode.key <= key) {
+                return innerSearch(currentNode.rightChild);
+            } else {
+                return undefined;
+            }
+        }
+        
+        return innerSearch(this.root());
+    }).bind(this);
+
     this.showTree = (function() {
-        console.log(this.rootNode);
+        console.log(this.root());
     }).bind(this);
 }
 
@@ -51,10 +69,10 @@ function Node(key, value) {
 
 var bst = new BinarySearchTree();
 
-bst.insert(1, 23).insert(3, 5).insert(4, 30);
+bst.insert(8, 23).insert(4, 5).insert(10, 30).insert(2, 30).insert(5, 30);
 // bst.insert(3, 5);
 // bst.insert(4, 30);
 // bst.insert(10, 2);
 // bst.insert(12, 3);
-
-// bst.showTree();
+console.log(bst.search(5));
+bst.showTree();
