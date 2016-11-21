@@ -39,7 +39,7 @@ function BinarySearchTree() {
     this.search = (function(key) {
 
         function innerSearch(currentNode) {
-            // console.log(currentNode);
+            
             if(currentNode.key == key) {
                 return currentNode;
             } else if(currentNode.leftChild && currentNode.key > key) {
@@ -54,9 +54,70 @@ function BinarySearchTree() {
         return innerSearch(this.root());
     }).bind(this);
 
-    this.showTree = (function() {
-        console.log(this.root());
+    this.contains = (function(value) {
+        
+        function innerContains(currentNode) {
+            var isValue;
+
+            if(currentNode.value == value) {
+                return true;
+            } else {
+
+                if(currentNode.leftChild) {
+                    isValue = innerContains(currentNode.leftChild);
+                    if (isValue) {
+                        return true;
+                    }
+                } 
+
+                if(currentNode.rightChild) {
+                    isValue = innerContains(currentNode.rightChild);
+                    if (isValue) {
+                        return true;
+                    }
+                }
+
+                return false; 
+            }
+        }
+
+        return innerContains(this.root());
     }).bind(this);
+
+    this.traverse = (function(bool) {
+        var keys = [];
+        var values = [];
+
+        function innerTraverse(currentNode) {
+            if(currentNode) {
+                keys.push(currentNode.key);
+                innerTraverse(currentNode.leftChild);
+                innerTraverse(currentNode.rightChild);
+            }
+        }
+
+        innerTraverse(this.root());
+
+        keys.sort(function(a,b) {
+            return a - b;
+        });
+
+        for (var i = 0; i < keys.length; i++) {
+            values.push(this.search(keys[i]).value);
+        }
+
+        if(bool) {
+            return values;
+        } else {
+            return values.reverse();
+        }    
+    }).bind(this);
+
+    
+
+    // this.showTree = (function() {
+    //     console.log(this.root());
+    // }).bind(this);
 }
 
 function Node(key, value) {
@@ -70,9 +131,5 @@ function Node(key, value) {
 var bst = new BinarySearchTree();
 
 bst.insert(8, 23).insert(4, 5).insert(10, 30).insert(2, 30).insert(5, 30);
-// bst.insert(3, 5);
-// bst.insert(4, 30);
-// bst.insert(10, 2);
-// bst.insert(12, 3);
-console.log(bst.search(5));
-bst.showTree();
+
+bst.contains(5);
