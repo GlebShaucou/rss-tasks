@@ -10,9 +10,15 @@ body {
     position: relative;
 }
 
+
+
 p {
     margin: 0;
     padding: 0;
+}
+
+h2 {
+    margin: 0 0 20px 0;
 }
 
 .wrapper {
@@ -110,6 +116,12 @@ canvas {
     margin: 20px 0 0 20px;
 }
 
+.story {
+    width: 750px;
+    text-align: center;
+    margin: 30px 0 0 20px;
+}
+
 .end-game-menu {
     width: 500px;
     height: 250px;
@@ -132,9 +144,15 @@ canvas {
     padding: 30px 0 30px 0;
 }
 
+.ok {
+    width: 150px;
+    height: 80px;
+}
+
 .final-score {
-    font-size: 27px;
+    font-size: 33px;
     color: #2abfbf;
+    display: block;
 }
 
 .pause-container {
@@ -154,4 +172,26 @@ canvas {
 .pause-container-text {
     color: #ffffff;
     font-size: 30px;
+}
+
+.chapter-container {
+    width: 300px;
+    height: 120px;
+    position: absolute;
+    top: 20px;
+    left: 480px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.chapter-container {
+    color: #2abfbf;
+    text-align: center;
+}
+
+.game-information {
+    display: none;
+    width: 750px;
+    text-align: center;
+    margin: 50px 0 0 20px;
 }
