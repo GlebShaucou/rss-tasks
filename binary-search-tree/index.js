@@ -113,7 +113,21 @@ function BinarySearchTree() {
         }    
     }).bind(this);
 
-    
+    this.delete = (function(key) {
+        var deletedNode = this.search(key);
+
+        if (deletedNode.leftChild == null && deletedNode.rightChild == null) {
+            if(deletedNode.parent.leftChild.key == deletedNode.key) {
+                deletedNode.parent.leftChild = null;
+            }
+
+            if(deletedNode.parent.rightChild.key == deletedNode.key) {
+                deletedNode.parent.rightChild = null;
+            }
+        }
+
+        return this;
+    }).bind(this);
 
     // this.showTree = (function() {
     //     console.log(this.root());
