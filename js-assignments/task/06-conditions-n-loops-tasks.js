@@ -225,7 +225,27 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-    throw new Error('Not implemented');
+    var str = "";
+
+    if (isStartIncluded) {
+        str += "[";
+    } else {
+        str += "(";
+    }
+
+    if (b < a) {
+        str += b + ", " + a;
+    } else {
+        str += a + ", " + b;
+    }
+
+    if (isEndIncluded) {
+        str += "]";
+    } else {
+        str += ")";
+    }
+    
+    return str;
 }
 
 
@@ -242,7 +262,9 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-    throw new Error('Not implemented');
+    var arr = str.split("");
+    arr.reverse();
+    return arr.join("");
 }
 
 
@@ -259,7 +281,10 @@ function reverseString(str) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
-    throw new Error('Not implemented');
+    num = num + "";
+    var arr = num.split("");
+    arr.reverse();
+    return arr.join("");
 }
 
 
@@ -303,7 +328,24 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
-    throw new Error('Not implemented');
+    function innerRoot(num) {
+        var sum = 0;
+        if (num.length == 1) {
+            return +num;
+        }
+
+        for (var i = 0; i < num.length; i++) {
+            sum += +num[i];
+        }
+
+        sum = sum + "";
+
+        return +innerRoot(sum);
+    }
+
+    num = num + "";
+
+    return innerRoot(num);
 }
 
 
