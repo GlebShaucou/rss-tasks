@@ -323,29 +323,24 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-    // var newArr = [];
-    // if (arr.length == 0) {
-    //     return arr;
-    // }
-    // if (arr.length == 1) {
-    //     return arr;
-    // }
+    var newArr = [];
 
-    // // for (let i = 0; i < arr.length; i++) {
-    //     var newArr = arr.map(function(elem, ind) {
-    //         let str = (elem + "").repeat(ind+1).split("");
-    //         return str;
-    //     });
-        
-    //     // for (let j = 0; j < str.length; j++) {
-    //         // newArr.push(str[j]);
-    //     // }
-    // // }
-    // console.log(newArr.join("").replace(",", "").split("").);
-    // return newArr.join("").replace(",", "").split("");
-    throw new Error('Not implemented');
+    if(arr.length == 0) {
+        return [];
+    }
+
+    function newSubArr(elem, ind) {
+        return Array.apply(null, Array(ind)).map(function() { 
+                    return elem;
+                });
+    }
+
+    arr.map(function(num, index) {
+        newArr = newArr.concat(newSubArr(num, index + 1));       
+    });
+
+    return newArr;
 }
-
 
 /** 
  * Returns the 3 largest numbers from the specified array
@@ -571,7 +566,25 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  */
 function sortCitiesArray(arr) {
-   throw new Error('Not implemented');
+    arr.sort(function(a, b) {
+        if(a.country > b.country) {
+            return 1;
+        }
+        
+        if (a.country < b.country) {
+            return -1;
+        }
+
+        if (a.country == b.country) {
+            if (a.city > b.city) {
+                return 1;
+            }
+            return -1;
+        }        
+    });
+    // console.log(arr);
+
+    return arr;
 }
 
 /**
@@ -593,7 +606,23 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]   
  */
 function getIdentityMatrix(n) {
-   throw new Error('Not implemented');
+    var index = -1;
+
+    function addMatrixRow(len, outerInd) {
+        return Array.apply(null, Array(n)).map(function(elem, innerInd) {
+            if(outerInd == innerInd) {
+                return 1;
+            }
+            return 0;
+        }); 
+    }
+
+    var matrix = Array.apply(null, Array(n)).map(function() { 
+        index++;
+        return addMatrixRow(n, index);
+    });
+    // console.log(matrix);
+    return matrix;
 }
 
 /**
@@ -610,20 +639,15 @@ function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
-    // var arr = [];
-    // var ret = [];
-    // var len = end - start;
-    // arr.length = len;
-    // start = start - 1;
-    
-    // arr.map(function(num) {
-    //     start++;
-    //     ret.push(start);
-    // });
-    // console.log(ret);
-    // return ret;
+    var len = end - start + 1;
+    var num = start - 1;
 
-    throw new Error('Not implemented');
+    var newArr = Array.apply(null, Array(len)).map(function() { 
+        num++;
+        return num;
+    });
+    // console.log(newArr);
+    return newArr;
 }
 
 /**
@@ -638,7 +662,13 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-   throw new Error('Not implemented');
+    var unique = [];
+    arr.map(function(num) {
+        if (!unique.includes(num)) {
+            unique.push(num);
+        }
+    });
+    return unique;
 }
 
 /**
