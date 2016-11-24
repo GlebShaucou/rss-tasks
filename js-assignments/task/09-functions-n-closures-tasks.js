@@ -70,11 +70,8 @@ function getPowerFunction(exponent) {
  *   getPolynom()      => null
  */
 function getPolynom() {
-//     var args = Array.prototype.slice.call(arguments);
+    // var args = Array.prototype.slice.call(arguments);
     
-//     if(args.length ) {
-
-//     }
     throw new Error('Not implemented');
 }
 

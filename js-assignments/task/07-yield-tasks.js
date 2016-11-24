@@ -33,7 +33,25 @@
  *
  */
 function* get99BottlesOfBeer() {
-    throw new Error('Not implemented');
+    var bottles = 99;
+    var str = "";
+    while(bottles > 0) {
+        str = `${bottles} bottles of beer on the wall, ${bottles} bottles of beer.`;
+        yield str;
+        bottles--;
+
+        if (bottles == 1) {
+            yield `Take one down and pass it around, 1 bottle of beer on the wall.`;
+            yield `1 bottle of beer on the wall, 1 bottle of beer.`;
+            yield `Take one down and pass it around, no more bottles of beer on the wall.`;
+            yield `No more bottles of beer on the wall, no more bottles of beer.`;
+            yield `Go to the store and buy some more, 99 bottles of beer on the wall.`;  
+            break; 
+        }
+
+        str = `Take one down and pass it around, ${bottles} bottles of beer on the wall.`;
+        yield str;
+    }
 }
 
 
@@ -47,7 +65,19 @@ function* get99BottlesOfBeer() {
  *
  */
 function* getFibonacciSequence() {
-    throw new Error('Not implemented');
+    var prev = 0;
+    var curr = 1;
+    var ret;
+
+    yield prev;
+    yield curr;
+
+    while(true) {
+        ret = prev + curr;
+        prev = curr;
+        curr = ret;
+        yield ret;
+    }
 }
 
 
@@ -126,9 +156,57 @@ function* breadthTraversalTree(root) {
  *   [ 1, 3, 5, ... ], [ -1 ] => [ -1, 1, 3, 5, ...]
  */
 function* mergeSortedSequences(source1, source2) {
+    // var i = 0;
+    // var j = 0;
+    // var newArr = [];
+    // var len1 = source1.length;
+    // var len2 = source2.length;
+    // if (len1 > len2) {
+    //     while(j < len2) {
+    //         if (source1[i] < source2[j]) {
+    //             newArr.push(source1[i]);
+    //             yield newArr;
+    //             i++;
+    //             continue;
+    //         } else {
+    //             newArr.push(source2[j]);
+    //             yield newArr;
+    //             j++;
+    //             continue;
+    //         }
+    //     }
+    // } else {
+    //     while(i < len1) {
+    //         if (source1[i] < source2[j]) {
+    //             newArr.push(source1[i]);
+    //             yield newArr;
+    //             i++;
+    //             continue;
+    //         } else {
+    //             newArr.push(source2[j]);
+    //             yield newArr;
+    //             j++;
+    //             continue;
+    //         }
+    //     }
+    // }
+
+    // while(i < len1) {
+    //     newArr.push(source1[i]);
+    //     yield newArr;
+    //     i++;
+    // }
+
+    // while(j < len2) {
+    //     newArr.push(source2[j]);
+    //     yield newArr;
+    //     j++;
+    // }
+
+    // return newArr;
+
     throw new Error('Not implemented');
 }
-
 
 module.exports = {
     get99BottlesOfBeer: get99BottlesOfBeer,

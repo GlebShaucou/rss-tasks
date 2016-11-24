@@ -702,7 +702,8 @@ function distinct(arr) {
  *   }
  */
 function group(array, keySelector, valueSelector) {
-   throw new Error('Not implemented');
+    // console.log(array + " : " + keySelector + " : " + valueSelector);
+    throw new Error('Not implemented');
 }
 
 
@@ -718,7 +719,11 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-    throw new Error('Not implemented');
+    var newArr = [];
+    arr.map(function(elem) {
+        newArr = newArr.concat(childrenSelector(elem));
+    });
+    return newArr;
 }
 
 
@@ -735,7 +740,17 @@ function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(arr, indexes) {
-    throw new Error('Not implemented');
+    if (indexes.length == 1) {
+        return arr[indexes[0]];
+    }
+
+    if (indexes.length == 2) {
+        return arr[indexes[0]][indexes[1]];    
+    }
+
+    if (indexes.length == 3) {
+        return arr[indexes[0]][indexes[1]][indexes[2]];    
+    }
 }
 
 
@@ -758,7 +773,22 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-    throw new Error('Not implemented');
+    var left = [];
+    var right = [];
+    var mid;
+    
+    if (!(arr.length % 2)) {
+        left = arr.slice(0, arr.length / 2);
+        right = arr.slice(arr.length / 2, arr.length);
+        return right.concat(left);  
+    }
+
+    if (arr.length % 2) {
+        mid = Math.floor(arr.length / 2);
+        left = arr.slice(0, mid);
+        right = arr.slice(mid + 1, arr.length);
+        return right.concat(arr[mid], left);  
+    }
 }
 
 
