@@ -156,54 +156,45 @@ function* breadthTraversalTree(root) {
  *   [ 1, 3, 5, ... ], [ -1 ] => [ -1, 1, 3, 5, ...]
  */
 function* mergeSortedSequences(source1, source2) {
-    // var i = 0;
-    // var j = 0;
+    // var seq1 = source1();
+    // var seq2 = source2();
     // var newArr = [];
-    // var len1 = source1.length;
-    // var len2 = source2.length;
-    // if (len1 > len2) {
-    //     while(j < len2) {
-    //         if (source1[i] < source2[j]) {
-    //             newArr.push(source1[i]);
-    //             yield newArr;
-    //             i++;
-    //             continue;
-    //         } else {
-    //             newArr.push(source2[j]);
-    //             yield newArr;
-    //             j++;
-    //             continue;
-    //         }
-    //     }
-    // } else {
-    //     while(i < len1) {
-    //         if (source1[i] < source2[j]) {
-    //             newArr.push(source1[i]);
-    //             yield newArr;
-    //             i++;
-    //             continue;
-    //         } else {
-    //             newArr.push(source2[j]);
-    //             yield newArr;
-    //             j++;
-    //             continue;
-    //         }
+    // var valSeq1;
+    // var valSeq2;
+    // var count = 0;
+
+    // valSeq1 = seq1.next().value;
+    // valSeq2 = seq2.next().value;
+
+    // while(valSeq1 && valSeq2) {
+    //     if (valSeq1 > valSeq2) {
+    //         newArr.push(valSeq2);
+    //         count++;
+    //         yield count;
+    //         valSeq2 = seq2.next().value;
+    //         continue;
+    //     } else {
+    //         newArr.push(valSeq1);
+    //         count++;
+    //         yield count;
+    //         valSeq1 =seq1.next().value;
+    //         continue;
     //     }
     // }
 
-    // while(i < len1) {
-    //     newArr.push(source1[i]);
-    //     yield newArr;
-    //     i++;
+    // while(valSeq1) {
+    //     newArr.push(valSeq1)
+    //     count++;
+    //     yield count;
+    //     valSeq1 = seq1.next().value;
     // }
 
-    // while(j < len2) {
-    //     newArr.push(source2[j]);
-    //     yield newArr;
-    //     j++;
+    // while(valSeq2) {
+    //     newArr.push(valSeq2)
+    //     count++;
+    //     yield count;
+    //     valSeq2 = seq2.next().value;
     // }
-
-    // return newArr;
 
     throw new Error('Not implemented');
 }

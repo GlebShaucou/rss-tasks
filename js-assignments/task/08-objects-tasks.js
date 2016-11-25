@@ -58,12 +58,6 @@ function getJSON(obj) {
  *
  */
 function fromJSON(proto, json) {
-    // var params = JSON.parse(json);
-    // for(let p in params) {
-    //     proto[p] = params[p];
-    // }
-    // console.log(proto);
-    // return proto;
     throw new Error('Not implemented');
 }
 
