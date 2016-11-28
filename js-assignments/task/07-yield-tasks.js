@@ -114,25 +114,25 @@ function* getFibonacciSequence() {
 function* depthTraversalTree(root) {
     throw new Error('Not implemented');
 
-    var nodes = [];
+    // var nodes = [];
 
-    function innerTraverse(node) {
-        nodes.push(node);
+    // function innerTraverse(node) {
+    //     nodes.push(node);
 
-        if (node.children) {
-            for (let i = 0; i < node.children.length; i++) {
-                innerTraverse(node.children[i]);
-            }
-        }
-    }
+    //     if (node.children) {
+    //         for (let i = 0; i < node.children.length; i++) {
+    //             innerTraverse(node.children[i]);
+    //         }
+    //     }
+    // }
 
-    innerTraverse(root);
+    // innerTraverse(root);
 
-    // console.log(nodes);
+    // // console.log(nodes);
 
-    for (var i = 0; i < nodes.length; i++) {
-        yield nodes[i];
-    }
+    // for (var i = 0; i < nodes.length; i++) {
+    //     yield nodes[i];
+    // }
 
 }
 
