@@ -251,9 +251,8 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-    // console.log(value + " : " + value["charCodeAt"]);
-    // return typeof value === "string" && value instanceof String;
-    throw new Error('Not implemented');
+    var type = Object.prototype.toString.call(value).slice(8, -1);
+    return type == "String";
 }
 
 

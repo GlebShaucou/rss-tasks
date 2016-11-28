@@ -55,9 +55,7 @@ function getCicleCircumference(radius) {
  */
 function getAverage(value1, value2) {
     throw new Error('Not implemented');
-    // console.log(value1 + " : " + value2);
-    // if(value1 + ) return Infinity;
-    // return (value1 + value2) / 2;
+    // return ((value1 + value2) / 2).toFixed(2);
 }
 
 /**

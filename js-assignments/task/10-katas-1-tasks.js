@@ -17,10 +17,43 @@
  *  ]
  */
 function createCompassPoints() {
-    throw new Error('Not implemented');
-    var sides = ['N','E','S','W'];  // use array of cardinal directions only!
-}
+    var sides = ['N','E','S','W','N'];  // use array of cardinal directions only!
+    var compas = [];
+    var azim = 0.00;
 
+    function addToCompas(str) {
+        let obj = {};
+        obj.abbreviation = str;
+        obj.azimuth = azim;
+        compas.push(obj);
+        azim += 11.25;
+    }
+
+    for(let i = 0; i <= 3; i++) {
+        addToCompas(sides[i]);
+        addToCompas(sides[i] + "b" + sides[i + 1]);
+
+        if(i == 0 || i == 2) {
+            addToCompas(sides[i] + sides[i] + sides[i + 1]);
+            addToCompas(sides[i] + sides[i + 1] + "b" + sides[i]);
+            addToCompas(sides[i] + sides[i + 1]);
+            addToCompas(sides[i] + sides[i + 1] + "b" + sides[i + 1]);
+            addToCompas(sides[i + 1] + sides[i] + sides[i + 1]);
+        }
+
+        if(i == 1 || i == 3) {
+            addToCompas(sides[i] + sides[i + 1] + sides[i]);
+            addToCompas(sides[i + 1] + sides[i] + "b" + sides[i]);
+            addToCompas(sides[i + 1] + sides[i]);
+            addToCompas(sides[i + 1] + sides[i] + "b" + sides[i + 1]);
+            addToCompas(sides[i + 1] + sides[i + 1] + sides[i]);
+        }
+
+        addToCompas(sides[i + 1] + "b" + sides[i]);
+    }
+    
+    return compas;
+}
 
 /**
  * Expand the braces of the specified string.
