@@ -123,7 +123,7 @@ function angleBetweenClockHands(date) {
     //     angle = 360 - angle;
     // } 
     // console.log((angle * Math.PI) / 180);
-    // return (angle * Math.PI) / 180;
+    // return angle;
     throw new Error('Not implemented');
 }
 
