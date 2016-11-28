@@ -507,7 +507,8 @@ function timespanToHumanString(startDate, endDate) {
     //     return `${result} hours ago`;   
     // }    
 
-    
+    console.log(startDate);
+
     throw new Error('Not implemented');
 }
 
