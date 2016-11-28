@@ -700,8 +700,19 @@ function distinct(arr) {
  *   }
  */
 function group(array, keySelector, valueSelector) {
-    // console.log(array + " : " + keySelector + " : " + valueSelector);
-    throw new Error('Not implemented');
+    var miniMap = new Map();
+
+    array.map(function(elem) {
+        if (miniMap.has(keySelector(elem))) {
+            miniMap.get(keySelector(elem)).push(valueSelector(elem));
+        } else {
+            let arr = [];
+            arr.push(valueSelector(elem));
+            miniMap.set(keySelector(elem), arr);
+        }
+    });
+
+    return miniMap;
 }
 
 
