@@ -36,3 +36,15 @@ node_modules
 # Editors crap
 .vscode
 .idea
+
+.gitignore
+
+test
+
+.json
+
+.md
+
+extensions
+
+.travis.yml
