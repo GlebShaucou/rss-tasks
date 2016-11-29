@@ -177,47 +177,41 @@ function* breadthTraversalTree(root) {
  *   [ 1, 3, 5, ... ], [ -1 ] => [ -1, 1, 3, 5, ...]
  */
 function* mergeSortedSequences(source1, source2) {
-    // var seq1 = source1();
-    // var seq2 = source2();
-    // var newArr = [];
-    // var valSeq1;
-    // var valSeq2;
-    // // var count = 0;
+    var seq1 = source1();
+    var seq2 = source2();
+    var valSeq1;
+    var valSeq2;
 
-    // valSeq1 = seq1.next().value;
-    // valSeq2 = seq2.next().value;
+    valSeq1 = seq1.next().value;
+    valSeq2 = seq2.next().value;
 
-    // while(valSeq1 && valSeq2) {
-    //     if (valSeq1 > valSeq2) {
-    //         newArr.push(valSeq2);
-    //         // count++;
-    //         yield valSeq2;
-    //         valSeq2 = seq2.next().value;
-    //         continue;
-    //     } else {
-    //         newArr.push(valSeq1);
-    //         // count++;
-    //         yield valSeq1;
-    //         valSeq1 =seq1.next().value;
-    //         continue;
-    //     }
-    // }
+    while(valSeq1 != undefined && valSeq2 != undefined) {
+        if (valSeq1 > valSeq2) {
 
-    // while(valSeq1) {
-    //     newArr.push(valSeq1)
-    //     // count++;
-    //     yield valSeq1;
-    //     valSeq1 = seq1.next().value;
-    // }
+            yield valSeq2;
 
-    // while(valSeq2) {
-    //     newArr.push(valSeq2)
-    //     // count++;
-    //     yield valSeq2;
-    //     valSeq2 = seq2.next().value;
-    // }
+            valSeq2 = seq2.next().value;
 
-    throw new Error('Not implemented');
+            continue;
+        } else {
+
+            yield valSeq1;         
+
+            valSeq1 = seq1.next().value;
+
+            continue;
+        }
+    }
+
+    while(valSeq1) {
+        yield valSeq1;
+        valSeq1 = seq1.next().value;
+    }
+
+    while(valSeq2) {
+        yield valSeq2;
+        valSeq2 = seq2.next().value;
+    }
 }
 
 module.exports = {
