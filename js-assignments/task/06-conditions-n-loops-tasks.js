@@ -507,8 +507,6 @@ function timespanToHumanString(startDate, endDate) {
     //     return `${result} hours ago`;   
     // }    
 
-    console.log(startDate);
-
     throw new Error('Not implemented');
 }
 
@@ -533,7 +531,7 @@ function timespanToHumanString(startDate, endDate) {
  *    365, 10 => '365'
  */
 function toNaryString(num, n) {
-    throw new Error('Not implemented');
+    return num.toString(n);
 }
 
 
@@ -550,7 +548,36 @@ function toNaryString(num, n) {
  *   ['/web/favicon.ico', '/web-scripts/dump', '/webalizer/logs'] => '/'
  */
 function getCommonDirectoryPath(pathes) {
-    throw new Error('Not implemented');
+    pathes.sort();
+
+    var len = pathes[0].length;
+    var commonStr = "";
+
+    for(let i = 0; i < len; i++) {
+        if(pathes[0][i] == pathes[pathes.length - 1][i]) {
+            commonStr += pathes[0][i]; 
+        } else {
+            if(commonStr.length == 0) {
+                return "";
+            }
+
+            if(commonStr.length == 1) {
+                return "/";
+            }        
+
+            let arr = commonStr.split("");
+
+            while(true) {
+                if (arr[arr.length - 1] != "/") {
+                    arr.pop();
+                } else {
+                    break;
+                }
+            }    
+
+            return arr.join("");
+        }
+    } 
 }
 
 
@@ -573,7 +600,18 @@ function getCommonDirectoryPath(pathes) {
  *
  */
 function getMatrixProduct(m1, m2) {
-    throw new Error('Not implemented');
+    var res = [];
+
+    for(let i = 0; i < m1.length; i++) {
+        let minArr = [];
+        for(let j = 0; j < m2[0].length; j++) {
+            let elem = m1[i][0] * m2[0][j] + m1[i][1] * m2[1][j] + m1[i][2] * m2[2][j];
+            minArr.push(elem);
+        }
+        res.push(minArr);
+    }
+
+    return res;
 }
 
 
