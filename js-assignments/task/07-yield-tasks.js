@@ -182,7 +182,7 @@ function* mergeSortedSequences(source1, source2) {
     // var newArr = [];
     // var valSeq1;
     // var valSeq2;
-    // var count = 0;
+    // // var count = 0;
 
     // valSeq1 = seq1.next().value;
     // valSeq2 = seq2.next().value;
@@ -190,14 +190,14 @@ function* mergeSortedSequences(source1, source2) {
     // while(valSeq1 && valSeq2) {
     //     if (valSeq1 > valSeq2) {
     //         newArr.push(valSeq2);
-    //         count++;
-    //         yield count;
+    //         // count++;
+    //         yield valSeq2;
     //         valSeq2 = seq2.next().value;
     //         continue;
     //     } else {
     //         newArr.push(valSeq1);
-    //         count++;
-    //         yield count;
+    //         // count++;
+    //         yield valSeq1;
     //         valSeq1 =seq1.next().value;
     //         continue;
     //     }
@@ -205,15 +205,15 @@ function* mergeSortedSequences(source1, source2) {
 
     // while(valSeq1) {
     //     newArr.push(valSeq1)
-    //     count++;
-    //     yield count;
+    //     // count++;
+    //     yield valSeq1;
     //     valSeq1 = seq1.next().value;
     // }
 
     // while(valSeq2) {
     //     newArr.push(valSeq2)
-    //     count++;
-    //     yield count;
+    //     // count++;
+    //     yield valSeq2;
     //     valSeq2 = seq2.next().value;
     // }
 

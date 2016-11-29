@@ -73,7 +73,6 @@ function getPolynom() {
     var args = Array.prototype.slice.call(arguments);
 
     return function(x) {
-        console.log(x);
 
         if (args.length == 0) {
             return null;
@@ -188,7 +187,14 @@ function logger(func, logFunc) {
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
 function partialUsingArguments(fn) {
-    throw new Error('Not implemented');
+    var args = Array.prototype.slice.call(arguments);
+    args = args.slice(1, args.length);   
+
+    return function() {
+        let innerArgs = Array.prototype.slice.call(arguments);
+        args = args.concat(innerArgs);
+        return fn.apply(null, args);
+    }
 }
 
 
