@@ -70,9 +70,31 @@ function getPowerFunction(exponent) {
  *   getPolynom()      => null
  */
 function getPolynom() {
-    // var args = Array.prototype.slice.call(arguments);
-    
-    throw new Error('Not implemented');
+    var args = Array.prototype.slice.call(arguments);
+
+    return function(x) {
+        console.log(x);
+
+        if (args.length == 0) {
+            return null;
+        }
+
+        var a = args[0];
+        var b = args[1];
+        var c = args[2];
+
+        if (args.length == 1) {
+            return a;
+        }
+
+        if (args.length == 2) {
+            return a * x + b;
+        } 
+
+        if (args.length == 3) {
+            return a * x * x + b * x + c;
+        } 
+    };    
 }
 
 
