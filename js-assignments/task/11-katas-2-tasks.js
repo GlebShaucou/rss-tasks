@@ -34,7 +34,33 @@
  *
  */
 function parseBankAccount(bankAccount) {
-    throw new Error('Not implemented');
+    var arr = bankAccount.split("\n");
+    arr.length = arr.length - 1;
+
+    var ret = "";
+
+    var hash = {
+        " _ | ||_|": 0,
+        "     |  |": 1,
+        " _  _||_ ": 2,
+        " _  _| _|": 3,
+        "   |_|  |": 4,
+        " _ |_  _|": 5,
+        " _ |_ |_|": 6,
+        " _   |  |": 7,
+        " _ |_||_|": 8,
+        " _ |_| _|": 9
+    };
+
+    for(let i = 3; i <= arr[0].length; i += 3) {
+        let str = "";
+        for(let j = 0; j < arr.length; j++) {
+            str += arr[j].slice(i - 3, i);
+        }
+        ret += hash[str];
+    }
+
+    return ret;
 }
 
 
@@ -148,7 +174,8 @@ function getPokerHandRank(hand) {
  *    '+-------------+\n'
  */
 function* getFigureRectangles(figure) {
-   throw new Error('Not implemented');
+    // console.log(figure);
+    throw new Error('Not implemented');
 }
 
 

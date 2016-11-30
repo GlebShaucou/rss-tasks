@@ -120,15 +120,19 @@ function* depthTraversalTree(root) {
     //     nodes.push(node);
 
     //     if (node.children) {
-    //         for (let i = 0; i < node.children.length; i++) {
-    //             innerTraverse(node.children[i]);
-    //         }
+    //         console.log(node.children.length);
+    //         // for (let i = 0; i < node.children.length; i++) {
+    //         //     return innerTraverse(node.children[i]);
+    //         // }
     //     }
     // }
 
     // innerTraverse(root);
 
-    // // console.log(nodes);
+    // console.log("Array nodes : ");
+    // console.log(nodes);
+    // console.log("Children of nodes[0]");
+    // console.log(nodes[0].children);
 
     // for (var i = 0; i < nodes.length; i++) {
     //     yield nodes[i];

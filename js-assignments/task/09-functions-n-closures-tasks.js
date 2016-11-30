@@ -73,26 +73,20 @@ function getPolynom() {
     var args = Array.prototype.slice.call(arguments);
 
     return function(x) {
-
         if (args.length == 0) {
             return null;
         }
 
-        var a = args[0];
-        var b = args[1];
-        var c = args[2];
+        var n = args.length - 1;
+        var res = 0;
 
-        if (args.length == 1) {
-            return a;
-        }
+        args.map(function(elem) {
+            res += elem * Math.pow(x, n);
+            n = n - 1;
+            return elem;
+        });
 
-        if (args.length == 2) {
-            return a * x + b;
-        } 
-
-        if (args.length == 3) {
-            return a * x * x + b * x + c;
-        } 
+        return res;
     };    
 }
 
@@ -111,7 +105,7 @@ function getPolynom() {
  *   ...
  *   memoizer() => the same random number  (next run, returns the previous cached result)
  */
-function memoize(func) { // решение взято у Дэвида Флэннагана
+function memoize(func) { // Дэвид Флэннаган
     var cache = {};
 
     return function() {
@@ -142,6 +136,15 @@ function memoize(func) { // решение взято у Дэвида Флэнн
  */
 function retry(func, attempts) {
     throw new Error('Not implemented');
+    // return function innerCall() {
+    //     for (var i = 1; i < attempts; i++) {
+    //         try {
+    //             func();
+    //         } catch(e) {
+
+    //         }
+    //     }
+    // };
 }
 
 
