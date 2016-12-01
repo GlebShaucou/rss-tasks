@@ -22,7 +22,6 @@
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
 function parseDataFromRfc2822(value) {
-    if (value == "Sun, 17 May 1998 03:00:00 GMT+01") return 895373940000;
     return Date.parse(value);
 }
 
