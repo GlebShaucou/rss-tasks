@@ -138,7 +138,6 @@ function retry(func, attempts) {
     return function() {
         for (var i = 1; i <= attempts; i++) {
             try {
-                console.log("try");
                 func();
             } catch(e) {
                 continue;
