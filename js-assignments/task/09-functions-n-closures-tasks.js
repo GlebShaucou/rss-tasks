@@ -135,16 +135,18 @@ function memoize(func) { // Дэвид Флэннаган
  * retryer() => 2
  */
 function retry(func, attempts) {
-    throw new Error('Not implemented');
-    // return function innerCall() {
-    //     for (var i = 1; i < attempts; i++) {
-    //         try {
-    //             func();
-    //         } catch(e) {
-
-    //         }
-    //     }
-    // };
+    console.log(func + " : " +attempts);
+    return function() {
+        for (var i = 1; i <= attempts; i++) {
+            try {
+                console.log("try");
+                func();
+            } catch(e) {
+                continue;
+            }
+        }
+        return func();
+    };
 }
 
 
@@ -172,9 +174,23 @@ function retry(func, attempts) {
  *
  */
 function logger(func, logFunc) {
-    throw new Error('Not implemented');
-}
+    return function() {
+        var args = Array.prototype.slice.call(arguments);
+        var argsToLog = "";
 
+        for (let i = 0; i < args.length; i++) {
+            argsToLog += JSON.stringify(args[i]) + ",";
+        }
+        
+        argsToLog = argsToLog.slice(0, -1);
+
+        logFunc(func.name + "(" + argsToLog + ") starts");
+        var result = func.apply(func, args);
+        logFunc(func.name + "(" + argsToLog + ") ends");
+
+        return result;
+    }
+}
 
 /**
  * Return the function with partial applied arguments

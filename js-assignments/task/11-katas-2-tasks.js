@@ -174,7 +174,6 @@ function getPokerHandRank(hand) {
  *    '+-------------+\n'
  */
 function* getFigureRectangles(figure) {
-    // console.log(figure);
     throw new Error('Not implemented');
 }
 

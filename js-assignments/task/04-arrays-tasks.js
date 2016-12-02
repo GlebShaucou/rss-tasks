@@ -580,7 +580,6 @@ function sortCitiesArray(arr) {
             return -1;
         }        
     });
-    // console.log(arr);
 
     return arr;
 }
@@ -619,7 +618,7 @@ function getIdentityMatrix(n) {
         index++;
         return addMatrixRow(n, index);
     });
-    // console.log(matrix);
+    
     return matrix;
 }
 
@@ -644,7 +643,7 @@ function getIntervalArray(start, end) {
         num++;
         return num;
     });
-    // console.log(newArr);
+    
     return newArr;
 }
 

@@ -233,7 +233,7 @@ function getRectangleString(width, height) {
                 continue;
             }
 
-            if (j == 0 && (i > 0 && i < height - 1)) { // | - begin
+            if (j == 0 && (i > 0 && i < height - 1)) { // | - start
                 row += String.fromCharCode(9474);
                 continue;
             }
