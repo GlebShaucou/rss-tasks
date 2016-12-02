@@ -475,38 +475,6 @@ function isBracketsBalanced(str) {
  *
  */
 function timespanToHumanString(startDate, endDate) {
-    var result = endDate - startDate;
-    // result = result / 1000;
-    // if (result >= 0 && result <= 45000) {
-    //     return "a few seconds ago";    
-    // }
-
-    // if (result > 45000 && result <= 90000) {
-    //     return "a minute ago";    
-    // }
-
-    // if (result > 90000 && result <= 2700000) {
-    //     if (result < 120000) {
-    //         return `2 minutes ago`;
-    //     }
-    //     result = Math.floor(result / 1000 / 60);
-    //     return `${result} minutes ago`;    
-    // }
-
-    // result = Math.floor(result / 60);
-    // console.log(result);
-    // if (result > 2700 && result <= 5400) {
-    //     return "an hour ago";    
-    // }
-
-    // if (result > 5400 && result <= 79200) {
-    //     if (result < 10800) {
-    //         return `2 hours ago`;
-    //     }
-    //     result = Math.floor(result / 3600);
-    //     return `${result} hours ago`;   
-    // }    
-
     throw new Error('Not implemented');
 }
 
