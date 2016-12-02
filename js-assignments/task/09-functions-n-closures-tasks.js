@@ -135,7 +135,6 @@ function memoize(func) { // Дэвид Флэннаган
  * retryer() => 2
  */
 function retry(func, attempts) {
-    console.log(func + " : " +attempts);
     return function() {
         for (var i = 1; i <= attempts; i++) {
             try {
