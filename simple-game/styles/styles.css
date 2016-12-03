@@ -10,8 +10,6 @@ body {
     position: relative;
 }
 
-
-
 p {
     margin: 0;
     padding: 0;
@@ -37,7 +35,7 @@ canvas {
     border: 1px solid #00abe3;
 }
 
-.stars { /*чтобы закрывать "дырки" после удаления объектов с canvas*/
+.cover-holes-in-canvas { /* cover holes in canvas after deleteng objects from it */
     width: 1200px;
     height: 500px;
     position: absolute;
@@ -52,7 +50,7 @@ canvas {
     font-weight: 700;
 }
 
-.lives {
+.lives-container {
     width: 200px;
     height: 100px;
     position: absolute;
@@ -83,6 +81,25 @@ canvas {
     text-align: right;
 }
 
+.level-progress-container {
+    width: 16px;
+    height: 250px;
+    position: absolute;
+    top: 150px;
+    right: 58px;
+    border: 1px solid #ff8989;
+    border-radius: 4px;
+}
+
+.level-progress-state {
+    width: 15px;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    background-color: #ff8989;
+    border-radius: 3px;
+}
+
 .game-menu {
     width: 800px;
     height: 500px;
@@ -95,7 +112,7 @@ canvas {
     border-radius: 20px;
 }
 
-.btn {
+.menu-btn {
     font-family: 'Orbitron', sans-serif;
     width: 250px;
     height: 130px;
@@ -107,12 +124,12 @@ canvas {
     cursor: pointer;
 }
 
-.btn:hover {
+.menu-btn:hover {
     color: #00abe3;
     background-color: #dedede;
 }
 
-.start {
+.menu-btn-start-tab {
     margin: 20px 0 0 20px;
 }
 
@@ -120,6 +137,7 @@ canvas {
     width: 750px;
     text-align: center;
     margin: 30px 0 0 20px;
+    display: none;
 }
 
 .end-game-menu {
@@ -144,7 +162,7 @@ canvas {
     padding: 30px 0 30px 0;
 }
 
-.ok {
+.menu-btn-confirm-end {
     width: 150px;
     height: 80px;
 }
@@ -194,4 +212,14 @@ canvas {
     width: 750px;
     text-align: center;
     margin: 50px 0 0 20px;
+}
+
+.asteroid-img {
+    width: 30px;
+    height: 30px;
+}
+
+.planets-img {
+    width: 50px;
+    height: 50px;
 }
