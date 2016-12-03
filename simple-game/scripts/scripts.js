@@ -9,6 +9,8 @@ var background = new Image(); // задний план - космос
 
 var spaceship = createSpaceship();
 
+var moveKeyStatus = false;
+
 var difficultyMinLevel = 2; // сложность игры, это нижний порог скорости астероидов, чем выше значение, тем быстрее будут все астероиды
 var difficultyMaxLevel = 8;
 var frequencyAsteroids = 30; // частота кадров для появления новых астероидов
@@ -38,7 +40,7 @@ background.posX = 0;
 background.posY = 0;
 background.dy = 1;
 background.ctx = context;    
-background.draw = (function() { // рисуем задний план и приводим его в движение    
+background.draw = function() { // рисуем задний план и приводим его в движение    
     this.ctx.clearRect(0, 0, canvasWidth, canvasHeight); 
 
     this.ctx.drawImage(this, this.posX, this.posY, canvasWidth, canvasHeight);
@@ -49,75 +51,69 @@ background.draw = (function() { // рисуем задний план и при�
     }
     
     this.posY += this.dy;
-}).bind(background);
+};
 
 // базовая модель корабля
 function createSpaceship(src) {
-    var spaceship = new Image(); // базовая модель корабля
+    let spaceship = new Image(); // базовая модель корабля
     spaceship.src = src || "./img/spaceship-sprite.png";
     spaceship.ctx = context;
     spaceship.coordX = 0;
     spaceship.coordY = 0;
     spaceship.posX = 570; 
     spaceship.posY = 350;
-    spaceship.speed = 10;
+    spaceship.speedX = 0;
+    spaceship.speedY = 0;
     spaceship.width = 75;
     spaceship.height = 120;
-    spaceship.draw = (function() {
+    spaceship.draw = function() {
         this.ctx.drawImage(this, this.coordX, this.coordY, this.width, this.height, this.posX, this.posY, this.width, this.height);
 
-    }).bind(spaceship);
+    };
 
-    spaceship.posUpdate = (function() {
-        this.posX += this.speed;
-    }).bind(spaceship);
+    spaceship.posUpdate = function() {
+        this.posX += this.speedX;
+        this.posY += this.speedY;
+    };
 
     return spaceship;
 }
 
 // обрабатываем нажатие кнопок на клавиатуре
 window.addEventListener("keydown", function(e) {
-    e.preventDefault();
-     
+    // e.preventDefault();
+    console.log(e.key);
     /* && gameAnimationStart <- эта проверка нужна, чтобы кнопки не нажимались в меню, в этих случаях gameAnimationStart = undefined */
-    if(e.key == "ArrowLeft" && spaceship.posX > 10 && gameAnimationStart) { // движение влево
-        spaceship.posX -= spaceship.speed;
-        // spaceship.speed = -1;
-    }
-    if(e.key == "ArrowRight" && spaceship.posX < 1140 && gameAnimationStart) { // движение вправо
-        spaceship.posX += spaceship.speed;
-        // spaceship.speed = 1;
-    }
-    if(e.key == "ArrowUp" && spaceship.posY > 200 && gameAnimationStart) { // вверх
-        spaceship.posY -= spaceship.speed;
-    }
-    if(e.key == "ArrowDown" && spaceship.posY < 446 && gameAnimationStart) { // вниз
-        spaceship.posY += spaceship.speed;
-    }
-    if (e.key == "Escape" && gameAnimationStart) { // остановить игру на паузу
+  
+    if (e.key === "Escape" && gameAnimationStart) { // остановить игру на паузу
         window.cancelAnimationFrame(gameAnimationStart);
         startControl = gameAnimationStart;
-
         displayPauseContainer();
-
         musicControl("pause");
+        return;
     }
-    if (e.key == " " && gameAnimationStart) { // запустить игру
+    if (e.key === " " && gameAnimationStart) { // запустить игру
         if (startControl == gameAnimationStart) { // тут мы предотвращаем многократное нажатие пробела 
             gameAnimationStart = window.requestAnimationFrame(game);
-
             hidePauseContainer();
-
             musicControl("play");
         }
+        return;
     }
-    if (e.code == "KeyS" && gameAnimationStart) { // on-off music
-        musicControl();        
+    if (e.key === "a" && gameAnimationStart) { // on-off music
+        musicControl("play");        
+        return;
     }
+    if (e.key === "s" && gameAnimationStart) { // on-off music
+        musicControl("pause");        
+        return;
+    }
+
+    moveKeyStatus = e.key;
 });
 
-window.addEventListener('keyup', function (e) {
-    e.key = false;
+window.addEventListener("keyup", function (e) {
+    moveKeyStatus = false;
 });
 
 // базовый класс для музыки
@@ -129,13 +125,15 @@ function Music(src) {
     this.sound.setAttribute("controls", "none");
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
-    this.play = function(){
-        this.sound.play();
-    },
-    this.stop = function(){
-        this.sound.pause();
-    }
 }
+
+Music.prototype.play = function(){
+    this.sound.play();
+};
+
+Music.prototype.stop = function(){
+    this.sound.pause();
+};
 
 gameTheme = new Music("./sounds/chapter-I-theme.ogg"); // инициируем фоновую музыку    
 gameTheme.sound.setAttribute("loop", "loop"); // зацикливаем музыку
@@ -264,26 +262,24 @@ function game() {
             startControl = gameAnimationStart;
                  
             if(livesCount > 1) {
-                // lives[livesCount - 1].style.display = "none";
                 lives[livesCount - 1].style.color = "#000000";
                 livesCount--;
 
                 if (livesCount == 2) {
                     spaceship.coordX = 76;
                     spaceship.coordY = 0;
-                    // spaceship.src = "./img/spaceship-light-damage.png";
                 }
 
                 if (livesCount == 1) {
                     spaceship.coordX = 150;
                     spaceship.coordY = 0;
-                    // spaceship.src = "./img/spaceship-heavy-damaged.png";
                 }
 
                 setTimeout(function() {
                     asteroids.splice(i,1);
                     gameAnimationStart = window.requestAnimationFrame(game);
                 }, 300);  
+
             } else {
                 spaceship.coordX = 226;
                 spaceship.coordY = 0;
@@ -293,7 +289,6 @@ function game() {
 
                 gameAnimationStart = undefined; // поянения по этому были выше 
 
-                // lives[livesCount - 1].style.display = "none";
                 lives[livesCount - 1].style.color = "#000000";
                 livesCount--;
                 gameTheme.stop();
@@ -301,12 +296,28 @@ function game() {
                 setTimeout(function() {
                     showEndGameMenu(gameScore);
                 }, 50);
+
             }                     
         } else {
              asteroids[i].draw(); // рисуем астероиды на canvas
         }
     }
-    
+
+    spaceship.speedX = 0;
+    spaceship.speedY = 0;
+    if(moveKeyStatus && moveKeyStatus == "ArrowLeft" && spaceship.posX > 10 && gameAnimationStart) { // move spaceship left
+        spaceship.speedX = -5;
+    }
+    if(moveKeyStatus && moveKeyStatus == "ArrowRight" && spaceship.posX < 1140 && gameAnimationStart) { // move spaceship right
+        spaceship.speedX = 5;
+    }
+    if(moveKeyStatus && moveKeyStatus == "ArrowUp" && spaceship.posY > 200 && gameAnimationStart) { // move spaceship up
+        spaceship.speedY = -3;
+    }
+    if(moveKeyStatus && moveKeyStatus == "ArrowDown" && spaceship.posY < 446 && gameAnimationStart) { // move spaceship down
+        spaceship.speedY = 3;
+    }
+    spaceship.posUpdate();
     spaceship.draw(); // рисуем космический корабль на canvas
 
     for(let i = 0; i < asteroids.length; i++) { // двигаем астероиды
@@ -315,15 +326,25 @@ function game() {
 }
 
 // управление музыкой
+// function musicControl(state) {
+//     if(state == "pause" && (currentTime == undefined || currentTime != gameTheme.sound.currentTime)) { // если играет музыка и ее нужно отлючить
+//         gameTheme.stop();
+//     } else if(state == "play") { // если музыка не играет, но ее нужно вклюячить
+//         gameTheme.play();
+//     } else if (currentTime == undefined || currentTime != gameTheme.sound.currentTime) { // в эти случаях играет музыка
+//         gameTheme.stop();
+//         currentTime = gameTheme.sound.currentTime;
+//     } else {
+//         gameTheme.play();
+//     }
+// }
+
 function musicControl(state) {
-    if(state == "pause" && (currentTime == undefined || currentTime != gameTheme.sound.currentTime)) { // если играет музыка и ее нужно отлючить
+    if (state === "pause") {
         gameTheme.stop();
-    } else if(state == "play") { // если музыка не играет, но ее нужно вклюячить
-        gameTheme.play();
-    } else if (currentTime == undefined || currentTime != gameTheme.sound.currentTime) { // в эти случаях играет музыка
-        gameTheme.stop();
-        currentTime = gameTheme.sound.currentTime;
-    } else {
+        return;
+    }
+    if (state === "play") {
         gameTheme.play();
     }
 }
@@ -348,15 +369,6 @@ function detectContact(ship, astr) {
     return false;
 }
 
-// показать основное меню
-function showGameMenu() {
-    let gameMenu = document.getElementById("game-menu");
-    gameMenu.style.display = "block";
-    menuMusic.play();
-
-    displayStory();
-}
-
 // старт игры и перерисовка
 function startGame() {
     let gameMenu = document.getElementById("game-menu");
@@ -365,7 +377,6 @@ function startGame() {
     context.clearRect(0,0, canvas.width, canvas.height);
 
     for(let i = 0; i < lives.length; i++) {
-        // lives[i].style.display = "inline";
         lives[i].style.color = "#e84c3d";
     }
     
@@ -391,6 +402,14 @@ function startGame() {
     setTimeout(function() {
         gameAnimationStart = window.requestAnimationFrame(game);
     }, 500);
+}
+
+// показать основное меню
+function showGameMenu() {
+    let gameMenu = document.getElementById("game-menu");
+    gameMenu.style.display = "block";
+    menuMusic.play();
+    displayStory();
 }
 
 // показать игровое меню
@@ -431,7 +450,6 @@ function setScore(score) {
 function showGameInfo() {
     let info = document.getElementById("game-information");
     let story = document.getElementById("story");
-
     story.style.display = "none";
     info.style.display = "block";
 }
@@ -443,9 +461,3 @@ function displayStory() {
     story.style.display = "block";
     info.style.display = "none";
 }
-
-//
-// function setChapterName(chapter) {
-//     let chapter = document.getElementById("chapter-container-text");
-    
-// }
