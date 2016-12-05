@@ -463,12 +463,12 @@ gameTheme.sound.setAttribute("loop", "loop"); // cycling music
 crashSound = new Music("./sounds/crash.mp3"); // initiating collision sound
 
 // play menu music
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
     menuMusic.play();
 });
 
 // listenning events - click on main menu tabs
-document.addEventListener("click", function(e) {
+document.addEventListener("click", (e) => {
     e.preventDefault();
 
     let targetElement = e.target.className.slice(9);
@@ -500,7 +500,7 @@ document.addEventListener("click", function(e) {
 });
 
 // handling with keyboard events
-window.addEventListener("keydown", function(e) {
+window.addEventListener("keydown", (e) => {
     e.preventDefault();
 
     /* 
@@ -535,6 +535,6 @@ window.addEventListener("keydown", function(e) {
 });
 
 // handling with keyboard events
-window.addEventListener("keyup", function (e) {
+window.addEventListener("keyup", (e) => {
     moveKeyStatus = false;
 });
