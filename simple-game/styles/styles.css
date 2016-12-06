@@ -173,6 +173,11 @@ canvas {
     display: block;
 }
 
+.level-final-score {
+    font-size: 40px;
+    color: #2abfbf;
+}
+
 .pause-container {
     width: 500px;
     height: 250px;
@@ -208,7 +213,7 @@ canvas {
 }
 
 .game-information {
-    display: none;
+    /*display: none;*/
     width: 750px;
     text-align: center;
     margin: 50px 0 0 20px;
@@ -226,11 +231,11 @@ canvas {
 
 .level-end-container {
     width: 700px;
-    height: 450px;
+    height: 480px;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -240px 0 0 -251px;
+    margin: -250px 0 0 -360px;
     z-index: 10000;
     background-color: rgba(32, 38, 40, .9);
     border-radius: 20px;
@@ -243,9 +248,15 @@ canvas {
     height: 80px;
 }
 
+.menu-btn-continue2 {
+    width: 200px;
+    height: 80px;
+    display: none;
+}
+
 .level-end-text {
     color: #f5f5f5;
-    text-align: center;
+    text-align: justify;
     padding: 30px 0 30px 0;
 }
 

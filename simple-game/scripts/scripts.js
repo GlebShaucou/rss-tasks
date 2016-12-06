@@ -3,7 +3,6 @@ let context = canvas.getContext("2d");
 let framesCount = 0; // variable for counting frames
 let totalGameScore = 0; // variable counts game score
 let moveKeyStatus = false; // variable needed for arrows keys press processing
-let frequencyOfAsteroidAppear = 30; // frequency, that sets how often should new asteroid appear on canvas, it could be used as difficulty level
 let asteroids = [];
 let planets = [];
 
@@ -17,11 +16,12 @@ let menuMusic; // music in the main menu state
 let lives = document.querySelectorAll(".live"); // spaceship lives array
 let livesCount = lives.length; // initial number of lives
 
-const LEVEL_LENGTH = 1000;
+const LEVEL_LENGTH = 6000;
 const CANVAS_WIDTH = canvas.width;
 const CANVAS_HEIGHT = canvas.height;
 const MIN_ASTEROIDS_SPEED = 2; 
 const MAX_ASTEROIDS_SPEED = 8;
+const APPEAR_FREQUENCY_OF_NEW_ASTEROID = 30; // frequency, that sets how often should new asteroid appear on canvas, it could be used as difficulty level
 const PLANETS_SPRITE_COORDINATES = [
     { coordX: 7, coordY: 12 },
     { coordX: 67, coordY: 12 },
@@ -96,7 +96,7 @@ function startGame() {
 function gameLoop() {
     gameAnimationStart =  window.requestAnimationFrame(gameLoop); // start animation
 
-    manageAppearOfItemsOnCanvas(framesCount, frequencyOfAsteroidAppear);
+    manageAppearOfItemsOnCanvas(framesCount, APPEAR_FREQUENCY_OF_NEW_ASTEROID);
 
     background.draw();
 
@@ -165,7 +165,6 @@ function manageAppearOfItemsOnCanvas(frames, difficulty) {
         if (frames % 1000 === 0) { // asteroid killer
             cutAsteroidsArr(); 
             asteroids.push(createRandomAsteroid("./img/monster.png", 20));
-            // framesCount = 0;
         }
     }
 }
@@ -198,7 +197,7 @@ function createPlanetBonus() {
     planet.src = "./img/planets.png"; 
     planet.ctx = context;    
     planet.posX = getRandomValue(5, 1140); // position on canvas
-    planet.posY = -50; // position on canvas    
+    planet.posY = -100; // it starts from -100 to create illusion that objects came from a far away   
     planet.coordX = randomPlanetCoords.coordX; // position on sprite img                 
     planet.coordY = randomPlanetCoords.coordY; // position on sprite img    
     planet.size = 58;
@@ -279,26 +278,6 @@ function manageWhenLevelEndReached(frames) {
     return frames + 1;
 }
 
-// function to control game music theme
-function musicControl(state) {
-    if (state === "pause" && gameAnimationStart !== undefined) {
-        gameTheme.stop();
-        return;
-    } 
-
-    if (state === "pause" && gameAnimationStart === undefined) {
-        menuMusic.stop();
-    }
-
-    if (state === "play" && gameAnimationStart !== undefined) {
-        gameTheme.play();
-    }
-
-    if (state === "play" && gameAnimationStart === undefined) {
-        menuMusic.play();
-    }
-}
-
 function getRandomValue(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
@@ -353,7 +332,6 @@ function showGameMenu() {
     let gameMenu = document.querySelector("#game-menu");
     gameMenu.style.display = "block";
     menuMusic.play();
-    // displayScoresContainer();
 }
 
 // dialog menu that wil be shown when lives are over
@@ -390,8 +368,6 @@ function setAndRefreshScore(score) {
 function showGameInfoContainer() {
     let info = document.querySelector("#game-information");
     let story = document.querySelector("#game-story-container");
-    // let scoresContainer = document.querySelector("#scores-container");
-    // scoresContainer.style.display = "none";
     story.style.display = "none";
     info.style.display = "block";
 }
@@ -399,20 +375,9 @@ function showGameInfoContainer() {
 function showGameStoryContainer() {
     let story = document.querySelector("#game-story-container");
     let info = document.querySelector("#game-information");
-    // let scoresContainer = document.querySelector("#scores-container");
-    // scoresContainer.style.display = "none";
     story.style.display = "block";
     info.style.display = "none";
 }
-
-// function displayScoresContainer() {
-//     let storyContainer = document.querySelector("#game-story-container");
-//     let gameInfoContainer = document.querySelector("#game-information");
-//     // let scoresContainer = document.querySelector("#scores-container");
-//     // scoresContainer.style.display = "block";
-//     storyContainer.style.display = "none";
-//     gameInfoContainer.style.display = "none";
-// }
 
 function setLevelProgress() {
     let levelProgressBar = document.querySelector("#level-progress-state");
@@ -430,11 +395,53 @@ function showEndLevelContainer() {
     nextLevelDesrcContainer.style.display = "block";
 }
 
-function beginNewGameBecauseNoFurtherLevelsAvailable() {
+function beginNewGameBecauseNoFurtherLevelsAvailable(score) {
+    let nextLevelDesrcContainer = document.querySelector("#level-end-text");
+    let explanation = document.querySelector("#level-end-attention-message");
+    let oldContinueBtn = document.querySelector(".menu-btn-continue");
+    let newContinueBtn = document.querySelector(".menu-btn-continue2");
+    nextLevelDesrcContainer.style.display = "none";
+    oldContinueBtn.style.display = "none";
+    newContinueBtn.style.display = "inline-block";
+    explanation.style.display = "block";
+
+    let finalScore = document.querySelector("#level-final-score");
+    finalScore.textContent = score;
+}
+
+function explanationContinueRedirectToMenu() {
     let nextLevelDesrcContainer = document.querySelector("#level-end-container");
+    let levelNextDescrText = document.querySelector("#level-end-text");
+    let explanation = document.querySelector("#level-end-attention-message");
+    let oldContinueBtn = document.querySelector(".menu-btn-continue");
+    let newContinueBtn = document.querySelector(".menu-btn-continue2");
+    levelNextDescrText.style.display = "block";
+    oldContinueBtn.style.display = "inline-block";
+    newContinueBtn.style.display = "none";
+    explanation.style.display = "none";
     nextLevelDesrcContainer.style.display = "none";
 
     showGameMenu();
+}
+
+// function to control game music theme
+function musicControl(state) {
+    if (state === "pause" && gameAnimationStart !== undefined) {
+        gameTheme.stop();
+        return;
+    } 
+
+    if (state === "pause" && gameAnimationStart === undefined) {
+        menuMusic.stop();
+    }
+
+    if (state === "play" && gameAnimationStart !== undefined) {
+        gameTheme.play();
+    }
+
+    if (state === "play" && gameAnimationStart === undefined) {
+        menuMusic.play();
+    }
 }
 
 // music and sounds base class
@@ -494,7 +501,12 @@ document.addEventListener("click", (e) => {
     }
 
     if (targetElement === "menu-btn-continue") {
-        beginNewGameBecauseNoFurtherLevelsAvailable();
+        beginNewGameBecauseNoFurtherLevelsAvailable(totalGameScore);
+        return;
+    }
+
+    if (targetElement === "menu-btn-continue2") {
+        explanationContinueRedirectToMenu();
         return;
     }
 });
