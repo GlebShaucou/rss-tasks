@@ -143,7 +143,33 @@ BinarySearchTree.prototype.verify = function() {
 };
 
 BinarySearchTree.prototype.delete = function(key) {
-    
+    let nodeToDelete = innerSearch(this._root);
+
+    if (nodeToDelete === undefined) {
+        return this;
+    }
+
+    if (nodeToDelete.left === null && nodeToDelete.right === null) {
+        
+    }
+
+    function innerSearch(currentNode) {            
+        if(currentNode.key == key) {
+            return currentNode.value;
+        } else if(key < currentNode.key) {
+            if (currentNode.left === null) {
+                return undefined;
+            }
+            return innerSearch(currentNode.left);
+        } else if(key >= currentNode.key) {
+            if (currentNode.right === null) {
+                return undefined;
+            }
+            return innerSearch(currentNode.right);
+        } else {
+            return undefined;
+        }
+    }
 };
 
 module.exports = {
@@ -155,5 +181,5 @@ module.exports = {
   left: 'left',
   right: 'right',
   //NAME FOR REPORTS
-  student: 'Hleb Shautsou'
+  student: 'HLEB SHAUTSOU'
 };
