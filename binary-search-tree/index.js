@@ -119,6 +119,33 @@ BinarySearchTree.prototype.traverse = function(bool) {
     }
 };
 
+BinarySearchTree.prototype.verify = function() {
+    let verifyIt = true;
+
+    function innerVerify(currentNode) {
+        if (currentNode !== null) {
+            if (currentNode.left !== null && currentNode.key < currentNode.left.key) {
+                verifyIt = false;
+                return;
+            }
+            if (currentNode.right !== null && currentNode.key > currentNode.right.key) {
+                verifyIt = false;
+                return;
+            }
+            innerVerify(currentNode.left);
+            innerVerify(currentNode.right);
+        }
+    }
+
+    innerVerify(this._root);
+
+    return verifyIt;
+};
+
+BinarySearchTree.prototype.delete = function(key) {
+    
+};
+
 module.exports = {
   BinarySearchTree,
 
