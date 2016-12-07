@@ -142,7 +142,6 @@ BinarySearchTree.prototype.verify = function() {
     return verifyIt;
 };
 
-<<<<<<< HEAD
 BinarySearchTree.prototype.delete = function(key) {
     let nodeToDelete = innerSearch(this._root);
 
@@ -184,12 +183,3 @@ module.exports = {
   //NAME FOR REPORTS
   student: 'HLEB SHAUTSOU'
 };
-=======
-function Node(key, value) {
-    this.key = key;
-    this.value = value;
-    this.parent = null;
-    this.leftChild = null;
-    this.rightChild = null;
-}
->>>>>>> 3be6c4e107608f0ded9e2706c80513d44ebc2b86
