@@ -143,33 +143,59 @@ BinarySearchTree.prototype.verify = function() {
 };
 
 BinarySearchTree.prototype.delete = function(key) {
-    let nodeToDelete = innerSearch(this._root);
+    let nodeDescr = innerSearch(this._root);
+    let nodeToDelete = nodeDescr[0];
+    let parent = nodeDescr[1];
+    let position = nodeDescr[2];
+    let currentNode;
 
-    if (nodeToDelete === undefined) {
+    if (nodeToDelete.left === null && nodeToDelete.right === null) {
+        parent[position] = null;
         return this;
     }
 
-    if (nodeToDelete.left === null && nodeToDelete.right === null) {
-        
+    if (nodeToDelete.left === null) {
+        parent.right = nodeToDelete.right;
+        return this;
     }
 
-    function innerSearch(currentNode) {            
+    if (nodeToDelete.right === null) {
+        parent.left = nodeToDelete.left;
+        return this;
+    }
+
+    currentNode = nodeToDelete.right;
+    // node has both children
+    while(currentNode.left !== null) {
+        currentNode = currentNode.left;
+    }
+
+    currentNode.left = nodeToDelete.left;
+    currentNode.right = nodeToDelete.right;
+    if (position !== undefined) {
+        parent[position] = currentNode;    
+    }
+    this._root = currentNode;
+
+    function innerSearch(currentNode, parent, position) {            
         if(currentNode.key == key) {
-            return currentNode.value;
+            return [currentNode, parent, position];
         } else if(key < currentNode.key) {
             if (currentNode.left === null) {
                 return undefined;
             }
-            return innerSearch(currentNode.left);
+            return innerSearch(currentNode.left, currentNode, "left");
         } else if(key >= currentNode.key) {
             if (currentNode.right === null) {
                 return undefined;
             }
-            return innerSearch(currentNode.right);
+            return innerSearch(currentNode.right, currentNode, "right");
         } else {
             return undefined;
         }
     }
+
+    return this;
 };
 
 module.exports = {
