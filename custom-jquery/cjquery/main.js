@@ -15,8 +15,7 @@ CJQuery.prototype.init = function(selector) {
 
 CJQuery.prototype.addClass = function(newClassNames) {
     for (let i = 0; i < this.elements.length; i++) {
-        let oldClasses = this.elements[i].className;
-        this.elements[i].className = oldClasses + " " + newClassNames;
+        this.elements[i].classList.add(newClassNames);
     }
 
     return this;
@@ -82,7 +81,7 @@ CJQuery.prototype.one = function(events, func) {
 
 CJQuery.prototype.each = function(func) {
     for (let i = 0; i < this.elements.length; i++) {
-        func(i, this.elements[i]);
+        func.call(this.elements[i].nodeName, i);
     }
 
     return this;
