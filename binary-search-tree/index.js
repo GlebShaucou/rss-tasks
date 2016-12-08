@@ -11,12 +11,13 @@ function BinarySearchTree() {
 }
 
 BinarySearchTree.prototype.insert = function(key, value) {
-let node = new Node(key, value);
+var node = new Node(key, value);
+var currentNode
 
 if(this._root.key === undefined) {
     this._root = node;
 } else {
-    let currentNode = this._root;
+    currentNode = this._root;
 
     while(true) {
         if (node.key < currentNode.key) {
@@ -70,7 +71,7 @@ BinarySearchTree.prototype.search = function(key) {
 };
 
 BinarySearchTree.prototype.contains = function(value) {
-    let containsValue = false;
+    var containsValue = false;
 
     function innerContains(currentNode) {
         if (currentNode === null) {
@@ -91,8 +92,8 @@ BinarySearchTree.prototype.contains = function(value) {
 };
 
 BinarySearchTree.prototype.traverse = function(bool) {
-    let keys = [];
-    let values = [];
+    var keys = [];
+    var values = [];
 
     function innerTraverse(currentNode) {
         if(currentNode !== null) {
@@ -120,7 +121,7 @@ BinarySearchTree.prototype.traverse = function(bool) {
 };
 
 BinarySearchTree.prototype.verify = function() {
-    let verifyIt = true;
+    var verifyIt = true;
 
     function innerVerify(currentNode) {
         if (currentNode !== null) {
@@ -143,11 +144,11 @@ BinarySearchTree.prototype.verify = function() {
 };
 
 BinarySearchTree.prototype.delete = function(key) {
-    let nodeDescr = innerSearch(this._root);
-    let nodeToDelete = nodeDescr[0];
-    let parent = nodeDescr[1];
-    let position = nodeDescr[2];
-    let currentNode;
+    var nodeDescr = innerSearch(this._root);
+    var nodeToDelete = nodeDescr[0];
+    var parent = nodeDescr[1];
+    var position = nodeDescr[2];
+    var currentNode;
 
     if (nodeToDelete.left === null && nodeToDelete.right === null) {
         parent[position] = null;
