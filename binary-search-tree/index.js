@@ -94,6 +94,7 @@ BinarySearchTree.prototype.contains = function(value) {
 BinarySearchTree.prototype.traverse = function(bool) {
     var keys = [];
     var values = [];
+    var reverseValues = [];
 
     function innerTraverse(currentNode) {
         if(currentNode !== null) {
@@ -113,10 +114,19 @@ BinarySearchTree.prototype.traverse = function(bool) {
         values.push(this.search(keys[i]));
     }
 
+    // for bool === false
+    keys.sort(function(a,b) {
+        return b - a;
+    });
+
+    for (let i = 0; i < keys.length; i++) {
+        reverseValues.push(this.search(keys[i]));
+    }
+
     if(bool) {
         return values;
     } else {
-        return values.reverse();
+        return reverseValues;
     }
 };
 
