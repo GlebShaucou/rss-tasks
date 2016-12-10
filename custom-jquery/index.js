@@ -175,8 +175,16 @@ CJQuery.prototype.on = function() {
     return this;
 };
 
-CJQuery.prototype.one = function(event, func) {
+CJQuery.prototype.one = function oneCall(event, func) {
+    // for (let i = 0; i < this.elements.length; i++) {
+        this.elements[0].addEventListener(event, function(e) {
+            e.target.removeEventListener(e.event, oneCall);
 
+            return func(e);
+        });
+    // }
+
+    return this;
 };
 
 CJQuery.prototype.each = function(func) {
