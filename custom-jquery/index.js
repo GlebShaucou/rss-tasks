@@ -115,8 +115,12 @@ CJQuery.prototype.css = function(param) {
     }
 
     if (objType === "Object") {
+        let keys = Object.keys(param); 
+
         for (let i = 0; i < this.elements.length; i++) {
-            this.elements[i].style["color"] = param["color"];
+            for (let j = 0; j < keys.length; j++) {
+                this.elements[i].style[keys[j]] = param[keys[j]];   
+            }
         }
 
         return this;
@@ -131,7 +135,14 @@ CJQuery.prototype.data = function() {
     }
 
     if (objType === "Object") {
-        
+        let keys = Object.keys(arguments[0]);
+        for (let i = 0; i < this.elements.length; i++) {
+            for (let j = 0; j < keys.length; j++) {
+                this.elements[i].dataset[keys[j]] = arguments[0][keys[j]];
+            }
+        }
+
+        return this;
     }
 
     if (arguments.length === 1) {
