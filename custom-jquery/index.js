@@ -37,9 +37,22 @@ CJQuery.prototype.addClass = function(newClassNames) {
 }
 
 CJQuery.prototype.append = function(newContent) {
-    for (let i = 0; i < this.elements.length; i++) {
-        let oldContent = this.elements[i].innerHTML;
-        this.elements[i].innerHTML = oldContent + " " + newContent;        
+    let objType = Object.prototype.toString.call(newContent).slice(8, -1);
+
+    if (objType === "Object") {
+        for (let i = 0; i < this.elements.length; i++) {
+            if (i > 0) {
+                newContent = newContent.cloneNode(true);
+            }
+            this.elements[i].appendChild(newContent);
+        }
+    }
+
+    if (objType === "String") {
+        for (let i = 0; i < this.elements.length; i++) {
+            let oldContent = this.elements[i].innerHTML;
+            this.elements[i].innerHTML = oldContent + " " + newContent;        
+        }
     }
     
     return this;
@@ -69,21 +82,22 @@ CJQuery.prototype.attr = function(attribute, value) {
     return this;
 };
 
-CJQuery.prototype.children = function(filter) { // add filter function ?????
+CJQuery.prototype.children = function(filter) { 
     let childrenSet = [];
 
-    // if (filter) {
-    //     for(let i = 0; i < this.elements.length; i++) {
-    //         let childrenAll = Array.from(this.elements[i].children);
-    //         for (let j = 0; j < childrenAll.length; j++) {
-    //             if (("." + childrenAll[j].className) === filter) {
-    //                 childrenSet.concat(childrenAll[j]);
-    //             }
-    //         }
-    //     }
+    if (filter) {
+        for(let i = 0; i < this.elements.length; i++) {
+            let childrenAll = Array.from(this.elements[i].children);
+            for (let j = 0; j < childrenAll.length; j++) {
+                let classes = Array.from(childrenAll[j].classList);
 
-    //     return this;
-    // }
+                if (classes.includes(filter.slice(1))) {
+                    childrenSet.push(childrenAll[j]);
+                }
+            }
+        }
+        return childrenSet;
+    }
 
     for(let i = 0; i < this.elements.length; i++) {
         childrenSet = childrenSet.concat(Array.from(this.elements[i].children));
@@ -93,8 +107,20 @@ CJQuery.prototype.children = function(filter) { // add filter function ?????
     return this;
 };
 
-CJQuery.prototype.css = function() {
+CJQuery.prototype.css = function(param) {
+    let objType = Object.prototype.toString.call(param).slice(8, -1);
 
+    if (objType === "String") {
+        return this.elements[0].style[param];
+    }
+
+    if (objType === "Object") {
+        for (let i = 0; i < this.elements.length; i++) {
+            this.elements[i].style["color"] = param["color"];
+        }
+
+        return this;
+    }
 };
 
 CJQuery.prototype.data = function() {
