@@ -124,13 +124,42 @@ CJQuery.prototype.css = function(param) {
 };
 
 CJQuery.prototype.data = function() {
+    let objType = Object.prototype.toString.call(arguments[0]).slice(8, -1);
 
+    if (arguments.length === 0) {
+        return this.elements[0].dataset;
+    }
+
+    if (objType === "Object") {
+        
+    }
+
+    if (arguments.length === 1) {
+        return this.elements[0].dataset[arguments[0]];
+    }
+
+    if (arguments.length === 2) {
+        for (var i = 0; i < this.elements.length; i++) {
+            this.elements[i].dataset[arguments[0]] = arguments[1];
+        }
+
+        return this;
+    }
 };
 
-CJQuery.prototype.on = function(event, func) {
-    for (let i = 0; i < this.elements.length; i++) {
-        this.elements[i].addEventListener(event, func);
+CJQuery.prototype.on = function() {
+    if (arguments.length === 2) {
+        for (let i = 0; i < this.elements.length; i++) {
+            this.elements[i].addEventListener(arguments[0], arguments[1]);
+        }
     }
+
+    // if (arguments.length === 3) {
+    //     let childrenSet = this.children(arguments[1]);
+    //     for (let i = 0; i < childrenSet.length; i++) {
+    //         childrenSet[i].addEventListener(arguments[0], arguments[2]);
+    //     }
+    // }
 
     return this;
 };
