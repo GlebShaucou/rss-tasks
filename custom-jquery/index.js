@@ -178,9 +178,9 @@ CJQuery.prototype.on = function() {
 CJQuery.prototype.one = function oneCall(event, func) {
     // for (let i = 0; i < this.elements.length; i++) {
         this.elements[0].addEventListener(event, function(e) {
-            e.target.removeEventListener(e.event, oneCall);
+            e.target.removeEventListener(event, oneCall);
 
-            return func(e);
+            return func();
         });
     // }
 
