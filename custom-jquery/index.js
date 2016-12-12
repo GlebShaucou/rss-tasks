@@ -87,7 +87,7 @@ CJQuery.prototype.children = function(filter) {
 
     if (filter) {
         for(let i = 0; i < this.elements.length; i++) {
-            let childrenAll = Array.from(this.elements[i].children);
+            let childrenAll = this.elements[i].childNodes;
             for (let j = 0; j < childrenAll.length; j++) {
                 let classes = Array.from(childrenAll[j].classList);
 
@@ -96,11 +96,12 @@ CJQuery.prototype.children = function(filter) {
                 }
             }
         }
+
         return childrenSet;
     }
 
     for(let i = 0; i < this.elements.length; i++) {
-        childrenSet = childrenSet.concat(Array.from(this.elements[i].children));
+        childrenSet = childrenSet.concat(this.elements[i].childNodes);
     }
     this.elements = childrenSet;
 
@@ -165,12 +166,19 @@ CJQuery.prototype.on = function() {
         }
     }
 
-    // if (arguments.length === 3) {
-    //     let childrenSet = this.children(arguments[1]);
-    //     for (let i = 0; i < childrenSet.length; i++) {
-    //         childrenSet[i].addEventListener(arguments[0], arguments[2]);
-    //     }
-    // }
+    if (arguments.length === 3) {
+        let event = arguments[0];
+        let selector = arguments[1];
+        let func = arguments[2];
+
+        this.elements[0].addEventListener(event, function(e) {
+            let classes = Array.from(e.target.classList);
+
+            if (classes.includes(selector.slice(1))) {
+                func(e.target);
+            }
+        });
+    }
 
     return this;
 };
