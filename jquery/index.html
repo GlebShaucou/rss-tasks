@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms&Widgets</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/converter-style.css">
+    <link rel="stylesheet" href="./css/calendar-style.css">
+    <link rel="stylesheet" href="./css/weather-style.css">
+    <link rel="stylesheet" href="./css/player-style.css">
+    <link rel="stylesheet" href="./css/buttons-style.css">
+    <link rel="stylesheet" href="./css/login-style.css">
+    <link rel="stylesheet" href="./css/chat-style.css">
+    <link rel="stylesheet" href="./css/circles-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+<body>
+    <div class="converter clearfix">
+        <ul class="currency-list">
+            <li>
+                <div class="currency-name">
+                    <p>USD</p>
+                </div>
+                <input id="usd" type="number" class="currency-input usd" value="356.3">
+                <label for="usd"></label>
+            </li>
+            <li>
+                <div class="currency-name">
+                    <p>GBP</p>
+                </div>
+                <input id="gbr" type="number" class="currency-input gbr" value="156.3">
+                <label for="gbr"></label>
+            </li>
+        </ul>
+        <nav class="converter-menu">
+            <button class="convert-button"></button>
+            <button class="number-pad"></button>
+            <button class="add-currency"></button>
+        </nav>
+    </div>
+    <div class="weather clearfix">
+        <div class="weather-board">
+            <div class="weather-info">
+                <p class="temperature">73</p>
+                <p>Zagora, Greece</p>
+                <p>8:34 am</p>
+            </div>
+            <div class="slider">
+                <label for="slide-dot-1"></label>
+                <label for="slide-dot-2"></label>
+                <label for="slide-dot-3"></label>
+            </div>
+
+            <input id="slide-dot-1" type="radio" name="slides" checked>
+            <div class="slide slide-1"></div>
+
+            <input id="slide-dot-2" type="radio" name="slides">
+            <div class="slide slide-2"></div>
+
+            <input id="slide-dot-3" type="radio" name="slides">
+            <div class="slide slide-3"></div>
+        </div>
+        <nav class="weather-menu">
+            <button class="scale-button selected-scale">F</button>
+            <button class="scale-button">C</button>
+            <button class="add-place-button"></button>
+            <button class="list-view-button"></button>
+        </nav>
+    </div>
+
+    <div class="circles">
+        <div class="circle-around">
+            <div class="circle-around-first-value"></div>
+            <div class="circle-around-second-value"></div>
+            <div class="circle-around-third-value"></div>
+            <div class="circle-around-inside"></div>
+        </div>
+        <div class="circle-fill">
+            <div class="circle-fill-first-value"></div>
+            <div class="circle-fill-second-value"></div>
+            <div class="circle-fill-third-value"></div>
+        </div>
+        <div class="circle-straight">
+            <div class="circle-straight-first-value"></div>
+            <div class="circle-straight-second-value"></div>
+            <div class="circle-straight-third-value"></div>
+        </div>
+        <input class="circle-input-first-value" placeholder="value %" type="text" name="" value="">
+        <input class="circle-input-second-value" placeholder="value %" type="text" name="" value="">
+        <input class="circle-input-third-value" placeholder="value %" type="text" name="" value="">
+        <button class="circle-button">DRAW</button>
+    </div>
+
+
+    <div class="buttons-block clearfix">
+        <input type="text" class="valid-input" placeholder="Valid input">
+    </div>
+    <div class="login-block">
+        <div class="email-block">
+            <input type="email" id="email" placeholder="Email Address...">
+            <label for="email"></label>
+        </div>
+        <div class="password-block">
+            <input type="password" id="password" placeholder="Password...">
+            <label for="password"></label>
+        </div>
+        <button class="signup-button">Sign up</button>
+        <button class="signin-button">Sign in</button>
+    </div>
+    <div class="chat clearfix">
+        <nav class="chat-menu">
+            <button class="menu-button"></button>
+			      <input type="text" placeholder="New User">
+            <button class="add-dlg-button"></button>
+        </nav>
+        <ul class="message-list">
+            <li class="online">
+                <a href=""><img class="avatar" src="./img/1.png" alt="Profile photo"></a>
+                <h3>Yaroslav Lozhkin</h3>
+                <p class="message">Alright got it!</p>
+            </li>
+            <li class="sent offline">
+                <a href=""><img class="avatar" src="./img/2.png" alt="Profile photo"></a>
+                <h3>Michael Zenaty</h3>
+                <p class="message"></p>
+            </li>
+            <li class="typing">
+                <a href=""><img class="avatar" src="./img/3.png" alt="Profile photo"></a>
+                <h3>Wells Riley</h3>
+                <p class="message"></p>
+            </li>
+            <li class="not-delivered">
+                <a href=""><img class="avatar" src="./img/4.png" alt="Profile photo"></a>
+                <h3>Matt Vickers</h3>
+                <p class="message"></p>
+            </li>
+            <li class="busy">
+                <a href=""><img class="avatar" src="./img/5.png" alt="Profile photo"></a>
+                <h3>Divya Manian</h3>
+                <p class="message">You can download it on git
+                    You can download it on git</p>
+            </li>
+            <li>
+                <a href=""><img class="avatar" src="./img/6.png" alt="Profile photo"></a>
+                <h3>Vin Thomas</h3>
+                <p class="message">Thank you!</p>
+            </li>
+        </ul>
+    </div>
+
+    <script src="./scripts/jquery-3.1.1.min.js"></script>
+</body>
+</html>
