@@ -95,48 +95,29 @@ BinarySearchTree.prototype.traverse = function(bool) {
     var keys = [];
     var sequence = [];
 
-    preOrderTraverse(this._root);
+    if (bool) {
+        inOrderTraverse(this._root);
+    } else {
+        reverseOrderTraverse(this._root);
+    }    
 
     for (let i = 0; i < keys.length; i++) {
         sequence.push(this.search(keys[i]));
     }
 
-    function preOrderTraverse(currentNode) {
+    function inOrderTraverse(currentNode) {
         if(currentNode !== null) {
-            if (bool) {
-                minMaxSort(currentNode.key);
-            } else {
-                maxMinSort(currentNode.key);
-            }
-            preOrderTraverse(currentNode.left);
-            preOrderTraverse(currentNode.right);
+            inOrderTraverse(currentNode.left);
+            keys.push(currentNode.key);
+            inOrderTraverse(currentNode.right);
         }
     }
 
-    // if bool === true
-    function minMaxSort(key) {
-        if (keys.length === 0) {
-            keys.push(key);
-        } else {
-            var i = keys.length - 1;
-            while(key < keys[i]) {
-                keys[i + 1] = keys[i];
-                i--;
-            }
-            keys[i + 1] = key; 
-        }
-    }
-    // if bool === false
-    function maxMinSort(key) {
-        if (keys.length === 0) {
-            keys.push(key);
-        } else {
-            var i = keys.length - 1;
-            while(key > keys[i]) {
-                keys[i + 1] = keys[i];
-                i--;
-            }
-            keys[i + 1] = key; 
+    function reverseOrderTraverse(currentNode) {
+        if(currentNode !== null) {
+            reverseOrderTraverse(currentNode.right);
+            keys.push(currentNode.key);
+            reverseOrderTraverse(currentNode.left);
         }
     }
 
