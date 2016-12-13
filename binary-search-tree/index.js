@@ -220,3 +220,40 @@ module.exports = {
   //NAME FOR REPORTS
   student: 'HLEB SHAUTSOU'
 };
+
+
+// BinarySearchTree.prototype.traverse = function(bool) {
+//     var keys = [];
+//     var sequence = [];
+//     // var postOrderValues = [];
+
+//     if(bool) {
+//         preOrderTraverse(this._root);
+//         // return values;
+//     } else {
+//         postOrderTraverse(this._root);
+//         // return reverseValues;
+//     }
+
+//     for (let i = 0; i < keys.length; i++) {
+//         sequence.push(this.search(keys[i]));
+//     }
+
+//     function preOrderTraverse(currentNode) {
+//         if(currentNode !== null) {
+//             keys.push(currentNode.key);
+//             preOrderTraverse(currentNode.left);
+//             preOrderTraverse(currentNode.right);
+//         }
+//     }
+//     // for bool === false
+//     function postOrderTraverse(currentNode) {
+//         if(currentNode !== null) {
+//             keys.push(currentNode.key);
+//             postOrderTraverse(currentNode.left);
+//             postOrderTraverse(currentNode.right);
+//         }
+//     }    
+
+//     return sequence;
+// };
