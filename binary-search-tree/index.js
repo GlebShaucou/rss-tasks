@@ -37,7 +37,7 @@ if(this._root.key === undefined) {
     }
 }
 
-return this; // chainable
+return this;
 };
 
 BinarySearchTree.prototype.root = function() {
