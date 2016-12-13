@@ -93,41 +93,54 @@ BinarySearchTree.prototype.contains = function(value) {
 
 BinarySearchTree.prototype.traverse = function(bool) {
     var keys = [];
-    var values = [];
-    var reverseValues = [];
+    var sequence = [];
 
-    function innerTraverse(currentNode) {
+    preOrderTraverse(this._root);
+
+    for (let i = 0; i < keys.length; i++) {
+        sequence.push(this.search(keys[i]));
+    }
+
+    function preOrderTraverse(currentNode) {
         if(currentNode !== null) {
-            keys.push(currentNode.key);
-            innerTraverse(currentNode.left);
-            innerTraverse(currentNode.right);
+            if (bool) {
+                minMaxSort(currentNode.key);
+            } else {
+                maxMinSort(currentNode.key);
+            }
+            preOrderTraverse(currentNode.left);
+            preOrderTraverse(currentNode.right);
         }
     }
 
-    innerTraverse(this._root);
-
-    keys.sort(function(a,b) {
-        return a - b;
-    });
-
-    for (let i = 0; i < keys.length; i++) {
-        values.push(this.search(keys[i]));
+    // if bool === true
+    function minMaxSort(key) {
+        if (keys.length === 0) {
+            keys.push(key);
+        } else {
+            var i = keys.length - 1;
+            while(key < keys[i]) {
+                keys[i + 1] = keys[i];
+                i--;
+            }
+            keys[i + 1] = key; 
+        }
+    }
+    // if bool === false
+    function maxMinSort(key) {
+        if (keys.length === 0) {
+            keys.push(key);
+        } else {
+            var i = keys.length - 1;
+            while(key > keys[i]) {
+                keys[i + 1] = keys[i];
+                i--;
+            }
+            keys[i + 1] = key; 
+        }
     }
 
-    // for bool === false
-    keys.sort(function(a,b) {
-        return b - a;
-    });
-
-    for (let i = 0; i < keys.length; i++) {
-        reverseValues.push(this.search(keys[i]));
-    }
-
-    if(bool) {
-        return values;
-    } else {
-        return reverseValues;
-    }
+    return sequence;
 };
 
 BinarySearchTree.prototype.verify = function() {
@@ -220,40 +233,3 @@ module.exports = {
   //NAME FOR REPORTS
   student: 'HLEB SHAUTSOU'
 };
-
-
-// BinarySearchTree.prototype.traverse = function(bool) {
-//     var keys = [];
-//     var sequence = [];
-//     // var postOrderValues = [];
-
-//     if(bool) {
-//         preOrderTraverse(this._root);
-//         // return values;
-//     } else {
-//         postOrderTraverse(this._root);
-//         // return reverseValues;
-//     }
-
-//     for (let i = 0; i < keys.length; i++) {
-//         sequence.push(this.search(keys[i]));
-//     }
-
-//     function preOrderTraverse(currentNode) {
-//         if(currentNode !== null) {
-//             keys.push(currentNode.key);
-//             preOrderTraverse(currentNode.left);
-//             preOrderTraverse(currentNode.right);
-//         }
-//     }
-//     // for bool === false
-//     function postOrderTraverse(currentNode) {
-//         if(currentNode !== null) {
-//             keys.push(currentNode.key);
-//             postOrderTraverse(currentNode.left);
-//             postOrderTraverse(currentNode.right);
-//         }
-//     }    
-
-//     return sequence;
-// };
