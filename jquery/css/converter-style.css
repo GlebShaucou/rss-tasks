@@ -33,6 +33,7 @@
     font-size: 40.75px;
     color: #b2b2b2;
     letter-spacing: 2px;
+    text-align: right;
 }
 
 .usd + label:before {

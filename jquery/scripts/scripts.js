@@ -21,4 +21,31 @@ $(".add-dlg-button").on("click", function(e) {
 });
 
 //
-$(".currency-input")
+$(".currency-input").attr("maxlength","5");
+
+$("#usd").keydown(function() {
+    $("#gbr").val(+$("#usd").val() + 1.8);
+});
+
+$("#usd").keyup(function() {
+    $("#gbr").val(+$("#usd").val() + 1.8);
+});
+
+$(".add-currency").on("click", function(e) {
+    let currencyList = $(".currency-list");
+    let li = $("<li></li>");
+    let div = $("<div></div>").addClass("currency-name");
+    let p = $("<p></p>").text("BYN");
+    let input = $("<input>").attr({
+        "id": "usd",
+        "type": "number"    
+    }).addClass("currency-input byn").val(+$("#usd").val() * 2);
+    let label = $("<label></label>").attr("for", "byn");
+
+    div.append(p);
+    li.append(div);
+    li.append(input);
+    li.append(label);
+
+    currencyList.append(li);    
+});
