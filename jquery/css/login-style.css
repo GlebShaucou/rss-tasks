@@ -21,11 +21,12 @@
 }
 
 .login-block input {
-    width: 240px;
+    width: 230px;
     font-size: 20.38px;
     float: right;
     letter-spacing: 1px;
     color: #b2b2b2;
+    margin-right: 10px;
 }
 
 .login-block div:not(:last-child) {
@@ -67,4 +68,19 @@ label[for=password] {
     height: 30px;
     left: 17px;
     top: 18px;
+}
+
+.invalid-login {
+    border: 2px solid #ff8989;
+    border-radius: 10px;
+}
+
+.valid-login {
+    border: 2px solid #64dec9;
+    border-radius: 10px;
+}
+
+button.activate-login {
+    background: #526e82;
+    color: #ffffff;
 }

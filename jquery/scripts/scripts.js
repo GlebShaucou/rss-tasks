@@ -148,6 +148,41 @@ $(".weather").on("click", function(e) {
     }
 });
 
+//Login Sign Up Widget
+$(".login-block").keyup(function(e) {
+    if (e.target.id === "email") {
+        let re = /[a-z0-9.]+@[a-z0-9.]+.[a-z]{3,4}/i;
+        if (re.test($(e.target).val())) {
+            $(e.target).removeClass("invalid-login").addClass("valid-login");
+            checkForm();
+        } else {
+            $(e.target).removeClass("valid-login").addClass("invalid-login");
+            checkForm();
+        }
+    }
+
+    if (e.target.id === "password") {
+        let re = /[a-z0-9]{8,32}/ig;
+        if (re.test($(e.target).val())) {
+            $(e.target).removeClass("invalid-login").addClass("valid-login");
+            checkForm();
+        } else {
+            $(e.target).removeClass("valid-login").addClass("invalid-login");
+            checkForm();
+        }
+    }
+
+    function checkForm() {
+        if($("#email").hasClass("valid-login") && $("#password").hasClass("valid-login")) {
+            $(".signup-button").addClass("activate-login");
+            $(".signin-button").addClass("activate-login");    
+        } else {
+            $(".signup-button").removeClass("activate-login");
+            $(".signin-button").removeClass("activate-login");
+        }
+    }
+});
+
 // Calendar Widget
 $("#calendar").datepicker({
     minDate: new Date(Date.now())
