@@ -23,15 +23,20 @@ button {
     transition: background 0.5s;
 }
 
-button, input {
+button,
+input {
     border: none;
     font-family: 'Open Sans', sans-serif;
     outline: none;
 }
 
-input:focus {
+/*input {
+    font-family: 'Open Sans', sans-serif;
+}*/
+
+/*input:focus {
     outline: none;
-}
+}*/
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {

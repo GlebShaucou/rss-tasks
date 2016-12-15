@@ -28,6 +28,10 @@
     font-size: 40.75px;
 }
 
+.scale-button.selected-scale {
+    background: #ff8989;
+    color: #ffffff;
+}
 
 .add-place-button {
     width: 79px;
@@ -152,4 +156,47 @@
 .slide-3 {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
+}
+
+.add-city-form {
+    width: 307px;
+    height: 248px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 10;
+    background-size: cover;
+    transition: left 0s .75s;
+    background: #ffffff;
+}
+
+.add-city-form-out {
+    left: 0;
+    z-index: 10000;
+    transition: left .65s ease-out;
+}
+
+.add-form {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.add-form input {
+    outline: 1px solid #262830;
+    display: block;
+    margin: 10px 0 10px 80px;
+}
+
+.add-place-form-button {
+    width: 70px;
+    height: 38px;
+    display: inline-block;
+    color: #ffffff;
+    background-color: #dedede;
+    outline: 1px solid #fefefe;
+}
+
+.add-place-form-button:hover {
+    color: #ffffff;
+    background-color: #ff8989;
 }

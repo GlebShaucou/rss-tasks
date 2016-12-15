@@ -54,6 +54,15 @@
     top: 41px;
 }
 
+.byn + label:before {
+    content: "Br";
+    font-size: 27.17px;
+    color: #b2b2b2;
+    position: absolute;
+    right: 136px;
+    top: 41px;
+}
+
 .converter-menu {
     background: #526e82;
     height: 64px;
@@ -112,6 +121,23 @@
     content: "";
     display: inline-block;
     background: url("../img/convertor-spritesheet.png") no-repeat;
+    width: 48px;
+    height: 46px;
+    position: absolute;
+    top: 8px;
+    left: 18px;
+}
+
+.remove-currency {
+    width: 80px;
+    height: 64px;
+    float: right;
+}
+
+.remove-currency:before {
+    content: "";
+    display: inline-block;
+    background: url("../img/convertor-spritesheet.png") -160px no-repeat;
     width: 48px;
     height: 46px;
     position: absolute;

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/login-style.css">
     <link rel="stylesheet" href="./css/chat-style.css">
     <link rel="stylesheet" href="./css/circles-style.css">
+    <link rel="stylesheet" href="./css/jquery-ui.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
@@ -41,11 +42,6 @@
     
     <div class="weather clearfix">
         <div class="weather-board">
-            <div class="weather-info">
-                <p class="temperature">73</p>
-                <p>Zagora, Greece</p>
-                <p>8:34 am</p>
-            </div>
             <div class="slider">
                 <label for="slide-dot-1"></label>
                 <label for="slide-dot-2"></label>
@@ -53,17 +49,48 @@
             </div>
 
             <input id="slide-dot-1" type="radio" name="slides" checked>
-            <div class="slide slide-1"></div>
+            <div class="slide slide-1">
+                <div class="weather-info">
+                    <p class="temperature">73</p>
+                    <p class="city">Zagora, Greece</p>
+                    <p>8:34 am</p>
+                </div>
+            </div>
 
             <input id="slide-dot-2" type="radio" name="slides">
-            <div class="slide slide-2"></div>
+            <div class="slide slide-2">
+                <div class="weather-info">
+                    <p class="temperature">83</p>
+                    <p class="city">Athens, Greece</p>
+                    <p>7:34 am</p>
+                </div>
+            </div>
 
             <input id="slide-dot-3" type="radio" name="slides">
-            <div class="slide slide-3"></div>
+            <div class="slide slide-3">
+                <div class="weather-info">
+                    <p class="temperature">33</p>
+                    <p class="city">Minsk, Belarus</p>
+                    <p>9:34 am</p>
+                </div>
+            </div>
+
+            <div class="add-city-form">
+                <div class="add-form">
+                    Enter city name and country:
+                    <input type="text" name="city">
+                    Enter current temperature:
+                    <input type="text" name="temperature">
+                    Enter image url or local path:
+                    <input type="text" name="image">
+                    <button id="add-place" class="add-place-form-button">ADD</button>
+                </div>
+            </div>
         </div>
+
         <nav class="weather-menu">
-            <button class="scale-button selected-scale">F</button>
-            <button class="scale-button">C</button>
+            <button id="fahrenheit" class="scale-button selected-scale">F</button>
+            <button id="celsius" class="scale-button">C</button>
             <button class="add-place-button"></button>
             <button class="list-view-button"></button>
         </nav>
@@ -92,10 +119,10 @@
         <button class="circle-button">DRAW</button>
     </div>
 
-
     <div class="buttons-block clearfix">
-        <input type="text" class="valid-input" placeholder="Valid input">
+        <input id="calendar" type="text" class="valid-input" placeholder="Pick a date">
     </div>
+
     <div class="login-block">
         <div class="email-block">
             <input type="email" id="email" placeholder="Email Address...">
@@ -151,6 +178,7 @@
     </div>
 
     <script src="./scripts/jquery-3.1.1.min.js"></script>
+    <script src="./scripts/jquery-ui.min.js"></script>
     <script src="./scripts/scripts.js"></script>
 </body>
 </html>

@@ -9,9 +9,7 @@ $(".add-dlg-button").on("click", function(e) {
         let p = $("<p></p>").addClass("message");
 
         a.append(img);
-        li.append(a);
-        li.append(h3);
-        li.append(p);
+        li.append(a).append(h3).append(p);
 
         $(".message-list").append(li);
         $(".chat-menu input").val("");
@@ -20,32 +18,137 @@ $(".add-dlg-button").on("click", function(e) {
     }
 });
 
-//
-$(".currency-input").attr("maxlength","5");
+// Converter Widget 
 
-$("#usd").keydown(function() {
-    $("#gbr").val(+$("#usd").val() + 1.8);
+// $("label[for='usd']");
+
+$(".currency-list").keyup(function(e) {
+    
+    if (e.target.id === "usd") {
+        $("#gbr").val((+$("#usd").val() - 3).toFixed(1));
+        $("#byn").val((+$("#usd").val() - 2).toFixed(1));
+    }
+    
+    if (e.target.id === "gbr") {
+        $("#usd").val((+$("#gbr").val() + 3).toFixed(1));
+        $("#byn").val((+$("#gbr").val() + 1).toFixed(1));
+    }
+
+    if (e.target.id === "byn") {
+        $("#usd").val((+$("#byn").val() + 2).toFixed(1));
+        $("#gbr").val((+$("#byn").val() - 1).toFixed(1));
+    }
 });
 
-$("#usd").keyup(function() {
-    $("#gbr").val(+$("#usd").val() + 1.8);
+$(".converter-menu").on("click", function(e) {
+    if (e.target.className === "add-currency") {
+        let currencyList = $(".currency-list");
+        let li = $("<li></li>");
+        let div = $("<div></div>").addClass("currency-name");
+        let p = $("<p></p>").text("BYN");
+        let input = $("<input>").attr({
+            "id": "byn",
+            "type": "number"    
+        }).addClass("currency-input byn").val(+$("#usd").val() * 2);
+        let label = $("<label></label>").attr("for", "byn");
+
+        div.append(p);
+        li.append(div).append(input).append(label);
+
+        currencyList.append(li);
+
+        $(".add-currency").removeClass("add-currency").addClass("remove-currency");
+
+        return;
+    }
+
+    if (e.target.className === "remove-currency") {
+        $(".currency-list li:nth-child(3)").remove();
+        $(".remove-currency").removeClass("remove-currency").addClass("add-currency");
+
+        return;
+    }
 });
 
-$(".add-currency").on("click", function(e) {
-    let currencyList = $(".currency-list");
-    let li = $("<li></li>");
-    let div = $("<div></div>").addClass("currency-name");
-    let p = $("<p></p>").text("BYN");
-    let input = $("<input>").attr({
-        "id": "usd",
-        "type": "number"    
-    }).addClass("currency-input byn").val(+$("#usd").val() * 2);
-    let label = $("<label></label>").attr("for", "byn");
+// Weather Widget
+$(".weather").on("click", function(e) {
+    if (e.target.id === "fahrenheit") {
+        if (!$(e.target).hasClass("selected-scale")) {
+            let temps = $(".temperature");
+            
+            for (let i = 0; i < temps.length; i++) {
+                let temp = +$(temps[i]).text(); 
+                $(temps[i]).text(((temp * 9) / 5 + 32).toFixed(0));
+            }
 
-    div.append(p);
-    li.append(div);
-    li.append(input);
-    li.append(label);
+            $(e.target).addClass("selected-scale");
+            $("#celsius").removeClass("selected-scale");
+        }    
 
-    currencyList.append(li);    
+        return;    
+    }
+
+    if (e.target.id === "celsius") {
+        if (!$(e.target).hasClass("selected-scale")) {
+            let temps = $(".temperature");
+            
+            for (let i = 0; i < temps.length; i++) {
+                let temp = +$(temps[i]).text(); 
+                $(temps[i]).text((((temp - 32) * 5) / 9).toFixed(0));
+            }
+
+            $(e.target).addClass("selected-scale");
+            $("#fahrenheit").removeClass("selected-scale");
+        }    
+
+        return;   
+    }
+
+    if (e.target.className === "add-place-button") {
+        $(".add-city-form").toggleClass("add-city-form-out");
+    }
+
+    if (e.target.id === "add-place") {
+        let city = $("input[name='city']").val();
+        let temperature = $("input[name='temperature']").val();
+        let imageUrl = $("input[name='image']").val();
+
+        let slider = $(".slider");
+        let label = $("<label></label>").attr("for", "slide" + "-" + city);
+
+        let weatherBoard = $(".weather-board");
+        let input = $("<input>").attr({
+            "id": "slide" + "-" + city,
+            "type": "radio",
+            "name": "slides"
+        });
+        let div = $("<div></div>").addClass("slide").css({ "background": "url(" + imageUrl + ")" });
+
+        let oldWidth = +slider.css("width").slice(0, -2);
+        let newWidth = oldWidth + 16;
+        
+        let divWeather = $("<div></div>").addClass("weather-info");
+        let pTemp = $("<p></p>").addClass("temperature").text(temperature);
+        let pCity = $("<p></p>").addClass("city").text(city);
+
+        divWeather.append(pTemp);
+        divWeather.append(pCity);
+        divWeather.append("12:34 am");
+
+        div.append(divWeather);
+
+        $(".add-city-form").toggleClass("add-city-form-out");
+
+        slider.css("width", newWidth);
+        slider.append(label);
+
+        weatherBoard.append(input).append(div);
+
+        return;
+    }
+});
+
+// Calendar Widget
+$("#calendar").datepicker({
+    minDate: new Date(Date.now())
 });
