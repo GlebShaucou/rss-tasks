@@ -200,3 +200,31 @@
     color: #ffffff;
     background-color: #ff8989;
 }
+
+.choose-city {
+    width: 307px;
+    height: 248px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    background-size: cover;
+    background: #ffffff;
+}
+
+.list-of-citys {
+    margin: 20px 0 0 0;
+    text-align: center;
+}
+
+.list-of-citys li {
+    margin: 0 0 10px 0;
+}
+
+.city-list-item {
+    cursor: pointer;
+}
+
+.city-list-item:hover {
+    background-color: #dedede;
+}

@@ -85,7 +85,7 @@ $(".weather").on("click", function(e) {
             $("#celsius").removeClass("selected-scale");
         }    
 
-        return;    
+        return;    // return here is needed to prevent multiple choose
     }
 
     if (e.target.id === "celsius") {
@@ -101,7 +101,7 @@ $(".weather").on("click", function(e) {
             $("#fahrenheit").removeClass("selected-scale");
         }    
 
-        return;   
+        return;   // return here is needed to prevent multiple choose
     }
 
     if (e.target.className === "add-place-button") {
@@ -145,6 +145,35 @@ $(".weather").on("click", function(e) {
         weatherBoard.append(input).append(div);
 
         return;
+    }
+
+    if (e.target.className === "list-view-button") {
+        if ($("div.choose-city").length === 0) {
+            let weatherBoard = $(".weather-board");
+            let citys = $("p.city");
+            let div = $("<div></div>").toggleClass("choose-city");
+            let ul = $("<ul></ul>").toggleClass("list-of-citys");
+
+            weatherBoard.append(div);
+            div.append(ul);
+
+            for (let i = 0; i < citys.length; i++) {
+                let li = $("<li></li>").toggleClass("city-list-item").text($(citys[i]).text()).attr("id", i);
+                ul.append(li);
+            }
+        } else {
+            $("div.choose-city").toggleClass("choose-city");
+        }
+
+    }
+
+    if (e.target.className === "city-list-item") {
+        let slides = $("input[name='slides']");
+        let cityId = e.target.id;
+        let slideId = slides[cityId].id;
+
+        $("div.choose-city").toggleClass("choose-city");
+        $("#" + slideId).prop("checked", true);
     }
 });
 
