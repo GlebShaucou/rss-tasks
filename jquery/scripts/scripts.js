@@ -183,6 +183,16 @@ $(".login-block").keyup(function(e) {
     }
 });
 
+$(".login-block").on("click", function(e) { 
+    if ($(e.target).hasClass("signup-button") && $(e.target).hasClass("activate-login")) {
+        $(".signup-tooltip").toggleClass("visibility");
+    }
+
+    if ($(e.target).hasClass("signin-button") && $(e.target).hasClass("activate-login")) {
+        $(".signin-tooltip").toggleClass("visibility");
+    }
+});
+
 // Calendar Widget
 $("#calendar").datepicker({
     minDate: new Date(Date.now())
