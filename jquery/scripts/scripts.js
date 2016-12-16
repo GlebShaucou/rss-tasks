@@ -19,9 +19,7 @@ $(".add-dlg-button").on("click", function(e) {
 });
 
 // Converter Widget 
-
 // $("label[for='usd']");
-
 $(".currency-list").keyup(function(e) {
     
     if (e.target.id === "usd") {
@@ -59,14 +57,14 @@ $(".converter-menu").on("click", function(e) {
 
         $(".add-currency").removeClass("add-currency").addClass("remove-currency");
 
-        return;
+        return; // return here is needed to prevent collisions
     }
 
     if (e.target.className === "remove-currency") {
         $(".currency-list li:nth-child(3)").remove();
         $(".remove-currency").removeClass("remove-currency").addClass("add-currency");
 
-        return;
+        return; // return here is needed to prevent collisions
     }
 });
 
@@ -225,4 +223,35 @@ $(".login-block").on("click", function(e) {
 // Calendar Widget
 $("#calendar").datepicker({
     minDate: new Date(Date.now())
+});
+
+// Circles Widget
+$(".circles").on("click", function(e) {
+    if (e.target.className === "circle-button") {
+        let firstVal = +$(".circle-input-first-value").val();
+        let secondVal = +$(".circle-input-second-value").val();
+        let thirdVal = +$(".circle-input-third-value").val();
+
+        if ((firstVal + secondVal + thirdVal) > 100) {
+            alert("Wrong data!");
+            return;
+        } else {
+            // Strait Circle
+            $(".circle-straight-first-value").css({
+                height: firstVal / 0.625
+            });
+
+            $(".circle-straight-second-value").css({
+                height: secondVal / 0.625,
+                bottom: firstVal / 0.625
+            });
+
+            $(".circle-straight-third-value").css({
+                height: thirdVal / 0.625,
+                bottom: firstVal / 0.625 + secondVal / 0.625 
+            });
+
+            //
+        }
+    }
 });
