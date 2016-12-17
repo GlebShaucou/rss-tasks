@@ -45,7 +45,7 @@
     top: 41px;
 }
 
-.gbr + label:before {
+.gbp + label:before {
     content: "\00A3";
     font-size: 27.17px;
     color: #b2b2b2;

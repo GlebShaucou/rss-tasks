@@ -23,18 +23,51 @@ $(".add-dlg-button").on("click", function(e) {
 $(".currency-list").keyup(function(e) {
     
     if (e.target.id === "usd") {
-        $("#gbr").val((+$("#usd").val() - 3).toFixed(1));
-        $("#byn").val((+$("#usd").val() - 2).toFixed(1));
+        let gbp = (+$("#usd").val() - 3).toFixed(1);
+        let byn = (+$("#usd").val() - 2).toFixed(1);
+
+        if((gbp + "").length > 5) {
+            gbp = "99999+";
+        }
+
+        if((byn + "").length > 5) {
+            byn = "99999+";
+        }
+
+        $("#gbp").val(gbp);
+        $("#byn").val(byn);
     }
     
-    if (e.target.id === "gbr") {
-        $("#usd").val((+$("#gbr").val() + 3).toFixed(1));
-        $("#byn").val((+$("#gbr").val() + 1).toFixed(1));
+    if (e.target.id === "gbp") {
+        let usd = (+$("#gbp").val() + 3).toFixed(1);
+        let byn = (+$("#gbp").val() + 1).toFixed(1);
+
+        if((usd + "").length > 5) {
+            usd = "99999+";
+        }
+
+        if((byn + "").length > 5) {
+            byn = "99999+";
+        }
+
+        $("#usd").val(usd);
+        $("#byn").val(byn);
     }
 
     if (e.target.id === "byn") {
-        $("#usd").val((+$("#byn").val() + 2).toFixed(1));
-        $("#gbr").val((+$("#byn").val() - 1).toFixed(1));
+        let usd = (+$("#byn").val() + 2).toFixed(1);
+        let gbp = (+$("#byn").val() - 1).toFixed(1);
+
+        if((usd + "").length > 5) {
+            usd = "99999+";
+        }
+
+        if((gbp + "").length > 5) {
+            gbp = "99999+";
+        }
+
+        $("#usd").val(usd);
+        $("#gbp").val(gbp);
     }
 });
 
@@ -46,7 +79,8 @@ $(".converter-menu").on("click", function(e) {
         let p = $("<p></p>").text("BYN");
         let input = $("<input>").attr({
             "id": "byn",
-            "type": "number"    
+            "type": "text",
+            "maxlength": "5"    
         }).addClass("currency-input byn").val(+$("#usd").val() * 2);
         let label = $("<label></label>").attr("for", "byn");
 
@@ -251,7 +285,18 @@ $(".circles").on("click", function(e) {
                 bottom: firstVal / 0.625 + secondVal / 0.625 
             });
 
-            //
+            // Circle Fill
+            $(".circle-fill-first-value").css({
+                // transform: "rotate(" + (firstVal) + "deg)";
+            });
+
+            $(".circle-fill-second-value").css({
+                transform: "rotate(" + (firstVal * 3.6) / 2 + "deg)"
+            });
+
+            $(".circle-fill-third-value").css({
+                transform: "rotate(" + ((firstVal + secondVal) * 3.6) / 2 + "deg)"
+            });
         }
     }
 });
