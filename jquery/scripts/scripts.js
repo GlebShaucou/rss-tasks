@@ -81,7 +81,7 @@ $(".converter-menu").on("click", function(e) {
             "id": "byn",
             "type": "text",
             "maxlength": "5"    
-        }).addClass("currency-input byn").val(+$("#usd").val() * 2);
+        }).addClass("currency-input byn").val((+$("#usd").val() - 2).toFixed(1));
         let label = $("<label></label>").attr("for", "byn");
 
         div.append(p);
