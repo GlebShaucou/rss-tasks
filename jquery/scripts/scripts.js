@@ -291,70 +291,43 @@ $(".circles").on("click", function(e) {
                 bottom: firstVal / 0.625 + secondVal / 0.625 
             });
 
-            // Circle Fill
+            // Circle Fill and Circle Around
             if (firstVal <= 50) {
-                $(".circle-fill-first-value .inner-sector").css({                
+                $(".circle-first .inner-sector").css({                
                     transform: `rotate(${firstVal * 3.6}deg)`
                 });
-            } else {
-
+            } else { // It is needed in case when rotation is more than 180 degree
+                $(".circle-background").css({
+                    "background-color": "#56e5f6"
+                });
             }            
 
             if (secondVal <= 50) {
-                $(".circle-fill-second-value").css({
+                $(".circle-second").css({
                      transform: `rotate(${firstVal * 3.6}deg)`
                 });
 
-                $(".circle-fill-second-value .inner-sector").css({                
+                $(".circle-second .inner-sector").css({                
                     transform: `rotate(${secondVal * 3.6}deg)`
                 });
-            } else {
-
+            } else { // It is needed in case when rotation is more than 180 degree
+                $(".circle-background").css({
+                    "background-color": "#4cd9c0"
+                });
             }
 
             if (thirdVal <= 50) {
-                $(".circle-fill-third-value").css({
+                $(".circle-third").css({
                     transform: `rotate(${(firstVal + secondVal) * 3.6}deg)`
                 });
 
-                $(".circle-fill-third-value .inner-sector").css({                
+                $(".circle-third .inner-sector").css({                
                     transform: `rotate(${thirdVal * 3.6}deg)`
                 });
-            } else {
-
-            }
-
-            // Circle Around
-            if (firstVal <= 50) {
-                $(".circle-around-first-value .inner-sector").css({                
-                    transform: `rotate(${firstVal * 3.6}deg)`
+            } else { // It is needed in case when rotation is more than 180 degree
+                $(".circle-background").css({
+                    "background-color": "#ec747d"
                 });
-            } else {
-
-            }            
-
-            if (secondVal <= 50) {
-                $(".circle-around-second-value").css({
-                     transform: `rotate(${firstVal * 3.6}deg)`
-                });
-
-                $(".circle-around-second-value .inner-sector").css({                
-                    transform: `rotate(${secondVal * 3.6}deg)`
-                });
-            } else {
-
-            }
-
-            if (thirdVal <= 50) {
-                $(".circle-around-third-value").css({
-                    transform: `rotate(${(firstVal + secondVal) * 3.6}deg)`
-                });
-
-                $(".circle-around-third-value .inner-sector").css({                
-                    transform: `rotate(${thirdVal * 3.6}deg)`
-                });
-            } else {
-
             }
         }
     }
