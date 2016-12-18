@@ -16,6 +16,10 @@ $(".add-dlg-button").on("click", function(e) {
     } else {
         alert("Enter contact name!");
     }
+
+    if ($(".message-list li").length > 7) {
+        $(".message-list li:nth-child(1)").remove();
+    }
 });
 
 // Converter Widget 
@@ -271,6 +275,8 @@ $(".circles").on("click", function(e) {
             return;
         } else {
             // Strait Circle
+            $(".total-percentage").text((firstVal + secondVal + thirdVal) + "%");
+
             $(".circle-straight-first-value").css({
                 height: firstVal / 0.625
             });
@@ -286,17 +292,70 @@ $(".circles").on("click", function(e) {
             });
 
             // Circle Fill
-            $(".circle-fill-first-value").css({
-                // transform: "rotate(" + (firstVal) + "deg)";
-            });
+            if (firstVal <= 50) {
+                $(".circle-fill-first-value .inner-sector").css({                
+                    transform: `rotate(${firstVal * 3.6}deg)`
+                });
+            } else {
 
-            $(".circle-fill-second-value").css({
-                transform: "rotate(" + (firstVal * 3.6) / 2 + "deg)"
-            });
+            }            
 
-            $(".circle-fill-third-value").css({
-                transform: "rotate(" + ((firstVal + secondVal) * 3.6) / 2 + "deg)"
-            });
+            if (secondVal <= 50) {
+                $(".circle-fill-second-value").css({
+                     transform: `rotate(${firstVal * 3.6}deg)`
+                });
+
+                $(".circle-fill-second-value .inner-sector").css({                
+                    transform: `rotate(${secondVal * 3.6}deg)`
+                });
+            } else {
+
+            }
+
+            if (thirdVal <= 50) {
+                $(".circle-fill-third-value").css({
+                    transform: `rotate(${(firstVal + secondVal) * 3.6}deg)`
+                });
+
+                $(".circle-fill-third-value .inner-sector").css({                
+                    transform: `rotate(${thirdVal * 3.6}deg)`
+                });
+            } else {
+
+            }
+
+            // Circle Around
+            if (firstVal <= 50) {
+                $(".circle-around-first-value .inner-sector").css({                
+                    transform: `rotate(${firstVal * 3.6}deg)`
+                });
+            } else {
+
+            }            
+
+            if (secondVal <= 50) {
+                $(".circle-around-second-value").css({
+                     transform: `rotate(${firstVal * 3.6}deg)`
+                });
+
+                $(".circle-around-second-value .inner-sector").css({                
+                    transform: `rotate(${secondVal * 3.6}deg)`
+                });
+            } else {
+
+            }
+
+            if (thirdVal <= 50) {
+                $(".circle-around-third-value").css({
+                    transform: `rotate(${(firstVal + secondVal) * 3.6}deg)`
+                });
+
+                $(".circle-around-third-value .inner-sector").css({                
+                    transform: `rotate(${thirdVal * 3.6}deg)`
+                });
+            } else {
+
+            }
         }
     }
 });

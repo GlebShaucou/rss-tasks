@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Forms&Widgets</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/converter-style.css">
     <link rel="stylesheet" href="./css/calendar-style.css">
@@ -12,7 +13,6 @@
     <link rel="stylesheet" href="./css/login-style.css">
     <link rel="stylesheet" href="./css/chat-style.css">
     <link rel="stylesheet" href="./css/circles-style.css">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
@@ -98,21 +98,41 @@
 
     <div class="circles">
         <div class="circle-around">
-            <div class="circle-around-first-value"></div>
-            <div class="circle-around-second-value"></div>
-            <div class="circle-around-third-value"></div>
+            <div class="circle-background"></div>
+            <div class="circle-around-first-value">
+                <div class="inner-sector"></div>
+            </div>
+            <div class="circle-around-second-value">
+                <div class="inner-sector"></div>
+            </div>
+            <div class="circle-around-third-value">
+                <div class="inner-sector"></div>
+            </div>
             <div class="circle-around-inside"></div>
+            <span class="total-percentage"></span>
         </div>
+
         <div class="circle-fill">
-            <div class="circle-fill-first-value"></div>
-            <div class="circle-fill-second-value"></div>
-            <div class="circle-fill-third-value"></div>
+            <div class="circle-background"></div>
+            <div class="circle-fill-first-value">
+                <div class="inner-sector"></div>
+            </div>
+            <div class="circle-fill-second-value">
+                <div class="inner-sector"></div>
+            </div>
+            <div class="circle-fill-third-value">
+                <div class="inner-sector"></div>
+            </div>
+            <span class="total-percentage"></span>
         </div>
+
         <div class="circle-straight">
             <div class="circle-straight-first-value"></div>
             <div class="circle-straight-second-value"></div>
             <div class="circle-straight-third-value"></div>
+            <span class="total-percentage"></span>
         </div>
+
         <input class="circle-input-first-value" placeholder="value %" type="text" name="" value="">
         <input class="circle-input-second-value" placeholder="value %" type="text" name="" value="">
         <input class="circle-input-third-value" placeholder="value %" type="text" name="" value="">

@@ -8,8 +8,6 @@
   text-align: center;
 }
 
-.circle-around,
-.circle-fill,
 .circle-straight {
   width: 160px;
   height: 160px;
@@ -20,48 +18,76 @@
   overflow: hidden;
 }
 
-.circle-around-first-value,
-.circle-around-second-value,
-.circle-around-third-value,
+.circle-fill,
+.circle-around {
+     height: 160px;
+     margin: 20px;
+     position: relative;
+}
+
+.circle-background {
+     background-color: #efefef;
+     width: 160px;
+     height: 160px;
+     position: absolute;
+     border-radius: 50%;
+}
+
 .circle-fill-first-value,
+.circle-around-first-value {     
+     width: 160px;
+     height: 160px;
+     position: absolute;
+     border-radius: 50%;
+     clip: rect(0px, 160px, 160px, 80px);
+}
+
+.inner-sector {
+     width: 160px;
+     height: 160px;
+     position: absolute;
+     border-radius: 50%;
+     clip: rect(0px, 80px, 160px, 0px);
+}
+
+.circle-fill-first-value .inner-sector,
+.circle-around-first-value .inner-sector{
+     background-color: #56e5f6;
+     transform:rotate(50deg);
+}
+
 .circle-fill-second-value,
-.circle-fill-third-value {
-  position: absolute;
-  border-radius: 50%;
+.circle-around-second-value {
+     width: 160px;
+     height: 160px;
+     position: absolute;
+     border-radius: 50%;
+     clip: rect(0px, 160px, 160px, 80px);
 
+     transform:rotate(50deg);
 }
 
-.circle-around-first-value,
-.circle-fill-first-value {
-  border: 80px solid #56e5f6;
-  border-top-color: transparent;
-  border-left-color: transparent;
-  border-bottom-color: transparent;
-  width: 0px;
-  height: 0px;
-  transform: rotate(-45deg);
+.circle-fill-second-value .inner-sector,
+.circle-around-second-value .inner-sector {
+     background-color: #4cd9c0;
+     transform:rotate(80deg);
 }
 
-.circle-around-second-value,
-.circle-fill-second-value {
-  border: 80px solid #4cd9c0;
-  border-top-color: transparent;
-  border-left-color: transparent;
-  border-bottom-color: transparent;
-  width: 0px;
-  height: 0px;
-  transform: rotate(0deg);
+.circle-fill-third-value,
+.circle-around-third-value {
+     width: 160px;
+     height: 160px;
+     position: absolute;
+     border-radius: 50%;
+     clip: rect(0px, 160px, 160px, 80px);
+
+     transform:rotate(130deg);
 }
 
-.circle-around-third-value,
-.circle-fill-third-value {
-  border: 80px solid #ec747d;
-  border-top-color: transparent;
-  border-left-color: transparent;
-  border-bottom-color: transparent;
-  width: 0px;
-  height: 0px;
-  transform: rotate(60deg);
+.circle-fill-third-value .inner-sector,
+.circle-around-third-value .inner-sector {
+     background-color: #ec747d;
+     transform:rotate(100deg);
 }
 
 .circle-around-inside {
@@ -134,4 +160,13 @@
 
 .circle-button:hover {
   background: #4cd9c0;
+}
+
+.total-percentage {
+  color: #202628;
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+  top: 70px;
+  left: 70px;
 }
