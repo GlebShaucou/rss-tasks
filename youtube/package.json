@@ -2,7 +2,7 @@
   "name": "youtube",
   "version": "1.0.0",
   "description": "YouTube Task for RSS",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +12,9 @@
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
     "babel-preset-env": "^1.1.4",
+    "eslint": "^3.12.2",
+    "eslint-config-google": "^0.7.1",
+    "html-webpack-plugin": "^2.24.1",
     "webpack": "^1.14.0"
   }
 }

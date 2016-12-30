@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -42,25 +42,36 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	"use strict";
 
-	var l = __webpack_require__(1);
+	function start() {
+	    gapi.client.init({
+	        apiKey: "AIzaSyAgl9MXJPSoyzZZgM7Z2tfbPchuQpZVlnE"
+	    });
+	    gapi.client.load("youtube", "v3", function () {
+	        //
+	    });
+	}
 
-	l.log();
+	function searchByQuery() {
+	    console.log(gapi.client);
 
-	console.log("Hi!");
+	    var request = gapi.client.youtube.search.list({
+	        part: "snippet",
+	        type: "video",
+	        q: "javascript",
+	        maxResults: 15
+	    });
 
-/***/ },
-/* 1 */
-/***/ function(module, exports) {
+	    request.execute(function (response) {
+	        console.log(response);
+	    });
+	}
 
-	'use strict';
-
-	module.exports.log = function () {
-	    console.log('Modules with web pack are alive!');
-	};
+	var but = document.querySelector('button');
+	but.addEventListener('click', searchByQuery);
 
 /***/ }
 /******/ ]);
