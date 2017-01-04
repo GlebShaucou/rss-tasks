@@ -1,0 +1,1 @@
+const PaginationBar = document.querySelector('.pagination-bar');
