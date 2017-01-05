@@ -1,4 +1,5 @@
 import { requestData, Tokens } from '../requests/xmlHttpRequest';
+import { handleSwipeEnd } from './handleSwipeEnd';
 import { StyleConstants } from '../constants/constants.js';
 
 function eventListeners() {
@@ -62,43 +63,16 @@ function eventListeners() {
                 MainContainer.onmouseup = (e) => {
                     MainContainer.onmousemove = null;
 
-                    if (posOfVideos > 0) {
-                        videosList.style.left = '0';
-                        return;
-                    } 
-
-                    if (movementDirection === 'right') {
-                        const paginationBar = document.querySelector('#pagination-bar');
-                        const CurrentPage = document.querySelector('.page-active');
-                        const NextPage = CurrentPage.nextSibling;
-                        let lastPageNum = +paginationBar.lastElementChild.textContent;
-                        let nextPageNum = +NextPage.textContent;
-                        
-                        if (nextPageNum === lastPageNum) {
-                            requestData(Tokens);
-                        }
-
-                        if (NextPage) {
-                            CurrentPage.classList.toggle('page-active');
-                            NextPage.classList.toggle('page-active');
-                        }
-
-                        resultContainerPos -= StyleConstants.PAGE_WIDTH;
-                        videosList.style.left = `${resultContainerPos}px`;
-                    }
-
-                    if (movementDirection === 'left') {
-                        const CurrentPage = document.querySelector('.page-active');
-                        const PrevPage = CurrentPage.previousSibling;
-
-                        if (PrevPage) {
-                            CurrentPage.classList.toggle('page-active');
-                            PrevPage.classList.toggle('page-active');
-                        }
-
-                        resultContainerPos += StyleConstants.PAGE_WIDTH;
-                        videosList.style.left = `${resultContainerPos}px`;
-                    }
+                    const dataToProcess = {
+                        posOfVideos: posOfVideos, 
+                        videosList: videosList, 
+                        movementDirection: movementDirection, 
+                        resultContainerPos: resultContainerPos, 
+                        requestData: requestData, 
+                        Tokens: Tokens
+                    };
+                    
+                    handleSwipeEnd(dataToProcess);
                 };
             };
         }        

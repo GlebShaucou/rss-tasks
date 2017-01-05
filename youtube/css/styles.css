@@ -53,7 +53,7 @@ body {
     display: block;
     position: relative;
     left: 0;
-    transition: left .75s ease-out;
+    transition: left .75s linear;
 }
 
 .results-list li {
@@ -160,4 +160,8 @@ body {
 .page:hover {
     color: #333333;
     border-bottom: 4px solid #cc181e;
+}
+
+.footer-info {
+    margin: 5px 0 0 0;
 }

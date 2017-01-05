@@ -4,7 +4,7 @@ import { SearchContainer } from './html/searchContainerHtml';
 import { ResultContainer } from './html/resultContainerHtml';
 import { PaginationContainer } from './html/paginationContainerHtml';
 import { eventListeners } from './events/eventListeners';
-// import { Tokens } from './requests/xmlHttpRequest';
+import { touchEventListener } from './events/touchEventListeners';
 
 const Body = document.querySelector('body');
 
@@ -13,3 +13,4 @@ Body.appendChild(ResultContainer);
 Body.appendChild(PaginationContainer);
 
 eventListeners();
+touchEventListener();
