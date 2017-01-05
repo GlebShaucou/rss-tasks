@@ -49,11 +49,10 @@ body {
 }
 
 .results-list {
-    /*width: 5440px; */   
     display: block;
     position: relative;
     left: 0;
-    transition: left .75s linear;
+    transition: left .5s;
 }
 
 .results-list li {
