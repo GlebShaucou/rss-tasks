@@ -37,7 +37,7 @@ function buildVideoDataContainer(obj) {
 
     linkTitle.classList.add('video-title');
     linkTitle.setAttribute('href', obj.videoLink);
-    linkTitle.setAttribute('target', '_blank');
+    // linkTitle.setAttribute('target', '_blank');
     linkTitle.textContent = ` ${obj.title}`;
 
     FontIcons[0].classList.add('fa-link');

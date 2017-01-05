@@ -8,6 +8,10 @@ function eventListeners() {
     body.addEventListener('click', (e) => {
         e.preventDefault();
 
+        if (e.target.className === 'video-title') {
+            window.open(e.target.href);
+        }
+
         const MainContainer = document.querySelector('#search-results');
         let resultContainerPos = 0; // left position of container with search qeury results
         let movementDirection = ''; // direction of "slide" move

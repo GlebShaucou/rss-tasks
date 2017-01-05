@@ -34,7 +34,7 @@ function handleSwipeEnd(dataToProcess) {
             CurrentPage.classList.toggle('page-active');
             PrevPage.classList.toggle('page-active');
         }
-
+        debugger;
         dataToProcess.resultContainerPos += StyleConstants.PAGE_WIDTH;
         dataToProcess.videosList.style.left = `${dataToProcess.resultContainerPos}px`;
     }
