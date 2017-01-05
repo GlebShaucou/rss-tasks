@@ -1,6 +1,7 @@
 import { requestData, Tokens } from '../requests/xmlHttpRequest';
+import { StyleConstants } from '../constants/constants.js';
 
-export function eventListeners() {
+function eventListeners() {
     const body = document.querySelector('body');
 
     body.addEventListener('click', (e) => {
@@ -24,71 +25,84 @@ export function eventListeners() {
                 query: query, 
                 searchType: 'searchlist'
             });
+        } if (e.target.className == 'page') { // handle with clicking on paging
+            const videosList = document.querySelector("#results-list");
+            const paginationBar = document.querySelector('#pagination-bar');
+            const CurrentPage = document.querySelector('.page-active');
+            let lastPageNum = +paginationBar.lastElementChild.textContent;
+            let pageNum = +e.target.textContent;
+            let widthToSlide = (pageNum - 1) * StyleConstants.PAGE_WIDTH; 
 
-            // return;
-        }
+            CurrentPage.classList.toggle('page-active');
+            e.target.classList.toggle('page-active');
 
-        // if (e.target.className === 'page') {
-        //     console.log("ASD");
-        // }
+            videosList.style.left = `-${widthToSlide}px`;
 
-        MainContainer.onmousedown = (e) => {
-            let videosList = document.querySelector("#results-list");
-            let posOfVideos = +videosList.style.left.slice(0, -2); // temporary left position of container with search qeury results during our moves
-            resultContainerPos = +videosList.style.left.slice(0, -2);
+            if (pageNum === lastPageNum) {
+                requestData(Tokens);
+            }
+        } else { // slider implementation
+            MainContainer.onmousedown = (e) => {
+                const videosList = document.querySelector("#results-list");
+                let posOfVideos = +videosList.style.left.slice(0, -2); // temporary left position of container with search qeury results during our moves
+                resultContainerPos = +videosList.style.left.slice(0, -2);
 
-            MainContainer.onmousemove = (e) => {
-                if (e.movementX > 0) {                    
-                    posOfVideos += 10;
-                    videosList.style.left = posOfVideos + 'px';
-                    movementDirection = 'left'; 
-                } else {                 
-                    posOfVideos -= 10;
-                    videosList.style.left = posOfVideos + 'px';
-                    movementDirection = 'right';
-                }            
+                MainContainer.onmousemove = (e) => {
+                    if (e.movementX > 0) {                    
+                        posOfVideos += StyleConstants.SLIDE_SPEED;
+                        videosList.style.left = posOfVideos + 'px';
+                        movementDirection = 'left'; 
+                    } else {                 
+                        posOfVideos -= StyleConstants.SLIDE_SPEED;
+                        videosList.style.left = posOfVideos + 'px';
+                        movementDirection = 'right';
+                    }            
+                };
+
+                MainContainer.onmouseup = (e) => {
+                    MainContainer.onmousemove = null;
+
+                    if (posOfVideos > 0) {
+                        videosList.style.left = '0';
+                        return;
+                    } 
+
+                    if (movementDirection === 'right') {
+                        const paginationBar = document.querySelector('#pagination-bar');
+                        const CurrentPage = document.querySelector('.page-active');
+                        const NextPage = CurrentPage.nextSibling;
+                        let lastPageNum = +paginationBar.lastElementChild.textContent;
+                        let nextPageNum = +NextPage.textContent;
+                        
+                        if (nextPageNum === lastPageNum) {
+                            requestData(Tokens);
+                        }
+
+                        if (NextPage) {
+                            CurrentPage.classList.toggle('page-active');
+                            NextPage.classList.toggle('page-active');
+                        }
+
+                        resultContainerPos -= StyleConstants.PAGE_WIDTH;
+                        videosList.style.left = `${resultContainerPos}px`;
+                    }
+
+                    if (movementDirection === 'left') {
+                        const CurrentPage = document.querySelector('.page-active');
+                        const PrevPage = CurrentPage.previousSibling;
+
+                        if (PrevPage) {
+                            CurrentPage.classList.toggle('page-active');
+                            PrevPage.classList.toggle('page-active');
+                        }
+
+                        resultContainerPos += StyleConstants.PAGE_WIDTH;
+                        videosList.style.left = `${resultContainerPos}px`;
+                    }
+                };
             };
-
-            MainContainer.onmouseup = (e) => {
-                MainContainer.onmousemove = null;
-
-                if (posOfVideos > 0) {
-                    videosList.style.left = '0';
-                    return;
-                } 
-
-                if (movementDirection === 'right') {
-                    const CurrentPage = document.querySelector('.page-active');
-                    const NextPage = CurrentPage.nextSibling;
-                    let pageNum = +NextPage.textContent;
-
-                    console.log(Tokens);
-                    if (pageNum % 3 === 0) {
-                        requestData(Tokens);
-                    }
-
-                    if (NextPage) {
-                        CurrentPage.classList.toggle('page-active');
-                        NextPage.classList.toggle('page-active');
-                    }
-
-                    resultContainerPos -= 1360;
-                    videosList.style.left = `${resultContainerPos}px`;
-                }
-
-                if (movementDirection === 'left') {
-                    const CurrentPage = document.querySelector('.page-active');
-                    const PrevPage = CurrentPage.previousSibling;
-
-                    if (PrevPage) {
-                        CurrentPage.classList.toggle('page-active');
-                        PrevPage.classList.toggle('page-active');
-                    }
-
-                    resultContainerPos += 1360;
-                    videosList.style.left = `${resultContainerPos}px`;
-                }
-            };
-        };
+        }        
     });
 };
+
+export { eventListeners }

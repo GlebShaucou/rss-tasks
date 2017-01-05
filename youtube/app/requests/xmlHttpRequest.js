@@ -10,7 +10,7 @@ const Tokens = {
 };
 
 function requestData(obj) {
-    let xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
     let url;
 
     Tokens.query = obj.query;
@@ -19,7 +19,7 @@ function requestData(obj) {
     xhr.open('GET', url, true);
     xhr.onreadystatechange = function() {
         if(xhr.readyState == 4 && xhr.status == 200) {
-            let response = JSON.parse(xhr.responseText);
+            const response = JSON.parse(xhr.responseText);
             Tokens.nextPageToken = response.nextPageToken;
             Tokens.prevPageToken = response.prevPageToken;
             
@@ -34,7 +34,7 @@ function generateSearchListURL(query, nextPageToken) {
     const baseUrl = 'https://www.googleapis.com/youtube/v3/search';
     const part = 'snippet';
     const type = 'video';
-    const maxResults = 15;
+    const maxResults = Constants.NUM_OF_RESULTS;
     const q = encodeURIComponent(query);
 
     if (nextPageToken) {
@@ -77,7 +77,7 @@ function parseResponseToDisplay(response) {
 }
 
 function requestVideoStatistic(obj) {
-    let xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
     let url;
 
     url = generateVideoStatURL(obj.ids);
@@ -85,7 +85,7 @@ function requestVideoStatistic(obj) {
     xhr.open('GET', url, true);
     xhr.onreadystatechange = function() {
         if(xhr.readyState == 4 && xhr.status == 200) {
-            let response = JSON.parse(xhr.responseText);
+            const response = JSON.parse(xhr.responseText);
              
             onVideoStatisticResponse({
                 response: response, 

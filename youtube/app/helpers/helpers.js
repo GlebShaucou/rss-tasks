@@ -5,11 +5,11 @@ function correctResultListWidth() {
     let listWidth = videosList.style.width;
 
     if (!listWidth) {
-        listWidth = 5440;
+        listWidth = StyleConstants.INITIAL_RESULT_LIST_WIDTH;
         videosList.style.width = listWidth + 'px';
     } else {
         listWidth = +listWidth.slice(0, -2);
-        listWidth = listWidth + 5100;
+        listWidth = listWidth + StyleConstants.ADDITIONAL_RESULT_LIST_WIDTH;
         videosList.style.width = listWidth + 'px';
     }
 }

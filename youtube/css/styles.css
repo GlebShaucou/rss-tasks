@@ -42,7 +42,6 @@ body {
 
 .search-results {
     width: 100%;
-    /*margin: 0 auto; */
     overflow: hidden;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -50,11 +49,11 @@ body {
 }
 
 .results-list {
-    width: 5440px;    
-    /*padding: 5px 0 0 0;*/
+    /*width: 5440px; */   
     display: block;
     position: relative;
     left: 0;
+    transition: left .75s ease-out;
 }
 
 .results-list li {
@@ -101,8 +100,6 @@ body {
     line-height: 1.2em;
     max-height: 3.6em; 
     text-align: justify;  
-    /*margin-right: -1em;*/
-    /*padding-right: 1em;*/
 }
 
 .video-details .video-descr:before {
@@ -116,10 +113,7 @@ body {
     content: '';
     position: absolute;
     right: 0;
-    /*width: 1em;
-    height: 1em;*/
     margin-top: 0.2em;
-    /*background: white;*/
 }
 
 .video-title {
@@ -136,7 +130,6 @@ body {
 
 .footer {
     width: 100%;
-    /*margin: 0 auto; */
     overflow: hidden;
     text-align: center;
     margin: 10px 0 0 0;
