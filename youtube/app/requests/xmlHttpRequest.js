@@ -1,7 +1,10 @@
 import { buildVideoDataContainer } from '../html/videoDetailsContainer';
 import { Constants } from '../constants/constants.js';
+import { buildPagination } from '../events/buildPagination';
+import { correctResultListWidth } from '../helpers/helpers.js'
 
 const Tokens = {
+    query: '',
     nextPageToken: '',
     prevPageToken: ''
 };
@@ -10,7 +13,8 @@ function requestData(obj) {
     let xhr = new XMLHttpRequest();
     let url;
 
-    url = generateSearchListURL(obj.query, obj.pageToken);
+    Tokens.query = obj.query;
+    url = generateSearchListURL(obj.query, obj.nextPageToken);
 
     xhr.open('GET', url, true);
     xhr.onreadystatechange = function() {
@@ -26,13 +30,16 @@ function requestData(obj) {
     xhr.send();
 }
 
-function generateSearchListURL(query, pageToken) {    
+function generateSearchListURL(query, nextPageToken) {    
     const baseUrl = 'https://www.googleapis.com/youtube/v3/search';
     const part = 'snippet';
     const type = 'video';
     const maxResults = 15;
-    // pageToken: nextPageToken: "dsfa" or prevPageToken: "dffsd",
     const q = encodeURIComponent(query);
+
+    if (nextPageToken) {
+        return `${baseUrl}?key=${Constants.API_KEY}&type=${type}&part=${part}&pageToken=${nextPageToken}&maxResults=${maxResults}&q=${q}`; 
+    }
 
     return `${baseUrl}?key=${Constants.API_KEY}&type=${type}&part=${part}&maxResults=${maxResults}&q=${q}`;
 }
@@ -110,9 +117,13 @@ function onVideoStatisticResponse(obj) {
 }
 
 function showSearchResults(data) {
+    correctResultListWidth();
+
     for (let i = 0; i < data.length; i++) {
         buildVideoDataContainer(data[i]);
     }
+
+    buildPagination();
 }
 
 export { requestData, Tokens };
