@@ -1,3 +1,5 @@
+'use strict';
+
 const PaginationContainer = document.createElement('footer');
 const PaginationBar = document.createElement('ul');
 const InfoParagraph = document.createElement('p');
@@ -11,4 +13,4 @@ InfoParagraph.innerHTML = "&copy; This WebApp was created by Gleb Shaucou specia
 PaginationContainer.appendChild(PaginationBar);
 PaginationContainer.appendChild(InfoParagraph);
 
-export { PaginationContainer };
+export { PaginationContainer as PaginationContainer };

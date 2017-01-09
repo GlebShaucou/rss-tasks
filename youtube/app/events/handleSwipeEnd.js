@@ -1,6 +1,11 @@
-import { StyleConstants } from '../constants/constants.js';
+'use strict';
+
+import { StyleConstants as StyleConstants } from '../constants/constants.js';
+import { checkScreenWidth as checkScreenWidth } from '../helpers/checkScreenWidth';
 
 function handleSwipeEnd(dataToProcess) {
+    let pageWidth = checkScreenWidth();
+
     if (dataToProcess.posOfVideos > 0) {
         dataToProcess.videosList.style.left = '0';
         return;
@@ -22,7 +27,7 @@ function handleSwipeEnd(dataToProcess) {
             NextPage.classList.toggle('page-active');
         }
 
-        dataToProcess.resultContainerPos -= StyleConstants.PAGE_WIDTH;
+        dataToProcess.resultContainerPos -= pageWidth;
         dataToProcess.videosList.style.left = `${dataToProcess.resultContainerPos}px`;
     }
 
@@ -35,9 +40,9 @@ function handleSwipeEnd(dataToProcess) {
             PrevPage.classList.toggle('page-active');
         }
         debugger;
-        dataToProcess.resultContainerPos += StyleConstants.PAGE_WIDTH;
+        dataToProcess.resultContainerPos += pageWidth;
         dataToProcess.videosList.style.left = `${dataToProcess.resultContainerPos}px`;
     }
 }
 
-export { handleSwipeEnd }
+export { handleSwipeEnd as handleSwipeEnd };

@@ -1,9 +1,13 @@
-import { requestData, Tokens } from '../requests/xmlHttpRequest';
-import { handleSwipeEnd } from './handleSwipeEnd';
-import { StyleConstants } from '../constants/constants.js';
+'use strict';
+
+import { requestData as requestData, Tokens as Tokens } from '../requests/xmlHttpRequest';
+import { handleSwipeEnd as handleSwipeEnd } from './handleSwipeEnd';
+import { StyleConstants as StyleConstants } from '../constants/constants.js';
+import { checkScreenWidth as checkScreenWidth } from '../helpers/checkScreenWidth';
 
 function eventListeners() {
     const body = document.querySelector('body');
+    let pageWidth = checkScreenWidth();
 
     body.addEventListener('click', (e) => {
         e.preventDefault();
@@ -36,7 +40,7 @@ function eventListeners() {
             const CurrentPage = document.querySelector('.page-active');
             let lastPageNum = +paginationBar.lastElementChild.textContent;
             let pageNum = +e.target.textContent;
-            let widthToSlide = (pageNum - 1) * StyleConstants.PAGE_WIDTH; 
+            let widthToSlide = (pageNum - 1) * pageWidth; 
 
             CurrentPage.classList.toggle('page-active');
             e.target.classList.toggle('page-active');
@@ -83,4 +87,5 @@ function eventListeners() {
     });
 };
 
-export { eventListeners }
+export { eventListeners as eventListeners };
+ 

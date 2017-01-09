@@ -1,3 +1,5 @@
+'use strict';
+
 function buildVideoDataContainer(obj) {
     const searchResultsList = document.querySelector('#results-list');
     const li = document.createElement('li');
@@ -78,4 +80,4 @@ function buildVideoDataContainer(obj) {
     searchResultsList.appendChild(li);
 }
 
-export { buildVideoDataContainer };
+export { buildVideoDataContainer as buildVideoDataContainer };

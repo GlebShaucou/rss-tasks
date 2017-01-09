@@ -10,4 +10,4 @@ ResultsList.classList.add('results-list');
 
 ResultContainer.appendChild(ResultsList);
 
-export { ResultContainer }; 
+export { ResultContainer as ResultContainer }; 

@@ -1,4 +1,6 @@
-import { StyleConstants } from '../constants/constants.js';
+'use strict';
+
+import { StyleConstants as StyleConstants } from '../constants/constants.js';
 
 function correctResultListWidth() {
     let videosList = document.querySelector("#results-list");
@@ -14,4 +16,4 @@ function correctResultListWidth() {
     }
 }
 
-export { correctResultListWidth };
+export { correctResultListWidth as correctResultListWidth };

@@ -26,4 +26,4 @@ SearchContainer.appendChild(SearchForm);
 SearchButton.appendChild(FontIcon);
 SearchButton.textContent = ` SEARCH`;
 
-export { SearchContainer }; 
+export { SearchContainer as SearchContainer }; 

@@ -1,7 +1,9 @@
-import { buildVideoDataContainer } from '../html/videoDetailsContainer';
-import { Constants } from '../constants/constants.js';
-import { buildPagination } from '../events/buildPagination';
-import { correctResultListWidth } from '../helpers/helpers.js'
+'use strict';
+
+import { buildVideoDataContainer as buildVideoDataContainer } from '../html/videoDetailsContainer';
+import { Constants as Constants } from '../constants/constants.js';
+import { buildPagination as buildPagination } from '../events/buildPagination';
+import { correctResultListWidth as correctResultListWidth } from '../helpers/helpers.js';
 
 const Tokens = {
     query: '',
@@ -126,4 +128,4 @@ function showSearchResults(data) {
     buildPagination();
 }
 
-export { requestData, Tokens };
+export { requestData as requestData, Tokens as Tokens };

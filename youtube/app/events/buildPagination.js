@@ -1,3 +1,5 @@
+'use strict';
+
 function buildPagination() {
     const PaginationBar = document.querySelector('#pagination-bar');
     let count = PaginationBar.childElementCount;
@@ -28,4 +30,4 @@ function buildPagination() {
     }       
 }
 
-export { buildPagination };
+export { buildPagination as buildPagination };

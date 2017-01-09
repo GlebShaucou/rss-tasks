@@ -1,6 +1,8 @@
-import { requestData, Tokens } from '../requests/xmlHttpRequest';
-import { handleSwipeEnd } from './handleSwipeEnd';
-import { StyleConstants } from '../constants/constants.js';
+'use strict';
+
+import { requestData as requestData, Tokens as Tokens } from '../requests/xmlHttpRequest';
+import { handleSwipeEnd as handleSwipeEnd } from './handleSwipeEnd';
+import { StyleConstants as StyleConstants } from '../constants/constants.js';
 
 function touchEventListener() {
     const MainContainer = document.querySelector('#search-results');
@@ -50,4 +52,4 @@ function touchEventListener() {
     });    
 }
 
-export { touchEventListener }
+export { touchEventListener as touchEventListener };
