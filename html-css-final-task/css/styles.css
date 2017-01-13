@@ -16,7 +16,7 @@ ul {
     margin: 0;
     padding: 0;
     line-height: 30px;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 a {
@@ -60,11 +60,11 @@ a:hover {
     margin: 0 0 -1px 28px;
 }
 
-.products-list {
+.horizontal-list {
     width: 100%;
 }
 
-.products-list li {
+.horizontal-list li {
     vertical-align: top;
     display: inline-block;
 }
@@ -301,6 +301,28 @@ a:hover {
 
 .featured-products-list {
     height: 335px;
+}
+
+.featured-item-conatiner {
+    width: 270px;
+    height: 400px;
+}
+
+.featured-product-img {
+    width: 270px;
+    height: 400px;
+}
+
+.featured-product-title {
+
+}
+
+.featured-product-description {
+
+}
+
+.featured-product-menu {
+
 }
 
 /* WHO WE ARE SECTION */
