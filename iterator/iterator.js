@@ -1,7 +1,7 @@
 function Iterator(array, config) { // add check for incomming parameters
 	this.array = array;
 	this.width = config.width || 1;
-	// this.windowTransform = config.windowTransform;
+	// this.windowTransform = config.windowTransform; // takes (currentPos, width, forward or backward) return object { newCurrPos: newCurrPos, newWidth: newWidth}
 	this.currentPos = 0;
 
 	if (config.cyclic) {
