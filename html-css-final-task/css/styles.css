@@ -295,38 +295,77 @@ a:hover {
 
 /* FEATURED PRODUCTS SECTION */
 /**************************************************************/
+.featured-products {
+
+}
+
 .featured-products .section-header {
     width: 255px;
 }
 
+.gray-border-container {
+    width: 100%;
+    height: 1px;
+    background-color: #b9b9b9;
+}
+
 .featured-products-list {
-    height: 335px;
+    width: 100%;
+    height: 420px;
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 28px 0 0 0;
 }
 
 .featured-item-conatiner {
     width: 270px;
     height: 400px;
+    position: relative;
 }
 
 .featured-product-img {
-    width: 270px;
-    height: 400px;
+    width: 100%;
+    height: 100%;
+}
+
+.featured-product-info {
+    width: 100%;
+    height: 55px;
+    position: absolute;
+    bottom: 49px;
+    border: 1px solid #dddddd;
+    border-top: none;
+    border-bottom: none;
+    background-color: #ffffff;
+    text-overflow: ellipsis;
 }
 
 .featured-product-title {
-
+    margin: 0;
+    padding: 0;
 }
 
 .featured-product-description {
-
+    margin: 0;
+    padding: 0;
 }
 
 .featured-product-menu {
-
+    width: 100%;
+    height: 50px;
+    display: inline-block;
+    border: 1px solid #dddddd;
+    position: absolute;
+    bottom: -1px;
+    background-color: #ffffff;
 }
 
 /* WHO WE ARE SECTION */
 /**************************************************************/
+.who-we-are {
+    margin: 44px 0 0 0;
+}
+
 .who-we-are .section-header {
     width: 182px;
 }
