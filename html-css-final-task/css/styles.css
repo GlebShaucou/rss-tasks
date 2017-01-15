@@ -16,7 +16,6 @@ ul {
     margin: 0;
     padding: 0;
     line-height: 30px;
-    /*overflow: hidden;*/
 }
 
 p {
@@ -171,6 +170,28 @@ a {
     background-position: -70px 0;
 }
 
+/* tooltip */
+.tooltip-holder {
+    position: relative;
+}
+
+.tooltip-block {
+    width: 111px;
+    height: 35px;
+    display: none;
+    position: absolute;
+    top: -32px;
+    left: -31px;
+    color: #3c3c3c;
+    text-align: center;
+    background-image: url(../img/tooltip.png);
+    background-position: 0 0;
+    z-index: 10000;
+}
+
+.small-menu-item:hover .tooltip-block {
+    display: inline-block;
+}
 /**************************************************************/
 /* HEADER */
 /**************************************************************/
