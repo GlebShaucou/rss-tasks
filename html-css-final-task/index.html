@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Html & Css Final Task</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Radley" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    
+    <!-- ################################################################################# -->
+    <!-- HEADER BLOCK -->
+    <!-- ################################################################################# -->
     <header class="header">
         <div class="wrapper micro-clearfix">
             <img src="./img/logo.png" alt="Site logo gift box" class="site-logo">
             <span class="site-logo-description">copyright logo</span>
-
+            <!-- SIMPLE MENU -->
+            <!-- ################################################################################# -->
             <ul class="header-simple-menu">
                 <li><a href="">Sell</a></li>
                 <li><a href="">Registry</a></li>
@@ -21,20 +24,23 @@
                 <li><a href="">Mobile</a></li>
                 <li><a href="">Gift Cards</a></li>
             </ul>  
-
+            <!-- COMPOSED MENU -->
+            <!-- ################################################################################# -->
             <ul class="header-composed-menu">
                 <li><a href="" class="composed-menu-item">Register</a></li>
                 <li><a href="" class="composed-menu-item">Sign In</a></li>
                 <li><a href="" class="composed-menu-item whishlist">Whishlist <i class="fa fa-gift" aria-hidden="true"></i></a></li>
                 <li><a href="" class="composed-menu-item cart">Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
             </ul>
-
+            <!-- MAIN MENU -->
+            <!-- ################################################################################# -->
             <ul class="header-main-menu">
                 <li><span class="main-menu-item">Art</span></li>
 
                 <li class="main-menu-active">
                     <span class="main-menu-item">Home & Living</span>
-
+                    
+                    <!-- DROPDOWN MENU -->
                     <div class="header-drop-down-menu">
                         <ul class="header-drop-down-list">
                             <li class="micro-clearfix">
@@ -73,18 +79,61 @@
             </ul>        
         </div>
     </header>
-
+    <!-- ################################################################################# -->
+    <!-- MAIN BLOCK -->
+    <!-- ################################################################################# -->
     <main class="main">
         <div class="wrapper">
-            
+            <!-- PROMO SECTION -->
+            <!-- ################################################################################# -->
             <section class="promo">
                 <section class="promo-left-section">
                     <div class="mens-wear add-margin">
                         <a href="" class="promo-bg-img mens-wear-bg"></a>
+                        <div class="large-wear-left-block">
+                            <div class="semi-gray-bg large-wear-title-block">
+                                <div class="pseudo-header-red text-size-control">Men's wear</div>
+                                <p class="large-wear-title-description">
+                                    Lorem Ipsum is simply dummy text of the 
+                                    printing and typesetting industry.
+                                </p>
+                            </div>
+
+                            <p class="special-purpose text-size-control">
+                                Lorem Ipsum is simply dummy
+                            </p>
+                        </div>
+                        
+                        <div class="hover-shadow-box hover-shadow-box-mens semi-gray-bg">
+                            <ul class="flex-horizontal-list promo-menu">
+                                <li class="large-menu-item">
+                                    <a href="" class="promo-menu-title">
+                                        Mens Shop
+                                    </a>
+                                </li>
+                                <li class="small-menu-item">
+                                    <a href="" class="icon-link gift-link">
+                                        <i class="fa fa-gift" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="small-menu-item">
+                                    <a href="" class="icon-link cart-link">
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="promo-price">
+                                    <span class="icon-link price">
+                                        <span class="currency">$</span> 99.<span class="cents">00</span>
+                                    </span>
+                                </li>
+                            </ul>   
+                        </div>
                     </div>
+
                     <div class="search-block add-margin">
                         
                     </div>
+
                     <div class="crafts add-margin">
                         <a href="" class="promo-bg-img crafts-bg"></a>
                     </div>
@@ -93,39 +142,180 @@
                 <section class="promo-right-section">
                     <div class="womens-wear add-margin">
                         <a href="" class="promo-bg-img womens-wear-bg"></a>
+
+                        <div class="small-wear-left-block">
+                            <div class="semi-gray-bg small-wear-title-block">
+                                <div class="pseudo-header-red text-size-control">Women's wear</div>
+                                <p class="small-wear-title-description">
+                                    Lorem Ipsum is simply dummy text of the 
+                                    printing and typesetting
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="hover-shadow-box hover-shadow-box-womens semi-gray-bg">
+                            <ul class="flex-horizontal-list promo-menu">
+                                <li class="large-menu-item">
+                                    <a href="" class="promo-menu-title">
+                                        Womens Shop
+                                    </a>
+                                </li>
+                                <li class="small-menu-item">
+                                    <a href="" class="icon-link gift-link">
+                                        <i class="fa fa-gift" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="small-menu-item">
+                                    <a href="" class="icon-link cart-link">
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="promo-price">
+                                    <span class="icon-link price">
+                                        <span class="currency">$</span> 99.<span class="cents">00</span>
+                                    </span>
+                                </li>
+                            </ul>   
+                        </div>
                     </div>
+
                     <div class="kids-wear add-margin">
                         <a href="" class="promo-bg-img kids-wear-bg"></a>
+
+                        <div class="small-wear-left-block">
+                            <div class="semi-gray-bg small-wear-title-block">
+                                <div class="pseudo-header-red text-size-control">Kid's wear</div>
+                                <p class="small-wear-title-description">
+                                    Lorem Ipsum is simply dummy text of the 
+                                    printing and typesetting
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="hover-shadow-box hover-shadow-box-kids semi-gray-bg">
+                            <ul class="flex-horizontal-list promo-menu">
+                                <li class="large-menu-item">
+                                    <a href="" class="promo-menu-title">
+                                        Baby Shop
+                                    </a>
+                                </li>
+                                <li class="small-menu-item">
+                                    <a href="" class="icon-link gift-link">
+                                        <i class="fa fa-gift" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="small-menu-item">
+                                    <a href="" class="icon-link cart-link">
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="promo-price">
+                                    <span class="icon-link price">
+                                        <span class="currency">$</span> 99.<span class="cents">00</span>
+                                    </span>
+                                </li>
+                            </ul>   
+                        </div>
                     </div>
                     <div class="jewelry add-margin">
                         <a href="" class="promo-bg-img jewelry-bg"></a>
                     </div>
                 </section>
             </section>
-
+            <!-- NEW PRODUCTS -->
             <section class="new-products">
                 <h2 class="section-header bottom-red-border">New Products</h2>
-                <ul class="horizontal-list new-products-list justify-list top-gray-border">
-                    <li>
+                <div class="new-products-list top-gray-border">
+                    
                         <div class="new-product-container">
                             <img src="./img/new-products-1.png" alt="New Product 1" class="new-product-img">
-                        </div>
-                    </li>
 
-                    <li>
+                            <div class="hover-shadow-box shadow-box-new-product semi-gray-bg">
+                                <ul class="flex-horizontal-list promo-menu">
+                                    <li class="large-menu-item">
+                                        <a href="" class="promo-menu-title">
+                                            Bags Shop
+                                        </a>
+                                    </li>
+                                    <li class="small-menu-item">
+                                        <a href="" class="icon-link gift-link">
+                                            <i class="fa fa-gift" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="small-menu-item">
+                                        <a href="" class="icon-link cart-link">
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="promo-price">
+                                        <span class="icon-link price">
+                                            <span class="currency">$</span> 99.<span class="cents">00</span>
+                                        </span>
+                                    </li>
+                                </ul>   
+                            </div>
+                        </div>
+
                         <div class="new-product-container">
                             <img src="./img/new-products-2.png" alt="New Product 2" class="new-product-img">
-                        </div>                       
-                    </li>
 
-                    <li>
+                            <div class="hover-shadow-box shadow-box-new-product semi-gray-bg">
+                                <ul class="flex-horizontal-list promo-menu">
+                                    <li class="large-menu-item">
+                                        <a href="" class="promo-menu-title">
+                                            Leather Shop
+                                        </a>
+                                    </li>
+                                    <li class="small-menu-item">
+                                        <a href="" class="icon-link gift-link">
+                                            <i class="fa fa-gift" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="small-menu-item">
+                                        <a href="" class="icon-link cart-link">
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="promo-price">
+                                        <span class="icon-link price">
+                                            <span class="currency">$</span> 99.<span class="cents">00</span>
+                                        </span>
+                                    </li>
+                                </ul>   
+                            </div>
+                        </div>   
+
                         <div class="new-product-container">
                             <img src="./img/new-products-3.png" alt="New Product 3" class="new-product-img">
-                        </div>
-                    </li>
-                </ul>
-            </section>
 
+                            <div class="hover-shadow-box shadow-box-new-product semi-gray-bg">
+                                <ul class="flex-horizontal-list promo-menu">
+                                    <li class="large-menu-item">
+                                        <a href="" class="promo-menu-title">
+                                            Watch Shop
+                                        </a>
+                                    </li>
+                                    <li class="small-menu-item">
+                                        <a href="" class="icon-link gift-link">
+                                            <i class="fa fa-gift" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="small-menu-item">
+                                        <a href="" class="icon-link cart-link">
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="promo-price">
+                                        <span class="icon-link price">
+                                            <span class="currency">$</span> 99.<span class="cents">00</span>
+                                        </span>
+                                    </li>
+                                </ul>   
+                            </div>
+                        </div>
+                </div>
+            </section>
+            <!-- FEATURED PRODUCTS -->
             <section class="featured-products">
                 <h2 class="section-header bottom-red-border">Featured Products</h2>
                 <div class="gray-border-container"></div>
@@ -157,7 +347,7 @@
                             </li>
                             <li>
                                 <span class="price">
-                                    99.00
+                                    <span class="currency">$</span> 99.<span class="cents">00</span>
                                 </span>
                             </li>
                         </ul>
@@ -190,7 +380,7 @@
                             </li>
                             <li>
                                 <span class="price">
-                                    99.00
+                                    <span class="currency">$</span> 99.<span class="cents">00</span>
                                 </span>
                             </li>
                         </ul>
@@ -223,7 +413,7 @@
                             </li>
                             <li>
                                 <span class="price">
-                                    99.00
+                                    <span class="currency">$</span> 99.<span class="cents">00</span>
                                 </span>
                             </li>
                         </ul>
@@ -256,7 +446,7 @@
                             </li>
                             <li>
                                 <span class="price">
-                                    99.00
+                                    <span class="currency">$</span> 99.<span class="cents">00</span>
                                 </span>
                             </li>
                         </ul>
