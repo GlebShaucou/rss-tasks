@@ -91,6 +91,10 @@ a:hover {
     visibility: hidden;
 }
 
+.semi-gray-bg {
+    background-color: rgba(54, 42, 79, 0.8);
+}
+
 /**************************************************************/
 /* HEADER */
 /**************************************************************/
@@ -275,6 +279,84 @@ a:hover {
     width: 100%;
     min-height: 100%;
     margin: 0 0 -550px 0; 
+}
+
+/* PROMO SECTION */
+/**************************************************************/
+.promo {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.add-margin {
+    margin-bottom: 6px;
+}
+
+.promo-left-section {
+    width: 670px;
+}
+
+.promo-bg-img {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+.mens-wear {
+    width: 670px;
+    height: 570px;
+}
+
+.mens-wear-bg {    
+    background-image: url(../img/promo-1.png);
+}
+
+.search-block {
+    width: 670px;
+    height: 171px;
+    background-color: #f0626e;
+}
+
+.crafts {
+    width: 670px;
+    height: 335px;
+}
+
+.crafts-bg {
+    background-image: url(../img/promo-4.png);
+}
+
+.promo-right-section{
+    width: 494px;
+}
+
+.womens-wear {
+    width: 494px;
+    height: 320px;
+}
+
+.womens-wear-bg {
+    background-image: url(../img/promo-2.png);
+}
+
+.kids-wear {
+    width: 494px;
+    height: 245px;
+}
+
+.kids-wear-bg {
+    background-image: url(../img/promo-3.png);
+}
+
+.jewelry {
+    width: 494px;
+    height: 510px;
+}
+
+.jewelry-bg {
+    background-image: url(../img/promo-5.png);
 }
 
 /* NEW PRODUCTS SECTION */
