@@ -58,17 +58,27 @@ a {
     border-top: 1px solid #b9b9b9;
 }
 
-.bottom-red-border {
+/*.bottom-red-border {
     border-bottom: 1px solid #f0626e;
-}
+}*/
 
 .section-header {
-    text-align: center;
+    text-align: left;
+    position: relative;
     font-size: 30px;
     font-weight: 400;
     color: #00a1be;
     display: inline-block;
     margin: 0 0 -1px 28px;
+}
+
+.section-header:after { /* bottom red line under section names */
+    content: ' ';
+    display: inline-block;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    border-top: 1px solid red;
 }
 
 .horizontal-list {
@@ -88,6 +98,7 @@ a {
     width: 370px;
     height: 232px;
     display: inline-block;
+    position: relative;
 }
 
 .large-white-text {
@@ -421,7 +432,7 @@ a {
     font-size: 11px;
     overflow: hidden;
     text-overflow: clip;
-    padding: 0 0 0 14px;
+    padding: 0 0 7px 14px;
     text-transform: uppercase;
 }
 
@@ -584,6 +595,10 @@ a {
 /* NEW PRODUCTS SECTION */
 /**************************************************************/
 .new-products .section-header {
+    width: 100%;
+}
+
+.new-products .section-header:after {
     width: 202px;
 }
 
@@ -626,6 +641,10 @@ a {
 }
 
 .featured-products .section-header {
+    width: 100%;
+}
+
+.featured-products .section-header:after {
     width: 255px;
 }
 
@@ -693,6 +712,10 @@ a {
 }
 
 .who-we-are .section-header {
+    width: 100%;
+}
+
+.who-we-are .section-header:after {
     width: 182px;
 }
 
@@ -709,6 +732,7 @@ a {
 }
 
 .choose-products-button {
+    background-image: url(../img/wwa-btn-1.png);
     background-color: #434343;
 }
 
@@ -717,6 +741,7 @@ a {
 }
 
 .register-login-button {
+    background-image: url(../img/wwa-btn-2.png);
     background-color: #05aecc;
 }
 
@@ -725,6 +750,7 @@ a {
 }
 
 .checkout-button {
+    background-image: url(../img/wwa-btn-3.png);
     background-color: #f0626e;
 }
 
@@ -745,6 +771,24 @@ a {
 .register-now-button:hover {
     text-decoration: none;
     background-color: #f0626e;
+}
+
+.big-colored-buttons-text {
+    width: 120px;
+    display: inline-block;
+    color: #ffffff;
+    font-size: 30px;
+    position: absolute;
+    top: 90px;
+    right: 41px;
+}
+
+.register-login-button .big-colored-buttons-text {
+    top: 85px;
+}
+
+.checkout-button .big-colored-buttons-text {
+    top: 100px;
 }
 
 /**************************************************************/
@@ -823,6 +867,8 @@ a {
 
 .footer-social li {
     display: inline-block;
+    vertical-align: top;
+    margin: 0 10px 0 0;
 }
 
 .footer-social a {
@@ -832,8 +878,8 @@ a {
     font-size: 24px;
     display: inline-block;
     text-align: center;
-    margin: 0 10px 0 0;
     padding: 10px 0 0 0;
+
 }
 
 .rss {
@@ -849,9 +895,14 @@ a {
 }
 
 .flicker {
+    background-image: url(../img/flickr.png);
     border: 1px solid #dbdbdb;
 }
 
 .google {
     background-color: #1872bf;
+}
+
+.footer-social a:hover {
+    background-color: #f0626e;
 }

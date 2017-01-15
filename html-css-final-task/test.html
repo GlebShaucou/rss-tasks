@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Radley" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-drop-down-menu {
+            width: 263px;
+            height: 388px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.33);
+            position: absolute;
+            top: 77px;
+            left: 195px;
+            /*display: none;*/
+            z-index: 1000000;
+        }
+
+        .header-drop-down-list-flex {
+            width: 226px;
+            display: flex;
+        }
+
+        .header-drop-down-list-flex li {
+            width: 226px;
+            display: inline-block;
+        }
+
+        /*.header-drop-down-list {
+            width: 226px;
+            margin: 25px 0 0 21px;
+        }
+
+        .header-drop-down-list li {
+            border-bottom: 1px solid #cacaca;
+        }
+
+        .list-item-title {
+            color: #ef5966;
+            font-size: 16px;
+            font-weight: 400;
+            float: left;
+            margin: 0 0 0 10px;
+            text-overflow: ellipsis;
+        }
+
+        .list-item-description {
+            color: #454545;
+            text-overflow: ellipsis;
+            line-height: 14px;
+            margin: 0 0 0 83px;
+        }*/
+
+        .list-item-img {
+            width: 72px;
+            height: 76px;
+        }
+    </style>
+</head>
+<body>
+    
+                    <div class="header-drop-down-menu">
+                        <div class="header-drop-down-list-flex">
+                            <div>
+                                <img src="./img/deer.png" alt="Item image" class="list-item-img">
+                                <span class="list-item-title">Item Name Here</span>
+                                <span class="list-item-description">Lorem ipsum is simply dummy text of the</span>
+                                <a href="" class="button-link">More Details</a>
+                            </div>
+
+                            <div>
+                                <img src="./img/deer.png" alt="Item image" class="list-item-img">
+                                <span class="list-item-title">Item Name Here</span>
+                                <span class="list-item-description">Lorem ipsum is simply dummy text of the</span>
+                                <a href="" class="button-link">More Details</a>
+                            </div>
+                            
+                            <div>
+                                <img src="./img/deer.png" alt="Item image" class="list-item-img">
+                                <span class="list-item-title">Item Name Here</span>
+                                <span class="list-item-description">Lorem ipsum is simply dummy text of the</span>
+                                <a href="" class="button-link">More Details</a>
+                            </div>                            
+                        </div>
+
+                        <a href="" class="list-link">See All Items</a>
+                    </div> 
+
+</body>
+</html>
