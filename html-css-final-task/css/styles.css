@@ -293,6 +293,9 @@ a {
     cursor: pointer;
 }
 
+
+/* DROPDOWN MENU */
+/*****************************************************************/
 .main-menu-active:hover .header-drop-down-menu {
     display: inline-block;
 }
@@ -303,7 +306,7 @@ a {
 
 .header-drop-down-menu {
     width: 263px;
-    height: 388px;
+    height: 422px;
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.33);
     position: absolute;
@@ -313,38 +316,59 @@ a {
     z-index: 1000000;
 }
 
-/*.header-drop-down-list {
+.header-drop-down-list-flex {
     width: 226px;
-    margin: 25px 0 0 21px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 0 21px;
 }
 
-.header-drop-down-list li {
-    border-bottom: 1px solid #cacaca;
-}
-
-.list-item-title {
-    color: #ef5966;
-    font-size: 16px;
-    font-weight: 400;
-    float: left;
-    margin: 0 0 0 10px;
-    text-overflow: ellipsis;
-}
-
-.list-item-description {
-    color: #454545;
-    text-overflow: ellipsis;
-    line-height: 14px;
-    margin: 0 0 0 83px;
+.dropdown-item {
+    width: 100%;  
+    padding: 20px 0 20px 0;   
+    border-bottom: 1px solid #cacaca;       
 }
 
 .list-item-img {
     width: 72px;
     height: 76px;
     float: left;
-}*/
+}
 
-.button-link {
+.inner-right {
+    width: 150px;
+    float: right;
+}
+
+.list-item-title {
+    color: #ef5966;
+    font-size: 16px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.list-item-description {
+    color: #454545;
+    text-overflow: ellipsis;
+    line-height: 14px;
+    display: block;
+}
+
+.list-link {
+    color: #ef5966;
+    font-size: 16px;
+    margin: 3px 0 0 -130px;
+    display: inline-block;
+    text-align: left;
+    text-decoration: none;
+}
+
+.list-link:hover {
+    text-decoration: underline;
+}
+
+/*.button-link {
     width: 117px;
     height: 23px;
     display: inline-block;
@@ -353,8 +377,10 @@ a {
     background-color: #05aecc;
     text-align: center;
     padding: 0 0 0 0;
-}
+}*/
 
+/* MAIN MENU */
+/*****************************************************************/
 .main-menu-item {
     height: 100%;
     display: inline-block;
