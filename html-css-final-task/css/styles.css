@@ -375,6 +375,10 @@ a {
     width: 670px;
 }
 
+.promo-right-section{
+    width: 494px;
+}
+
 .promo-bg-img {
     width: 100%;
     height: 100%;
@@ -472,6 +476,7 @@ a {
 }
 
 /* mens wear */
+/**************************************************************/
 .hover-shadow-box-mens {
     display: none;
 }
@@ -485,6 +490,16 @@ a {
 }
 
 /* womens wear */
+/**************************************************************/
+.womens-wear {
+    width: 494px;
+    height: 320px;
+}
+
+.womens-wear-bg {
+    background-image: url(../img/promo-2.png);
+}
+
 .hover-shadow-box-womens {
     display: none;
 }
@@ -498,6 +513,16 @@ a {
 }
 
 /* kids wear */
+/**************************************************************/
+.kids-wear {
+    width: 494px;
+    height: 245px;
+}
+
+.kids-wear-bg {
+    background-image: url(../img/promo-3.png);
+}
+
 .hover-shadow-box-kids {
     display: none;
 }
@@ -567,12 +592,44 @@ a {
 }
 
 /* SEARCH BLOCK */
+/**************************************************************/
 .search-block {
     width: 670px;
     height: 171px;
     background-color: #f0626e;
+    padding: 50px 0 0 57px;
+    position: relative;
 }
 
+.search-input {
+    width: 485px;
+    height: 71px;
+    border: none;
+    color: #424242;
+    box-shadow: 1px 2px 7px 0px rgba(0, 0, 0, 0.19);
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    padding-left: 23px;
+}
+
+.search-button {
+    width: 53px;
+    height: 53px;
+    display: inline-block;
+    border: none;
+    color: #ffffff;
+    background-color: #f0626e;
+    position: absolute;
+    margin: 8px 0 0 15px; 
+    cursor: pointer;
+}
+
+.search-button:hover {
+    color: #3c3c3c;
+}
+
+/*CRAFTS BLOCK*/
+/**************************************************************/
 .crafts {
     width: 670px;
     height: 335px;
@@ -582,28 +639,8 @@ a {
     background-image: url(../img/promo-4.png);
 }
 
-.promo-right-section{
-    width: 494px;
-}
-
-.womens-wear {
-    width: 494px;
-    height: 320px;
-}
-
-.womens-wear-bg {
-    background-image: url(../img/promo-2.png);
-}
-
-.kids-wear {
-    width: 494px;
-    height: 245px;
-}
-
-.kids-wear-bg {
-    background-image: url(../img/promo-3.png);
-}
-
+/* JEWELRY */
+/**************************************************************/
 .jewelry {
     width: 494px;
     height: 510px;
