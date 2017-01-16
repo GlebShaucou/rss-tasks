@@ -189,7 +189,7 @@ a {
     z-index: 10000;
 }
 
-.small-menu-item:hover .tooltip-block {
+.tooltip-holder:hover .tooltip-block {
     display: inline-block;
 }
 /**************************************************************/
