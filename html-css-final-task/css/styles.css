@@ -192,6 +192,11 @@ a {
 .tooltip-holder:hover .tooltip-block {
     display: inline-block;
 }
+
+.promo-bestsell-item-text {
+    color: #ffffff;
+    text-transform: uppercase;
+}
 /**************************************************************/
 /* HEADER */
 /**************************************************************/
@@ -689,10 +694,35 @@ a {
 .crafts {
     width: 670px;
     height: 335px;
+    position: relative;
 }
 
 .crafts-bg {
     background-image: url(../img/promo-4.png);
+}
+
+.promo-item-crafts {
+    width: 217px;
+    height: 55px;
+    position: absolute;
+    bottom: 0;
+    left: 261px;
+    padding: 9px 0 0 55px;
+}
+
+.promo-item-crafts .promo-bestsell-item-text {
+    font-size: 30px;
+}
+
+.crafts .promo-menu {
+    width: 196px;
+    right: -4px;
+    bottom: 0;
+    display: none;
+}
+
+.crafts:hover .promo-menu {
+    display: inline-flex;
 }
 
 /* JEWELRY */
