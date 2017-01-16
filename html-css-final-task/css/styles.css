@@ -158,16 +158,16 @@ a {
     width: 70px;
     height: 100%;
     display: inline-block;
-    background-image: url(../img/arrows.png);
+    background-image: url(../img/spritesheet.png);
     background-color: #3c3c3c;
 }
 
 .left-arrow {
-    background-position: 0 0;
+    background-position: -6px -2px;
 }
 
 .right-arrow {
-    background-position: -70px 0;
+    background-position: -73px -2px;
 }
 
 /* tooltip */
@@ -196,6 +196,10 @@ a {
 .promo-bestsell-item-text {
     color: #ffffff;
     text-transform: uppercase;
+}
+
+.use-sprites {
+    background-image: url(../img/spritesheet.png);
 }
 /**************************************************************/
 /* HEADER */
@@ -730,10 +734,64 @@ a {
 .jewelry {
     width: 494px;
     height: 510px;
+    position: relative;
 }
 
 .jewelry-bg {
     background-image: url(../img/promo-5.png);
+}
+
+.jewelry-pseudo-header {
+    width: 396px;
+    height: 86px;
+    position: absolute;
+    right: -155px;
+    bottom: 155px;
+    transform: rotate(-90deg);
+    padding: 10px 0 0 25px;
+}
+
+.jewelry-pseudo-header .promo-bestsell-item-text {
+    font-family: 'Radley', serif;
+    font-size: 54px;
+}
+
+.red-block {
+    width: 97px;
+    height: 86px;
+    background-color: rgba(240, 98, 110, 0.99);
+    position: absolute;
+    top: -5px;
+    left: 287px;
+    transform: rotate(-90deg);
+    cursor: pointer;
+}
+
+.white-circle {
+    width: 53px;
+    height: 53px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    margin: 16px 0 0 20px;
+    background-position: -134px -56px;
+    transform: rotate(180deg);
+}
+
+.red-block:hover .white-circle {
+    background-color: rgba(240, 98, 110, 0.99);
+    background-position: -85px -16px;
+    border: 1px solid #ffffff;
+}
+
+.small-red-trianle {
+    width: 10px;
+    height: 14px;
+    position: absolute;
+    top: -13px;
+    left: 86px;
+    background-color: transparent;
+    background-position: 12px -84px;
+    transform: rotate(180deg);
 }
 
 /* NEW PRODUCTS SECTION */
@@ -1141,7 +1199,8 @@ a {
 }
 
 .flicker {
-    background-image: url(../img/flickr.png);
+    background-image: url(../img/spritesheet.png);
+    background-position: -156px -5px;
     border: 1px solid #dbdbdb;
 }
 
