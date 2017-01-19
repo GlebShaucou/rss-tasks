@@ -1,7 +1,12 @@
 function Iterator(array, config) { // add check for incomming parameters
-	this.array = array;
 	this.width = config.width || 1;
 	this.currentPos = 0;
+
+	if (array instanceof Array) {
+		this.array = array;
+	} else {
+		throw "First parameter should be array";
+	}
 
 	if (config.cyclic) {
 		this.cyclic = true;
@@ -144,6 +149,12 @@ var iterableCycled = new Iterator(arr, { cyclic: true, width: 4});
 
 var iterableNonCycled = new Iterator(arr, { cyclic: false, width: 3});
 
+var iteratorWithTransform = new Iterator(arr, {
+	cyclic: true, 
+	width: 4,
+	windowTransform: wintrans
+});
+
 function wintrans(pos, width, direction) { 
 	var obj = {}; 
 
@@ -159,9 +170,3 @@ function wintrans(pos, width, direction) {
 
 	return obj;
 }
-
-var iteratorWithTransform = new Iterator(arr, {
-	cyclic: true, 
-	width: 4,
-	windowTransform: wintrans
-});
