@@ -91,7 +91,7 @@ export default class App extends React.Component {
 
 			newTask.title = inputTitle.value;
 			newTask.description = inputDescr.value;
-			newTask.uniqKey = Math.random() * (1000 - 1) + 1;
+			newTask.uniqKey = Math.ceil(Math.random() * (1000 - 1) + 1) + ""; // it is needed to make a string:)
 			newTask.status = 0;
 			dataToProcess.push(newTask);
 
