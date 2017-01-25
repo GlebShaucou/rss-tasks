@@ -4,11 +4,11 @@ import { Grid, Row, Col, Panel } from 'react-bootstrap';
 class NewTaskForm extends React.Component {
 	render() {
 		return (
-			<div className="add-task-form" id="add-form">
+			<form className="add-task-form" id="add-form">
 				<input type="text" name="title" id="title" placeholder="Enter here task title" />
 				<input type="text" name="description" id="description" placeholder="Enter here task description" />	
 				<button id="add" className="add-task">Add</button>
-			</div>
+			</form>
 		)
 	}
 }
