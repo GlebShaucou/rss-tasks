@@ -71,7 +71,12 @@ export default class App extends React.Component {
 
 	handleClick(e) {
 		const newState = {};
-		const dataToProcess = this.state.data;
+		const dataToProcess = [];
+		const stateData = this.state.data;
+
+		for(let i = 0, len = stateData.length; i < len; i++) {
+			dataToProcess.push(stateData[i]);			
+		}
 
 		if(e.target.id === "new") {
 			const form = document.querySelector("#add-form");
@@ -116,8 +121,6 @@ export default class App extends React.Component {
 		const Sections = this.state.sections.map((section, index) => {
 			return <BlockOfTasks key={index} title={section} data={this.state.data} statusId={index} />
 		});
-
-		const dataToProcess = this.state.data;
 
 		return (
 		    <Grid>
