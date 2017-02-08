@@ -1,0 +1,21 @@
+.container {
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+}
+
+.items-list {
+    display: flex;
+    justify-content: center;
+}
+
+.item {
+    text-transform: uppercase;
+    list-style: none;
+    padding: 10px 20px;
+    border-bottom: 5px solid white;
+}
+
+.item.--selected {
+    border-bottom: 5px solid green;
+    color: green;
+}
