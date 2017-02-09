@@ -1,0 +1,20 @@
+{
+  "name": "youtube",
+  "version": "1.0.0",
+  "description": "Rolling scopes school task",
+  "main": "index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-env": "^1.1.4",
+    "eslint": "^3.12.2",
+    "eslint-config-google": "^0.7.1",
+    "webpack": "^1.14.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hleb Shautsou",
+  "license": "ISC"
+}
