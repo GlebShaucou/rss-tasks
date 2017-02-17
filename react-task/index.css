@@ -1,0 +1,19 @@
+.switch {
+	display: block;
+}
+
+.new-task {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
+.add-task-form {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	top: 50px;
+	left: 20px;
+	z-index: 100000;
+	display: none;
+}
