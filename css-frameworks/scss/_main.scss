@@ -1,0 +1,286 @@
+html {
+    position: relative; // это нужно для Sticky Footer взял с сайта примеров Bootstrap 
+    min-height: 100%; // это нужно для Sticky Footer
+
+    body {
+        margin-bottom: $footer-height; // это нужно для Sticky Footer
+        padding-top: $navbar-height;
+
+        .navbar-fixed-top {
+            border: none;
+
+            .navbar-brand {
+                font-size: 25px;
+            }
+
+            .navbar-right {
+                font-size: 13px;
+            }
+        }
+
+        .slider {
+            color: $text-color-gray;
+            background: $slider-bg;
+            background-size: cover;
+            height: $slider-height;
+
+            &-row {
+                margin-top: 290px;
+
+                .slider-description-left-arrow {
+                    @include element-size(34px, 70px);
+
+                    display: inline-block;
+                    border-radius: 34px 0 0 34px;
+                    font-size: 24px;
+                    color: $main-black;
+                    background-color: $dunkel-red;
+                    padding: 20px 0 0 7px;
+                    border-right: 1px solid $main-black;
+                    cursor: pointer;
+                }
+
+                .slider-description-right-arrow {
+                    @include element-size(34px, 70px);
+                    display: inline-block;
+                    border-radius: 0 34px 34px 0;
+                    font-size: 24px;
+                    color: $main-black;
+                    background-color: $dunkel-red;
+                    padding: 20px 0 0 3px;
+                    margin-left: -2px;
+                    cursor: pointer;
+                }
+
+                .slider-description-left-arrow:hover,
+                .slider-description-right-arrow:hover {
+                    color: $dunkel-red;
+                    background-color: $main-black;
+                }
+
+                h1 {
+                    color: $text-color-gray; 
+                }
+
+                .white-line {
+                    @include element-size(240px, 14px);
+                    display: inline-block;
+                    border-top: 2px solid $text-color-gray;
+                }
+            }
+        }
+
+        .services {
+            height: 277px;
+            background-color: $text-color-gray;
+
+            .services-row {
+                margin-top: $margin-top-content-row;
+
+                .media-heading {
+                    margin-bottom: 30px;
+                }
+
+                .red-circle {
+                    @include element-size(70px, 70px);
+                    color: $white;
+                    background-color: $dunkel-red;
+                    font-size: 26px;
+                    border-radius: 50%;
+                    padding: 17px 0 0 22px;
+                    margin-right: 25px;
+                }
+            }
+        }
+
+        .portfolio {
+            height: 514px;
+
+            .portfolio-row {
+                margin-top: $margin-top-content-row;
+
+                .text-danger {
+                    font-size: $font-size-h2 - 1px;
+                    border: 1px solid $text-color-gray;
+                    border-left: none;
+                    border-right: none;
+                    padding: 8px 0 7px 0; 
+                }
+
+                .btn-danger {
+                    margin-top: 20px;
+                }
+
+                .img-circle {
+                    transform: scale(-1,1); /* отражает изображение */
+                }
+            }
+        }
+
+        .subscribe-section {
+
+            .container {
+                height: 185px;
+                color: $white;
+                background-color: $dunkel-red;
+                border-radius: 12px;
+
+                .subscribe-section-row {
+                    margin-top: 50px;
+
+                    h2 {
+                        color: $white;
+                    }
+
+                    .black-circle {
+                        @include element-size(70px, 70px);
+                        display: inline-block;
+                        background-color: $main-black;
+                        border-radius: 50%;
+                        font-size: 26px;
+                        padding: 15px 0 0 23px;
+                        margin-left: 15px;
+                        margin-right: 15px;
+                    }
+
+                    .form-title {
+                        margin-top: 0;
+                    }
+
+                    .col-sm-8 {
+                        padding-left: 0;
+                    }
+
+                    .form-control {
+                        border: none;
+                        font-style: italic;
+                    }
+
+                    .btn-default {
+                        height: 41px;
+                        border: none;
+                    }
+                }
+            }
+        }
+
+        .company-contacts {
+            height: 570px;
+
+            &-row {
+                margin-top: 40px;
+
+                .media {
+                    border-top: 1px solid $text-color-gray;
+                    padding-top: 30px;
+                    padding-bottom: 17px;
+
+                    .img-circle {
+                        @include element-size(70px, 70px);
+                        border-radius: 50%;
+                    }
+                }
+
+                .media:last-child{
+                    border-bottom: 1px solid $text-color-gray;
+                }
+
+                .feedback-form {
+                    height: 392px;
+                    background-color: $text-color-gray;
+                    border-radius: 5px;
+
+                    .col-sm-11 {
+                        margin-left: 12px;
+
+                        p {
+                            margin-top: 20px;
+                            margin-bottom: 17px;
+                        }
+
+                        .form-control {
+                            margin-bottom: 20px;
+                            border: none;
+                            font-style: italic;
+                        }
+
+                        textarea {
+                            resize: none;
+                        }
+                    }
+
+                    .btn-danger {
+                        @include element-size(100px, 41px);
+                        margin-left: 28px;
+                    }
+                }
+
+                .address {
+                    
+                    h3 {
+                        color: $dunkel-red;
+                    }    
+
+                    .glyphicon {
+                        font-size: 22px;
+                        color: $main-black;
+                    }
+
+                    a {
+                        color: $main-text-color;
+                    }
+                }
+            }
+        }
+
+        .footer {
+            position: absolute; // это нужно для Sticky Footer
+            bottom: 0; // это нужно для Sticky Footer
+            width: 100%; // это нужно для Sticky Footer
+            height: $footer-height; // это нужно для Sticky Footer
+            color: $main-text-color;
+            background-color: $main-black;
+
+            &-row {
+                margin-top: $margin-top-content-row;
+
+                .footer-menu {
+                    a {
+                        color: $text-color-gray;
+                    }
+
+                    a:not(:last-child)::after {
+                        content: "/";
+                        color: #cccdcd;
+                        cursor: default;
+                        margin: 0 20px 0 20px;
+                        text-decoration: none;
+                    }
+                }
+
+                .footer-text {
+                    margin-top: 13px;
+
+                    a:not(:first-child) {
+                        color: $main-text-color;
+                    }
+
+                    span {
+                        color: $dunkel-red;
+                    }
+                }
+
+                .footer-icons {
+                    @include element-size(43px, 43px);
+                    display: inline-block;
+                    background-color: $dunkel-red;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                    font-size: 19px;
+                    color: $white;
+                    padding: 10px 0 0 11px;
+                }
+            } 
+        }
+    }
+}
