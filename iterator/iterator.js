@@ -1,23 +1,40 @@
 function Iterator(array, config) { // add check for incomming parameters
-	this.array = array;
 	this.width = config.width || 1;
-	// this.windowTransform = config.windowTransform; // takes (currentPos, width, forward or backward) return object { newCurrPos: newCurrPos, newWidth: newWidth}
 	this.currentPos = 0;
+
+	if (array instanceof Array) {
+		this.array = array;
+	} else {
+		throw "First parameter should be array";
+	}
 
 	if (config.cyclic) {
 		this.cyclic = true;
 	} else {
 		this.cyclic = false;
 	}
+
+	if (typeof config.windowTransform === 'function') {
+		/* 	windowTransform function accepts (currentPos, width, "forward" or "backward")
+		* 	and returns object { newCurrPos, newWidth}
+		*/
+		this.windowTransform = config.windowTransform;
+	}
 }
 
 Iterator.prototype.forward = function() {
 	var subArr = [];
 	var ind;
-	var currSubArrLength = 0;
+	var currSubArrLength;
+
+	if(this.windowTransform) {
+		var newData = this.windowTransform(this.currentPos, this.width, 'forward');
+		this.currentPos = newData.newCurrPos;
+		this.width = newData.newWidth;
+	}
 
 	if (!this.cyclic && this.currentPos === this.array.length - 1) {
-		console.log('Config.cyclic is false iterations are over');
+		throw 'Config.cyclic is false iterations are over';
 		return undefined;
 	}
 
@@ -27,7 +44,7 @@ Iterator.prototype.forward = function() {
 
 	ind = this.currentPos + 1;
 
-	for(; currSubArrLength < this.width; currSubArrLength++, ind++) {
+	for(currSubArrLength = 0; currSubArrLength < this.width; currSubArrLength++, ind++) {
 		if (ind === this.array.length) {
 			if (this.cyclic) {
 				ind = 0;	
@@ -50,14 +67,14 @@ Iterator.prototype.forward = function() {
 Iterator.prototype.current = function() {
 	var subArr = [];
 	var ind = this.currentPos;
-	var currSubArrLength = 0;
+	var currSubArrLength;
 
 	if (!this.cyclic && this.currentPos === this.array.length - 1) {
-		console.log('Config.cyclic is false iterations are over. Last element:');
+		throw 'Config.cyclic is false iterations are over. Last element:';
 		return [this.array[this.array.length - 1]];
 	}
 
-	for(; currSubArrLength < this.width; currSubArrLength++, ind++) {
+	for(currSubArrLength = 0; currSubArrLength < this.width; currSubArrLength++, ind++) {
 		if (ind === this.array.length) {
 			if (this.cyclic) {
 				ind = 0;	
@@ -77,16 +94,22 @@ Iterator.prototype.current = function() {
 Iterator.prototype.backward = function() {
 	var subArr = [];
 	var ind;
-	var currSubArrLength = 0;
+	var currSubArrLength;
+
+	if(this.windowTransform) {
+		var newData = this.windowTransform(this.currentPos, this.width, 'backward');
+		this.currentPos = newData.newCurrPos;
+		this.width = newData.newWidth;
+	}
 
 	if (!this.cyclic && !this.currentPos) {
-		console.log('Config.cyclic is false iterations are over');
+		throw 'Config.cyclic is false iterations are over';
 		return [this.array[0]];
 	}
 
 	ind = this.currentPos - 1;
 
-	for(; currSubArrLength < this.width; currSubArrLength++, ind--) {
+	for(currSubArrLength = 0; currSubArrLength < this.width; currSubArrLength++, ind--) {
 		if (ind === -1) {
 			if (this.cyclic) {
 				ind = this.array.length - 1;	
@@ -112,7 +135,7 @@ Iterator.prototype.backward = function() {
 
 Iterator.prototype.jumpTo = function(index) {
 	if (isNaN(index) || index < 0 || index > this.array.length - 1) {
-		console.log('Index value should be in range from 0 to array length!');
+		throw 'Index value should be in range from 0 to array length!';
 		return undefined;
 	}
 
@@ -121,7 +144,29 @@ Iterator.prototype.jumpTo = function(index) {
 };
 
 var arr = [0,1,2,3,4,5,6,7,8,9];
-var arr2 = [0,1,2,3];
-var iterableArr = new Iterator(arr, { cyclic: true, width: 4});
 
-var iterable2 = new Iterator(arr2, { cyclic: false, width: 3});
+var iterableCycled = new Iterator(arr, { cyclic: true, width: 4});
+
+var iterableNonCycled = new Iterator(arr, { cyclic: false, width: 3});
+
+var iteratorWithTransform = new Iterator(arr, {
+	cyclic: true, 
+	width: 4,
+	windowTransform: wintrans
+});
+
+function wintrans(pos, width, direction) { 
+	var obj = {}; 
+
+	if(direction == 'forward') { 
+		obj.newCurrPos = pos + 1; 
+		obj.newWidth = width - 1; 
+	} 
+
+	if(direction == 'backward') { 
+		obj.newCurrPos = pos - 1; 
+		obj.newWidth = width - 1; 
+	}
+
+	return obj;
+}
