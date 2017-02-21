@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+    
+    <div class="wrapper">
+        <div class="cover-holes-in-canvas"></div> <!-- to cover holes in canvas after deleteng objects from it -->
+
+        <canvas id="game-area" class="game-area" width="1200" height="500"></canvas>
+        
+        <p>
+            <span class="control-info"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>,
+            <span class="control-info"><i class="fa fa-arrow-right" aria-hidden="true"></i></span>,
+            <span class="control-info"><i class="fa fa-arrow-up" aria-hidden="true"></i></span>,
+            <span class="control-info"><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
+            - to move.
+            <span class="control-info">"Esc"</span> - to pause the game.
+            <span class="control-info">"Spacebar"</span> - to start the game.
+            <span class="control-info">"A/S"</span> - ON/OFF Music.
+            <p>Avoid collisions with  <img src="./img/asteroid.png" alt="Asteroid image" class="asteroid-img"> asteroids and collect <img src="./img/planets.png" alt="Planets images" class="planets-img"> planets to gain score.</p>   
+        </p>
+
+        <div class="lives-container">
+            LIVES:
+            <p>
+                <i class="fa fa-space-shuttle live" aria-hidden="true"></i>
+                <i class="fa fa-space-shuttle live" aria-hidden="true"></i>
+                <i class="fa fa-space-shuttle live" aria-hidden="true"></i>
+            </p>
+        </div>
+
+        <div class="chapter-container">
+            <p id="chapter-container-text" class="chapter-container-text">Chapter I: A Storm of Asteroids</p>
+        </div>
+
+        <div class="score-container">
+            SCORE:
+            <p class="score">
+                <span id="score">0</span>
+            </p>
+        </div>
+
+        <div id="level-progress-container" class="level-progress-container">
+            <div id="level-progress-state" class="level-progress-state">
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="game-menu" class="game-menu">
+        <button class="menu-btn menu-btn-start-tab">Play</button>
+        <button class="menu-btn menu-btn-scores-tab">Story</button>
+        <button class="menu-btn menu-btn-info-tab">Information</button>
+        
+        <p id="game-information" class="game-information">This game "Last Cycle" was created for Rolling Scopes School. Special thanks to Rolling Scopes School Team. <br><br> Copyright © 2016. Gleb Shaucou. All rights reserved</p>
+
+        <article id="game-story-container" class="game-story-container">
+            <h2>Last Cycle</h2>
+            <p>You have received a SOS signal from one of the lasts human colonies. They are asking for help and providing some encrypted message about "Annabel". Your mission is to reach this planet and figure out what happened. <br><br>Deep in the space you have to stand alone against deadliest asteroids and loneliness in the space. <br><br> Figure out what stands beside "Anabel"...</p>
+        </article>
+    </div>
+
+    <div id="end-game-menu" class="end-game-menu">
+        <p class="end-game-text">Game Over! Your Final Score: <span id="final-score" class="final-score"></span></p>
+        <button class="menu-btn menu-btn-confirm-end">OK</button>
+    </div>
+
+    <div id="pause-container" class="pause-container">
+        <p class="pause-container-text">PAUSE</p>
+    </div>
+    
+    <div id="level-end-container" class="level-end-container">
+        <h2>Chapter II: Show Your Secrets</h2>
+        <p id="level-end-text" class="level-end-text">You have overcome the asteroids field. Now you are entering a gravity field of "Unthinkable". <br> "Unthinkable", or GGS-08S89, is a black hole that absorbs solar system NE017. <br> One of the lasts planets in NE017 was colonized by humans scientists 30 Earth-years ago to study black holes. In 10 minutes you will land planet "Ikar". <br> Your mission is to explore colony and find out who has send encrypted message. You should be fast, in 48 hours "Ikar" will reach event horizont of black hole and after that you could not leave this planet anymore.</p>
+
+        <p id="level-end-attention-message" class="level-end-attention-message">Hi, my dear Friend! Because of lower financing development of this game is going weeeeeery slooooow. Hope soon we will solve this issue. Best Wishes and Happy New Year! <br> Your level score: <span id="level-final-score" class="level-final-score"></span></p>
+
+        <button class="menu-btn menu-btn-continue">Continue</button>
+        <button class="menu-btn menu-btn-continue2">Continue</button>
+    </div>
+
+    <script src="https://use.fontawesome.com/4d320bc0d5.js"></script>
+    <script src="./scripts/scripts.js"></script>
+</body>
+</html>

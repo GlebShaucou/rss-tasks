@@ -1,0 +1,268 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+    background: url("../img/body-bg.jpg") no-repeat;
+    position: relative;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    margin: 0 0 20px 0;
+}
+
+.wrapper {
+    width: 1250px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px; 
+    margin-left: -650px;
+    text-align: center;
+    margin-top: 30px;
+    position: relative;
+}
+
+canvas {
+    border: 1px solid #00abe3;
+}
+
+.cover-holes-in-canvas { /* cover holes in canvas after deleteng objects from it */
+    width: 1200px;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    left: 25px;
+    background: url("../img/bg.png") no-repeat;
+    z-index: -1000;
+}
+
+.control-info {
+    color: #ff8989;
+    font-weight: 700;
+}
+
+.lives-container {
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.live {
+    color: #e84c3d;
+}
+
+.score-container {
+    width: 200px;
+    height: 120px;
+    position: absolute;
+    top: 20px;
+    right: 56px;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.score {
+    color: #2abfbf;
+    text-align: right;
+}
+
+.level-progress-container {
+    width: 16px;
+    height: 250px;
+    position: absolute;
+    top: 150px;
+    right: 58px;
+    border: 1px solid #ff8989;
+    border-radius: 4px;
+}
+
+.level-progress-state {
+    width: 15px;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    background-color: #ff8989;
+    border-radius: 3px;
+}
+
+.game-menu {
+    width: 800px;
+    height: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -293px 0 0 -422px;
+    z-index: 10000;
+    background-color: rgba(32, 38, 40, .9);
+    border-radius: 20px;
+}
+
+.menu-btn {
+    font-family: 'Orbitron', sans-serif;
+    width: 250px;
+    height: 130px;
+    display: inline-block;
+    border: none;
+    font-size: 30px;
+    color: #f5f5f5;
+    background-color: rgba(0, 0, 0, 1);
+    cursor: pointer;
+}
+
+.menu-btn:hover {
+    color: #00abe3;
+    background-color: #dedede;
+}
+
+.menu-btn-start-tab {
+    margin: 20px 0 0 20px;
+}
+
+.game-story-container {
+    width: 750px;
+    text-align: center;
+    margin: 30px 0 0 20px;
+    display: none;
+}
+
+.end-game-menu {
+    width: 500px;
+    height: 250px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -240px 0 0 -251px;
+    z-index: 10000;
+    background-color: rgba(32, 38, 40, .9);
+    border-radius: 20px;
+    text-align: center;
+    display: none;
+}
+
+.end-game-text {
+    font-size: 25px;
+    font-weight: 700;
+    color: #f5f5f5;
+    text-align: center;
+    padding: 30px 0 30px 0;
+}
+
+.menu-btn-confirm-end {
+    width: 150px;
+    height: 80px;
+}
+
+.final-score {
+    font-size: 40px;
+    color: #2abfbf;
+    display: block;
+}
+
+.level-final-score {
+    font-size: 40px;
+    color: #2abfbf;
+}
+
+.pause-container {
+    width: 500px;
+    height: 250px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -240px 0 0 -285px;
+    z-index: 10000;
+    background: none;
+    border-radius: 20px;
+    text-align: center;
+    display: none;
+}
+
+.pause-container-text {
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.chapter-container {
+    width: 300px;
+    height: 120px;
+    position: absolute;
+    top: 20px;
+    left: 480px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.chapter-container {
+    color: #2abfbf;
+    text-align: center;
+}
+
+.game-information {
+    /*display: none;*/
+    width: 750px;
+    text-align: center;
+    margin: 50px 0 0 20px;
+}
+
+.asteroid-img {
+    width: 30px;
+    height: 30px;
+}
+
+.planets-img {
+    width: 50px;
+    height: 50px;
+}
+
+.level-end-container {
+    width: 700px;
+    height: 480px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -250px 0 0 -360px;
+    z-index: 10000;
+    background-color: rgba(32, 38, 40, .9);
+    border-radius: 20px;
+    text-align: center;
+    display: none;
+}
+
+.menu-btn-continue {
+    width: 200px;
+    height: 80px;
+}
+
+.menu-btn-continue2 {
+    width: 200px;
+    height: 80px;
+    display: none;
+}
+
+.level-end-text {
+    color: #f5f5f5;
+    text-align: justify;
+    padding: 30px 0 30px 0;
+}
+
+.level-end-attention-message {
+    color: #2abfbf;
+    text-align: center;
+    padding: 30px 0 30px 0;
+    display: none;
+}
