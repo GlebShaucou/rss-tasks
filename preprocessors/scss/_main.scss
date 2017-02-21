@@ -1,0 +1,791 @@
+body {
+    font-family: $font-family;
+    background-color: $gray;
+
+    .converter {
+        @extend .widget-size;
+
+        li {
+            min-height: $cur-min-height;
+            position: relative;
+
+            .currency-name {
+                @include element-size($currency-name-width, $currency-name-height);
+                @include display-options(absolute, $currency-position-top);
+                @include text-options($currency-name-font-size, center, $converter-txt-color);
+                
+                text-transform: $text-transform;
+                border-right: $border-style $currency-border-color;
+                padding-top: $curr-padding-top;
+            }
+
+            .currency-value {
+                @include element-size($currency-value-width, $currency-value-height);
+                @include display-options(absolute, $currency-position-top, $currency-position-right);
+                @include text-options($currency-value-font-size, right, $converter-txt-color);
+            }
+
+            .dollars:before {
+                content: "$";
+            }
+
+            .pounds:before {
+                content: "\00a3";
+            }
+
+            .currency-value:first-letter {
+                font-size: $curr-first-letter-font-size;
+            }
+        }
+
+        li:not(:last-child) {
+            border-bottom: $border-style $gray-border;
+        }
+
+        &-menu {
+            @include menu-size($gray-blue);
+
+            word-spacing: $default-word-spacing; // убираем отступы между ссылками, font-size: 0 перестал работать, поэтому использовал word-spacing
+
+            .chart {
+                @include element-size($chart-width, $menu-min-height, $warm-red);
+                @include display-options(relative);
+
+                &-icon {
+                    @include element-size($chart-icon-width, $chart-icon-height);
+                    @include display-options(absolute, 19px, auto, 32px);
+                    @include bg-sprite(-10px, -83px);
+                }
+            }
+
+            .chart:hover {
+                background-color: saturate(hsl(0, 80%, 77%), 20%);
+            }
+
+            .add-currency {
+                @include element-size($add-currency-width, $menu-min-height);
+                @include display-options(relative);
+
+                &-icon {
+                    @include element-size($chart-icon-width, $chart-icon-height);
+                    @include display-options(absolute, 19px, auto, 82px);
+                    @include bg-sprite(-8px, -48px);
+                }
+            }
+
+            .add-currency:hover {
+                background-color: saturate(hsl(0, 80%, 77%), 20%);
+            }
+
+            .number-pad {
+                @include element-size($number-pad-width, $menu-min-height);
+                @include display-options(relative);
+
+                &-icon {
+                    @include element-size($chart-icon-width, $chart-icon-height);
+                    @include display-options(absolute, 19px, auto, 19px);
+                    @include bg-sprite(-8px, -8px);
+                }
+            }
+            .number-pad:hover {
+                background-color: saturate(hsl(0, 80%, 77%), 20%);
+            }
+        }
+    }
+
+    .calendar {
+        @extend .widget-size;
+
+        &-menu {
+            @include menu-size($gray-blue, $calendar-menu-height);
+
+            position: relative;
+
+            &-left-arrow {
+                @include element-size($table-arrow-width, $calendar-menu-height);
+                @include display-options(relative);
+
+                float: left;
+
+                &-icon {
+                    @include element-size($table-icon-width, $table-icon-height);
+                    @include display-options(absolute, 29px, auto, 14px);
+                    @include bg-sprite(-6px, -118px);
+                }
+            }
+
+            &-left-arrow:hover {
+                background-color: saturate($dark-green, 10%);
+            } 
+
+            &-right-arrow {
+                @include element-size($table-arrow-width, $calendar-menu-height);
+                @include display-options(relative);
+
+                float: right;
+
+                &-icon {
+                    @include element-size($table-icon-width, $table-icon-height);
+                    @include display-options(absolute, 29px, 11px, auto);
+                    @include bg-sprite(-24px, -118px);
+                }
+            }
+
+            &-right-arrow:hover {
+                background-color: saturate($dark-green, 10%);
+            }
+
+            ul {
+                @include element-size(60px, $calendar-menu-height);
+                @include display-options(absolute, auto, auto, 130px);
+
+                .year {
+                    @include text-options($table-font-size, center, $year-color);
+
+                    margin: 16px 0 0 0;    
+                }
+
+                .month {
+                    @include text-options($table-font-size + 1px, center, $white); 
+
+                    font-weight: bold;
+                    text-transform: $text-transform;
+                }
+            }
+        }
+
+        &-table {
+            @include simple-size($table-calendar-size, $table-calendar-size);
+
+            font-size: $table-font-size;
+
+            &-week {
+                font-weight: bold;
+                color: $dark-green;                
+                background-color: $light-green;
+                text-transform: $text-transform;
+
+                tr {
+                    height: $table-week-height;
+                }
+            }
+
+            &-dates {
+                td {
+                    @include simple-size($table-date-width, $table-date-width);
+
+                    color: $table-dates-gray;                  
+                    text-align: center;
+                }
+
+                .date {
+                    @include element-size($date-width, $date-width);
+                    @include display-border-radius($default-border-radius);                 
+
+                    padding: 5px 0 0 0;
+                }
+
+                .current-date { /* ячейки, в которых нет чисел не подсвечиваются */
+                    color: $white;
+                    background-color: $warm-red;
+                    cursor: $cursor-type;
+                }
+
+                .date:not(:empty):hover {
+                    color: hsl(0, 0, 100%);
+                    background-color: hsl(0, 100%, 76.9%);
+                    cursor: $cursor-type;
+                }
+            }
+        }
+    }
+
+    .weather {
+        @extend .widget-size;
+
+        &-slider {
+            @include element-size($widget-width, $slider-height);
+            @include display-options(relative);
+
+            img {
+                @include element-size($slider-img-size, $slider-img-size);
+            }
+
+            &-data {
+                @include display-options(absolute, auto, auto, 11px, 12px);
+                @include text-options($widget-font-size - 2px, auto, $white);
+
+                .temperature {
+                    @include text-options($widget-font-size * 2 + 11px);
+                }
+
+                .temperature:after {
+                    content: "\00b0";
+                }
+
+            }
+
+            &-switcher {
+                @include display-options(absolute, auto, 12px, auto, 11px);
+
+                .switcher {
+                    @include element-size($slider-switcher-size, $slider-switcher-size, $switcher-color);
+                    @include display-border-radius($default-border-radius);
+
+                    cursor: $cursor-type;
+                }
+                .switcher:hover {
+                    background-color: saturate($switcher-active-color, 20%);
+                }
+
+                .switcher:not(:first-child) {
+                    margin: 0 0 0 2px;
+                }
+                
+                .switcher-active {
+                    background-color: $switcher-active-color;
+                }
+            }
+        }
+
+        &-menu {
+            @include menu-size($white);
+
+            word-spacing: $default-word-spacing;
+            margin: -5px 0 0 0; // нужно потому, что остается зазор между меню и слайдером
+            
+            ul {
+                @include element-size($percentage-size, $percentage-size);
+
+                li {
+                    @include element-size($weather-menu-width, $weather-menu-height);
+
+                    display: inline-block;
+                }
+            }
+
+            &-fahrenheit {
+                @include element-size($percentage-size, $percentage-size, $warm-red);
+                @include display-options(relative);
+
+                &-icon {
+                    @include element-size($std-icon-height, $std-icon-height);
+                    @include display-options(absolute, 17px, auto, 25px, auto);
+                    @include bg-sprite(-96px, -90px);
+                }
+
+                .fahrenheit-active {
+                    @include bg-sprite(-132px, -90px);
+                }
+            }
+            &-fahrenheit:hover {
+                background-color: saturate(hsl(0, 80%, 77%), 20%);
+            }
+
+            &-celsius {
+                @include element-size($percentage-size, $percentage-size);
+                @include display-options(relative);
+
+                &-icon {
+                    @include element-size($std-icon-height, $std-icon-height);
+                    @include display-options(absolute, 17px, auto, 25px, auto);
+                    @include bg-sprite(-98px, -129px);
+                }
+            }
+            &-celsius:hover {
+                background-color: saturate(hsl(0, 80%, 77%), 20%);
+            }
+
+            &-weather-add {
+                @include element-size($percentage-size, $percentage-size);
+                @include display-options(relative);
+
+                &-icon {
+                    @include element-size($std-icon-height, $std-icon-height);
+                    @include display-options(absolute, 17px, auto, 25px, auto);
+                    @include bg-sprite(-96px, -48px);
+                }
+            }
+
+            &-weather-add:hover {
+                background-color: saturate(hsl(0, 80%, 77%), 20%); 
+            }
+
+            &-weather-pad {
+                @include element-size(79px, $percentage-size);
+                @include display-options(relative);
+
+                &-icon {
+                    @include element-size($std-icon-height + 13px, $std-icon-height);
+                    @include display-options(absolute, 17px, auto, 25px, auto);
+                    @include bg-sprite(-96px, -8px);
+                }
+            }
+
+            &-weather-pad:hover {
+                background-color: saturate(hsl(0, 80%, 77%), 20%);            
+            }
+        }
+    }
+
+    .music-player {
+        @extend .widget-size;
+        width: $music-player-width;
+        height: $music-player-height;
+
+        &-singer-info {
+            @include element-size($singer-info-width, $percentage-size);
+
+            float: left;
+
+            img {
+                @include element-size($img-width, $img-width);
+
+                margin: 8px 0 0 8px;
+            }
+
+            .follow-button {
+                @include element-size($img-width, $img-width - 86px, $gray-blue);
+                @include text-options($widget-font-size - 4px, center, $white);
+                
+                display: inline-block;
+                text-transform: uppercase;
+                padding: 12px 0 0 0;
+                margin: 8px 0 0 8px;
+                cursor: $cursor-type;
+
+                &-icon {
+                    @include element-size($player-icon-width, $player-icon-width);
+                    @include bg-sprite(-136px, -48px);
+
+                    display: inline-block;
+                    margin: 0 15px 0 0;
+                } 
+            }
+            .follow-button:hover {
+                background-color: lighten($gray-blue, 30%)
+            }
+        }
+
+        &-interface {
+            @include element-size($interface-width, $percentage-size);
+
+            float: right;
+            padding: 23px 0 0 0;
+            margin: 0 0 0 0;
+
+            .singer-name {
+                @include text-options($widget-font-size + 4px, left, $singer-name-color);
+                font-weight: normal;
+            }
+
+            .song-name {
+                @extend .singer-name;
+                color: $song-name-color;
+                margin: 16px 0 0 0;
+            }
+
+            .song-scale {
+                @include song-scale($duration-width, $gray);
+
+                float: left;
+                margin: 20px 0 0 0;
+
+                &-downloaded {
+                    @include song-scale($downloaded-width, $downloaded-color);
+
+                    .song-scale-played {
+                        @include song-scale($played-width, $salad);
+                    }
+                }
+            }
+
+            .duration-time {
+                @include text-options($widget-font-size - 3px, auto, $time-color);
+
+                float: right;
+                margin: 16px 13px 0 0;
+            }
+
+            &-control-panel {
+                @include element-size($percentage-size, $control-width);
+
+                margin: 20px 0 0 0;
+
+                .play {
+                    @include control-item(0, -168px);
+                    margin-left: 0;
+                }
+                .pause,
+                .play:hover { /* класс pause подключаем, когда нажали остановить песню */
+                    @include bg-sprite(0, -216px);
+                }
+                .pause:hover { /* стиль для случая, когда песня на паузе */
+                    @include bg-sprite(0, -168px);
+                }
+
+                .prev-song {
+                    @include control-item(-52px, -167px);
+                }
+                .prev-song:hover {
+                    @include bg-sprite(-52px, -214px);
+                }
+
+                .next-song {
+                    @include control-item(-104px, -167px);
+                }
+                .next-song:hover {
+                    @include bg-sprite(-102px, -215px);
+                }
+
+                .shuffle {
+                    @include control-item(-156px, -167px);
+                }
+                .shuffle-selected,
+                .shuffle:hover { /* класс .shuffle-selected нужен, если пользователь включит случайный порядок */
+                    @include bg-sprite(-156px, -214px);
+                }
+                .shuffle-selected:hover {
+                    @include bg-sprite(-156px, -167px);
+                } 
+
+                .repeat {
+                    @include control-item(-208px, -167px);
+                }
+                .repeat-selected,
+                .repeat:hover { /* класс .repeat-selected нужен, если пользователь включит повтор */
+                    @include bg-sprite(-208px, -212px);
+                }
+                .repeat-selected:hover {
+                    @include bg-sprite(-208px, -167px);
+                } 
+
+                .likeit {
+                    @include control-item(-260px, -167px);
+                }
+                .likeit-selected {
+                    @include control-item(-260px, -211px); 
+                }
+                .likeit:hover {
+                    @include bg-sprite(-260px, -211px);
+                }
+                .likeit-selected:hover {
+                    @include bg-sprite(-260px, -167px);
+                }
+
+
+                .favorite {
+                    @include control-item(-260px, -115px);
+                }
+                .favorite-selected,
+                .favorite:hover {
+                    @include bg-sprite(-208px, -115px);
+                }
+                .favorite-selected:hover {
+                    @include bg-sprite(-260px, -115px);
+                }
+
+
+                .external-link {
+                    @include control-item(-260px, -65px);
+                }
+                .external-link:hover {
+                    @include bg-sprite(-210px, -65px);
+                }
+            }
+        }
+    }
+
+    .messenger {
+        @extend .widget-size;
+
+        &-menu {
+            @include menu-size($salad);
+
+            &-options {
+                @include element-size(75px, $percentage-size, $options-green);
+                
+                float: left;
+
+                &-icon {
+                    @include element-size(36px, 25px);
+                    @include bg-sprite(-210px, 0);
+
+                    margin: 17px 0 0 17px;
+                }
+            }
+
+            &-options:hover {
+               background-color: lighten($options-green, 20%);
+            }
+
+            &-add-contact {
+                @include element-size(55px, $percentage-size);
+
+                float: right;
+
+                &-icon {
+                    @include element-size(27px, 27px);
+                    @include bg-sprite(-48px, -48px);
+
+                    margin: 18px 0 0 14px;
+                }
+            }
+
+            &-add-contact:hover {
+                background-color: darken($salad, 20%);
+            }
+        }
+
+        &-list-of-contacts {
+            
+            &-item {
+                @include simple-size(100%, 77px);
+
+                position: relative;
+
+                .avatar-icon {
+                    @include contact-simple-size(66px, 66px, 50%);
+                    @include display-options(absolute, 5px, auto, 6px, auto);
+                }
+
+                .message-info {
+                    @include display-options(absolute, 14px, auto, 85px);
+
+                    overflow: hidden;
+
+                    .contact-name {
+                        @include messenger-text($widget-font-size, 500, $contact-name-color);
+                    }
+
+                    .message-text {
+                        @include simple-size(198px, 20px);
+                        @include messenger-text($widget-font-size - 5px, 300, $contact-text-color);
+
+                        margin: 5px 0 0 0;
+                    }
+
+                    .message-sent {
+                        @include bg-sprite(-56px, -317px);
+                        padding: 0 0 0 21px;
+                    }
+
+                    .message-not-delivered {
+                        @include bg-sprite(-56px, -338px);
+                        padding: 0 0 0 21px;
+                    }
+
+                    .message-typing {
+                        font-style: italic;
+                    }
+                }
+
+                .contact-status {
+                    @include contact-simple-size(8px, 8px, 50%);
+                    @include display-options(absolute, 35px, 16px, auto, auto);
+                }
+
+                .status-online {
+                    background-color: $light-green;
+                }
+
+                .status-new-message {
+                    background-color: $new-message-color;
+                }
+
+                .status-offline {
+                    background-color: $offline;
+                }
+
+                .status-none {
+                    background-color: $white;
+                }
+            }
+
+            &-item:not(:last-child) {
+                border-bottom: $border-style $gray-border;
+            }
+        }
+    }
+
+    .login-form {
+        @extend .widget-size;
+
+        .login {
+            border-bottom: $border-style $gray-border;
+            position: relative;
+
+            &-icon {
+                @extend .login-icons-class;
+
+                @include bg-sprite(-240px, -38px);
+            }
+
+            input {
+                @extend .login-input-class;
+
+                @include display-options(absolute, 30px);
+            }
+        }
+
+        .password {
+            position: relative;
+
+            &-icon {
+                @extend .login-icons-class;
+
+                @include bg-sprite(-208px, -38px);
+            }
+
+            input {
+                @extend .login-input-class;
+
+                @include display-options(absolute, 30px);
+            }
+        }
+
+        .login-active,
+        .password-active {
+            border-left: $big-border $warm-red; 
+        }
+
+        .login:hover,
+        .password:hover{
+            border-bottom: $border-style $gray-border;
+        }
+
+        .login-menu {
+            @include menu-size(#526e82);
+
+            word-spacing: $default-word-spacing;
+
+            .sign-up {
+                @extend .login-buttons-class;
+
+                @include simple-size(152px, 100%);
+                @include buttons-colors($some-gray, $more-gray);
+            }
+
+            .sign-up:hover {
+                color: lighten(hsl(0, 0, 70%), 30%);
+                background-color: saturate(hsl(0, 80%, 77%), 20%);
+            }
+
+            .sign-in {
+                @extend .login-buttons-class;
+
+                @include simple-size(155px, 100%);
+                @include buttons-colors($white, $gray-blue);
+            }
+
+            .sign-in:hover {
+                background-color: saturate(hsl(0, 80%, 77%), 20%);
+            }
+        }
+    }
+
+    .form-elements {
+        @extend .widget-size;
+
+        position: relative;
+
+        .valid-input {
+            @extend .check-input-class;
+
+            @include check-inputs($more-green, 14px, auto, 12px, $light-green);
+        }
+
+        @include placeholder-color(valid, $more-green);
+
+        .invalid-input {
+            @extend .check-input-class;
+
+            @include check-inputs($some-red, auto, 11px, 12px, $warm-red);
+        }
+
+        @include placeholder-color(invalid, $some-red);
+
+        .range {
+            @include display-options(absolute, 98px, auto, 12px);
+            
+            width: 213px;
+            -webkit-appearance: none;           
+        }
+
+        @include range-track($range-track-color);
+        @include range-tumb($gray-blue, $black); 
+
+        .fill-lower-container {
+            @include simple-size(149.1px, 8px);
+            @include display-options(absolute, 100px, auto, 13px);
+
+            background-color: #526e82; 
+            border-radius: 10px;
+        }
+
+        .checkbox {
+            @extend .checkbox-class;
+
+            display: none;
+        }
+
+        .checkbox + label {
+            @extend .checkbox-class;
+        }
+
+        .checkbox + label:before {
+            content: "";   
+            @include contact-simple-size(45px, 46px, 10px);
+            @include simple-size(45px, 46px);
+
+            border: $middle-border $warm-red;
+        }
+
+        .checkbox:checked + label:before {
+            @include bg-sprite(2px, -314px);
+        }
+
+        .radio {
+            @include display-options(absolute, 82px, 13px);
+
+            @extend .radio-class;
+
+            display: none;
+        }
+
+        .radio + label {
+            @include display-options(absolute, 82px, 13px);
+
+            @extend .radio-class;
+        }
+
+        .radio-checked {
+            @include display-options(absolute, 143px, 13px);
+
+            @extend .radio-class;
+
+            display: none; 
+        }
+
+        .radio-checked + label {
+            @include display-options(absolute, 143px, 13px);
+
+            @extend .radio-class;
+        }
+
+        .radio + label:before {
+            content: "";   
+
+            @include contact-simple-size(42px, 42px, 50%);
+            
+            @include bg-sprite(0, -272px);
+        }
+
+        .radio-checked + label:before {
+            content: "";   
+            @include contact-simple-size(42px, 42px, 50%);
+            
+            @include bg-sprite(-48px, -272px);
+        }  
+    }
+}
