@@ -1,0 +1,104 @@
+.login-block {
+    width: 307px;
+    background: #ffffff;
+    right: 59px;
+    bottom: 307px;
+    font-size: 0;
+	margin-top: 30px;
+}
+
+.login-block div {
+    height: 72px;
+    border-left: 4px solid #ffffff;
+    padding: 23px 1px;
+    box-sizing: border-box;
+    position: relative;
+    transition: border-left 0.5s;
+}
+
+.login-block div:hover {
+    border-left: 4px solid #ff8989;
+}
+
+.login-block input {
+    width: 230px;
+    font-size: 20.38px;
+    float: right;
+    letter-spacing: 1px;
+    color: #b2b2b2;
+    margin-right: 10px;
+}
+
+.login-block div:not(:last-child) {
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.login-block button {
+    width: 50%;
+    height: 64px;
+    text-transform: uppercase;
+    font-size: 18.11px;
+}
+
+.login-block button {
+    background: #7191a8;
+    color: #627d90;
+    letter-spacing: 2px;
+    transition: background 0.5s;
+    position: relative;
+}
+
+.login-block button:hover {
+    background: #526e82;
+    color: #ffffff;
+}
+
+label[for=email] {
+    background: url("../img/login-spritesheet.png") -44px -5px no-repeat;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 17px;
+    top: 21px;
+}
+
+label[for=password] {
+    background: url("../img/login-spritesheet.png") -4px -6px no-repeat;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 17px;
+    top: 18px;
+}
+
+.invalid-login {
+    border: 2px solid #ff8989;
+    border-radius: 10px;
+}
+
+.valid-login {
+    border: 2px solid #64dec9;
+    border-radius: 10px;
+}
+
+button.activate-login {
+    background: #526e82;
+    color: #ffffff;
+}
+
+.tooltip {
+    width: 120px;
+    display: inline-block;
+    visibility: hidden;
+    color: #ffffff;
+    background-color: #202628;
+    text-align: center;
+    position: absolute;
+    top: -39px;
+    left: 18px;
+    border-radius: 5px; 
+}
+
+.visibility {
+    visibility: visible;
+}
