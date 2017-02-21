@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width"> <!-- предотвращает уменьшение масштаба телефонным браузером, взял из "Большая книга CSS3" -->
+    <title>RWD</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <!-- медиа запросы --> 
+    <link rel="stylesheet" href="./styles/min-width-1001.css" media="(min-width: 1001px)">   
+    <link rel="stylesheet" href="./styles/max-width-680.css" media="(max-width: 680px)">
+</head>
+<body>
+    <!-- меню через off-canvas -->
+    <ul class="navigation-hidden">
+        <li><a href="#">home</a></li>
+        <li><a href="#">services</a></li>
+        <li><a href="#">features</a></li>
+        <li><a href="#">contact</a></li>
+    </ul>
+
+    <input type="checkbox" id="hidden-menu-button" class="hidden-menu-button" />
+    <label for="hidden-menu-button">MENU</label>
+
+    <div class="wrap-for-offcanvas">  <!--  это нужно для меню через off-canvas -->
+        
+        <div class="main-container">
+            <header class="block logo-block">
+                <div class="wrapper">
+                    <img src="./img/site-logo.png" alt="Site logo name Elenea" class="site-logo-img">
+
+                    <nav class="navigation">
+                        <ul>
+                            <li>
+                                <a href="#">home</a>
+                                <a href="#">services</a>
+                                <a href="#">features</a>
+                                <a href="#">contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <h1 class="header-title">have a good day</h1>
+                    <p class="header-text">just for you on themeforest</p>
+                    <a href="#" class="get-copy-link">get your copy now</a>
+                </div>
+            </header>
+
+            <section class="block advantages-block">
+                <div class="wrapper">
+                    <article class="advantage">
+                        <header>
+                            <i class="fa fa-users font-icons" aria-hidden="true"></i>
+                            <h2 class="special-headers">professionals</h2>
+                        </header>
+                        <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    </article>
+
+                    <article class="advantage">
+                        <header>
+                            <i class="fa fa-heart-o font-icons" aria-hidden="true"></i>
+                            <h2 class="special-headers">amateurs</h2>
+                        </header>
+                        <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    </article>
+
+                    <article class="advantage">
+                        <header>
+                            <i class="fa fa-headphones font-icons" aria-hidden="true"></i>
+                            <h2 class="special-headers">for everyone</h2>
+                        </header>
+                        <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    </article>
+                </div>          
+            </section>
+
+            <section class="block descr-block">
+                <div class="wrapper">
+                    <article class="description">
+                        <header>
+                            <img src="./img/img-1.png" alt="Car on the road" class="images">
+                            <h2 class="special-headers">responsive email template</h2>
+                        </header>
+                        <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque aliquid doloribus</p>
+                        <a href="#" class="block-link colored-link">Read more</a>
+                    </article>
+
+                    <article class="description">
+                        <header>
+                            <img src="./img/img-2.png" alt="Men and women romantic on th island" class="images">
+                            <h2 class="special-headers">fully compatible template</h2>
+                        </header>
+                        <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque aliquid doloribus</p>
+                        <a href="#" class="block-link colored-link">Read more</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="block features-block">
+                <div class="wrapper">
+                    <article class="features">
+                        <header>
+                            <h2 class="special-headers"><i class="fa fa-life-ring" aria-hidden="true"></i> fully supported template</h2>
+                        </header>
+                        <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada sodales risus, a adipiscing lorem commodo vitae. Ut semper semper lacus. Suspendisse convallis vel tellus at consectetur. Aenean risus arcu</p>
+                        <a href="#" class="block-link gray-link">Read more</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="block news-block">
+                <div class="wrapper">
+                    <article class="news">
+                        <header>
+                            <img src="./img/img-3.png" alt="Traffic light" class="images">
+                            <h2 class="special-headers">fully layered psd</h2>
+                        </header>
+                        <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <a href="#" class="simple-link">Check this out ></a>
+                    </article>
+
+                    <article class="news">
+                        <header>
+                            <img src="./img/img-4.png" alt="Girl with ambarella" class="images">
+                            <h2 class="special-headers">full compatibility</h2>
+                        </header>
+                        <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <a href="#" class="simple-link">Check this out ></a>
+                    </article>
+
+                    <article class="news">
+                        <header>
+                            <img src="./img/img-5.png" alt="Soccers" class="images">
+                            <h2 class="special-headers">very great modules</h2>
+                        </header>
+                        <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <a href="#" class="simple-link">Check this out   ></a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="block share-block">
+                <div class="wrapper">
+                    <article class="share">
+                        <header>
+                            <h2 class="special-headers"><i class="fa fa-paper-plane" aria-hidden="true"></i> send it now</h2>
+                        </header>
+                        <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada sodales risus, a adipiscing lorem</p>
+                        <a href="#" class="block-link colored-link">Read more</a>
+                    </article>
+
+                    <article class="share">
+                        <header>
+                            <h2 class="special-headers"><i class="fa fa-pencil" aria-hidden="true"></i> very nice to see</h2>
+                        </header>
+                        <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada sodales risus, a adipiscing lorem</p>
+                        <a href="#" class="block-link colored-link">Read more</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="block getit-block">
+                <div class="wrapper">
+                    <div class="getit-block-img">
+                        <img src="./img/img-6.png" alt="People with camera" class="images">
+                    </div>
+
+                    <article class="getit">
+                        <header>
+                            <h2 class="special-headers">just for you on themeforest</h2>
+                        </header>
+                        <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum mollis risus, in mattis erat convallis egestas.</p>
+                        <a href="#" class="block-link gray-link">Read more</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="block sponsors-block">
+                <div class="wrapper">
+                    <article class="sponsors">
+                        <header>
+                            <h2 class="special-headers sponsors-header"><i class="fa fa-star-o" aria-hidden="true"></i> this template was featured on</h2>
+                        </header>
+                            <p class="sponsors-logos">
+                                <a href="#" class="logos techcrunch"></a>             
+                                <a href="#" class="logos promail"></a>                 
+                                <a href="#" class="logos mashable"></a>                
+                                <a href="#" class="logos atlaspix"></a>
+                            </p>                    
+                    </article>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <div class="wrapper">
+                <p class="footer-text"><span class="copyright">Elenea</span> copyright 2013 - <a href="#">Unsubscribe here</a></p>
+
+                <ul class="social">
+                    <li>    
+                        <a href="#">
+                            <i class="fa fa-google-plus" aria-hidden="true"></i>    
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>   
+
+    <script src="https://use.fontawesome.com/4d320bc0d5.js"></script> <!-- подключаем Font Awesome -->
+</body>
+</html>

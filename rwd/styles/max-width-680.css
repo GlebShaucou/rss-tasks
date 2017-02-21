@@ -1,0 +1,131 @@
+/* вторая переломная точна изменения раскладки */
+.descr-block {
+    order: 2;
+}
+.news-block {
+    order: 3;
+}
+.getit-block {
+    order: 4;
+}
+.advantages-block {
+    order: 5;
+}
+.features-block {
+    order: 6;
+}    
+.share-block {
+    order: 7;
+}
+
+.navigation { /* старая навигация прячется */
+    display: none;
+}
+
+/* меню off-canvas появляется */
+.navigation-hidden,
+label[for="hidden-menu-button"] { 
+    visibility: visible;
+}
+
+.hidden-menu-button:checked + label {
+    left: 215px;
+}
+
+.hidden-menu-button:checked ~ .wrap-for-offcanvas {
+    left: 200px;
+}
+
+.navigation-hidden {
+    font-size: 20px;
+}    
+
+/*#######################################*/
+@media (max-width: 560px) {
+    .header-title,
+    .header-text {
+        display: none;
+    }
+}
+
+/*#######################################*/
+@media (max-width: 500px) {
+    .wrapper {
+        flex-direction: column;
+    }
+    
+    .description img,
+    .news img {
+        max-width: 150px;
+        max-height: 100px;
+    }
+
+    .article-text {
+        font-size: 20px;
+        text-align: justify;
+        margin: 0;
+    }
+
+    .block-link {
+        display: inline;
+    }
+
+    .colored-link,
+    .gray-link,
+    .simple-link {
+        font-size: 20px;
+        color:  #50c3af;
+        background-color: inherit;
+    }
+
+    .colored-link:hover,
+    .gray-link:hover,
+    .simple-link:hover {
+        color: #4d4dff;
+        background-color: inherit;
+    }
+
+    .special-headers:after,
+    .header-text:before,
+    .header-text:after {
+        display: none;
+    }
+
+    .advantage, 
+    .description, 
+    .news,
+    .share,
+    .getit-block-img {
+        margin: 0 0 20px 0;
+    }
+
+    .features-block .article-text {
+        margin: 0 20px 0 20px;
+    }
+
+    .features-block .wrapper {
+        margin: 0 20px 0 20px;
+    }
+
+    .sponsors-logos {
+        flex-direction: column;
+    }
+
+    .footer .wrapper {
+        flex-direction: column-reverse;
+    }
+
+    .footer-text,
+    .social a {
+        font-size: 20px;
+    }
+}
+
+/*#######################################*/
+@media (max-width: 360px) {
+    .images,
+    .font-icons,
+    .font-icons:before {
+        display: none;
+    }
+}
